@@ -3,7 +3,7 @@
 > A money and time saving recipe application for College Students,
 stay at home parents, and anyone who likes using the food they bought.
 
-# Why you should use Project_GreenBean #
+## Why you should use Project_GreenBean ##
 > Have you ever been at home, hungry, with ingredients in your pantry, but without an idea of what to cook? Project_GreenBean can solve this problem for you with an easy to use search engine that finds recipes that match the ingredients you searched with to a recipe that you will love.
 
 > You will be able to add and share your favorite recipes, rate other's recipes, and share recipes to your friends through any social media outlet.
