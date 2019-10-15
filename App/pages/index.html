@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="../style/w3.css">
-    <script type="text/javascript" src="../utilitys/navigate.js"></script>  
-  </head>
+
+<head>
+  <link rel="stylesheet" href="../style/w3.css">
+  <script type="text/javascript" src="../utilitys/navigate.js"></script>
+</head>
+
 <body>
   <nav class="w3-bar">
-      <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate('home')">home</a>
-      <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate('search')">page2</a>
-      <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate()">page3</a>
+    <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate('home')">home</a>
+    <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate('search')">search</a>
+    <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate('new')">add a new recipe</a>
   </nav>
-  <div class="w3-container w3-green">
-    <h1>Welcome to Project_GreenBeans</h1>
+  <div id="title" class="w3-container w3-green">
   </div>
-<div class="w3-container" id="content-area"></div>
+  <div id="content-area" class="w3-container">
+  </div>
 </body>
+
 </html>
