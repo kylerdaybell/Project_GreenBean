@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script type="text/javascript" src="../utilitys/navigate.js"></script>  
+    <link rel="stylesheet" href="../style/w3.css">
+    <script type="text/javascript" src="../utilitys/navigate.js"></script>  
   </head>
 <body>
-<h1>Welcome to Project GreenBeans</h1>
-<button onclick="Navigate()">Click me to change my text color.</button>
-<div id="content-area"></div>
+  <nav class="w3-bar">
+      <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate()">home</a>
+      <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate()">page2</a>
+      <a class="w3-bar-item w3-white w3-button w3-hover-green" onclick="Navigate()">page3</a>
+  </nav>
+  <div class="w3-container w3-green">
+    <h1>Welcome to Project_GreenBeans</h1>
+  </div>
+<div class="w3-container" id="content-area"></div>
 </body>
 </html>
