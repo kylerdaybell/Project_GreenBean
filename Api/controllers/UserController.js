@@ -23,4 +23,4 @@ const UserController = {
     }
 }
 
-modules.export = UserController;
+module.export = UserController;
