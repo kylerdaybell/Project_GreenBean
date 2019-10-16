@@ -22,3 +22,5 @@ const UserController = {
         return true;
     }
 }
+
+modules.export = UserController;
