@@ -3,6 +3,7 @@ var cors = require('cors');
 var app = express();
 const port = process.env.PORT || 8080;
 var whitelist = "http:/144.17.24.16";
+const userController = require('./controllers/UserController.js')
 
 
 var corsOptions={
@@ -16,9 +17,8 @@ var corsOptions={
   }
 
 
-app.get('/',cors(corsOptions),function(req,res){
-    res.write("hello world");
-    res.end();
+app.post('/',cors(corsOptions),function(req,res){
+    userController.PostRegisterUser(req, res);
   });
 
   app.listen(port,function(){
