@@ -3,7 +3,7 @@ var cors = require('cors');
 var app = express();
 const port = process.env.PORT || 8080;
 var whitelist = "http:/144.17.24.16";
-const userController = require('./controllers/UserController.js')
+var userController = require('./controllers/UserController.js')
 
 
 var corsOptions={
