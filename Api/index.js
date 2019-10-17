@@ -18,10 +18,14 @@ var corsOptions={
   }
 
 
-app.post('/',cors(corsOptions),function(req,res){
+app.post('/register',cors(corsOptions),function(req,res){
     userController.PostRegisterUser(req, res);
-  });
+});
 
-  app.listen(port,function(){
-    
-  });
+app.post('/login',cors(corsOptions),function(req,res){
+  userController.PostLoginUser(req, res);
+});
+
+app.listen(port,function(){
+
+});
