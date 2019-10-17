@@ -23,4 +23,4 @@ var UserController = {
     }
 }
 
-module.export = UserController;
+module.exports = UserController;
