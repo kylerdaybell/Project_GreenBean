@@ -6,7 +6,6 @@ const DB_PASS = process.env.DB_PASS;
 const DB_DATA = process.env.DB_DATA;
 //require('iconv-lite').encodingExists('foo')
 
-const bcrypt = require('bcrypt');
 var mysql = require('mysql2/promise');
 
 const ApiDatabaseService = {
