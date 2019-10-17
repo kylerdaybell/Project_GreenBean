@@ -11,7 +11,7 @@ var UserController = {
         console.log(req.body.validate);
         if(req.body.password == req.body.validate){
             var user = new User(req.body.email, req.body.password, "user");
-            if(UserService.RegisterUser(user)){
+            if(await UserService.RegisterUser(user)){
                 res.write(JSON.stringify("Result: Success"));
                 res.end();
             }
@@ -23,7 +23,7 @@ var UserController = {
     },
     PostLoginUser: async function(req,res){
     var user = new User(req.body.email, req.body.password, null);
-        if(UserService.LoginUser(user)){
+        if(await UserService.LoginUser(user)){
             res.write(JSON.stringify("Result: Success"));
             res.end();
         }
