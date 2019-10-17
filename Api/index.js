@@ -4,7 +4,7 @@ var app = express();
 const port = process.env.PORT || 8080;
 var whitelist = "http:/144.17.24.16";
 var userController = require('./controllers/UserController.js')
-
+const bodyParser = require('body-parser');
 
 var corsOptions={
     origin:function(origin,callback){
