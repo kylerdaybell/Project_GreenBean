@@ -8,10 +8,10 @@ const DB_DATA = process.env.DB_DATA;
 
 var mysql = require('mysql2/promise');
 
-const ApiDatabaseService = {
+var ApiDatabaseService = {
     GetUser: async function(email){
         const con = await this.getConnection();
-        const [rows] = await con.execute('select * from USER WHERE EMAIL = ?', [email]);
+        var [rows] = await con.execute('select * from USER WHERE EMAIL = ?', [email]);
         return rows;
     },
     getConnection: async function(){
