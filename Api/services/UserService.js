@@ -19,7 +19,7 @@ var UserService = {
         var databaseResult = await IApiDatabaseService.GetUser(user.email);
         if(typeof databaseResult[0] != 'undefined'){
             password = databaseResult[0]['PASSWORD'];
-            if(bcrypt.compareSync(password,user.password)){
+            if(bcrypt.compareSync(user.password,password)){
                 return true;
             }else{
                 return false;
