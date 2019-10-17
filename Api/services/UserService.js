@@ -7,7 +7,7 @@ var UserService = {
         IApiDatabaseService = IApiDatabaseServiceInsert;
     },
     RegisterUser: async function(user){
-        var databaseResult = IApiDatabaseService.GetUser(user.email);
+        var databaseResult = await IApiDatabaseService.GetUser(user.email);
         if(typeof databaseResult[0] == 'undefined'){
             user.password = bcrypt.hashSync(user.password);
             IApiDatabaseService.RegisterUser(user);
