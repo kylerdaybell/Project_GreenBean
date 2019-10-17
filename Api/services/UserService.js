@@ -7,7 +7,7 @@ var UserService = {
     },
     RegisterUser: async function(user){
         var databaseResult = IApiDatabaseService.GetUser(user.email);
-        if(databaseResult[0]['EMAIL'] === null){
+        if(typeof databaseResult[0] == 'undefined'){
             IApiDatabaseService.RegisterUser(user);
             return true;
         }
