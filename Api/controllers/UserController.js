@@ -6,6 +6,9 @@ UserService.constructor(ApiDatabaseService);
 
 var UserController = {
     PostRegisterUser: async function(req, res){
+        console.log(req.body.email);
+        console.log(req.body.password);
+        console.log(req.body.validate);
         if(req.body.password == req.body.validate){
             var user = new User(req.body.email, req.body.password, "user");
             if(UserService.RegisterUser(user)){
