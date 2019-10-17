@@ -9,6 +9,7 @@ var UserService = {
     RegisterUser: async function(user){
         var databaseResult = IApiDatabaseService.GetUser(user.email);
         if(typeof databaseResult[0] == 'undefined'){
+            user.password = bcrypt.hashSync(user.password);
             IApiDatabaseService.RegisterUser(user);
             return true;
         }
@@ -17,7 +18,8 @@ var UserService = {
     LoginUser: async function(user){
         var databaseResult = await IApiDatabaseService.GetUser(user.email);
         if(typeof databaseResult[0] != 'undefined'){
-            if(bcrypt.compareSync(databaseResult[0]['PASSWORD'],user.password)){
+            password = databaseResult[0]['PASSWORD'];
+            if(bcrypt.compareSync(password,user.password)){
                 return true;
             }else{
                 return false;
