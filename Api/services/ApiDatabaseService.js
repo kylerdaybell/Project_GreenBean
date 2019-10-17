@@ -17,7 +17,7 @@ var ApiDatabaseService = {
     RegisterUser: async function(user){
         const con = await this.getConnection();
         con.execute('INSERT INTO USER (EMAIL,PASSWORD,ROLE) VALUE (?,?,?)', [user.email, user.password, user.role]);
-    }
+    },
     getConnection: async function(){
         const con = await mysql.createConnection({
             host: DB_HOST,
