@@ -1,13 +1,13 @@
 var UserService = require('../services/UserService.js');
-const ApiDatabaseService = require('../services/ApiDatabaseService.js');
-const User = require('../models/UserModel.js');
+var ApiDatabaseService = require('../services/ApiDatabaseService.js');
+var User = require('../models/UserModel.js');
 
 UserService.constructor(ApiDatabaseService);
 
-const UserController = {
+var UserController = {
     PostRegisterUser: async function(req, res){
         if(req.body.password == req.body.validate){
-            const user = new User(req.body.email, req.body.password, "user");
+            var user = new User(req.body.email, req.body.password, "user");
             if(UserService.RegisterUser(user)){
                 res.write(JSON.stringify("Result: Success"));
                 res.end();
