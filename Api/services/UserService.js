@@ -27,6 +27,14 @@ var UserService = {
         }else{
             return false;
         }
+    },
+    GetUserID: async function(user){
+        var databaseResult = await IApiDatabaseService.GetUser(user.email);
+        if(typeof databaseResult[0]["ID"] != 'undefined'){
+            return databaseResult[0]["ID"]
+        }else{
+            return 0;
+        }
     }
 }
 
