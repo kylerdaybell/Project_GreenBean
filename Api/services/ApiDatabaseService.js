@@ -34,7 +34,21 @@ var ApiDatabaseService = {
     },
     GetRecipeID: async function(recipe){
         const con = await this.getConnection();
-        con.execute('SELECT ID FROM RECIPE WHERE USER_ID = ? AND NAME = ?',[recipe.userid,recipe.name]);
+        rows = await con.execute('SELECT ID FROM RECIPE WHERE USER_ID = ? AND NAME = ?',[recipe.userid,recipe.name]);
+        return rows;
+    },
+    AddIngredient: async function(ingredient){
+        const con = await this.getConnection();
+        con.execute('INSERT INTO INGREDIENT (NAME) VALUES (?)',[ingredient])
+    },
+    GetIngredientID: async function(ingredient){
+        const con = await this.getConnection();
+        var rows = await con.execute('SELECT ID FROM INGREDIENT WHERE NAME = ?',[ingredient])
+        return rows;
+    },
+    LinkIngredientToRecipe: async function(recipeID,ingredientID,Ingredient){
+        const con = await this.getConnection();
+        con.execute('INSERT INTO RECIPETOINGREDIENT (RECIPE_ID,INGREDIENT_ID,AMOUNT,UNIT) VALUES (?,?,?,?)',[recipeID,ingredientID,Ingredient.amount,ingredient.unit])
     }
 }
 
