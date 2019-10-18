@@ -1,4 +1,4 @@
-
+//Mike is awesome and is making this comment for testing purposes
 require('dotenv').config();
 const DB_HOST = process.env.DB_HOST;
 const DB_USER = process.env.DB_USER;
@@ -26,6 +26,11 @@ var ApiDatabaseService = {
             database: DB_DATA
         });
         return con;
+    },
+    AddRecipe: async function(recipe){
+        const con = await this.getConnection();
+        con.execute('INSERT INTO RECIPE(USER_ID,NAME,DESCRIPTION,PICTURE,PREP_TIME,COOK_TIME,INSTRUCTIONS) VALUE (?,?,?,?,?,?,?)', 
+            [recipe.userid, recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.instructions]);
     }
 }
 

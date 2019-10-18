@@ -3,7 +3,8 @@ var cors = require('cors');
 var app = express();
 const port = process.env.PORT || 8080;
 var whitelist = "http:/144.17.24.16";
-var userController = require('./controllers/UserController.js')
+var userController = require('./controllers/UserController.js');
+var recipeController = require('./controllers/RecipeController.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
@@ -26,7 +27,10 @@ app.post('/login',cors(corsOptions),function(req,res){
   userController.PostLoginUser(req, res);
 });
 
+app.post('/createrecipe',cors(corsOptions),function(req,res){
+  recipeController.PostCreateRecipe(req, res);
+});
 
 app.listen(port,function(){
-  
+
 });

@@ -1,6 +1,6 @@
 var IApiDatabaseService;
 var User = require('../models/UserModel.js')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 
 var UserService = {
     constructor: function(IApiDatabaseServiceInsert){
@@ -9,6 +9,7 @@ var UserService = {
     RegisterUser: async function(user){
         var databaseResult = await IApiDatabaseService.GetUser(user.email);
         if(typeof databaseResult[0] == 'undefined'){
+            user.password = bcrypt.hashSync(user.password);
             IApiDatabaseService.RegisterUser(user);
             return true;
         }
@@ -17,13 +18,22 @@ var UserService = {
     LoginUser: async function(user){
         var databaseResult = await IApiDatabaseService.GetUser(user.email);
         if(typeof databaseResult[0] != 'undefined'){
-            if(bcrypt.compareSync(databaseResult[0]['PASSWORD'],user.password)){
+            password = databaseResult[0]['PASSWORD'];
+            if(bcrypt.compareSync(user.password,password)){
                 return true;
             }else{
                 return false;
             }
         }else{
             return false;
+        }
+    },
+    GetUserID: async function(user){
+        var databaseResult = await IApiDatabaseService.GetUser(user.email);
+        if(typeof databaseResult[0]["ID"] != 'undefined'){
+            return databaseResult[0]["ID"]
+        }else{
+            return 0;
         }
     }
 }

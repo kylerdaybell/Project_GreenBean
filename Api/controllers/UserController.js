@@ -8,7 +8,7 @@ var UserController = {
     PostRegisterUser: async function(req, res){
         if(req.body.password == req.body.validate){
             var user = new User(req.body.email, req.body.password, "user");
-            if(UserService.RegisterUser(user)){
+            if(await UserService.RegisterUser(user)){
                 res.write(JSON.stringify("Result: Success"));
                 res.end();
             }
@@ -16,6 +16,21 @@ var UserController = {
                 res.write(JSON.stringify("Result: Failure"));
                 res.end();
             }
+        }
+        else{
+            res.write(JSON.stringify("Result: Failure"));
+            res.end();
+        }
+    },
+    PostLoginUser: async function(req,res){
+    var user = new User(req.body.email, req.body.password, null);
+        if(await UserService.LoginUser(user)){
+            res.write(JSON.stringify("Result: Success"));
+            res.end();
+        }
+        else{
+            res.write(JSON.stringify("Result: Failure"));
+            res.end();
         }
     },
     PostLoginUser: async function(req,res){
