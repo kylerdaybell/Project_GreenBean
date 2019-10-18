@@ -33,9 +33,9 @@ var RecipeService = {
     AddRecipe: async function(recipe){
         await IApiDatabaseService.AddRecipe(recipe);
         var DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
-        console.log(DatabaseResult[0][0]["ID"]);
-        if(typeof DatabaseResult[0]["ID"] != 'undefined'){
-            return DatabaseResult[0]["ID"];
+        recipeid = DatabaseResult[0][0]["ID"]);
+        if(typeof recipeid != 'undefined'){
+            return recipeid;
         }else{
             return 0;
         }
