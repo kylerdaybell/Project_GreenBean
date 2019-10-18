@@ -54,7 +54,7 @@ var RecipeService = {
         await IApiDatabaseService.AddIngredient(recipe.ingredientslist[IngredientID]);
         var DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID].name);
         console.log(DatabaseResult[0]);
-        if(typeof DatabaseResult[0]["ID"] != 'undefined'){
+        if(DatabaseResult[0].length == 0){
             IngredientDatabaseID = DatabaseResult[0]["ID"]
             await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,recipe.ingredientslist[i]);
             return true;
