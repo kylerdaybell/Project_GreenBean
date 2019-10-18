@@ -1,4 +1,5 @@
 var RecipeService = require('../services/RecipeService.js');
+var UserService = require('../services/UserService.js');
 var ApiDatabaseService = require('../services/ApiDatabaseService.js');
 var Recipe = require('../models/RecipeModel.js');
 var User = require('../models/UserModel.js');
