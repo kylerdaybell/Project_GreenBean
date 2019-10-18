@@ -24,7 +24,7 @@ var RecipeService = {
     },
     AddRecipe: async function(recipe){
         await IApiDatabaseService.AddRecipe(recipe);
-        return true; //await IApiDatabaseService.GetRecipeID(recipe);
+        return true; // await IApiDatabaseService.GetRecipeID(recipe);
     }
 }
 
