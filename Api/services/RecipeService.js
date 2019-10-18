@@ -43,8 +43,8 @@ var RecipeService = {
     AddIngredients: async function(recipe){
         console.log("now in adding ingredients")
         for(let i = 0; i<recipe.ingredientslist.length;i++){
-            console.log("adding "+recipe.ingredientslist[i].name)
-            var DatabaseResult = IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
+            console.log("adding checking to see if"+recipe.ingredientslist[i].name)
+            var DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
             if(typeof DatabaseResult[0]["NAME"] == 'undefined'){
                 await this.AddAndLinkNewIngredient(recipe,i)
             }
