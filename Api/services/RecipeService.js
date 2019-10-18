@@ -51,6 +51,7 @@ var RecipeService = {
         }
     },
     AddAndLinkNewIngredient: async function(recipe,IngredientID){
+        console.log("in add and link new ingredient")
         await IApiDatabaseService.AddIngredient(recipe.ingredientslist[IngredientID]);
         var DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID].name);
         if(typeof DatabaseResult[0]["ID"] != 'undefined'){
