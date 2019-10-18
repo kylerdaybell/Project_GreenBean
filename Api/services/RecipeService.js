@@ -44,7 +44,7 @@ var RecipeService = {
         for(let i = 0; i<recipe.ingredientslist.length;i++){
             var DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
             console.log(DatabaseResult[0])
-            if(typeof DatabaseResult[0]["NAME"] == 'undefined'){
+            if(DatabaseResult[0] == []){
                 
                 await this.AddAndLinkNewIngredient(recipe,i)
             }
