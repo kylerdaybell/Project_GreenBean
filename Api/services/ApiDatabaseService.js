@@ -51,9 +51,9 @@ var ApiDatabaseService = {
         var rows = await con.execute('SELECT ID FROM INGREDIENT WHERE NAME = ?',[ingredient])
         return rows;
     },
-    LinkIngredientToRecipe: async function(recipeID,ingredientID,Ingredient){
+    LinkIngredientToRecipe: async function(recipeID,IngredientID,Ingredient){
         const con = await this.getConnection();
-        con.execute('INSERT INTO RECIPETOINGREDIENT (RECIPE_ID,INGREDIENT_ID,AMOUNT,UNIT) VALUES (?,?,?,?)',[recipeID,ingredientID,Ingredient.amount,ingredient.unit])
+        con.execute('INSERT INTO RECIPETOINGREDIENT (RECIPE_ID,INGREDIENT_ID,AMOUNT,UNIT) VALUES (?,?,?,?)',[recipeID,IngredientID,Ingredient.amount,Ingredient.unit])
     }
 }
 
