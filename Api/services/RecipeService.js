@@ -13,10 +13,9 @@ var RecipeService = {
             recipe.userid = await IUserService.GetUserID(user);
             if(recipe.userid !=0){
                 var recipeID = await this.AddRecipe(recipe);
-                console.log(recipeID)
                 if(recipeID != 0){
-                    console.log("the recipe was added")
                     recipe.id = recipeID;
+                    console.log("adding ingredients");
                     await this.AddIngredients(recipe);
                 }else{
                     return false
@@ -43,7 +42,7 @@ var RecipeService = {
     AddIngredients: async function(recipe){
         console.log("now in adding ingredients")
         for(let i = 0; i<recipe.ingredientslist.length;i++){
-            console.log("adding checking to see if"+recipe.ingredientslist[i].name)
+            console.log("adding checking to see if"+recipe.ingredientslist[i].name+"exsists")
             var DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
             if(typeof DatabaseResult[0]["NAME"] == 'undefined'){
                 await this.AddAndLinkNewIngredient(recipe,i)
