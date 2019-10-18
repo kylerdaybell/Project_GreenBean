@@ -1,6 +1,6 @@
 var IApiDatabaseService;
 var User = require('../models/UserModel.js')
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcryptjs');
 
 var UserService = {
     constructor: function(IApiDatabaseServiceInsert){
