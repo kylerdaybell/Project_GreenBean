@@ -10,7 +10,7 @@ var RecipeService = {
     },
     CreateRecipe: async function(recipe, user){
         if (await IUserService.LoginUser(user)){
-            recipe.userid = await IUserService.GetUserID(user)!=0
+            recipe.userid = await IUserService.GetUserID(user);
             if(recipe.userid !=0){
                 var recipeID = await this.AddRecipe(recipe);
                 return true;
@@ -23,8 +23,8 @@ var RecipeService = {
         }
     },
     AddRecipe: async function(recipe){
-        IApiDatabaseService.AddRecipe(recipe);
-        return await IApiDatabaseService.GetRecipeID(recipe);
+        await IApiDatabaseService.AddRecipe(recipe);
+        return true; //await IApiDatabaseService.GetRecipeID(recipe);
     }
 }
 

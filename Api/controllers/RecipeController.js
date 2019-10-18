@@ -12,7 +12,7 @@ var RecipeController = {
         var recipe = new Recipe(null, null, req.body.name, req.body.descr, req.body.picture, req.body.preptime, 
             req.body.cooktime, req.body.instructions, req.body.ingredientslist);
         var user = new User(req.body.email, req.body.password, null);
-        if (RecipeService.CreateRecipe(recipe, user)){
+        if (await RecipeService.CreateRecipe(recipe, user)){
             res.write(JSON.stringify("Result: Success"));
             res.end();
         }
