@@ -37,6 +37,11 @@ var ApiDatabaseService = {
         rows = await con.execute('SELECT ID FROM RECIPE WHERE USER_ID = ? AND NAME = ?',[recipe.userid,recipe.name]);
         return rows;
     },
+    GetIngredient:async function(ingredient){
+        const con = await this.getConnection();
+        var rows = await con.execute('SELECT * FROM INGREDIENT WHERE NAME = ?',[ingredient])
+        return rows;
+    },
     AddIngredient: async function(ingredient){
         const con = await this.getConnection();
         con.execute('INSERT INTO INGREDIENT (NAME) VALUES (?)',[ingredient])
