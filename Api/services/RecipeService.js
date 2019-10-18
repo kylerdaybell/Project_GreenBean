@@ -52,9 +52,9 @@ var RecipeService = {
     AddAndLinkNewIngredient: async function(recipe,IngredientID){
         await IApiDatabaseService.AddIngredient(recipe.ingredientslist[IngredientID]);
         var DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID]);
-        console.log(DatabaseResult[0]);
-        if(DatabaseResult[0].length != 0){
-            IngredientDatabaseID = DatabaseResult[0]["ID"]
+        console.log(DatabaseResult[0][0]);
+        if(DatabaseResult[0][0].length != 0){
+            IngredientDatabaseID = DatabaseResult[0][0]["ID"]
             console.log(IngredientDatabaseID)
             console.log(recipe.ingredientslist[IngredientID])
             await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,recipe.ingredientslist[IngredientID]);
