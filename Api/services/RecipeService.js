@@ -10,11 +10,10 @@ var RecipeService = {
     },
     CreateRecipe: async function(recipe, user){
         if (await IUserService.LoginUser(user)){
-            console.log("the user was logged in")
             recipe.userid = await IUserService.GetUserID(user);
             if(recipe.userid !=0){
-                console.log("the user id was not zero")
                 var recipeID = await this.AddRecipe(recipe);
+                console.log(recipeID)
                 if(recipeID != 0){
                     console.log("the recipe was added")
                     recipe.id = recipeID;
