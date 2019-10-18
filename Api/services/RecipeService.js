@@ -39,18 +39,18 @@ var RecipeService = {
     },
     AddIngredients: async function(recipe){
         for(let i = 0; i<recipe.ingredientslist.length;i++){
-            var DatabaseResult = IApiDatabaseService.GetIngredient(recipe.ingredientslist[i]);
+            var DatabaseResult = IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
             if(typeof DatabaseResult[0]["NAME"] == 'undefined'){
-                await this.AddAndLinkNewIngredient()
+                await this.AddAndLinkNewIngredient(recipe,i)
             }
         }
     },
-    AddAndLinkNewIngredient: async function(recipe,IngredientID,Ingredient){
+    AddAndLinkNewIngredient: async function(recipe,IngredientID){
         await IApiDatabaseService.AddIngredient(recipe.ingredientslist[IngredientID]);
-        var DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID]);
+        var DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID].name);
         if(typeof DatabaseResult[0]["ID"] != 'undefined'){
             IngredientDatabaseID = DatabaseResult[0]["ID"]
-            await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,Ingredient);
+            await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,recipe.ingredientslist[i]);
             return true;
         }else{
             return false;
