@@ -33,17 +33,6 @@ var UserController = {
             res.end();
         }
     },
-    PostLoginUser: async function(req,res){
-        var user = new User(req.body.email, req.body.password, null);
-        if(UserService.LoginUser(user)){
-            res.write(JSON.stringify("Result: Success"));
-            res.end();
-        }
-        else{
-            res.write(JSON.stringify("Result: Failure"));
-            res.end();
-        }
-    },
     loggedIn: function(email){
         return true;
     }
