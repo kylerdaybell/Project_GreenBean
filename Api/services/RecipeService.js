@@ -9,7 +9,6 @@ var RecipeService = {
         IUserService = IUserServiceInsert;
     },
     CreateRecipe: async function(recipe, user){
-        console.log(recipe);
         if (await IUserService.LoginUser(user)){
             console.log("the user was logged in")
             recipe.userid = await IUserService.GetUserID(user);
