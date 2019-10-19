@@ -30,9 +30,9 @@ var RecipeService = {
         }
     },
     GetRecipeById: async function(RecipeID){
-        var DatabaseResult = await IApiDatabaseService.GetRecipeByID(RecipeID);
+        let DatabaseResult = await IApiDatabaseService.GetRecipeByID(RecipeID);
         if(typeof DatabaseResult[0] != 'undefined'){
-            console.log(DatabaseResult[0]["ID"]);
+            console.log(DatabaseResult[0][0]["ID"]);
             var recipe = new Recipe(DatabaseResult[0]["ID"],DatabaseResult[0]["USER_ID"],DatabaseResult[0]["NAME"],DatabaseResult[0]["DESCRIPTION"],
                                     DatabaseResult[0]["PICTURE"],DatabaseResult[0]["PREP_TIME"],DatabaseResult[0]["COOK_TIME"],DatabaseResult[0]["INSTRUCTIONS"]);
             recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(RecipeID);
