@@ -44,7 +44,7 @@ var RecipeService = {
         let DatabaseResult = await IApiDatabaseService.GetListOfIngredientsByRecipeID(recipeID);
         var IngredientsList = []; 
         if(typeof DatabaseResult != 'undefined'){
-            for(let i = 0; i < DatabaseResult.length; i++){
+            for(let i = 0; i < DatabaseResult[0].length; i++){
                 console.log(DatabaseResult[i]);
                 var ingredient = new Ingredient(DatabaseResult[0]["NAME"],DatabaseResult[0]["AMOUNT"],DatabaseResult[0]["UNIT"]);
                 IngredientsList.push(ingredient);
