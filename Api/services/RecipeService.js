@@ -30,7 +30,7 @@ var RecipeService = {
         }
     },
     GetRecipeById: async function(RecipeID){
-        DatabaseResult = await IApiDatabaseService.GetRecipeByID(recipeID);
+        DatabaseResult = await IApiDatabaseService.GetRecipeByID(RecipeID);
         if(typeof DatabaseResult[0] != 'undefined'){
             var recipe = new Recipe(DatabaseResult[0]["ID"],DatabaseResult[0]["USER_ID"],DatabaseResult[0]["NAME"],DatabaseResult[0]["DESCRIPTION"],
                                     DatabaseResult[0]["PICTURE"],DatabaseResult[0]["PREP_TIME"],DatabaseResult[0]["COOK_TIME"],DatabaseResult[0]["INSTRUCTIONS"]);
@@ -42,15 +42,17 @@ var RecipeService = {
     },
     GetListOfIngredientsByRecipeID: async function(recipeID){
         let DatabaseResult = await IApiDatabaseService.GetListOfIngredientsByRecipeID(recipeID);
+        var IngredientsList = []; 
         if(typeof DatabaseResult != 'undefined'){
             for(let i = 0; i < DatabaseResult.length; i++){
                 console.log(DatabaseResult[i]);
                 let Ingredient = new Ingredient(DatabaseResult[0]["NAME"],DatabaseResult[0]["AMOUNT"],DatabaseResult[0]["UNIT"]);
+                IngredientsList.push(Ingredient);
             }
         }else{
             let Ingredient = new Ingredient();
         }
-        return Ingredient;
+        return IngredientsList;
     },
     AddRecipe: async function(recipe){
         await IApiDatabaseService.AddRecipe(recipe);
