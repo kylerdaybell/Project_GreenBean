@@ -55,10 +55,15 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         con.execute('INSERT INTO RECIPETOINGREDIENT (RECIPE_ID,INGREDIENT_ID,AMOUNT,UNIT) VALUES (?,?,?,?)',[recipeID,IngredientID,Ingredient.amount,Ingredient.unit])
     },
-    GetListOfIngredientsByRecipeID: async function(recipeID){
+    GetListOfIngredientsByRecipeID: async function(RecipeID){
         const con = await this.getConnection();
-        rows = con.execute('SELECT * FROM RECIPETOINGREDIENT a inner join INGREDIENT b on (a.INGREDIENT_ID = b.ID) WHERE a.RECIPE_ID = ?',[recipeID]);
+        rows = await con.execute('SELECT * FROM RECIPETOINGREDIENT a inner join INGREDIENT b on (a.INGREDIENT_ID = b.ID) WHERE a.RECIPE_ID = ?',[RecipeID]);
         return rows;
+    },
+    GetRecipeByID: async function(RecipeID){
+        const con = await this.getConnection();
+        row = await con.execute('SELECT * FROM RECIPE WHERE ID = ?',[RecipeID]);
+        return row;
     }
 }
 
