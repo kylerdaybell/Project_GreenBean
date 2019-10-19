@@ -46,11 +46,11 @@ var RecipeService = {
         if(typeof DatabaseResult != 'undefined'){
             for(let i = 0; i < DatabaseResult.length; i++){
                 console.log(DatabaseResult[i]);
-                let Ingredient = new Ingredient(DatabaseResult[0]["NAME"],DatabaseResult[0]["AMOUNT"],DatabaseResult[0]["UNIT"]);
-                IngredientsList.push(Ingredient);
+                var ingredient = new Ingredient(DatabaseResult[0]["NAME"],DatabaseResult[0]["AMOUNT"],DatabaseResult[0]["UNIT"]);
+                IngredientsList.push(ingredient);
             }
         }else{
-            let Ingredient = new Ingredient();
+            var ingredient = new Ingredient();
         }
         return IngredientsList;
     },
