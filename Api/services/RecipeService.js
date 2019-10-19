@@ -46,7 +46,7 @@ var RecipeService = {
             }else{
                 console.log(DatabaseResult[0]["ID"])
                 var IngredientID = DatabaseResult[0]["ID"];
-                await LinkExistingIngredientToRecipe(recipe,IngredientID,recipe.ingredientslist[i])
+                await this.LinkExistingIngredientToRecipe(recipe,IngredientID,recipe.ingredientslist[i]);
 
             }
         }
