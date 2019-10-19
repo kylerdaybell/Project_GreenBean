@@ -20,6 +20,12 @@ var RecipeController = {
             res.write(JSON.stringify("Result: Failure"));
             res.end();
         }
+    },
+    GetRecipeById:async function(req,res){
+        var RecipeID = req.params.id;
+        var Recipe = await RecipeService.GetRecipeById(RecipeID);
+        res.write(JSON.stringify(Recipe));
+        res.end();
     }
 
 }

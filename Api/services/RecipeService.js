@@ -1,6 +1,7 @@
 var IApiDatabaseService;
 var User = require('../models/UserModel.js');
 var Recipe = require('../models/RecipeModel.js');
+var Ingredient = require('../models/IngredientModel.js')
 var IUserService;
 
 var RecipeService = {
@@ -28,12 +29,35 @@ var RecipeService = {
             return false;
         }
     },
+    GetRecipeById: async function(RecipeID){
+        DatabaseResult = await IApiDatabaseService.GetRecipeByID(recipeID);
+        if(typeof DatabaseResult[0] != 'undefined'){
+            var recipe = new Recipe(DatabaseResult[0]["ID"],DatabaseResult[0]["USER_ID"],DatabaseResult[0]["NAME"],DatabaseResult[0]["DESCRIPTION"],
+                                    DatabaseResult[0]["PICTURE"],DatabaseResult[0]["PREP_TIME"],DatabaseResult[0]["COOK_TIME"],DatabaseResult[0]["INSTRUCTIONS"]);
+            recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipeID);
+        }else{
+            var recipe = new Recipe();
+        }
+        return recipe; 
+    },
+    GetListOfIngredientsByRecipeID: async function(recipeID){
+        let DatabaseResult = await IApiDatabaseService.GetListOfIngredientsByRecipeID(recipeID);
+        if(typeof DatabaseResult != 'undefined'){
+            for(let i = 0; i < DatabaseResult.length; i++){
+                console.log(DatabaseResult[i]);
+                let Ingredient = new Ingredient(DatabaseResult[0]["NAME"],DatabaseResult[0]["AMOUNT"],DatabaseResult[0]["UNIT"]);
+            }
+        }else{
+            let Ingredient = new Ingredient();
+        }
+        return Ingredient;
+    },
     AddRecipe: async function(recipe){
         await IApiDatabaseService.AddRecipe(recipe);
-        var DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
-        recipeid = DatabaseResult[0][0]["ID"];
+        let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
+        let recipeid = DatabaseResult[0][0]["ID"];
         if(typeof recipeid != 'undefined'){
-            return recipeid;
+            return recipeid; 
         }else{
             return 0;
         }

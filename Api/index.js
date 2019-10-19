@@ -31,6 +31,10 @@ app.post('/createrecipe',cors(corsOptions),function(req,res){
   recipeController.PostCreateRecipe(req, res);
 });
 
+app.get('/getrecipebyid/:id',cors(corsOptions),function(req,res){
+  recipeController.GetRecipeById(req,res);
+});
+
 app.listen(port,function(){
 
 });

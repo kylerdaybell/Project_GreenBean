@@ -54,6 +54,11 @@ var ApiDatabaseService = {
     LinkIngredientToRecipe: async function(recipeID,IngredientID,Ingredient){
         const con = await this.getConnection();
         con.execute('INSERT INTO RECIPETOINGREDIENT (RECIPE_ID,INGREDIENT_ID,AMOUNT,UNIT) VALUES (?,?,?,?)',[recipeID,IngredientID,Ingredient.amount,Ingredient.unit])
+    },
+    GetListOfIngredientsByRecipeID: async function(recipeID){
+        const con = await this.getConnection();
+        rows = con.execute('SELECT * FROM RECIPETOINGREDIENT a inner join INGREDIENT b on (a.INGREDIENT_ID = b.ID) WHERE a.RECIPE_ID = ?',[recipeID]);
+        return rows;
     }
 }
 
