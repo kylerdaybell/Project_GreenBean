@@ -34,7 +34,7 @@ var RecipeService = {
         if(typeof DatabaseResult[0] != 'undefined'){
             var recipe = new Recipe(DatabaseResult[0]["ID"],DatabaseResult[0]["USER_ID"],DatabaseResult[0]["NAME"],DatabaseResult[0]["DESCRIPTION"],
                                     DatabaseResult[0]["PICTURE"],DatabaseResult[0]["PREP_TIME"],DatabaseResult[0]["COOK_TIME"],DatabaseResult[0]["INSTRUCTIONS"]);
-            recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipeID);
+            recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(RecipeID);
         }else{
             var recipe = new Recipe();
         }
