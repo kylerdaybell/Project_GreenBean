@@ -41,9 +41,13 @@ var RecipeService = {
     AddIngredients: async function(recipe){
         for(let i = 0; i<recipe.ingredientslist.length;i++){
             var DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
-            if(DatabaseResult[0].length == 0){
-                
+            if(DatabaseResult[0].length == 0){              
                 await this.AddAndLinkNewIngredient(recipe,i)
+            }else{
+                console.log(DatabaseResult[0]["ID"])
+                var IngredientID = DatabaseResult[0]["ID"];
+                await LinkExistingIngredientToRecipe(recipe,IngredientID,recipe.ingredientslist[i])
+
             }
         }
     },
@@ -57,6 +61,9 @@ var RecipeService = {
         }else{
             return false;
         }
+    },
+    LinkExistingIngredientToRecipe: async function(recipe,IngredientDatabaseID,Ingredient){
+        await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,Ingredient);
     }
 
 }
