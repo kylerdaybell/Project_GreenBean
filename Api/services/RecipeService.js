@@ -44,10 +44,10 @@ var RecipeService = {
     GetListOfIngredientsByRecipeID: async function(recipeID){
         let DatabaseResult = await IApiDatabaseService.GetListOfIngredientsByRecipeID(recipeID);
         var IngredientsList = []; 
-        if(typeof DatabaseResult != 'undefined'){
+        if(typeof DatabaseResult[0][0] != 'undefined'){
             for(let i = 0; i < DatabaseResult[0].length; i++){
-                console.log(DatabaseResult[i]);
-                var ingredient = new Ingredient(DatabaseResult[0]["NAME"],DatabaseResult[0]["AMOUNT"],DatabaseResult[0]["UNIT"]);
+                console.log(DatabaseResult[0][i]);
+                var ingredient = new Ingredient(DatabaseResult[0][i]["NAME"],DatabaseResult[0][i]["AMOUNT"],DatabaseResult[0][i]["UNIT"]);
                 IngredientsList.push(ingredient);
             }
         }else{
