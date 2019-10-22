@@ -31,7 +31,7 @@ var RecipeService = {
     },
     GetAllRecipes: async function(){
         let DatabaseResult = await IApiDatabaseService.GetAllRecipes();
-        console.log(DatabaseResult[0][0]);
+        console.log(DatabaseResult[0]);
     },
     GetRecipeById: async function(RecipeID){
         let DatabaseResult = await IApiDatabaseService.GetRecipeByID(RecipeID);
