@@ -73,7 +73,7 @@ var ApiDatabaseService = {
     SearchRecipeByName: async function(RecipeName){
         const con = await this.getConnection();
         RecipeNameWithWildCards = "%"+RecipeName+"%"
-        row = await con.execute('SELECT * FROM RECIPE WHERE NAME LIKE ?',[RecipeName]);
+        row = await con.execute('SELECT * FROM RECIPE WHERE NAME LIKE ?',[RecipeNameWithWildCards]);
         return row;
     }
 
