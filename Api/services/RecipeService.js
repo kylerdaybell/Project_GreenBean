@@ -77,7 +77,7 @@ var RecipeService = {
     AddIngredients: async function(recipe){
         for(let i = 0; i<recipe.ingredientslist.length;i++){
             var DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
-            if(DatabaseResult[0][0].length == 0){              
+            if(DatabaseResult[0].length == 0){              
                 await this.AddAndLinkNewIngredient(recipe,i)
             }else{
                 var IngredientID = DatabaseResult[0][0]["ID"];
