@@ -19,6 +19,7 @@ var corsOptions={
   }
 
 
+//login area
 app.post('/register',cors(corsOptions),function(req,res){
     userController.PostRegisterUser(req, res);
 });
@@ -27,6 +28,7 @@ app.post('/login',cors(corsOptions),function(req,res){
   userController.PostLoginUser(req, res);
 });
 
+//recipe controller area
 app.post('/createrecipe',cors(corsOptions),function(req,res){
   recipeController.PostCreateRecipe(req, res);
 });
@@ -37,6 +39,10 @@ app.get('/getrecipebyid/:id',cors(corsOptions),function(req,res){
 
 app.get('/getallrecipes',cors(corsOptions),function(req,res){
   recipeController.GetAllRecipes(req,res);
+})
+
+app.get('/searchrecipebyname/:name',cors(corsOptions),function(req,res){
+  recipeController.SearchRecipeByName(req,res);
 })
 
 app.listen(port,function(){

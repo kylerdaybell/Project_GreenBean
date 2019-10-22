@@ -69,6 +69,11 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         row = await con.execute('SELECT * FROM RECIPE ');
         return row;
+    },
+    SearchRecipeByName: async function(RecipeName){
+        const con = await this.getConnection();
+        row = await con.execute('SELECT * FROM RECIPE WHERE NAME LIKE ?',[RecipeName]);
+        return row;
     }
 
 }
