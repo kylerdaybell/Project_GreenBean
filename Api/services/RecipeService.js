@@ -60,6 +60,7 @@ var RecipeService = {
             recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipe.id);
             RecipeList.push(recipe);
         }
+        console.log(RecipeList)
         return RecipeList;
     },
     GetListOfIngredientsByRecipeID: async function(recipeID){
