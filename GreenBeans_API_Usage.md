@@ -72,3 +72,10 @@ Method
 URL
 >http://api.greenbeancooking.com/getallrecipes
 
+
+## Searching for a recipe by name
+Method
+>GET
+
+URL
+>http://api.greenbeancooking.com/searchrecipebyname/recipesearchterm

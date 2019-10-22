@@ -51,6 +51,17 @@ var RecipeService = {
         }
         return recipe; 
     },
+    SearchRecipeByName: async function(RecipeName){
+        let DatabaseResult = await IApiDatabaseService.SearchRecipeByName(RecipeName);
+        var RecipeList = []
+        for(let i = 0; i<DatabaseResult[0].length; i++){
+            let recipe = new Recipe(DatabaseResult[0][i]["ID"],DatabaseResult[0][i]["USER_ID"],DatabaseResult[0][i]["NAME"],DatabaseResult[0][i]["DESCRIPTION"],
+                                    DatabaseResult[0][i]["PICTURE"],DatabaseResult[0][i]["PREP_TIME"],DatabaseResult[0][i]["COOK_TIME"],DatabaseResult[0][i]["INSTRUCTIONS"]);
+            recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipe.id);
+            RecipeList.push(recipe);
+        }
+        return RecipeList;
+    },
     GetListOfIngredientsByRecipeID: async function(recipeID){
         let DatabaseResult = await IApiDatabaseService.GetListOfIngredientsByRecipeID(recipeID);
         var IngredientsList = []; 
