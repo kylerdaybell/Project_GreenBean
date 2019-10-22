@@ -52,7 +52,7 @@ var RecipeService = {
         return recipe; 
     },
     SearchRecipeByName: async function(RecipeName){
-        let DatabaseResult = IApiDatabaseService.SearchRecipeByName(RecipeName);
+        let DatabaseResult = await IApiDatabaseService.SearchRecipeByName(RecipeName);
         var RecipeList = []
         for(let i = 0; i<DatabaseResult[0].length; i++){
             let recipe = new Recipe(DatabaseResult[0][i]["ID"],DatabaseResult[0][i]["USER_ID"],DatabaseResult[0][i]["NAME"],DatabaseResult[0][i]["DESCRIPTION"],
@@ -60,6 +60,7 @@ var RecipeService = {
             recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipe.id);
             RecipeList.push(recipe);
         }
+        console.log(recip)
         return RecipeList;
     },
     GetListOfIngredientsByRecipeID: async function(recipeID){
