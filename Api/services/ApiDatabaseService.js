@@ -64,7 +64,13 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         row = await con.execute('SELECT * FROM RECIPE WHERE ID = ?',[RecipeID]);
         return row;
+    },
+    GetAllRecipes: async function(){
+        const con = await this.getConnection();
+        row = await con.execute('SELECT * FROM RECIPE ');
+        return row;
     }
+
 }
 
 module.exports = ApiDatabaseService;

@@ -26,8 +26,10 @@ var RecipeController = {
         var Recipe = await RecipeService.GetRecipeById(RecipeID);
         res.write(JSON.stringify(Recipe));
         res.end();
+    },
+    GetAllRecipes:async function(req,res){
+        
     }
-
 }
 
 module.exports = RecipeController;
