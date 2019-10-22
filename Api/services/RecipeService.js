@@ -53,6 +53,7 @@ var RecipeService = {
     },
     SearchRecipeByName: async function(RecipeName){
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByName(RecipeName);
+        console.log(DatabaseResult[0])
         var RecipeList = []
         for(let i = 0; i<DatabaseResult[0].length; i++){
             let recipe = new Recipe(DatabaseResult[0][i]["ID"],DatabaseResult[0][i]["USER_ID"],DatabaseResult[0][i]["NAME"],DatabaseResult[0][i]["DESCRIPTION"],
