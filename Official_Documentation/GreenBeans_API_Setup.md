@@ -28,12 +28,14 @@
 7. paste the contents of the file and allow it to create the database.
 8. run an npm install on the Api directory
 9. create a file called .env with the following contents (change the values to match your environment)
->NODE_ENV=development
+```
+NODE_ENV=development
 PORT=80
 DB_HOST=Localhost
 DB_USER=your_database_username
 DB_PASS=your_database_password
 DB_DATA=greenbeans
+```
 
 9. Start the node server 
 > node index.js
