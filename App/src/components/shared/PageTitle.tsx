@@ -1,6 +1,4 @@
 import * as React from "react";
-import { tsPropertySignature } from "@babel/types";
-import { string } from "prop-types";
 
 interface PageProps {
     title: string;

@@ -1,6 +1,11 @@
 import * as React from "react";
+import IngredientItem, {Ingredient} from "./IngredientItem";
+
+
 
 const AddRecipeForm = () => {
+  let ingredientArray = Array<Ingredient>();
+  
   return (
     <form>
       <fieldset>
@@ -22,6 +27,8 @@ const AddRecipeForm = () => {
         <br/>
         <label htmlFor="instructions">Instructions:</label>
         <input id="instructions" type="text"/>
+        {ingredientArray.map(ingredient=><IngredientItem {...ingredient}/>)}
+        <button>Add Ingredient</button>
         <br/>
       </fieldset>
     </form>
