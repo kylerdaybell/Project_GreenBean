@@ -30,6 +30,7 @@ app.post('/login',cors(corsOptions),function(req,res){
 
 //recipe controller area
 app.post('/createrecipe',cors(corsOptions),function(req,res){
+  console.log("created recipe called");
   recipeController.PostCreateRecipe(req, res);
 });
 
