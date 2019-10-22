@@ -33,13 +33,12 @@ var RecipeService = {
         let DatabaseResult = await IApiDatabaseService.GetAllRecipes();
         var RecipeList = []
         for(let i = 0; i<DatabaseResult[0].length; i++){
-            console.log(DatabaseResult[0][i]["ID"])
             let recipe = new Recipe(DatabaseResult[0][i]["ID"],DatabaseResult[0][i]["USER_ID"],DatabaseResult[0][i]["NAME"],DatabaseResult[0][i]["DESCRIPTION"],
                                     DatabaseResult[0][i]["PICTURE"],DatabaseResult[0][i]["PREP_TIME"],DatabaseResult[0][i]["COOK_TIME"],DatabaseResult[0][i]["INSTRUCTIONS"]);
             recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipe.id);
             RecipeList.push(recipe);
         }
-        console.log(RecipeList);
+        return RecipeList;
     },
     GetRecipeById: async function(RecipeID){
         let DatabaseResult = await IApiDatabaseService.GetRecipeByID(RecipeID);
