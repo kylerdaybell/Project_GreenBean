@@ -1,7 +1,7 @@
 var express = require('express');
 var cors = require('cors');
 var app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 var whitelist = "http:/144.17.24.16";
 var userController = require('./controllers/UserController.js');
 var recipeController = require('./controllers/RecipeController.js');
