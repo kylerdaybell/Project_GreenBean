@@ -35,6 +35,10 @@ app.get('/getrecipebyid/:id',cors(corsOptions),function(req,res){
   recipeController.GetRecipeById(req,res);
 });
 
+app.get('/getallrecipes',cors(corsOptions),function(req,res){
+  recipeController.GetAllRecipes(req,res);
+})
+
 app.listen(port,function(){
 
 });
