@@ -35,7 +35,7 @@ var RecipeService = {
         for(let i = 0; i<DatabaseResult[0].length; i++){
             let recipe = new Recipe(DatabaseResult[i][0]["ID"],DatabaseResult[i][0]["USER_ID"],DatabaseResult[i][0]["NAME"],DatabaseResult[i][0]["DESCRIPTION"],
                                     DatabaseResult[i][0]["PICTURE"],DatabaseResult[i][0]["PREP_TIME"],DatabaseResult[i][0]["COOK_TIME"],DatabaseResult[i][0]["INSTRUCTIONS"]);
-            recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(RecipeID);
+            recipe.ingredientslist = await this.GetListOfIngredientsByRecipeID(recipe.id);
             RecipeList.push(recipe);
         }
         console.log(RecipeList);
