@@ -61,3 +61,14 @@ Method
 URL
 >http://api.greenbeancooking.com/getrecipebyid/id
 
+
+## Getting all recipes from the database including ingredients
+
+### this request may take a long time to return
+
+Method
+>GET
+
+URL
+>http://api.greenbeancooking.com/getallrecipes
+
