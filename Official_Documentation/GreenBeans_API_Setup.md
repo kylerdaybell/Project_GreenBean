@@ -33,7 +33,7 @@ PORT=80
 DB_HOST=Localhost
 DB_USER=your_database_username
 DB_PASS=your_database_password
-DB_DATA=sahara
+DB_DATA=greenbeans
 
 9. Start the node server 
 > node index.js
