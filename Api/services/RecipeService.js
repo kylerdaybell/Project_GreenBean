@@ -77,7 +77,7 @@ var RecipeService = {
         return IngredientsList;
     },
     AddRecipe: async function(recipe){
-        var DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
+        let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
         if(typeof DatabaseResult[0][0]!= "undefined"){
             return DatabaseResult[0][0]["ID"];
         }else{
@@ -93,7 +93,7 @@ var RecipeService = {
     },
     AddIngredients: async function(recipe){
         for(let i = 0; i<recipe.ingredientslist.length;i++){
-            var DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
+            let DatabaseResult = await IApiDatabaseService.GetIngredient(recipe.ingredientslist[i].name);
             if(DatabaseResult[0].length == 0){              
                 await this.AddAndLinkNewIngredient(recipe,i)
             }else{
@@ -105,7 +105,7 @@ var RecipeService = {
     },
     AddAndLinkNewIngredient: async function(recipe,IngredientID){
         await IApiDatabaseService.AddIngredient(recipe.ingredientslist[IngredientID].name);
-        var DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID].name);
+        let DatabaseResult = await IApiDatabaseService.GetIngredientID(recipe.ingredientslist[IngredientID].name);
         if(DatabaseResult[0][0].length != 0){
             IngredientDatabaseID = DatabaseResult[0][0]["ID"]
             await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,recipe.ingredientslist[IngredientID]);
@@ -115,7 +115,13 @@ var RecipeService = {
         }
     },
     LinkExistingIngredientToRecipe: async function(recipe,IngredientDatabaseID,Ingredient){
-        await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,Ingredient);
+        let DatabaseResult = await GetIngredientToRecipeByForeignKeys(IngredientDatabaseID,recipe.id);
+        if(typeof DatabaseResult[0][0] == undefined){
+            await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,Ingredient);
+        }else{
+            return;
+        }
+        
     }
 
 }
