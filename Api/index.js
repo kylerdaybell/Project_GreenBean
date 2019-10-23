@@ -13,6 +13,7 @@ var corsOptions={
       if(whitelist.indexOf(origin)===-1){
         callback(null,true)
       }else{
+        console.log("blocked by cors")
         callback(new Error('not allowed by cors'))
       }
     }
