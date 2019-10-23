@@ -115,7 +115,7 @@ var RecipeService = {
         }
     },
     LinkExistingIngredientToRecipe: async function(recipe,IngredientDatabaseID,Ingredient){
-        let DatabaseResult = await GetIngredientToRecipeByForeignKeys(IngredientDatabaseID,recipe.id);
+        let DatabaseResult = await IApiDatabaseService.GetIngredientToRecipeByForeignKeys(IngredientDatabaseID,recipe.id);
         if(typeof DatabaseResult[0][0] == undefined){
             await IApiDatabaseService.LinkIngredientToRecipe(recipe.id,IngredientDatabaseID,Ingredient);
         }else{
