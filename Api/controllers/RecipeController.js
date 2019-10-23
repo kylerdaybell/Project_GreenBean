@@ -46,6 +46,7 @@ var RecipeController = {
             req.body.cooktime, req.body.instructions, req.body.ingredientslist);
         var user = new User(req.body.email, req.body.password, null);
         if (await RecipeService.UpdateRecipe(recipe, user)){
+            console.log(recipe)
             res.write(JSON.stringify("Result: Success"));
             res.end();
         }
