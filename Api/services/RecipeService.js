@@ -6,7 +6,7 @@ var IUserService;
 
 var RecipeService = {
     constructor: function(IApiDatabaseServiceInsert, IUserServiceInsert,IIngredientServiceInsert){
-        IIngredientServiceInsert = IIngredientServiceInsert;
+        IIngredientService = IIngredientServiceInsert;
         IApiDatabaseService = IApiDatabaseServiceInsert;
         IUserService = IUserServiceInsert;
     },
