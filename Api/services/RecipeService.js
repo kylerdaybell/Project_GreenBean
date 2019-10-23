@@ -73,8 +73,6 @@ var RecipeService = {
             }
 
         }
-        await IApiDatabaseService.DeleteRecipeToIngredientByRecipeID(Recipe.id);
-        await IApiDatabaseService.UpdateRecipe(Recipe)
     },
     AddRecipe: async function(recipe){
         let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
