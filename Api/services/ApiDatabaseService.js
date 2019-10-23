@@ -75,6 +75,11 @@ var ApiDatabaseService = {
         RecipeNameWithWildCards = "%"+RecipeName+"%"
         row = await con.execute('SELECT * FROM RECIPE WHERE NAME LIKE ?',[RecipeNameWithWildCards]);
         return row;
+    },
+    GetIngredientToRecipeByForeignKeys: async function(RecipeID,IngredientID){
+        const con = await this.getConnection();
+        row = await con.execute('SELECT * FROM RECIPETOINGREIDENT WHERE RECIPE_ID = ? AND INGREDIENT_ID = ?',[RecipeID,IngredientID]);
+        return row;
     }
 
 }
