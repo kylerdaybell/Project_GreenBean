@@ -1,7 +1,6 @@
 var IApiDatabaseService;
 var User = require('../models/UserModel.js');
 var Recipe = require('../models/RecipeModel.js');
-var Ingredient = require('../models/IngredientModel.js')
 var IIngredientService;
 var IUserService;
 
