@@ -77,12 +77,12 @@ var RecipeService = {
         return IngredientsList;
     },
     AddRecipe: async function(recipe){
-        let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
+        var DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
         if(typeof DatabaseResult[0][0]!= "undefined"){
             return DatabaseResult[0][0]["ID"];
         }else{
             await IApiDatabaseService.AddRecipe(recipe);
-            let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
+            DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
             let recipeid = DatabaseResult[0][0]["ID"];
             if(typeof recipeid != 'undefined'){
                 return recipeid; 
