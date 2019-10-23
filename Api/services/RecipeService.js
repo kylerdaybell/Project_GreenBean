@@ -12,12 +12,13 @@ var RecipeService = {
     CreateRecipe: async function(recipe, user){
         if (await IUserService.LoginUser(user)){
             recipe.userid = await IUserService.GetUserID(user);
-            if(recipe.userid !=0){
+            if(recipe.userid != 0){
                 var recipeID = await this.AddRecipe(recipe);
                 if(recipeID != 0){
                     recipe.id = recipeID;
                     await this.AddIngredients(recipe);
                 }else{
+
                     return false
                 }
                 return true;
@@ -76,13 +77,18 @@ var RecipeService = {
         return IngredientsList;
     },
     AddRecipe: async function(recipe){
-        await IApiDatabaseService.AddRecipe(recipe);
         let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
-        let recipeid = DatabaseResult[0][0]["ID"];
-        if(typeof recipeid != 'undefined'){
-            return recipeid; 
+        if(typeof DatabaseResult[0][0]["ID"]!= "undefined"){
+            return DatabaseResult[0][0]["ID"];
         }else{
-            return 0;
+            await IApiDatabaseService.AddRecipe(recipe);
+            let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
+            let recipeid = DatabaseResult[0][0]["ID"];
+            if(typeof recipeid != 'undefined'){
+                return recipeid; 
+            }else{
+                return 0;
+            }
         }
     },
     AddIngredients: async function(recipe){
