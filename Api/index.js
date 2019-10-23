@@ -46,6 +46,10 @@ app.get('/searchrecipebyname/:name',cors(corsOptions),function(req,res){
   recipeController.SearchRecipeByName(req,res);
 })
 
+app.post('/updaterecipe',cors(corsOptions),function(req,res){
+  recipeController.UpdateRecipe(req,res);
+})
+
 app.listen(port,function(){
 
 });

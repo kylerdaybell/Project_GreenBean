@@ -80,7 +80,22 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         row = await con.execute('SELECT * FROM RECIPETOINGREDIENT WHERE RECIPE_ID = ? AND INGREDIENT_ID = ?',[RecipeID,IngredientID]);
         return row;
-    }
+    },
+    DeleteRecipeToIngredientByRecipeID: async function(RecipeID){
+        const con = await this.getConnection();
+        row = await con.execute('DELETE FROM RECIPETOINGREDIENT where RECIPE_ID = ?',[RecipeID]);
+        return row;
+    },
+    DeleteRecipeByID: async function(RecipeID){
+        const con = await this.getConnection();
+        row = await con.execute('DELETE FROM RECIPE where ID = ?',[RecipeID]);
+        return row;
+    },
+    UpdateRecipe: async function(recipe){
+        const con = await this.getConnection();
+        con.execute('UPDATE RECIPE SET NAME = ?, DESCRIPTION = ?,PICTURE = ?,PREP_TIME = ?,COOK_TIME = ?,INSTRUCTIONS = ? WHERE ID = ?', 
+            [ recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.instructions,recipe.id]);
+    },
 
 }
 
