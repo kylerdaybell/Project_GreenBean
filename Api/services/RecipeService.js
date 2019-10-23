@@ -61,7 +61,7 @@ var RecipeService = {
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
             UserID = await IUserService.GetUserID(User)
-            console.log(UserId);
+            console.log(UserID);
             DatabaseResult = await IApiDatabaseService.GetRecipeByID(Recipe.id)
             if(typeof DatabaseResult[0][0] != 'undefined'){
                 Recipe.id = DatabaseResult[0][0]["USER_ID"];
