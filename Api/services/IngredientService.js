@@ -52,4 +52,4 @@ var IngredientService = {
     }
 }
 
-module.exports = RecipeService;
+module.exports = IngredientService;
