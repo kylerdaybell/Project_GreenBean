@@ -35,7 +35,7 @@ var RecipeService = {
         let DatabaseResult = await IApiDatabaseService.GetAllRecipes();
         var RecipeList = []
         for(let i = 0; i<DatabaseResult[0].length; i++){
-            let recipe = await this.DatabaseResultToRecipe(DatabaseResult);
+            let recipe = await this.DatabaseResultToRecipe(DatabaseResult[0][i]);
             RecipeList.push(recipe);
         }
         return RecipeList;
@@ -43,7 +43,7 @@ var RecipeService = {
     GetRecipeById: async function(RecipeID){
         let DatabaseResult = await IApiDatabaseService.GetRecipeByID(RecipeID);
         if(typeof DatabaseResult[0][0] != 'undefined'){
-            var recipe = await this.DatabaseResultToRecipe(DatabaseResult);
+            var recipe = await this.DatabaseResultToRecipe(DatabaseResult[0][0]);
         }else{
             var recipe = new Recipe();
         }
@@ -53,7 +53,7 @@ var RecipeService = {
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByName(RecipeName);
         var RecipeList = []
         for(let i = 0; i<DatabaseResult[0].length; i++){
-            let recipe = await this.DatabaseResultToRecipe(DatabaseResult);
+            let recipe = await this.DatabaseResultToRecipe(DatabaseResult[0][i]);
             RecipeList.push(recipe);
         }
         return RecipeList;
@@ -91,9 +91,9 @@ var RecipeService = {
             }
         }
     },
-    DatabaseResultToRecipe: async function(DatabaseResult){
-        let recipe = new Recipe(DatabaseResult[0][i]["ID"],DatabaseResult[0][i]["USER_ID"],DatabaseResult[0][i]["NAME"],DatabaseResult[0][i]["DESCRIPTION"],
-        DatabaseResult[0][i]["PICTURE"],DatabaseResult[0][i]["PREP_TIME"],DatabaseResult[0][i]["COOK_TIME"],DatabaseResult[0][i]["INSTRUCTIONS"]);
+    DatabaseResultToRecipe: async function(DatabaseResultRow){
+        let recipe = new Recipe(DatabaseResult["ID"],DatabaseResult["USER_ID"],DatabaseResult["NAME"],DatabaseResult["DESCRIPTION"],
+        DatabaseResult["PICTURE"],DatabaseResult["PREP_TIME"],DatabaseResult["COOK_TIME"],DatabaseResult["INSTRUCTIONS"]);
         recipe.ingredientslist = await IIngredientService.GetListOfIngredientsByRecipeID(recipe.id);
         return recipe;
     }
