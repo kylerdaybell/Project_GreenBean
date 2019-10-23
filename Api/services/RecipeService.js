@@ -65,7 +65,7 @@ var RecipeService = {
             DatabaseResult = await IApiDatabaseService.GetRecipeByID(Recipe.id)
             if(typeof DatabaseResult[0][0] != 'undefined'){
                 Recipe.userid = DatabaseResult[0][0]["USER_ID"];
-                if(UserID == Recipe.id){
+                if(UserID == Recipe.userid){
                     console.log("the user owns this recipe")
                     await IApiDatabaseService.DeleteRecipeToIngredientByRecipeID(Recipe.id);
                     await IIngredientService.AddIngredients(Recipe);
