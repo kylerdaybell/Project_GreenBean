@@ -91,7 +91,7 @@ var RecipeService = {
             }
         }
     },
-    DatabaseResultToRecipe: async function(DatabaseResultRow){
+    DatabaseResultToRecipe: async function(DatabaseResult){
         let recipe = new Recipe(DatabaseResult["ID"],DatabaseResult["USER_ID"],DatabaseResult["NAME"],DatabaseResult["DESCRIPTION"],
         DatabaseResult["PICTURE"],DatabaseResult["PREP_TIME"],DatabaseResult["COOK_TIME"],DatabaseResult["INSTRUCTIONS"]);
         recipe.ingredientslist = await IIngredientService.GetListOfIngredientsByRecipeID(recipe.id);
