@@ -78,7 +78,7 @@ var ApiDatabaseService = {
     },
     GetIngredientToRecipeByForeignKeys: async function(RecipeID,IngredientID){
         const con = await this.getConnection();
-        row = await con.execute('SELECT * FROM RECIPETOINGREIDENT WHERE RECIPE_ID = ? AND INGREDIENT_ID = ?',[RecipeID,IngredientID]);
+        row = await con.execute('SELECT * FROM RECIPETOINGREDIENT WHERE RECIPE_ID = ? AND INGREDIENT_ID = ?',[RecipeID,IngredientID]);
         return row;
     }
 
