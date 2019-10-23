@@ -9,15 +9,6 @@ const DB_DATA = process.env.DB_DATA;
 var mysql = require('mysql2/promise');
 
 var ApiDatabaseService = {
-    GetUser: async function(email){
-        const con = await this.getConnection();
-        var [rows] = await con.execute('select * from USER WHERE EMAIL = ?', [email]);
-        return rows;
-    },
-    RegisterUser: async function(user){
-        const con = await this.getConnection();
-        con.execute('INSERT INTO USER (EMAIL,PASSWORD,ROLE) VALUE (?,?,?)', [user.email, user.password, user.role]);
-    },
     getConnection: async function(){
         const con = await mysql.createConnection({
             host: DB_HOST,
@@ -26,6 +17,15 @@ var ApiDatabaseService = {
             database: DB_DATA
         });
         return con;
+    },
+    GetUser: async function(email){
+        const con = await this.getConnection();
+        var [rows] = await con.execute('select * from USER WHERE EMAIL = ?', [email]);
+        return rows;
+    },
+    RegisterUser: async function(user){
+        const con = await this.getConnection();
+        con.execute('INSERT INTO USER (EMAIL,PASSWORD,ROLE) VALUE (?,?,?)', [user.email, user.password, user.role]);
     },
     AddRecipe: async function(recipe){
         const con = await this.getConnection();
