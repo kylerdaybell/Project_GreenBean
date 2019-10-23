@@ -7,7 +7,8 @@ const IngredientAdd = props => {
   const [unit, setUnit] = useState("");
 
   const removeIngredient = (ingredient) => {
-      console.log(ingredient);
+      let newArray = ingredientArray.filter(i => i != ingredient);
+      setIngredientArray(newArray);
   }
 
   const addIngredient = () => {

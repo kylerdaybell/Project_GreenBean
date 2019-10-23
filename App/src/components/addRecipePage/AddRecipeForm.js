@@ -6,17 +6,6 @@ const AddRecipeForm = () => {
 
 
   const postToDB = (recipe) => {
-    let str = `{
-      "name": "chicken a la brandon",
-      "descr": "chicken on icecream",
-      "picture": "Fake url",
-      "preptime": "00:05:00",
-      "cooktime": "00:00:00",
-      "instructions": "put raw chicken on icecream and then serve",
-      "ingredientslist": [{"name":"chicken","amount":"10","unit":"cups"},{"name":"icecream","amount":"10","unit":"cups"}],
-      "email": "test@gmail.com",
-      "password": "test"
-  }`;
     console.log("hi guys")
     fetch("http://api.greenbeancooking.com/createrecipe",{
       method: 'POST',
@@ -25,7 +14,7 @@ const AddRecipeForm = () => {
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       mode: 'cors',
-      body: str
+      body: recipe
     }).then(response=>response.json).then(data=>console.log(data))
   } 
 
