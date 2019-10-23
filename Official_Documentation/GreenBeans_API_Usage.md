@@ -54,6 +54,34 @@ Request Body
 }
 ```
 
+## Updating a recipe ##
+Notes
+>ingredients that you don't include in your update request that were previously in your recipe they will be removed from the recipe 
+
+Method
+>POST
+
+URL
+>http://api.greenbeancooking.com/updaterecipe
+
+Request Body
+```
+{
+	"id": "73",
+    "name": "chicken salmonilla",
+    "descr": "chicken on icecream",
+    "picture": "Fake url",
+    "preptime": "00:05:00",
+    "cooktime": "00:00:00",
+    "instructions": "put raw chicken on icecream and then serve",
+    "ingredientslist": [{"name":"chicken","amount":"10","unit":"cups"}],
+    "email": "test@gmail.com",
+    "password": "test"
+}
+```
+
+
+
 ## Getting recipe details by recipe database ID
 Method
 >GET
