@@ -68,6 +68,7 @@ var RecipeService = {
                     await IApiDatabaseService.DeleteRecipeToIngredientByRecipeID(Recipe.id);
                     await IIngredientService.AddIngredients(Recipe);
                     await IApiDatabaseService.UpdateRecipe(Recipe);
+                    return true;
                 }
             }
 
