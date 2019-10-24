@@ -67,7 +67,7 @@ URL
 Request Body
 ```
 {
-	"id": "recipeid",
+    "id": "recipeid",
     "name": "chicken salmonilla",
     "descr": "chicken on icecream",
     "picture": "Fake url",
