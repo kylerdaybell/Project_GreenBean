@@ -54,7 +54,18 @@ var RecipeController = {
             res.write(JSON.stringify("Result: Failure"));
             res.end();
         }
-
+    },
+    DeleteRecipe: async function(req,res){
+        var recipe = new Recipe(req.body.id);
+        var user = new User(req.body.email, req.body.password, null);
+        if (await RecipeService.DeleteRecipe(recipe, user)){
+            res.write(JSON.stringify("Result: Success"));
+            res.end();
+        }
+        else{
+            res.write(JSON.stringify("Result: Failure"));
+            res.end();
+        }
     }
 }
 

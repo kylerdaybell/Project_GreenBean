@@ -40,14 +40,18 @@ app.get('/getrecipebyid/:id',cors(corsOptions),function(req,res){
 
 app.get('/getallrecipes',cors(corsOptions),function(req,res){
   recipeController.GetAllRecipes(req,res);
-})
+});
 
 app.get('/searchrecipebyname/:name',cors(corsOptions),function(req,res){
   recipeController.SearchRecipeByName(req,res);
-})
+});
 
 app.post('/updaterecipe',cors(corsOptions),function(req,res){
   recipeController.UpdateRecipe(req,res);
+});
+
+app.post('/deleterecipe',cors(corsOptions),function(req,res){
+  recipeController.DeleteRecipe(req,res);
 })
 
 app.listen(port,function(){

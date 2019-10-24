@@ -61,12 +61,10 @@ var RecipeService = {
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
             UserID = await IUserService.GetUserID(User)
-            console.log(UserID);
             DatabaseResult = await IApiDatabaseService.GetRecipeByID(Recipe.id)
             if(typeof DatabaseResult[0][0] != 'undefined'){
                 Recipe.userid = DatabaseResult[0][0]["USER_ID"];
                 if(UserID == Recipe.userid){
-                    console.log("the user owns this recipe")
                     await IApiDatabaseService.DeleteRecipeToIngredientByRecipeID(Recipe.id);
                     await IIngredientService.AddIngredients(Recipe);
                     await IApiDatabaseService.UpdateRecipe(Recipe);
@@ -75,10 +73,10 @@ var RecipeService = {
             }
 
         }
+        return false;
     },
     AddRecipe: async function(recipe){
         let DatabaseResult = await IApiDatabaseService.GetRecipeID(recipe);
-        console.log(DatabaseResult[0])
         if(typeof DatabaseResult[0][0] != "undefined"){
             return DatabaseResult[0][0]["ID"];
         }else{
@@ -91,6 +89,22 @@ var RecipeService = {
                 return 0;
             }
         }
+    },
+    DeleteRecipe: async function(Recipe,User){
+        if (await IUserService.LoginUser(User)){
+            UserID = await IUserService.GetUserID(User)
+            DatabaseResult = await IApiDatabaseService.GetRecipeByID(Recipe.id)
+            if(typeof DatabaseResult[0][0] != 'undefined'){
+                Recipe.userid = DatabaseResult[0][0]["USER_ID"];
+                if(UserID == Recipe.userid){
+                    await IApiDatabaseService.DeleteRecipeToIngredientByRecipeID(Recipe.id);
+                    await IApiDatabaseService.DeleteRecipeByID(Recipe.id);
+                    return true;
+                }
+            }
+
+        }
+        return false;
     },
     DatabaseResultToRecipe: async function(DatabaseResult){
         let recipe = new Recipe(DatabaseResult["ID"],DatabaseResult["USER_ID"],DatabaseResult["NAME"],DatabaseResult["DESCRIPTION"],
