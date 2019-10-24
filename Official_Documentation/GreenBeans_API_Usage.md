@@ -67,7 +67,7 @@ URL
 Request Body
 ```
 {
-	"id": "73",
+	"id": "recipeid",
     "name": "chicken salmonilla",
     "descr": "chicken on icecream",
     "picture": "Fake url",
@@ -75,6 +75,22 @@ Request Body
     "cooktime": "00:00:00",
     "instructions": "put raw chicken on icecream and then serve",
     "ingredientslist": [{"name":"chicken","amount":"10","unit":"cups"}],
+    "email": "test@gmail.com",
+    "password": "test"
+}
+```
+
+## Deleting a recipe ##
+Method
+>POST
+
+URL
+>http://api.greenbeancooking.com/deleterecipe
+
+Request Body
+```
+{
+	"id": "recipeid",
     "email": "test@gmail.com",
     "password": "test"
 }
