@@ -90,7 +90,7 @@ URL
 Request Body
 ```
 {
-	"id": "recipeid",
+    "id": "recipeid",
     "email": "test@gmail.com",
     "password": "test"
 }
