@@ -8,13 +8,11 @@ const GreenBeanAPIService={
           },
           mode: 'cors',
           body: recipe
-        }).then(response=>response.json).then(data=>console.log(data))
+        }).then(response=>response.json()).then(data=>console.log(data))
       },
-      SearchForRecipeByName: function(SearchTerm){
-          console.log(SearchTerm);
-          fetch(`http://api.greenbeancooking.com/searchrecipebyname/${SearchTerm}`,{
-            method: 'GET',
-          }).then(response=>response.json).then(data=>console.log(JSON.stringify(data)))
+      SearchForRecipeByName: async function(SearchTerm){
+          let APIResult = await fetch(`http://api.greenbeancooking.com/searchrecipebyname/${SearchTerm}`).then(response=>response.json())
+          return APIResult;
       }
 }
 
