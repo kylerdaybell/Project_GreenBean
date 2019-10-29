@@ -38,7 +38,6 @@ var RecipeController = {
     SearchRecipeByName: async function(req,res){
         var RecipeName = req.params.name;
         var RecipeList = await RecipeService.SearchRecipeByName(RecipeName);
-        console.log(JSON.stringify(RecipeList));
         res.write(JSON.stringify(RecipeList));
         res.end();
     },
