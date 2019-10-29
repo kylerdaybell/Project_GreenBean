@@ -1,23 +1,8 @@
 import React from "react";
 import IngredientAdd from "./IngredientAdd";
 import RecipeAddModel from "../../models/Recipe"
-
+import GreenBeanAPIService from "../../Services/GreenBeanAPIService"
 const AddRecipeForm = () => {
-
-
-  const postToDB = (recipe) => {
-    console.log("hi guys")
-    fetch("http://api.greenbeancooking.com/createrecipe",{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      mode: 'cors',
-      body: recipe
-    }).then(response=>response.json).then(data=>console.log(data))
-  } 
-
   const AddRecipe = (theIngredientList) => {
     let name = document.getElementById("name").value;
     let descr = document.getElementById('description').value;
@@ -30,7 +15,7 @@ const AddRecipeForm = () => {
     let ingredientsList = theIngredientList;
     let recipeSubmission = new RecipeAddModel(name,descr,picture,preptime,cooktime,instructions,ingredientsList,email,password );
     let recipeJson = JSON.stringify(recipeSubmission);
-    postToDB(recipeJson);
+    GreenBeanAPIService.CreateNewRecipe(recipeJson);
   }
   return (
     <>

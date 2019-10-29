@@ -22,35 +22,43 @@ var corsOptions={
 
 //login area
 app.post('/register',cors(corsOptions),function(req,res){
+    console.log("register");
     userController.PostRegisterUser(req, res);
 });
 
 app.post('/login',cors(corsOptions),function(req,res){
+  console.log("login");
   userController.PostLoginUser(req, res);
 });
 
 //recipe controller area
 app.post('/createrecipe',cors(corsOptions),function(req,res){
+  console.log("createrecipe");
   recipeController.PostCreateRecipe(req, res);
 });
 
 app.get('/getrecipebyid/:id',cors(corsOptions),function(req,res){
+  console.log("getrecipebyid");
   recipeController.GetRecipeById(req,res);
 });
 
 app.get('/getallrecipes',cors(corsOptions),function(req,res){
+  console.log("getallrecipes");
   recipeController.GetAllRecipes(req,res);
 });
 
 app.get('/searchrecipebyname/:name',cors(corsOptions),function(req,res){
+  console.log("searchrecipebyname");
   recipeController.SearchRecipeByName(req,res);
 });
 
 app.post('/updaterecipe',cors(corsOptions),function(req,res){
+  console.log("updaterecipe");
   recipeController.UpdateRecipe(req,res);
 });
 
 app.post('/deleterecipe',cors(corsOptions),function(req,res){
+  console.log("deleterecipe");
   recipeController.DeleteRecipe(req,res);
 })
 
