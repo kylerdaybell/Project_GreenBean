@@ -59,15 +59,10 @@ var RecipeService = {
         return RecipeList;
     },
     SearchRecipesByIngredients: async function(IngredientsList){
-        var ListOfAllMatchingRecipes = [];
+        let ListOfAllMatchingRecipes = [];
         for(let i = 0;i < IngredientsList.length;i++){
-            var DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(IngredientsList[i].name);
-            if(typeof DatabaseResult[0]!= 'undefined'){
-                for(let j = 0; j<DatabaseResult[0].length; j++){
-                    ListOfAllMatchingRecipes.push(DatabaseResult[0][i]);
-                }
-
-            }
+            let Ingredient = IngredientsList[i]
+            ListOfAllMatchingRecipes = ListOfAllMatchingRecipes + SearchRecipeBySingleIngredient(Ingredient)
         }
         console.log(ListOfAllMatchingRecipes);
     },
@@ -102,6 +97,16 @@ var RecipeService = {
                 return 0;
             }
         }
+    },
+    SearchRecipeBySingleIngredient: async function(Ingredient){
+        let ListOfAllMatchingRecipes = []
+        var DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(Ingredient.name);
+            if(typeof DatabaseResult[0]!= 'undefined'){
+                for(let j = 0; j<DatabaseResult[0].length; j++){
+                    ListOfAllMatchingRecipes.push(DatabaseResult[0][i]);
+                }
+            }
+        return ListOfAllMatchingRecipes;
     },
     DeleteRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
