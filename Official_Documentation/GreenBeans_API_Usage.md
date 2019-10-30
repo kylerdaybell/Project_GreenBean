@@ -123,3 +123,25 @@ Method
 
 URL
 >http://api.greenbeancooking.com/searchrecipebyname/recipesearchterm
+
+
+
+## Searching for recipes by a list of ingredients 
+
+### this request may take a long time to return
+Method
+>POST
+
+URL
+>http://api.greenbeancooking.com/getrecipebyingredientslist
+
+Request Body
+
+```
+{
+    "IngredientsList":[
+        {"name":"salt"}
+        ,{"name":"water"}
+    ]
+}
+```

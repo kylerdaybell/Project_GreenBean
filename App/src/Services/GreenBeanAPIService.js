@@ -28,6 +28,7 @@ const GreenBeanAPIService={
 
           let FormatedRequestBody = {"IngredientsList":IngredientsListArray};
           let RealFormatedRequestBody = JSON.stringify(FormatedRequestBody);
+          console.log(RealFormatedRequestBody);
           const settings = {
             method: 'POST',
             headers: {
