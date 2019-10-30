@@ -64,18 +64,9 @@ var RecipeService = {
             let Ingredient = IngredientsList[i]
             ListOfAllMatchingRecipes = await this.SearchRecipeBySingleIngredient(ListOfAllMatchingRecipes,Ingredient)
         }
-        //we need to map each recipe id to the number of times that it occurs
-        var dict = {}
-        for(let i = 0;i<ListOfAllMatchingRecipes.length;i++){
-            if(typeof dict[ListOfAllMatchingRecipes[i]] == 'undefined'){
-                dict[ListOfAllMatchingRecipes[i]] = 1
-            }else{
-                dict[ListOfAllMatchingRecipes[i]] =  dict[ListOfAllMatchingRecipes[i]]+1
-            }
-        }
-
-
-        console.log(dict);
+        var RecipeAndMatchesDictionary = await this.MapRecipesToNumberOfIngredientMatches(ListOfAllMatchingRecipes)
+        
+        console.log(RecipeAndMatchesDictionary);
     },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
@@ -117,6 +108,17 @@ var RecipeService = {
                 }
             }
         return ListOfAllMatchingRecipes;
+    },
+    MapRecipesToNumberOfIngredientMatches: async function(ListOfAllMatchingRecipes){
+        var RecipeAndMatchesDictionary = {}
+        for(let i = 0;i<ListOfAllMatchingRecipes.length;i++){
+            if(typeof RecipeAndMatchesDictionary[ListOfAllMatchingRecipes[i]] == 'undefined'){
+                RecipeAndMatchesDictionary[ListOfAllMatchingRecipes[i]] = 1
+            }else{
+                RecipeAndMatchesDictionary[ListOfAllMatchingRecipes[i]] =  RecipeAndMatchesDictionary[ListOfAllMatchingRecipes[i]]+1
+            }
+        }
+        return RecipeAndMatchesDictionary
     },
     DeleteRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
