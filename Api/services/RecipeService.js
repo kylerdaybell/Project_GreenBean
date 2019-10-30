@@ -124,11 +124,11 @@ var RecipeService = {
         return RecipeAndMatchesDictionary
     },
     AssembleRecipeAndPercentMatch: async function(RecipeByPercentMatch){
-        let CompletedRecipeSearchList = {}
+        let CompletedRecipeSearchList = []
         for(var key in RecipeByPercentMatch){
             let recipe = await this.GetRecipeById(key);
             let recipematch = new RecipeMatch(recipe,RecipeByPercentMatch[key]);
-            CompletedRecipeSearchList[key] = recipematch;
+            CompletedRecipeSearchList.push(recipematch);
         }
         return CompletedRecipeSearchList;
     },
