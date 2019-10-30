@@ -62,7 +62,7 @@ var RecipeService = {
         let ListOfAllMatchingRecipes = [];
         for(let i = 0;i < IngredientsList.length;i++){
             let Ingredient = IngredientsList[i]
-            ListOfAllMatchingRecipes = ListOfAllMatchingRecipes + await this.SearchRecipeBySingleIngredient(Ingredient)
+            ListOfAllMatchingRecipes = await this.SearchRecipeBySingleIngredient(ListOfAllMatchingRecipes,Ingredient)
         }
         console.log(ListOfAllMatchingRecipes);
     },
@@ -98,9 +98,8 @@ var RecipeService = {
             }
         }
     },
-    SearchRecipeBySingleIngredient: async function(Ingredient){
-        let ListOfAllMatchingRecipes = []
-        var DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(Ingredient.name);
+    SearchRecipeBySingleIngredient: async function(ListOfAllMatchingRecipes,Ingredient){ 
+        let DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(Ingredient.name);
             if(typeof DatabaseResult[0]!= 'undefined'){
                 for(let j = 0; j<DatabaseResult[0].length; j++){
                     ListOfAllMatchingRecipes.push(DatabaseResult[0][j]);
