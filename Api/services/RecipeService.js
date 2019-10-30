@@ -58,9 +58,18 @@ var RecipeService = {
         }
         return RecipeList;
     },
-    GetRecipesByIngredients: async function(IngredientsList){
-        var DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(IngredientsList[0].name);
-        console.log(DatabaseResult[0])
+    SearchRecipesByIngredients: async function(IngredientsList){
+        var ListOfAllMatchingRecipes = [];
+        for(let i = 0;i < IngredientsList.length;i++){
+            var DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(IngredientsList[i].name);
+            if(typeof DatabaseResult[0]!= 'undefined'){
+                for(let j = 0; j<DatabaseResult[0].length; j++){
+                    ListOfAllMatchingRecipes.push(DatabaseResult[0][i]);
+                }
+
+            }
+        }
+        console.log(ListOfAllMatchingRecipes);
     },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
