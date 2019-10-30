@@ -1,6 +1,7 @@
 var IApiDatabaseService;
 var User = require('../models/UserModel.js');
 var Recipe = require('../models/RecipeModel.js');
+var RecipeMatch = require('../models/RecipeMatchModel.js');
 var IIngredientService;
 var IUserService;
 
@@ -65,8 +66,9 @@ var RecipeService = {
             ListOfAllMatchingRecipes = await this.SearchRecipeBySingleIngredient(ListOfAllMatchingRecipes,Ingredient)
         }
         let RecipeAndMatchesDictionary = await this.MapRecipesToNumberOfIngredientMatches(ListOfAllMatchingRecipes)
-        let RecipeByPercentMatch = await this.GetRecipesPercentMatch(RecipeAndMatchesDictionary);
-        console.log(RecipeByPercentMatch);
+        let RecipeByPercentMatch = await this.GetRecipesPercentMatch(RecipeAndMatchesDictionary);   
+        let CompletedRecipeSearchList = await this.AssembleRecipeAndPercentMatch(RecipeByPercentMatch);
+        console.log(CompletedRecipeSearchList);
 
     },
     UpdateRecipe: async function(Recipe,User){
@@ -120,6 +122,15 @@ var RecipeService = {
             }
         }
         return RecipeAndMatchesDictionary
+    },
+    AssembleRecipeAndPercentMatch: async function(RecipeByPercentMatch){
+        let CompletedRecipeSearchList = {}
+        for(var key in RecipeByPercentMatch){
+            let recipe = await this.GetRecipeById(key);
+            let recipematch = new RecipeMatch(recipe,RecipeByPercentMatch[key]);
+            CompletedRecipeSearchList[key] = recipematch;
+        }
+        return CompletedRecipeSearchList;
     },
     GetRecipesPercentMatch: async function(RecipeAndMatchesDictionary){
         let RecipePercentMatchDictionary = {}
