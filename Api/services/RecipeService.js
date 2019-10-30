@@ -123,9 +123,10 @@ var RecipeService = {
     GetRecipesPercentMatch: async function(RecipeAndMatchesDictionary){
         let RecipePercentMatchDictionary = {}
         console.log("in get recipe percent match")
-        for(let i = 0; i < RecipeAndMatchesDictionary.length;i++){
-            console.log(RecipeAndMatchesDictionary[i])
-        }
+        RecipeAndMatchesDictionary.forEach(function(Recipe){
+            console.log(Recipe)
+        })
+        
     },
     DeleteRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
