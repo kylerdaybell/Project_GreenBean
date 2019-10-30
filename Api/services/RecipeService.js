@@ -58,6 +58,10 @@ var RecipeService = {
         }
         return RecipeList;
     },
+    GetRecipesByIngredients: async function(IngredientsList){
+        var DatabaseResult = IApiDatabaseService.SearchRecipeByIngredient(IngredientsList[0].name);
+        console.log(DatabaseResult[0])
+    },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
             UserID = await IUserService.GetUserID(User)

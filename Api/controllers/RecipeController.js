@@ -68,7 +68,8 @@ var RecipeController = {
         }
     },
     GetRecipeByIngredientsList: async function(req,res){
-        console.log(req.body.IngredientsList);
+        IngredientsList = req.body.IngredientsList;
+        
     }
 }
 

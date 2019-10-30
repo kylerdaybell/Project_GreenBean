@@ -95,6 +95,10 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         con.execute('UPDATE RECIPE SET NAME = ?, DESCRIPTION = ?,PICTURE = ?,PREP_TIME = ?,COOK_TIME = ?,INSTRUCTIONS = ? WHERE ID = ?', 
             [ recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.instructions,recipe.id]);
+    },
+    SearchRecipeByIngredient: async function(IngredientName){
+        const con = await this.getConnection();
+        con.execute('Select * from RECIPE a inner join RECIPETOINGREDIENT b on (a.ID = b.RECIPE_ID) inner join INGREDIENT c on (b.INGREDIENT_ID = c.ID) where c.NAME = ?',IngredientName);
     }
 
 }
