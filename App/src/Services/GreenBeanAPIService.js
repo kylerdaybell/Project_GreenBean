@@ -1,5 +1,5 @@
 import RecipeAddModel from "../models/Recipe";
-import Ingredient from "../models/IngredientsList"
+import Ingredient from "../models/Ingredients"
 const GreenBeanAPIService={
      CreateNewRecipe: function(recipe){
         fetch("http://api.greenbeancooking.com/createrecipe",{
