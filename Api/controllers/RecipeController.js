@@ -69,7 +69,7 @@ var RecipeController = {
     },
     GetRecipeByIngredientsList: async function(req,res){
         IngredientsList = req.body.IngredientsList;
-        console.log(IngredientsList)
+        console.log(IngredientsList[0])
         var RecipeMatch = await RecipeService.GetRecipesByIngredients(IngredientsList)
     }
 }
