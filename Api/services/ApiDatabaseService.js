@@ -98,7 +98,7 @@ var ApiDatabaseService = {
     },
     SearchRecipeByIngredient: async function(IngredientName){
         const con = await this.getConnection();
-        rows = await con.execute('Select a.ID count(*) from RECIPE a inner join RECIPETOINGREDIENT b on (a.ID = b.RECIPE_ID) inner join INGREDIENT c on (b.INGREDIENT_ID = c.ID) where c.NAME = ? GROUP BY a.ID',[IngredientName]);
+        rows = await con.execute('Select a.ID from RECIPE a inner join RECIPETOINGREDIENT b on (a.ID = b.RECIPE_ID) inner join INGREDIENT c on (b.INGREDIENT_ID = c.ID) where c.NAME = ?',[IngredientName]);
         return rows;
     }
 
