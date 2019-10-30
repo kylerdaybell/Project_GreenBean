@@ -59,7 +59,6 @@ var RecipeService = {
         return RecipeList;
     },
     GetRecipesByIngredients: async function(IngredientsList){
-        console.log(IngredientsList[0].name)
         var DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(IngredientsList[0].name);
         console.log(DatabaseResult[0])
     },
