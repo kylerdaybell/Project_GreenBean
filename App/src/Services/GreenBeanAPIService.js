@@ -13,6 +13,29 @@ const GreenBeanAPIService={
       SearchForRecipeByName: async function(SearchTerm){
           let APIResult = await fetch(`http://api.greenbeancooking.com/searchrecipebyname/${SearchTerm}`).then(response=>response.json())
           return APIResult;
+      },
+      SearchForRecipeByIngredient: async function(IngredientsList){
+          let IngredientsListArray = IngredientsList.split(',')
+          let FormatedRequestBody = {"IngredientsList" : IngredientsListArray};
+
+
+          const settings = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'cors',
+            body: FormatedRequestBody
+          };
+
+          console.log(settings.body);
+
+          
+          let APIResult = fetch("http://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json()).then(data=>console.log(data))
+
+
+
+
       }
 }
 
