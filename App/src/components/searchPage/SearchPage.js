@@ -12,6 +12,7 @@ const SearchPage = () => {
   const SearchAPIByIngredient = async ()=>{
     let SearchTerm = document.getElementById("ingredientSearchBox").value;
     let recipes = await GreenBeanAPIService.SearchForRecipeByIngredient(SearchTerm);
+    console.log(recipes)
     setRecipeResults(recipes);
   }
   return (

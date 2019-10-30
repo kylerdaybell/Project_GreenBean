@@ -37,6 +37,7 @@ const GreenBeanAPIService={
             body: RealFormatedRequestBody
           };
           let APIResult = fetch("http://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json())
+          return APIResult;
       }
 }
 
