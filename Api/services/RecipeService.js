@@ -62,7 +62,7 @@ var RecipeService = {
         let ListOfAllMatchingRecipes = [];
         for(let i = 0;i < IngredientsList.length;i++){
             let Ingredient = IngredientsList[i]
-            ListOfAllMatchingRecipes = ListOfAllMatchingRecipes + SearchRecipeBySingleIngredient(Ingredient)
+            ListOfAllMatchingRecipes = ListOfAllMatchingRecipes + this.SearchRecipeBySingleIngredient(Ingredient)
         }
         console.log(ListOfAllMatchingRecipes);
     },
