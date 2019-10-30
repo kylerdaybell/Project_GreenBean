@@ -122,12 +122,21 @@ var RecipeService = {
     },
     GetRecipesPercentMatch: async function(RecipeAndMatchesDictionary){
         let RecipePercentMatchDictionary = {}
-        console.log("in get recipe percent match")
         for(var key in RecipeAndMatchesDictionary){
-            console.log(key)
-            console.log(RecipeAndMatchesDictionary[key])
+            let NumberOfTotalIngredients = await this.GetNumberOfIngredientsByRecipeId(key);
+            let NumberOfMatchingIngredients = RecipeAndMatchesDictionary[key];
+            let PercentMatch = NumberOfMatchingIngredients/NumberOfTotalIngredients
+            RecipePercentMatchDictionary[key] = PercentMatch;
         }
+        return RecipePercentMatchDictionary;
         
+    },
+    GetNumberOfIngredientsByRecipeId: async function(RecipeID){
+        console.log("in get number of ingredients per recipe")
+        let DatabaseResult = await IApiDatabaseService.GetNumberOfIngredientsByRecipeId(RecipeID);
+        if(typeof DatabaseResult[0][0] != 'undefined'){
+            console.log(DatabaseResult[0]);
+        }
     },
     DeleteRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){

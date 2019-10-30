@@ -100,6 +100,11 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         rows = await con.execute('Select a.ID from RECIPE a inner join RECIPETOINGREDIENT b on (a.ID = b.RECIPE_ID) inner join INGREDIENT c on (b.INGREDIENT_ID = c.ID) where c.NAME = ?',[IngredientName]);
         return rows;
+    },
+    GetNumberOfIngredientsByRecipeId: async function(RecipeID){
+        const con = await this.getConnection();
+        rows = await con.execute('Select count(*) from RECIPETOINGREDIENT a  inner join INGREDIENT b on (a.INGREDIENT_ID = b.ID) where b.RECIPE_ID = ? GROUP BY a.RECIPE_ID',[RecipeID]);
+        return rows;
     }
 
 }
