@@ -5,3 +5,4 @@ class RecipeMatch{
         this.percentmatch = percentmatch;
     }
 }
+module.exports = RecipeMatch;
