@@ -113,7 +113,7 @@ var RecipeService = {
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(Ingredient.name);
             if(typeof DatabaseResult[0]!= 'undefined'){
                 for(let j = 0; j<DatabaseResult[0].length; j++){
-                    ListOfAllMatchingRecipes.push(DatabaseResult[0][j]);
+                    ListOfAllMatchingRecipes.push(DatabaseResult[0][j]["ID"]);
                 }
             }
         return ListOfAllMatchingRecipes;
