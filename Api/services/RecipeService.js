@@ -75,7 +75,7 @@ var RecipeService = {
         }
 
 
-        console.log(ListOfAllMatchingRecipes);
+        console.log(dict);
     },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
