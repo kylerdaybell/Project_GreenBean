@@ -135,7 +135,7 @@ var RecipeService = {
         console.log("in get number of ingredients per recipe")
         let DatabaseResult = await IApiDatabaseService.GetNumberOfIngredientsByRecipeId(RecipeID);
         if(typeof DatabaseResult[0][0] != 'undefined'){
-            console.log(DatabaseResult[0][0]);
+            console.log(DatabaseResult[0][0]["count(*)"]);
         }
     },
     DeleteRecipe: async function(Recipe,User){
