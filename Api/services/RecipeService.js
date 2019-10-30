@@ -124,6 +124,7 @@ var RecipeService = {
         let RecipePercentMatchDictionary = {}
         console.log("in get recipe percent match")
         for(var key in RecipeAndMatchesDictionary){
+            console.log(key)
             console.log(RecipeAndMatchesDictionary[key])
         }
         
