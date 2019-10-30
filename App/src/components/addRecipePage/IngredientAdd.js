@@ -17,7 +17,6 @@ const IngredientAdd = props => {
       ingredient.amount = amount;
       ingredient.unit = unit
       setIngredientArray([ingredient, ...ingredientArray])
-      console.log(ingredientArray);
   }
 
   return (

@@ -27,7 +27,6 @@ const GreenBeanAPIService={
           }
 
           let FormatedRequestBody = {"IngredientsList":IngredientsListArray};
-          console.log(FormatedRequestBody);
           let RealFormatedRequestBody = JSON.stringify(FormatedRequestBody);
           const settings = {
             method: 'POST',
@@ -37,7 +36,6 @@ const GreenBeanAPIService={
             mode: 'cors',
             body: RealFormatedRequestBody
           };
-          console.log(settings.body);
           let APIResult = fetch("http://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json())
       }
 }

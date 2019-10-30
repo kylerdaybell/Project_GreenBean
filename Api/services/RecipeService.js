@@ -64,6 +64,17 @@ var RecipeService = {
             let Ingredient = IngredientsList[i]
             ListOfAllMatchingRecipes = await this.SearchRecipeBySingleIngredient(ListOfAllMatchingRecipes,Ingredient)
         }
+        //we need to map each recipe id to the number of times that it occurs
+        var dict = {}
+        for(let i = 0;i<ListOfAllMatchingRecipes.length;i++){
+            if(typeof dict[ListOfAllMatchingRecipes[i]] == 'undefined'){
+                dict[ListOfAllMatchingRecipes[i]] = 1
+            }else{
+                dict[ListOfAllMatchingRecipes[i]] =  dict[ListOfAllMatchingRecipes[i]]+1
+            }
+        }
+
+
         console.log(ListOfAllMatchingRecipes);
     },
     UpdateRecipe: async function(Recipe,User){

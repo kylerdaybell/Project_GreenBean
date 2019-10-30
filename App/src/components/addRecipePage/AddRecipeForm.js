@@ -14,7 +14,6 @@ const AddRecipeForm = () => {
     let password = "9479"
     let ingredientsList = theIngredientList;
     let recipeSubmission = new RecipeAddModel(name,descr,picture,preptime,cooktime,instructions,ingredientsList,email,password );
-    console.log(recipeSubmission)
     let recipeJson = JSON.stringify(recipeSubmission);
     GreenBeanAPIService.CreateNewRecipe(recipeJson);
   }
