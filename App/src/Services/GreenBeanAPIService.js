@@ -1,5 +1,5 @@
 import RecipeAddModel from "../models/Recipe";
-import IngredientsList from "../models/IngredientsList"
+import Ingredient from "../models/IngredientsList"
 const GreenBeanAPIService={
      CreateNewRecipe: function(recipe){
         fetch("http://api.greenbeancooking.com/createrecipe",{
@@ -17,9 +17,18 @@ const GreenBeanAPIService={
           return APIResult;
       },
       SearchForRecipeByIngredient: async function(List){
-          let IngredientsListArray = List.split(',')
-          let FormatedRequestBody = new IngredientsList(IngredientsListArray);
-          let RealFormatedRequestBody = JSON.parse(FormatedRequestBody);
+          let ListArray = List.split(',')
+
+          var IngredientsListArray = []
+          
+          for(let i = 0; i < ListArray.length; i++){
+            let newIngredient = new Ingredient(ListArray[i])
+            IngredientsListArray.push(newIngredient);
+          }
+
+          let FormatedRequestBody = {"IngredientsList":IngredientsListArray};
+          console.log(FormatedRequestBody);
+          let RealFormatedRequestBody = JSON.stringify(FormatedRequestBody);
           const settings = {
             method: 'POST',
             headers: {
