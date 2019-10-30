@@ -68,7 +68,7 @@ var RecipeService = {
         let RecipeAndMatchesDictionary = await this.MapRecipesToNumberOfIngredientMatches(ListOfAllMatchingRecipes)
         let RecipeByPercentMatch = await this.GetRecipesPercentMatch(RecipeAndMatchesDictionary);   
         let CompletedRecipeSearchList = await this.AssembleRecipeAndPercentMatch(RecipeByPercentMatch);
-        console.log(CompletedRecipeSearchList);
+        return CompletedRecipeSearchList;
 
     },
     UpdateRecipe: async function(Recipe,User){

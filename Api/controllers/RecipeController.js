@@ -69,7 +69,9 @@ var RecipeController = {
     },
     GetRecipeByIngredientsList: async function(req,res){
         IngredientsList = req.body.IngredientsList;
-        var RecipeMatch = await RecipeService.SearchRecipesByIngredients(IngredientsList)
+        var RecipeMatch = await RecipeService.SearchRecipesByIngredients(IngredientsList);
+        res.write(JSON.stringify(RecipeMatch));
+        res.end();
     }
 }
 
