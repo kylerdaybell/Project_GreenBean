@@ -64,9 +64,9 @@ var RecipeService = {
             let Ingredient = IngredientsList[i]
             ListOfAllMatchingRecipes = await this.SearchRecipeBySingleIngredient(ListOfAllMatchingRecipes,Ingredient)
         }
-        var RecipeAndMatchesDictionary = await this.MapRecipesToNumberOfIngredientMatches(ListOfAllMatchingRecipes)
-        
-        console.log(RecipeAndMatchesDictionary);
+        let RecipeAndMatchesDictionary = await this.MapRecipesToNumberOfIngredientMatches(ListOfAllMatchingRecipes)
+        let RecipeByPercentMatch = await this.GetRecipesPercentMatch(RecipeAndMatchesDictionary);
+
     },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
@@ -119,6 +119,12 @@ var RecipeService = {
             }
         }
         return RecipeAndMatchesDictionary
+    },
+    GetRecipesPercentMatch: async function(RecipeAndMatchesDictionary){
+        let RecipePercentMatchDictionary = {}
+        for(let i = 0; i < RecipeAndMatchesDictionary.length;i++){
+            console.log(RecipeAndMatchesDictionary[i])
+        }
     },
     DeleteRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
