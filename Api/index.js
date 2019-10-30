@@ -62,6 +62,13 @@ app.post('/deleterecipe',cors(corsOptions),function(req,res){
   recipeController.DeleteRecipe(req,res);
 })
 
+app.post('/getrecipebyingredientslist',cors(corsOptions),function(req,res){
+  console.log("/getrecipebyingredientslist");
+  recipeController.GetRecipeByIngredientsList(req,res);
+})
+
+
+
 app.listen(port,function(){
 
 });

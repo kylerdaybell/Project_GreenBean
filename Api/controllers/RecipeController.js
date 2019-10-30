@@ -66,6 +66,9 @@ var RecipeController = {
             res.write(JSON.stringify("Result: Failure"));
             res.end();
         }
+    },
+    GetRecipeByIngredientsList: async function(req,res){
+        console.log(req.body.ingredientslist);
     }
 }
 
