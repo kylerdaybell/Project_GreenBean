@@ -6,7 +6,7 @@ Method
 >POST
 
 URL
->http://api.greenbeancooking.com/register
+>https://api.greenbeancooking.com/register
 
 Request Body
 ```
@@ -23,7 +23,7 @@ Method
 >POST
 
 URL
->http://api.greenbeancooking.com/login
+>https://api.greenbeancooking.com/login
 
 Request Body
 ```
@@ -37,7 +37,7 @@ Method
 >POST
 
 URL
->http://api.greenbeancooking.com/createrecipe
+>https://api.greenbeancooking.com/createrecipe
 
 Request Body
 ```
@@ -62,7 +62,7 @@ Method
 >POST
 
 URL
->http://api.greenbeancooking.com/updaterecipe
+>https://api.greenbeancooking.com/updaterecipe
 
 Request Body
 ```
@@ -85,7 +85,7 @@ Method
 >POST
 
 URL
->http://api.greenbeancooking.com/deleterecipe
+>https://api.greenbeancooking.com/deleterecipe
 
 Request Body
 ```
@@ -103,7 +103,7 @@ Method
 >GET
 
 URL
->http://api.greenbeancooking.com/getrecipebyid/id
+>https://api.greenbeancooking.com/getrecipebyid/id
 
 
 ## Getting all recipes from the database including ingredients
@@ -114,7 +114,7 @@ Method
 >GET
 
 URL
->http://api.greenbeancooking.com/getallrecipes
+>https://api.greenbeancooking.com/getallrecipes
 
 
 ## Searching for a recipe by name
@@ -122,7 +122,7 @@ Method
 >GET
 
 URL
->http://api.greenbeancooking.com/searchrecipebyname/recipesearchterm
+>https://api.greenbeancooking.com/searchrecipebyname/recipesearchterm
 
 
 
@@ -134,7 +134,7 @@ Method
 >POST
 
 URL
->http://api.greenbeancooking.com/getrecipebyingredientslist
+>https://api.greenbeancooking.com/getrecipebyingredientslist
 
 Request Body
 
