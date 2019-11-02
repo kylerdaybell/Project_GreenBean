@@ -137,7 +137,7 @@ var RecipeService = {
         for(var key in RecipeAndMatchesDictionary){
             let NumberOfTotalIngredients = await this.GetNumberOfIngredientsByRecipeId(key);
             let NumberOfMatchingIngredients = RecipeAndMatchesDictionary[key];
-            let PercentMatch = NumberOfMatchingIngredients/NumberOfTotalIngredients
+            let PercentMatch = (NumberOfMatchingIngredients/NumberOfTotalIngredients)*100
             RecipePercentMatchDictionary[key] = PercentMatch;
         }
         return RecipePercentMatchDictionary;

@@ -12,7 +12,6 @@ const SearchPage = () => {
   const SearchAPIByIngredient = async ()=>{
     let SearchTerm = document.getElementById("ingredientSearchBox").value;
     let recipes = await GreenBeanAPIService.SearchForRecipeByIngredient(SearchTerm);
-    console.log(recipes)
     setRecipeResults(recipes);
   }
   return (
@@ -20,18 +19,19 @@ const SearchPage = () => {
       <PageTitle title={"Search Page"}/>
       <div id="content-area" className="w3-container">
       </div>
-      <input id="nameSearchBox" className="w3-input w3-border" type="text" placeholder="search"/>
-      <button onClick={()=>SearchAPIByName()} className="w3-button w3-green ">search</button>
+      {/* <input id="nameSearchBox" className="w3-input w3-border" type="text" placeholder="search"/>
+      <button onClick={()=>SearchAPIByName()} className="w3-button w3-green ">search</button> */}
       <input id="ingredientSearchBox" className="w3-input w3-border" type="text" placeholder="search"/>
       <button onClick={()=>SearchAPIByIngredient()} className="w3-button w3-green ">search</button>
-      <ul>
+      <div>
         {recipeResults.map((recipe, index) => (
           <div key={index}>
-            <li >{recipe.name}</li>
-            <li>{recipe.descr}</li>
+            <h2>{recipe.recipe.name}</h2>
+            <p className="w3-text-green">Percent Match {recipe.percentmatch}</p>
+            <p>Description{recipe.recipe.descr}</p>
           </div>
         ))}
-      </ul>
+      </div>
     </>
   );
 };
