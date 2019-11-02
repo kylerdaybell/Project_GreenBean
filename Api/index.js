@@ -6,6 +6,7 @@ var whitelist = "http:/144.17.24.16";
 var userController = require('./controllers/UserController.js');
 var recipeController = require('./controllers/RecipeController.js');
 const bodyParser = require('body-parser');
+app.use(express.static(__dirname, { dotfiles: 'allow' } ));
 app.use(bodyParser.json());
 
 var corsOptions={
