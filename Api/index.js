@@ -6,8 +6,22 @@ var whitelist = "http:/144.17.24.16";
 var userController = require('./controllers/UserController.js');
 var recipeController = require('./controllers/RecipeController.js');
 const bodyParser = require('body-parser');
-app.use(express.static(__dirname, { dotfiles: 'allow' } ));
 app.use(bodyParser.json());
+
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/chain.pem', 'utf8');
+
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
+};
+
+
+const httpsServer = https.createServer(credentials, app);
+
+
 
 var corsOptions={
     origin:function(origin,callback){
@@ -70,6 +84,6 @@ app.post('/getrecipebyingredientslist',cors(corsOptions),function(req,res){
 
 
 
-app.listen(port,function(){
-
+httpsServer.listen(443, () => {
+	console.log('HTTPS Server running on port 443');
 });
