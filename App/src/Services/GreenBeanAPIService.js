@@ -8,7 +8,7 @@ const GreenBeanAPIService={
             'Content-Type': 'application/json'
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
-          mode: 'cors',
+          mode: 'no-cors',
           body: recipe
         }).then(response=>response.json()).then(data=>console.log(data))
       },
@@ -33,7 +33,7 @@ const GreenBeanAPIService={
             headers: {
                 'Content-Type': 'application/json',
             },
-            mode: 'cors',
+            mode: 'no-cors',
             body: RealFormatedRequestBody
           };
           let APIResult = fetch("https://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json())
