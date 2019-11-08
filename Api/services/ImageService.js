@@ -6,6 +6,7 @@ var ImageService = {
         var imageInfo =  base64ToImage(encodedstring,path);
         baseurl = "https://api.greenbeancooking.com/images/"
         imageurl = baseurl+imageInfo.fileName;
+        console.log("trying to create images")
         return imageurl;
     }
 }
