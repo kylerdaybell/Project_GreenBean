@@ -10,6 +10,9 @@ var ImageService = {
         imageurl = baseurl+imageInfo.fileName;
         console.log(imageInfo.abs)
         return imageurl;
+    },
+    RemoveImage: function(imageurl){
+        return;
     }
 }
 

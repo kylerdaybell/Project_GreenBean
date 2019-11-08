@@ -20,17 +20,14 @@ var RecipeService = {
                     recipe.id = recipeID;
                     await IIngredientService.AddIngredients(recipe);
                 }else{
-                    console.log(recipe)
                     return false
                 }
                 return true;
             }else{
-                console.log(recipe)
                 return false;
             }           
         }
         else{
-            console.log(recipe)
             return false;
         }
     },
