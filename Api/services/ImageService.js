@@ -12,5 +12,5 @@ var ImageService = {
     },
 }
 
-ImageService.Convert64BitToImageUrl();
+
 module.exports = ImageService;
