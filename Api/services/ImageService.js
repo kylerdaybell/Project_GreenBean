@@ -9,7 +9,7 @@ var ImageService = {
         baseurl = "https://api.greenbeancooking.com/images/"
         imageurl = baseurl+imageInfo.fileName;
         return imageurl;
-    },
+    }
 }
 
 
