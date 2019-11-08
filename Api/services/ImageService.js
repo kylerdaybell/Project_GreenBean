@@ -4,7 +4,7 @@ var base64ToImage = require('base64-to-image');
 var ImageService = {
     Convert64BitToImageUrl: function(encodedstring){
         var imageurl = "https://api.greenbeancooking.com/images/DefaultImage.jpg";
-        if(encodedstring == ""){
+        if(encodedstring === ""){
             return;
         }else{
             console.log("we are in the darn function")
