@@ -2,8 +2,10 @@ var RecipeService = require('../services/RecipeService.js');
 var UserService = require('../services/UserService.js');
 var IngredientService = require('../services/IngredientService')
 var ApiDatabaseService = require('../services/ApiDatabaseService.js');
+var ImageService = require("../services/ImageService")
 var Recipe = require('../models/RecipeModel.js');
 var User = require('../models/UserModel.js');
+var ImageService = require("../services/ImageService")
 
 UserService.constructor(ApiDatabaseService);
 IngredientService.constructor(ApiDatabaseService);
