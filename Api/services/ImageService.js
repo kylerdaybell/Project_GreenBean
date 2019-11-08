@@ -9,7 +9,7 @@ var ImageService = {
         }else{
             console.log("we are in the darn function")
             path = "/root/Project_GreenBean/Api/Images/"
-            var imageInfo = await base64ToImage(encodedstring,path);
+            var imageInfo =  base64ToImage(encodedstring,path);
             baseurl = "https://api.greenbeancooking.com/images/"
             imageurl = baseurl+imageInfo.fileName;
             console.log(imageInfo.abs)
