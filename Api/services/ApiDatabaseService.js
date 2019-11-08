@@ -29,6 +29,7 @@ var ApiDatabaseService = {
     },
     AddRecipe: async function(recipe){
         const con = await this.getConnection();
+        console.log(recipe);
         con.execute('INSERT INTO RECIPE(USER_ID,NAME,DESCRIPTION,PICTURE,PREP_TIME,COOK_TIME,INSTRUCTIONS) VALUE (?,?,?,?,?,?,?)', 
             [recipe.userid, recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.instructions]);
     },
