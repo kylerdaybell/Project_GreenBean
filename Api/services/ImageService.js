@@ -48,7 +48,7 @@ var ImageService = {
         }
     
         image.type = matches[1];
-        image.data = new Buffer.alloc(matches[2], 'base64');
+        image.data = new Buffer(matches[2], 'base64');
     
         return image;
     }
