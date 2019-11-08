@@ -16,6 +16,7 @@ var RecipeController = {
     PostCreateRecipe: async function(req, res){
         console.log(req.body.picture)
         if(req.body.picture !== ""){
+            console.log("sending to the image converter")
             var ImageUrl = await ImageService.Convert64BitToImageUrl(req.body.picture);
         }
         var recipe = new Recipe(null, null, req.body.name, req.body.descr, ImageUrl, req.body.preptime, 
