@@ -14,7 +14,8 @@ RecipeService.constructor(ApiDatabaseService, UserService,IngredientService);
 
 var RecipeController = {
     PostCreateRecipe: async function(req, res){
-        var ImageUrl = await ImageService.Convert64BitToImageUrl(req.body.picture);
+        var ImageUrl = "https://api.greenbeancooking.com/images/DefaultImage.jpg";
+        ImageUrl = await ImageService.Convert64BitToImageUrl(req.body.picture);
         console.log(ImageUrl)
         var recipe = new Recipe(null, null, req.body.name, req.body.descr, ImageUrl, req.body.preptime, 
             req.body.cooktime, req.body.instructions, req.body.ingredientslist);
