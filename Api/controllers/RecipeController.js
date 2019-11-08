@@ -24,7 +24,6 @@ var RecipeController = {
             res.end();
         }
         else{
-            ImageService.RemoveImage(ImageUrl);
             res.write(JSON.stringify("Result: Failure"));
             res.end();
         }
