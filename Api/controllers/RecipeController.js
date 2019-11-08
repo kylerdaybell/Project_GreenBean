@@ -15,7 +15,7 @@ RecipeService.constructor(ApiDatabaseService, UserService,IngredientService);
 var RecipeController = {
     PostCreateRecipe: async function(req, res){
         
-        //var ImageUrl = await ImageService.Convert64BitToImageUrl(req.body.picture);
+        var ImageUrl = await ImageService.Convert64BitToImageUrl("a;lkjfd l[isajd f");
         var recipe = new Recipe(null, null, req.body.name, req.body.descr, req.body.picture, req.body.preptime, 
             req.body.cooktime, req.body.instructions, req.body.ingredientslist);
         var user = new User(req.body.email, req.body.password, null);
