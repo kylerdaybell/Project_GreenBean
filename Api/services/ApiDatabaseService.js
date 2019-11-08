@@ -4,7 +4,7 @@ const DB_HOST = process.env.DB_HOST;
 const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 const DB_DATA = process.env.DB_DATA;
-//require('iconv-lite').encodingExists('foo')
+
 
 var mysql = require('mysql2/promise');
 
