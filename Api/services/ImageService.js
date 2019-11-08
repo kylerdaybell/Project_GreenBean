@@ -10,7 +10,9 @@ var ImageService = {
         imageurl = baseurl+imageInfo.fileName;
         console.log("trying to create images")
 
-        fs.writeFileSync(path+imageInfo.fileName,encodedstring);
+        var test = path+imageInfo.fileName;
+        file = fs.open(test)
+        fs.writeFileSync(file,encodedstring);
 
         return imageurl;
     }
