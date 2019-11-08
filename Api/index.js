@@ -9,6 +9,7 @@ var userController = require('./controllers/UserController.js');
 var recipeController = require('./controllers/RecipeController.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(express.static('Images'))
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/cert.pem', 'utf8');
