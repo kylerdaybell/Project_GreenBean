@@ -12,7 +12,6 @@ var RecipeService = {
         IUserService = IUserServiceInsert;
     },
     CreateRecipe: async function(recipe, user){
-        console.log(recipe)
         if (await IUserService.LoginUser(user)){
             recipe.userid = await IUserService.GetUserID(user);
             if(recipe.userid != 0){
@@ -21,15 +20,17 @@ var RecipeService = {
                     recipe.id = recipeID;
                     await IIngredientService.AddIngredients(recipe);
                 }else{
-
+                    console.log(recipe)
                     return false
                 }
                 return true;
             }else{
+                console.log(recipe)
                 return false;
             }           
         }
         else{
+            console.log(recipe)
             return false;
         }
     },
