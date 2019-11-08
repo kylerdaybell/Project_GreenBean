@@ -5,7 +5,7 @@ var ImageService = {
     Convert64BitToImageUrl: function(encodedstring){
         var imageurl = "https://api.greenbeancooking.com/images/DefaultImage.jpg";
         if(encodedstring === ""){
-            return;
+            return imageurl;
         }else{
             console.log("we are in the darn function")
             path = "/root/Project_GreenBean/Api/Images/"
