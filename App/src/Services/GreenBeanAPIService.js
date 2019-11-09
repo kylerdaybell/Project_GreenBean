@@ -38,7 +38,22 @@ const GreenBeanAPIService={
           };
           let APIResult = fetch("https://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json())
           return APIResult;
+      },
+      Login: async function(email,password){
+        let request = {"email": email, "password":password}
+        let RealFormatedRequestBody = JSON.stringify(request);
+        const settings = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          mode: 'cors',
+          body: RealFormatedRequestBody
+        };
+        let APIResult = await fetch("https://api.greenbeancooking.com/login",settings).then(response=>response.json())
+        return APIResult == "Result: Success" ? true : false;
       }
 }
+
 
 export default GreenBeanAPIService

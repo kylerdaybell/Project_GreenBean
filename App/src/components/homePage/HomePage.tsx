@@ -2,10 +2,10 @@ import * as React from "react";
 import "../../css/w3.css";
 import PageTitle from "../shared/PageTitle";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
-      <PageTitle title={"Welcome Home"}/>
+      <PageTitle title={"Green Bean Cooking"}/>
       <div id="content-area" className="w3-container">
         <p>this is where the home page goes</p>
       </div>
@@ -13,4 +13,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

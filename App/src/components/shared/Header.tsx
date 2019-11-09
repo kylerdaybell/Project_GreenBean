@@ -14,6 +14,9 @@ const Header = () => {
       <NavLink className="w3-bar-item w3-white w3-button w3-hover-green" to="/new">
         Add Recipe
       </NavLink>
+      <NavLink className="w3-bar-item w3-white w3-button w3-hover-green w3-display-topright" to="/login">
+        Login
+      </NavLink>
     </nav>
   );
 };
