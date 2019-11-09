@@ -1,2 +1,3 @@
-
-export const greenBeanAPI = [];
+export const greenBeanAPI = {
+  recipes: []
+};
