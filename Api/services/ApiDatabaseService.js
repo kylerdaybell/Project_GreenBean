@@ -16,7 +16,6 @@ var mysql = require('mysql2/promise');
 
 var ApiDatabaseService = {
     getConnection: async function(){
-
         return con;
     },
     GetUser: async function(email){
@@ -59,6 +58,7 @@ var ApiDatabaseService = {
     GetListOfIngredientsByRecipeID: async function(RecipeID){
         const con = await this.getConnection();
         rows = await con.execute('SELECT * FROM RECIPETOINGREDIENT a inner join INGREDIENT b on (a.INGREDIENT_ID = b.ID) WHERE a.RECIPE_ID = ?',[RecipeID]);
+        con.end()
         return rows;
     },
     GetRecipeByID: async function(RecipeID){
@@ -69,6 +69,7 @@ var ApiDatabaseService = {
     GetAllRecipes: async function(){
         const con = await this.getConnection();
         row = await con.execute('SELECT * FROM RECIPE ');
+        con.end()
         return row;
     },
     SearchRecipeByName: async function(RecipeName){
