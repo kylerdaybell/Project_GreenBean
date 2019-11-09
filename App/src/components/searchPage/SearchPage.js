@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PageTitle from "../shared/PageTitle";
 import GreenBeanAPIService from "../../Services/GreenBeanAPIService";
+import RecipeCard from "../shared/RecipeCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
@@ -32,25 +33,18 @@ const SearchPage = props => {
         placeholder="search"
       />
       <button
-        onClick={() => props.SearchForRecipeByIngredient(document.getElementById("ingredientSearchBox").value)}
+        onClick={() =>
+          props.SearchForRecipeByIngredient(
+            document.getElementById("ingredientSearchBox").value
+          )
+        }
         className="w3-button w3-green "
       >
         search
       </button>
       <div className="w3-row-padding">
         {props.recipes.map((recipe, index) => (
-          <div className="w3-card w3-third" key={index}>
-            <img
-              src={recipe.recipe.picture}
-              alt="recipe picture"
-              style={{ width: "100%" }}
-            ></img>
-            <h2 className="w3-container">{recipe.recipe.name}</h2>
-            <p className="w3-text-green w3-container">
-              Percent Match {recipe.percentmatch}
-            </p>
-            <p className="w3-container">Description{recipe.recipe.descr}</p>
-          </div>
+          <RecipeCard recipe={recipe} key={index} />
         ))}
       </div>
     </>
