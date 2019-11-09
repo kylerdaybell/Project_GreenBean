@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { combineReducers } from "redux";
-import * as Reducers from "./reducer";
+import * as Reducers from "./reducers";
 
 const rootReducer = combineReducers({
   greenBeanAPI: Reducers.greenBeanAPIReducer
