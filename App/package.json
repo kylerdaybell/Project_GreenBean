@@ -1,13 +1,13 @@
 {
-  "name": "greenbean",
+  "name": "GreenBean",
   "description": "A solution to all of your recipe needs",
   "author": "Brandon Isbell, Kyler Daybell, Mike Vance",
   "build": {
-    "appId": "greenbean"
+    "appId": "GreenBean"
   },
   "main": "public/electron.js",
   "homepage": "./",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.19",

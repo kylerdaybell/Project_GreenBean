@@ -6,7 +6,7 @@ const RecipeCard = props => {
             <img
               src={props.recipe.recipe.picture}
               alt="recipe picture"
-              style={{ width: "100%" }}
+              style={{width:"100%",height:"30vh" }}
             ></img>
             <h2 className="w3-container">{props.recipe.recipe.name}</h2>
             <p className="w3-text-green w3-container">
