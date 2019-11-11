@@ -7,7 +7,7 @@ import SearchPage from "./components/searchPage/SearchPage";
 import AddRecipe from "./components/addRecipePage/AddRecipe";
 import "./App.css";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div>
       <Header />

@@ -1,10 +1,7 @@
-import * as React from "react";
+import React from "react";
 
-interface PageProps {
-    title: string;
-}
 
-const PageTitle : React.FunctionComponent<PageProps> = (props) => {
+const PageTitle = (props) => {
   return (
     <>
       <div id="title" className="w3-container w3-green">

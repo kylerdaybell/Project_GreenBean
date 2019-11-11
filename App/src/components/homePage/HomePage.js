@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "../../css/w3.css";
 import PageTitle from "../shared/PageTitle";
 

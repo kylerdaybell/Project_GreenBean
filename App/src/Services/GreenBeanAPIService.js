@@ -16,7 +16,7 @@ const GreenBeanAPIService={
           let APIResult = await fetch(`https://api.greenbeancooking.com/searchrecipebyname/${SearchTerm}`).then(response=>response.json())
           return APIResult;
       },
-      SearchForRecipeByIngredient: async function(List){
+      SearchForRecipeByIngredient: function(List){
           let ListArray = List.split(',')
 
           var IngredientsListArray = []
@@ -36,8 +36,8 @@ const GreenBeanAPIService={
             mode: 'cors',
             body: RealFormatedRequestBody
           };
-          let APIResult = fetch("https://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json())
-          return APIResult;
+          return fetch("https://api.greenbeancooking.com/getrecipebyingredientslist",settings).then(response=>response.json()).catch(e=>e)
+          //return APIResult;
       },
       Login: async function(email,password){
         let request = {"email": email, "password":password}
@@ -51,7 +51,7 @@ const GreenBeanAPIService={
           body: RealFormatedRequestBody
         };
         let APIResult = await fetch("https://api.greenbeancooking.com/login",settings).then(response=>response.json())
-        return APIResult == "Result: Success" ? true : false;
+        return APIResult === "Result: Success" ? true : false;
       }
 }
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import PageTitle from "../shared/PageTitle";
 import AddRecipeForm from "./AddRecipeForm";
 

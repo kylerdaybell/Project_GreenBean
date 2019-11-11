@@ -5,7 +5,7 @@ const RecipeCard = props => {
         <div className="w3-card w3-third">
             <img
               src={props.recipe.recipe.picture}
-              alt="recipe picture"
+              alt="recipe"
               style={{width:"100%",height:"30vh" }}
             ></img>
             <h2 className="w3-container">{props.recipe.recipe.name}</h2>
