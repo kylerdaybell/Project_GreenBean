@@ -25,7 +25,7 @@ export function LoginFailure(){
 export function Login(email,password){
   return function(dispatch){
     return GreenBeanAPIService.Login(email,password).then(
-      result=> {result ? dispatch(LoginSuccess(email,password)) : dispatch(LoginFailure())}
+      result=> {result === "Result: Success" ? dispatch(LoginSuccess(email,password)) : dispatch(LoginFailure())}
     )
   }
 }
