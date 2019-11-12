@@ -10,9 +10,9 @@ const RecipeCard = props => {
             ></img>
             <h2 className="w3-container">{props.recipe.recipe.name}</h2>
             <p className="w3-text-green w3-container">
-              Percent Match {props.recipe.percentmatch}
+              {Math.floor((props.recipe.percentmatch*10)/10)}% match
             </p>
-            <p className="w3-container">Description{props.recipe.recipe.descr}</p>
+            <p className="w3-container">Description: {props.recipe.recipe.descr}</p>
           </div>
     );
 };
