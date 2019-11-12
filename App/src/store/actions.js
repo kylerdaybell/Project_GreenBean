@@ -31,6 +31,15 @@ export function Login(email,password){
   }
 }
 
+export function Logout(){
+  return{
+    type: ActionTypes.LOGOUT,
+    email: "",
+    password: "",
+    loggedIn: false
+  }
+}
+
 export function CreateNewRecipe(recipe){
   return function(dispatch){
     return GreenBeanAPIService.CreateNewRecipe(recipe);
