@@ -1,7 +1,9 @@
 import React from "react";
 import IngredientAdd from "./IngredientAdd";
-import RecipeAddModel from "../../models/Recipe"
-import GreenBeanAPIService from "../../Services/GreenBeanAPIService"
+import RecipeAddModel from "../../models/Recipe";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions";
 
 const AddRecipeForm = () => {
   var image = ""
@@ -47,14 +49,13 @@ const AddRecipeForm = () => {
         <label htmlFor="instructions">Instructions:</label>
         <input className="w3-input w3-border" id="instructions" type="text" />
         <br />
-
-    
-        <IngredientAdd onSubmit={AddRecipe}/>
-
-
         
+        <IngredientAdd onSubmit={AddRecipe}/>
     </>
   );
 };
 
-export default AddRecipeForm;
+export default connect(
+  null,
+  dispatch => bindActionCreators(actionCreators,dispatch)
+  )(AddRecipeForm);
