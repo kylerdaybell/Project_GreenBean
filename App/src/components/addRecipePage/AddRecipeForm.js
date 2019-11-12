@@ -8,11 +8,15 @@ import * as actionCreators from "../../store/actions";
 const AddRecipeForm = props => {
   var image = ""
   const FilesAdded = (event)=>{
+    console.log("helppppp")
     let files = document.getElementById("picture").files[0];
     var reader = new FileReader();
-    reader.readAsDataURL(files)
+    console.log(files)
+    reader.readAsDataURL(files);
+    
     reader.onload = function(){
       image = reader.result;
+      console.log(image)
     }
   }
   const AddRecipe = (theIngredientList) => {
