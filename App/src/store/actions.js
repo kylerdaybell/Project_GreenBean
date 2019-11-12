@@ -15,7 +15,8 @@ export function SearchForRecipeByIngredient(ingredients) {
 }
 
 export function LoginSuccess(email,password){
-  return {type: ActionTypes.LOGIN_SUCCESS,email,password}
+  let loggedIn = true;
+  return {type: ActionTypes.LOGIN_SUCCESS,email,password, loggedIn}
 }
 
 export function LoginFailure(){

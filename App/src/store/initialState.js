@@ -1,4 +1,4 @@
 export const greenBeanAPI = {
   recipes: [],
-  credentials:{"email":"","password":""}
+  credentials: { loggedIn: false, email: "", password: "" }
 };

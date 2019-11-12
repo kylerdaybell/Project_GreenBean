@@ -4,6 +4,7 @@ import RecipeAddModel from "../../models/Recipe";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import GreenBeanAPIService from "../../Services/GreenBeanAPIService"
 
 const AddRecipeForm = () => {
   var image = ""

@@ -7,7 +7,7 @@ import * as actionCreators from "../../store/actions";
 import {Redirect} from "react-router-dom";
 
 const LoginPage = props => {
-    if(props.credentials.email !== ""){
+    if(props.credentials.loggedIn){
         return <Redirect to="/" />
     }
   
