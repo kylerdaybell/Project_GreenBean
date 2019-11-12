@@ -4,9 +4,8 @@ import RecipeAddModel from "../../models/Recipe";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
-import GreenBeanAPIService from "../../Services/GreenBeanAPIService"
 
-const AddRecipeForm = () => {
+const AddRecipeForm = props => {
   var image = ""
   const FilesAdded = (event)=>{
     let files = document.getElementById("picture").files[0];
@@ -27,7 +26,7 @@ const AddRecipeForm = () => {
     let ingredientsList = theIngredientList;
     let recipeSubmission = new RecipeAddModel(name,descr,image,preptime,cooktime,instructions,ingredientsList,email,password );
     let recipeJson = JSON.stringify(recipeSubmission);
-    GreenBeanAPIService.CreateNewRecipe(recipeJson);
+    props.CreateNewRecipe(recipeJson);
   }
   return (
     <>

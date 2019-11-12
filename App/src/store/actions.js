@@ -30,3 +30,9 @@ export function Login(email,password){
     )
   }
 }
+
+export function CreateNewRecipe(recipe){
+  return function(dispatch){
+    return GreenBeanAPIService.CreateNewRecipe(recipe);
+  };
+};
