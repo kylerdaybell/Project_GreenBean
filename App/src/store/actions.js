@@ -1,6 +1,5 @@
 import * as ActionTypes from "./constants";
 import GreenBeanAPIService from "../Services/GreenBeanAPIService";
-import { func } from "prop-types";
 
 export function SearchByIngredientSuccess(recipes) {
   return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };

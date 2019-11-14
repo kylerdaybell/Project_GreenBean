@@ -6,7 +6,6 @@ const GreenBeanAPIService={
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
           },
           mode: 'cors',
           body: recipe

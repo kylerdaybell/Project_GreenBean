@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { combineReducers } from "redux";
 import * as Reducers from "./reducers";
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   greenBeanAPI: Reducers.greenBeanAPIReducer
 });
 
