@@ -17,7 +17,7 @@ var RecipeController = {
         var ImageUrl = "https://api.greenbeancooking.com/images/DefaultImage.jpg";
         ImageUrl = await ImageService.Convert64BitToImageUrl(req.body.picture);
         var recipe = new Recipe(null, null, req.body.name, req.body.descr, ImageUrl, req.body.preptime, 
-            req.body.cooktime, req.body.instructions, req.body.ingredientslist);
+            req.body.cooktime, req.body.category,req.body.instructions, req.body.ingredientslist);
         var user = new User(req.body.email, req.body.password, null);
         if (await RecipeService.CreateRecipe(recipe, user)){
             res.write(JSON.stringify("Result: Success"));

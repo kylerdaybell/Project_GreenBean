@@ -48,6 +48,7 @@ Request Body
     "preptime": "00:05:00",
     "cooktime": "00:00:00",
     "instructions": "put raw chicken on icecream and then serve",
+    "category":"categoryname",
     "ingredientslist": [{"name":"chicken","amount":"10","unit":"cups"},{"name":"icecream","amount":"10","unit":"cups"}],
     "email": "test@gmail.com",
     "password": "test"
