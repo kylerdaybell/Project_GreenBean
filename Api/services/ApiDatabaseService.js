@@ -34,7 +34,7 @@ var ApiDatabaseService = {
     AddRecipe: async function(recipe){
         const con = await this.getConnection();
         con.execute('INSERT INTO RECIPE(USER_ID,NAME,DESCRIPTION,PICTURE,PREP_TIME,COOK_TIME,CATEGORY,INSTRUCTIONS) VALUE (?,?,?,?,?,?,?,?)', 
-            [recipe.userid, recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.catgory,recipe.instructions]);
+            [recipe.userid, recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.category,recipe.instructions]);
         con.end()
     },
     GetRecipeID: async function(recipe){
