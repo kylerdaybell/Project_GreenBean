@@ -6,6 +6,7 @@ const GreenBeanAPIService={
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
+            
           },
           mode: 'cors',
           body: recipe
@@ -30,7 +31,9 @@ const GreenBeanAPIService={
           const settings = {
             method: 'POST',
             headers: {
+              'Access-Control-Allow-Origin':"",
                 'Content-Type': 'application/json',
+                
             },
             mode: 'cors',
             body: RealFormatedRequestBody

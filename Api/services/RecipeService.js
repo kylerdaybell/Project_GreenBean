@@ -54,7 +54,8 @@ var RecipeService = {
         var RecipeList = []
         for(let i = 0; i<DatabaseResult[0].length; i++){
             let recipe = await this.DatabaseResultToRecipe(DatabaseResult[0][i]);
-            RecipeList.push(recipe);
+            var newrecipe = {"recipe":recipe};
+            RecipeList.push(newrecipe);
         }
         return RecipeList;
     },
