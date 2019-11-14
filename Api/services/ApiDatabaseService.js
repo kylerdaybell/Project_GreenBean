@@ -110,8 +110,8 @@ var ApiDatabaseService = {
     },
     UpdateRecipe: async function(recipe){
         const con = await this.getConnection();
-        con.execute('UPDATE RECIPE SET NAME = ?, DESCRIPTION = ?,PICTURE = ?,PREP_TIME = ?,COOK_TIME = ?,INSTRUCTIONS = ? WHERE ID = ?', 
-            [ recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.instructions,recipe.id]);
+        con.execute('UPDATE RECIPE SET NAME = ?, DESCRIPTION = ?,PICTURE = ?,PREP_TIME = ?,COOK_TIME = ?,CATEGORY=?,INSTRUCTIONS = ? WHERE ID = ?', 
+            [ recipe.name, recipe.descr, recipe.picture, recipe.preptime, recipe.cooktime, recipe.category , recipe.instructions,recipe.id]);
         con.end()
     },
     SearchRecipeByIngredient: async function(IngredientName){

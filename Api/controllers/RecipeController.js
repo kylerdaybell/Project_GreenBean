@@ -47,7 +47,7 @@ var RecipeController = {
     },
     UpdateRecipe: async function(req,res){
         var recipe = new Recipe(req.body.id, null, req.body.name, req.body.descr, req.body.picture, req.body.preptime, 
-            req.body.cooktime, req.body.instructions, req.body.ingredientslist);
+            req.body.cooktime, req.body.category,req.body.instructions, req.body.ingredientslist);
         var user = new User(req.body.email, req.body.password, null);
         if (await RecipeService.UpdateRecipe(recipe, user)){
             console.log(recipe)
