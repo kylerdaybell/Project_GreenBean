@@ -23,6 +23,7 @@ const AddRecipeForm = props => {
     let descr = document.getElementById("description").value;
     let preptime = document.getElementById("prep-time").value;
     let cooktime = document.getElementById("cook-time").value;
+    let category = document.getElementById("category").value;
     let instructions = document.getElementById("instructions").value;
     let ingredientsList = theIngredientList;
     let recipeSubmission = new RecipeAddModel(
@@ -31,6 +32,7 @@ const AddRecipeForm = props => {
       image,
       preptime,
       cooktime,
+      category,
       instructions,
       ingredientsList,
       props.credentials.email,
@@ -58,6 +60,8 @@ const AddRecipeForm = props => {
       <label htmlFor="cook-time">Cook-Time:</label>
       <input className="w3-input w3-border" id="cook-time" type="text" />
       <br />
+      <label htmlFor="category">Category:</label>
+      <input className="w3-input w3-border" id="category" type="text" />
       <label htmlFor="instructions">Instructions:</label>
       <input className="w3-input w3-border" id="instructions" type="text" />
       <br />
