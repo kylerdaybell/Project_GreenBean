@@ -47,6 +47,7 @@ describe("Login Tests", () => {
         const expected = [
             {
                 type: ActionTypes.LOGIN_SUCCESS,
+                loggedIn: true,
                 email: "testEmail@test.com",
                 password: "testPassword1%"
             }
