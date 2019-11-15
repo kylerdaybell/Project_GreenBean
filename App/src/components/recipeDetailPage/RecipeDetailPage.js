@@ -13,7 +13,7 @@ const RecipeDetailPage = props => {
   }
   return (
   <>
-  <div className="w3-container">recipe.name</div>
+  <div className="w3-container">{recipe.name}</div>
   </>
   );
 };
