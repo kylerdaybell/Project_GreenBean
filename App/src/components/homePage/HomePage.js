@@ -1,13 +1,13 @@
 import React from "react";
 import "../../css/w3.css";
 import "../../css/main.css";
-import PageTitle from "../shared/PageTitle";
+import HomePageTitle from "../shared/HomePageTitle";
 
 const HomePage = () => {
   return (
     <>
-      <PageTitle title={"Green Bean Cooking"}/>
-      <img src="../../../images/homePageBeans.jfif" className="titleImage"></img>
+      <HomePageTitle title={"Green Bean Cooking"}/>
+      
       <div id="content-area" className="w3-container">
         <p>this is where the home page goes</p>
       </div>

@@ -1,4 +1,41 @@
-.titleImage {
-    height: 100px;
+.homeTitle {
+    height: 125px;
     min-width: 100%;
+    color: white;
+    text-align: center;
+    object-fit: cover;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    padding-top:40px;
+}
+.homeTitle h1{
+    vertical-align: center;
+    font-size: 50px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-shadow: 3px 3px #040404;
+
+}
+.titleBars{
+    padding-top:30px;
+    background-color: #149911
+}
+.navButton {
+    background-color: #256d1b;
+    color: white;
+    text-decoration: none;
+}
+.navButton:hover{
+   background-color:#149911;
+}
+.navButton:active{
+    background-color: #149911;
+}
+.navBar {
+    z-index: 2;
+    position: absolute;
+    background-color:#256d1b
 }
