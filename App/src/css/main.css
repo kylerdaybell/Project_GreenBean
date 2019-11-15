@@ -31,7 +31,7 @@
 .navButton:hover{
    background-color:#149911;
 }
-.navButton:active{
+.active {
     background-color: #149911;
 }
 .navBar {
