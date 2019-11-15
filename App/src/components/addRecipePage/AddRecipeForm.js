@@ -21,10 +21,8 @@ const AddRecipeForm = props => {
         100,
         0,
         uri=>{image = uri;
-        
         console.log(image);},
         'base64'
-
       );
     }
   };
