@@ -4,18 +4,29 @@ import RecipeAddModel from "../../models/Recipe";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import Resizer from 'react-image-file-resizer';
 
 const AddRecipeForm = props => {
   let image = "";
 
   const FilesAdded = event => {
     let files = document.getElementById("picture").files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(files);
+    if (files)
+    {
+      Resizer.imageFileResizer(
+        files,
+        512,
+        512,
+        'JPEG',
+        100,
+        0,
+        uri=>{image = uri;
+        
+        console.log(image);},
+        'base64'
 
-    reader.onload = function() {
-      image = reader.result;
-    };
+      );
+    }
   };
 
   const AddRecipe = theIngredientList => {
@@ -39,7 +50,8 @@ const AddRecipeForm = props => {
       props.credentials.password
     );
     let recipeJson = JSON.stringify(recipeSubmission);
-    props.CreateNewRecipe(recipeJson);
+    console.log(recipeJson)
+    //props.CreateNewRecipe(recipeJson);
   };
 
   return (

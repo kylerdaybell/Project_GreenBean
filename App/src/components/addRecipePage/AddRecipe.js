@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 const AddRecipe = props => {
   if (props.credentials.loggedIn === false) {
-    return <Redirect to="/login"/>;
+    //return <Redirect to="/login"/>;
   }
   
   return (
