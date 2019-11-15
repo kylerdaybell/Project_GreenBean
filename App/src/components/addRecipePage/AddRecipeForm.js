@@ -50,8 +50,7 @@ const AddRecipeForm = props => {
       props.credentials.password
     );
     let recipeJson = JSON.stringify(recipeSubmission);
-    console.log(recipeJson)
-    //props.CreateNewRecipe(recipeJson);
+    props.CreateNewRecipe(recipeJson);
   };
 
   return (
