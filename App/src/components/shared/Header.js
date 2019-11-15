@@ -20,6 +20,7 @@ const Header = props => {
     )
   }
   return (
+    <>
     <nav className="w3-bar navBar">
       <NavLink exact className="w3-bar-item navButton" to="/">
         Home
@@ -32,6 +33,8 @@ const Header = props => {
       </NavLink>
       {LogoutLogin()}
     </nav>
+    <div className="spacerBar"></div>
+    </>
   );
 };
 

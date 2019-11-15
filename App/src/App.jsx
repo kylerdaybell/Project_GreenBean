@@ -6,6 +6,7 @@ import LoginPage from "./components/loginPage/LoginPage";
 import LogoutPage from "./components/loginPage/LogoutPage";
 import SearchPage from "./components/searchPage/SearchPage";
 import AddRecipe from "./components/addRecipePage/AddRecipe";
+import RecipeDetailPage from "./components/recipeDetailPage/RecipeDetailPage";
 import "./App.css";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/new" component={AddRecipe} />
         <Route path="/login" component={LoginPage} />
         <Route path="/logout" component={LogoutPage} />
+        <Route path="/recipes/:id" component={RecipeDetailPage} />
       </Switch>
     </div>
   );
