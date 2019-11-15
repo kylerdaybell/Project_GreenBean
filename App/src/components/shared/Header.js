@@ -21,7 +21,7 @@ const Header = props => {
   }
   return (
     <>
-    <nav className="w3-bar navBar">
+    <nav className="w3-bar navBar sideSpacer">
       <NavLink exact className="w3-bar-item navButton" to="/">
         Home
       </NavLink>
