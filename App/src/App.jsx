@@ -7,12 +7,16 @@ import LogoutPage from "./components/loginPage/LogoutPage";
 import SearchPage from "./components/searchPage/SearchPage";
 import AddRecipe from "./components/addRecipePage/AddRecipe";
 import RecipeDetailPage from "./components/recipeDetailPage/RecipeDetailPage";
+import SideBarNav from "./components/shared/SidebarNav";
+import "./css/main.css"
 import "./App.css";
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <Header /> 
+      <SideBarNav/>
+      <div className="sideSpacer">
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />
@@ -21,6 +25,7 @@ const App = () => {
         <Route path="/logout" component={LogoutPage} />
         <Route path="/recipes/:id" component={RecipeDetailPage} />
       </Switch>
+      </div>
     </div>
   );
 };

@@ -5,9 +5,11 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 
+import SideBarNav from "../shared/SidebarNav";
 const SearchPage = props => {
   return (
     <>
+    
       <PageTitle title={"Search Page"} />
       <div id="content-area" className="w3-container"></div>
       <input

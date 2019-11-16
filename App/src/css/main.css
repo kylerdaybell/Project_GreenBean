@@ -1,14 +1,11 @@
 .homeTitle {
-    height: 125px;
-    min-width: 100%;
+    height: 150px;
     color: white;
     text-align: center;
     object-fit: cover;
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 100%;
-    height: 100%;
     padding-top:10px;
 }
 .homeTitle h1{
@@ -42,8 +39,12 @@
     padding-top:35px;
 }
 .sideSpacer {
-    padding-left:60px;
+    margin-left:60px;
+    z-index: 0;
 }
 .sidenav---sidenav---_2tBP{
     background: #256d1b !important;
+}
+.sideBar {
+    z-index: 1000;
 }

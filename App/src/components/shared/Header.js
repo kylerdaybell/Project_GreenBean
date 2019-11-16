@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../../css/w3.css";
 import "../../css/main.css";
 import { connect } from "react-redux";
+import SideBarNav from "../shared/SidebarNav";
 
 const Header = props => {
   const LogoutLogin = () => {
