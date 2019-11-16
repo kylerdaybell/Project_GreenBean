@@ -126,6 +126,12 @@ URL
 >https://api.greenbeancooking.com/searchrecipebyname/recipesearchterm
 
 
+## Searching for a recipe by category
+Method
+>GET
+
+URL
+>https://api.greenbeancooking.com//getrecipebycategory/categoryname
 
 ## Searching for recipes by a list of ingredients 
 
