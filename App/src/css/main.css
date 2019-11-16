@@ -45,6 +45,7 @@
 .sidenav---sidenav---_2tBP{
     background: #256d1b !important;
     position: fixed !important;
+    box-shadow: 1px 0px 3px black;
 }
 .fitBody{
     margin-left: 20px;
@@ -69,3 +70,32 @@
     resize: none;
     margin: 5px 10px 5px 10px;
 }
+
+.input-container {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 40px;
+  }
+
+  .icon {
+    padding: 10px;
+    padding-left: 15px;
+    background: #149911;
+    color: white;
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .input-field {
+    width: 60%;
+    padding: 5px;
+    border: 2px solid white;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #149911;
+  }
