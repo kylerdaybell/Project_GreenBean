@@ -27,14 +27,20 @@ const AddRecipeForm = props => {
     }
   };
 
+
+
   const AddRecipe = theIngredientList => {
     let name = document.getElementById("name").value;
     let descr = document.getElementById("description").value;
+    //get the hours and minutes
     let preptimehours = document.getElementById("prep-time-hours").value;
     let preptimeminutes = document.getElementById("prep-time-minutes").value;
+    //merge the time into the standard time format
     let preptime = preptimehours+":"+preptimeminutes+":00";
+    //get the hours and minutes
     let cooktimeminutes = document.getElementById("cook-time-minutes").value;
     let cooktimehours = document.getElementById("cook-time-hours").value;
+        //merge the time into the standard time format
     let cooktime = cooktimehours+":"+cooktimeminutes+":00";
     let category = document.getElementById("category").value;
     let instructions = document.getElementById("instructions").value;
@@ -52,7 +58,6 @@ const AddRecipeForm = props => {
       props.credentials.password
     );
     let recipeJson = JSON.stringify(recipeSubmission);
-    //console.log(recipeJson)
     props.CreateNewRecipe(recipeJson);
   };
 

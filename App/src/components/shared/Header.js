@@ -23,18 +23,10 @@ const Header = props => {
   return (
     <>
     <nav className="w3-bar navBar sideSpacer">
-      {/* <NavLink exact className="w3-bar-item navButton" to="/">
-        Home
-      </NavLink>
-      <NavLink className="w3-bar-item navButton" to="/search">
-        Search
-      </NavLink>
-      <NavLink className="w3-bar-item navButton" to="/new">
-        Add Recipe
-      </NavLink> */}
-      <div class="input-container" >
-        <i class="fa fa-search icon"></i>
-        <input class="input-field" type="text" placeholder="Search by Recipe Name" name="srchName"/>
+      {}
+      <div className="input-container" >
+        <i className="fa fa-search icon"></i>
+        <input className="input-field" type="text" placeholder="Search by Recipe Name" name="srchName"/>
       </div>
       {LogoutLogin()}
     </nav>

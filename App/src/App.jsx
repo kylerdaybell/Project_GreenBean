@@ -8,6 +8,7 @@ import SearchPage from "./components/searchPage/SearchPage";
 import AddRecipe from "./components/addRecipePage/AddRecipe";
 import RecipeDetailPage from "./components/recipeDetailPage/RecipeDetailPage";
 import SideBarNav from "./components/shared/SidebarNav";
+import SearchByName from "./components/searchPage/SearchByNamePage";
 import "./css/main.css"
 import "./App.css";
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/login" component={LoginPage} />
         <Route path="/logout" component={LogoutPage} />
         <Route path="/recipes/:id" component={RecipeDetailPage} />
+        <Route path="/searchByName" component={SearchByName}/>
       </Switch>
       </div>
     </div>

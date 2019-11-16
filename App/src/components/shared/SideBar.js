@@ -23,22 +23,22 @@ const SideBar = props => {
                         Home
                     </NavText>
                 </NavItem>
-                <NavItem eventKey='/search'>
+                <NavItem eventKey=''>
                     <NavIcon>
                         <i className="fa fa-fw fa-search" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Search
                     </NavText>
-                    <NavItem eventKey="/search">
+                    <NavItem eventKey="/searchByName">
                         <NavText>
                             Search by Name
-                </NavText>
+                        </NavText>
                     </NavItem>
-                    <NavItem eventKey="">
+                    <NavItem eventKey="/search">
                         <NavText>
                             Search by Ingredients
-                </NavText>
+                        </NavText>
                     </NavItem>
                 </NavItem>
                 <NavItem eventKey="/new">
@@ -47,7 +47,7 @@ const SideBar = props => {
                     </NavIcon>
                     <NavText>
                         Add Recipe
-            </NavText>
+                    </NavText>
                 </NavItem>
                 <NavItem eventKey="/profile">
                     <NavIcon>
