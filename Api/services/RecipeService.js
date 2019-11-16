@@ -55,7 +55,7 @@ var RecipeService = {
         var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
         return RecipeList;
     },
-    SearchRecipeByEmail: async function(email){
+    GetRecipesByEmail: async function(email){
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByEmail(email);
         var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
         return RecipeList;
