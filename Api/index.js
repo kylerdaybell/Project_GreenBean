@@ -90,6 +90,12 @@ app.get('/getrecipebycategory/:category',cors(corsOptions),function(req,res){
   recipeController.GetRecipeByCategory(req,res);
 })
 
+app.get('/getrecipebyemail/:email',cors(corsOptions),function(req,res){
+  console.log("/getrecipebyemail");
+  recipeController.GetRecipeByEmail(req,res);
+
+})
+
 
 httpsServer.listen(443, () => {
 	console.log('HTTPS Server running on port 443');

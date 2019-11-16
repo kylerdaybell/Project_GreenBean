@@ -131,6 +131,12 @@ var ApiDatabaseService = {
         rows = await con.execute('Select * from RECIPE where CATEGORY = ?',[category]);
         con.end()
         return rows;
+    },
+    SearchRecipeByEmail: async function(email){
+        const con = await this.getConnection();
+        rows = await con.execute('Select * from USER a inner join RECIPE b on (a.ID = b.USER_ID) where a.EMAIL = ?',[email]);
+        con.end()
+        return rows;
     }
 
 }

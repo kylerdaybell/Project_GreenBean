@@ -44,9 +44,19 @@ var RecipeService = {
             var recipe = new Recipe();
         }
         return recipe; 
+    },    
+    GetRecipesByCategory: async function(category){
+        let DatabaseResult = await IApiDatabaseService.SearchRecipeByCategory(category);
+        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
+        return RecipeList;
     },
     SearchRecipeByName: async function(RecipeName){
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByName(RecipeName);
+        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
+        return RecipeList;
+    },
+    SearchRecipeByEmail: async function(email){
+        let DatabaseResult = await IApiDatabaseService.SearchRecipeByEmail(email);
         var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
         return RecipeList;
     },
@@ -61,11 +71,6 @@ var RecipeService = {
         let CompletedRecipeSearchList = await this.AssembleRecipeAndPercentMatch(RecipeByPercentMatch);
         return CompletedRecipeSearchList;
 
-    },
-    GetRecipesByCategory: async function(category){
-        let DatabaseResult = await IApiDatabaseService.SearchRecipeByCategory(category);
-        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
-        return RecipeList;
     },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){

@@ -82,7 +82,13 @@ var RecipeController = {
         let RecipeMatch = await RecipeService.GetRecipesByCategory(category);
         res.write(JSON.stringify(RecipeMatch));
         res.end();
-    }
+    },
+    GetRecipeByEmail:async function(req,res){
+        let category = req.params.category;
+        let RecipeMatch = await RecipeService.GetRecipesByEmail(category);
+        res.write(JSON.stringify(RecipeMatch));
+        res.end();
+    },
 }
 
 module.exports = RecipeController;
