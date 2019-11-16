@@ -30,8 +30,12 @@ const AddRecipeForm = props => {
   const AddRecipe = theIngredientList => {
     let name = document.getElementById("name").value;
     let descr = document.getElementById("description").value;
-    let preptime = document.getElementById("prep-time").value;
-    let cooktime = document.getElementById("cook-time").value;
+    let preptimehours = document.getElementById("prep-time-hours").value;
+    let preptimeminutes = document.getElementById("prep-time-minutes").value;
+    let preptime = preptimehours+":"+preptimeminutes+":00";
+    let cooktimeminutes = document.getElementById("cook-time-minutes").value;
+    let cooktimehours = document.getElementById("cook-time-hours").value;
+    let cooktime = cooktimehours+":"+cooktimeminutes+":00";
     let category = document.getElementById("category").value;
     let instructions = document.getElementById("instructions").value;
     let ingredientsList = theIngredientList;
@@ -66,14 +70,14 @@ const AddRecipeForm = props => {
       <br />
       <span>
         <label htmlFor="prep-time" style={{display: 'block'}}>Prep-Time HH:MM:</label>
-        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time" type="number" defaultValue="0" />
+        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-hours" type="number" defaultValue="0" />
         <div className="timeBoxes">  :  </div>
         <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-minutes" type="number" defaultValue="0" />
       </span>
       <br />
       <span>
         <label htmlFor="cook-time" style={{display: 'block'}}>Cook-Time HH:MM:</label>
-        <input className="w3-input w3-border timeBoxes timeBox" id="cook-time" type="number" min="0" defaultValue="0"/>
+        <input className="w3-input w3-border timeBoxes timeBox" id="cook-time-hours" type="number" min="0" defaultValue="0"/>
         <div className="timeBoxes">  :  </div>
         <input className="w3-input w3-border timeBoxes timeBox" id="cook-time-minutes" type="number" defaultValue="0"/>
       </span>
@@ -81,9 +85,9 @@ const AddRecipeForm = props => {
       <label htmlFor="category">Category:</label>
       <select className="w3-select w3-border" id="category" name="option" >
         <option value="" disabled selected>Choose your option</option>
-        <option value="1">Appetizers</option>
-        <option value="2">Main Courses</option>
-        <option value="3">Desserts</option>
+        <option value="Appetizers">Appetizers</option>
+        <option value="Main Courses">Main Courses</option>
+        <option value="Desserts">Desserts</option>
       </select>
       <label htmlFor="instructions">Instructions:</label>
       <textarea className="w3-input w3-border inputField" id="instructions"/>
