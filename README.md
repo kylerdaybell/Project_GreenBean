@@ -25,3 +25,7 @@ stay at home parents, and anyone who likes using the food they bought.
 > >"This app is amazing! It's SO clean and makes my cooking SO MUCH EASIER. I love it!" - Matt Rigoli
 
 > If you have ever had this problem or know someone that has a hard time knowing what to cook. Download our app and see your cooking change right before your eyes!
+
+
+## Developer Usage ##
+>please see the license and the offical documentation for usage of the api. both the app and the api are open source
