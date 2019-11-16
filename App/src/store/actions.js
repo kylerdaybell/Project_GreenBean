@@ -13,6 +13,29 @@ export function SearchForRecipeByIngredient(ingredients) {
   };
 }
 
+export function SearchForRecipeByName(name) {
+  return function(dispatch) {
+    return GreenBeanAPIService.SearchForRecipeByName(name).then(
+      recipes => dispatch(SearchByNameSuccess(recipes))
+    );
+  };
+}
+
+export function SearchByNameSuccess(recipes) {
+  return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
+}
+
+export function SearchForRecipeByCategory(category){
+  return function(dispatch) {
+    return GreenBeanAPIService.SearchForRecipeByCategory(category).then(
+      recipes => dispatch(SearchByCategorySuccess(recipes))
+    );
+  };
+}
+export function SearchByCategorySuccess(recipes) {
+  return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
+}
+
 export function LoginSuccess(email,password){
   let loggedIn = true;
   return {type: ActionTypes.LOGIN_SUCCESS,email,password, loggedIn}

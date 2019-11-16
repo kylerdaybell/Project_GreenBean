@@ -42,6 +42,10 @@ const GreenBeanAPIService={
           .then(response=>response.json())
           .catch(error=>Promise.reject())
       },
+      SearchForRecipeByCategory: async function(category){
+        let APIResult = await fetch(`https://api.greenbeancooking.com/getrecipebycategory/${category}`).then(response=>response.json())
+        return APIResult;
+      },
       Login: function(email,password){
         let request = {"email": email, "password":password}
         let RealFormatedRequestBody = JSON.stringify(request);

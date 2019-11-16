@@ -4,13 +4,12 @@ import RecipeCard from "../shared/RecipeCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
-
 import SideBarNav from "../shared/SidebarNav";
-const SearchByNamePage = props => {
+const SearchByCategory = props => {
   return (
     <>
     
-      <PageTitle title={"Search By Name"} />
+      <PageTitle title={"Search By Category"} />
       <div className="fitBody">
       <div id="content-area" className="w3-container"></div>
       <input
@@ -21,7 +20,7 @@ const SearchByNamePage = props => {
       />
       <button
         onClick={() =>
-          props.SearchForRecipeByName(
+          props.SearchForRecipeByCategory(
             document.getElementById("ingredientSearchBox").value
           )
         }
@@ -45,4 +44,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   dispatch => bindActionCreators(actionCreators, dispatch)
-)(SearchByNamePage);
+)(SearchByCategory);

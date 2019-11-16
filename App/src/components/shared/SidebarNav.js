@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Router, Route } from "react-router";
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../../css/main.css';
@@ -8,7 +7,7 @@ import { Redirect } from 'react-router';
 
 const SideBarNav = props => {
     const [path, setPath] = React.useState("");
-    const [currPath, setCurrPath] = React.useState("");
+    //const [currPath, setCurrPath] = React.useState("");
     if (path !== "") {
         return (
         <>
@@ -28,22 +27,32 @@ const SideBarNav = props => {
                         Home
                     </NavText>
                 </NavItem>
-                <NavItem eventKey='/search'>
+                <NavItem eventKey='/searchMain'>
                     <NavIcon>
                         <i className="fa fa-fw fa-search" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Search
                     </NavText>
-                    <NavItem eventKey="/searchName">
+                    <NavItem eventKey="/searchByName">
                         <NavText>
                             Search by Name
-                </NavText>
+                        </NavText>
                     </NavItem>
                     <NavItem eventKey="/search">
                         <NavText>
                             Search by Ingredients
-                </NavText>
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="/searchByCategory">
+                        <NavText>
+                            Search by Category
+                        </NavText> 
+                    </NavItem>
+                    <NavItem eventKey="/searchByEmail">
+                        <NavText>
+                            My Recipes
+                        </NavText>
                     </NavItem>
                 </NavItem>
                 <NavItem eventKey="/new">
@@ -94,22 +103,32 @@ const SideBarNav = props => {
                         Home
                     </NavText>
                 </NavItem>
-                <NavItem eventKey='/search'>
+                <NavItem eventKey='/searchMain'>
                     <NavIcon>
                         <i className="fa fa-fw fa-search" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Search
                     </NavText>
-                    <NavItem eventKey="/search">
+                    <NavItem eventKey="/searchByName">
                         <NavText>
                             Search by Name
-                </NavText>
+                        </NavText>
                     </NavItem>
-                    <NavItem eventKey="">
+                    <NavItem eventKey="/search">
                         <NavText>
                             Search by Ingredients
-                </NavText>
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="/searchByCategory">
+                        <NavText>
+                            Search by Category
+                        </NavText> 
+                    </NavItem>
+                    <NavItem eventKey="/searchByEmail">
+                        <NavText>
+                            My Recipes
+                        </NavText>
                     </NavItem>
                 </NavItem>
                 <NavItem eventKey="/new">

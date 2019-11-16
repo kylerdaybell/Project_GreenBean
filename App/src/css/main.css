@@ -45,7 +45,6 @@
 .sidenav---sidenav---_2tBP{
     background: #256d1b !important;
     position: fixed !important;
-    box-shadow: 1px 0px 3px black;
 }
 .fitBody{
     margin-left: 20px;
@@ -98,4 +97,8 @@
   
   .input-field:focus {
     border: 2px solid #149911;
+  }
+
+  .w3-green{
+      background-color:#149911!important;
   }
