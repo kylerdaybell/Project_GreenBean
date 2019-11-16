@@ -17,7 +17,7 @@ const App = () => {
       <Header /> 
       <SideBarNav/>
       <div className="sideSpacer">
-      <Switch>
+      <Switch className="sideSpacer">
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />
         <Route path="/new" component={AddRecipe} />

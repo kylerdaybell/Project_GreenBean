@@ -12,7 +12,7 @@ const AddRecipe = props => {
   return (
     <>
       <PageTitle title={"Add a New Recipe"}/>
-      <AddRecipeForm />
+      <AddRecipeForm/>
     </>
   );
 };

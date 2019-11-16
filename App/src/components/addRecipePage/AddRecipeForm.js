@@ -48,34 +48,49 @@ const AddRecipeForm = props => {
       props.credentials.password
     );
     let recipeJson = JSON.stringify(recipeSubmission);
+    //console.log(recipeJson)
     props.CreateNewRecipe(recipeJson);
   };
 
   return (
     <>
-      <legend>Add a new Recipe:</legend>
+      <div className="fitBody">
       <label htmlFor="name">Name:</label>
       <input className="w3-input w3-border" id="name" type="text" />
       <br />
       <label htmlFor="description">Description:</label>
-      <input className="w3-input w3-border" id="description" type="text" />
+      <textarea className="w3-input w3-border inputField" id="description"/>
       <br />
       <label htmlFor="picture">Picture:</label>
       <input id="picture" onChange={event => FilesAdded(event)} type="file" />
       <br />
-      <label htmlFor="prep-time">Prep-Time:</label>
-      <input className="w3-input w3-border" id="prep-time" type="text" />
+      <span>
+        <label htmlFor="prep-time" style={{display: 'block'}}>Prep-Time HH:MM:</label>
+        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time" type="number" defaultValue="0" />
+        <div className="timeBoxes">  :  </div>
+        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-minutes" type="number" defaultValue="0" />
+      </span>
       <br />
-      <label htmlFor="cook-time">Cook-Time:</label>
-      <input className="w3-input w3-border" id="cook-time" type="text" />
+      <span>
+        <label htmlFor="cook-time" style={{display: 'block'}}>Cook-Time HH:MM:</label>
+        <input className="w3-input w3-border timeBoxes timeBox" id="cook-time" type="number" min="0" defaultValue="0"/>
+        <div className="timeBoxes">  :  </div>
+        <input className="w3-input w3-border timeBoxes timeBox" id="cook-time-minutes" type="number" defaultValue="0"/>
+      </span>
       <br />
       <label htmlFor="category">Category:</label>
-      <input className="w3-input w3-border" id="category" type="text" />
+      <select className="w3-select w3-border" id="category" name="option" >
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1">Appetizers</option>
+        <option value="2">Main Courses</option>
+        <option value="3">Desserts</option>
+      </select>
       <label htmlFor="instructions">Instructions:</label>
-      <input className="w3-input w3-border" id="instructions" type="text" />
+      <textarea className="w3-input w3-border inputField" id="instructions"/>
       <br />
 
       <IngredientAdd onSubmit={AddRecipe} />
+      </div>
     </>
   );
 };
@@ -91,3 +106,4 @@ export default connect(mapStateToProps, dispatch =>
 )(AddRecipeForm);
 
 //
+

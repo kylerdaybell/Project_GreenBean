@@ -35,12 +35,12 @@ const SideBarNav = props => {
                     <NavText>
                         Search
                     </NavText>
-                    <NavItem eventKey="/search">
+                    <NavItem eventKey="/searchName">
                         <NavText>
                             Search by Name
                 </NavText>
                     </NavItem>
-                    <NavItem eventKey="">
+                    <NavItem eventKey="/search">
                         <NavText>
                             Search by Ingredients
                 </NavText>

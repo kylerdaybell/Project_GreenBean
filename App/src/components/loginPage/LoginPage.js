@@ -20,7 +20,7 @@ const LoginPage = props => {
   return (
     <>
       <PageTitle title={"Login"}/>
-      <div id="content-area" className="w3-container w3-row w3-center w3-display-center">
+      <div id="content-area" className="w3-container w3-row w3-center w3-display-center fitBody">
       <form className="w3-card w3-half" onSubmit={event=>login(event)}>
                 <input id="email" type="email" placeholder="Email"/>
                 <input id="password" type="password" placeholder="Password"/>

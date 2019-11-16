@@ -11,6 +11,7 @@ const SearchPage = props => {
     <>
     
       <PageTitle title={"Search Page"} />
+      <div className="fitBody">
       <div id="content-area" className="w3-container"></div>
       <input
         id="ingredientSearchBox"
@@ -32,6 +33,7 @@ const SearchPage = props => {
         {props.recipes.map((recipe, index) => (
           <RecipeCard recipe={recipe} key={index} />
         ))}
+      </div>
       </div>
     </>
   );
