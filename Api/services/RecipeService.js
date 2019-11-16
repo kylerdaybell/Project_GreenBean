@@ -33,12 +33,7 @@ var RecipeService = {
     },
     GetAllRecipes: async function(){
         let DatabaseResult = await IApiDatabaseService.GetAllRecipes();
-        var RecipeList = []
-        for(let i = 0; i<DatabaseResult[0].length; i++){
-            let recipe = await this.DatabaseResultToRecipe(DatabaseResult[0][i]);
-            var newrecipe = {"recipe":recipe};
-            RecipeList.push(newrecipe);
-        }
+        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
         return RecipeList;
     },
     GetRecipeById: async function(RecipeID){
@@ -52,12 +47,7 @@ var RecipeService = {
     },
     SearchRecipeByName: async function(RecipeName){
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByName(RecipeName);
-        var RecipeList = []
-        for(let i = 0; i<DatabaseResult[0].length; i++){
-            let recipe = await this.DatabaseResultToRecipe(DatabaseResult[0][i]);
-            var newrecipe = {"recipe":recipe};
-            RecipeList.push(newrecipe);
-        }
+        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
         return RecipeList;
     },
     SearchRecipesByIngredients: async function(IngredientsList){
@@ -71,6 +61,11 @@ var RecipeService = {
         let CompletedRecipeSearchList = await this.AssembleRecipeAndPercentMatch(RecipeByPercentMatch);
         return CompletedRecipeSearchList;
 
+    },
+    GetRecipesByCategory: async function(category){
+        let DatabaseResult = await IApiDatabaseService.SearchRecipeByCategory(category);
+        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
+        return RecipeList;
     },
     UpdateRecipe: async function(Recipe,User){
         if (await IUserService.LoginUser(User)){
@@ -167,6 +162,15 @@ var RecipeService = {
 
         }
         return false;
+    },
+    DatabaseResultToRecipeList: async function(DatabaseResultList){
+        let RecipeList = []
+        for(let i = 0; i<DatabaseResultList[0].length; i++){
+            let recipe = await this.DatabaseResultToRecipe(DatabaseResultList[0][i]);
+            var newrecipe = {"recipe":recipe};
+            RecipeList.push(newrecipe);
+        }
+        return RecipeList;
     },
     DatabaseResultToRecipe: async function(DatabaseResult){
         let recipe = new Recipe(DatabaseResult["ID"],DatabaseResult["USER_ID"],DatabaseResult["NAME"],DatabaseResult["DESCRIPTION"],

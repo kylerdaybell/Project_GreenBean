@@ -85,6 +85,11 @@ app.post('/getrecipebyingredientslist',cors(corsOptions),function(req,res){
   recipeController.GetRecipeByIngredientsList(req,res);
 })
 
+app.post('/getrecipebycategory/:category',cors(corsOptions),function(req,res){
+  console.log("/getrecipebycategory");
+  recipeController.GetRecipeByCategory(req,res);
+})
+
 
 
 httpsServer.listen(443, () => {

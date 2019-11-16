@@ -125,6 +125,12 @@ var ApiDatabaseService = {
         rows = await con.execute('Select count(*) from RECIPETOINGREDIENT a  inner join INGREDIENT b on (a.INGREDIENT_ID = b.ID) where a.RECIPE_ID = ? GROUP BY a.RECIPE_ID',[RecipeID]);
         con.end()
         return rows;
+    },
+    SearchRecipeByCategory: async function(category){
+        const con = await this.getConnection();
+        rows = await con.execute('Select * from RECIPE where CATEGORY = ?',[category]);
+        con.end()
+        return rows;
     }
 
 }
