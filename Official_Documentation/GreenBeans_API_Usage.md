@@ -133,6 +133,14 @@ Method
 URL
 >https://api.greenbeancooking.com//getrecipebycategory/categoryname
 
+## Searching for a recipe by email
+Method
+>GET
+
+URL
+https://api.greenbeancooking.com/getrecipebyemail/kyler.daybell96@gmail.com
+
+
 ## Searching for recipes by a list of ingredients 
 
 ### this request may take a long time to return
