@@ -27,5 +27,5 @@ stay at home parents, and anyone who likes using the food they bought.
 > If you have ever had this problem or know someone that has a hard time knowing what to cook. Download our app and see your cooking change right before your eyes!
 
 
-## Developer Usage##
+## Developer Usage ##
 >please see the license and the offical documentation for usage of the api. both the app and the api are open source
