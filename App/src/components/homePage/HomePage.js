@@ -2,7 +2,6 @@ import React from "react";
 import "../../css/w3.css";
 import "../../css/main.css";
 import HomePageTitle from "../shared/HomePageTitle";
-import SideBarNav from "../shared/SidebarNav";
 const HomePage = () => {
   return (
     <>

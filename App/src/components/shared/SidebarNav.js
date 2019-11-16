@@ -4,10 +4,30 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../../css/main.css';
 import { Redirect } from 'react-router';
+import { connect } from "react-redux";
 
 const SideBarNav = props => {
     const [path, setPath] = React.useState("");
     //const [currPath, setCurrPath] = React.useState("");
+    const LogoutLogin = () => {
+        if(props.credentials.loggedIn){
+          return (
+            <NavItem eventKey="/logout">
+                <NavText>
+                    Logout
+                </NavText>
+            </NavItem>
+
+          )
+        }
+        return (
+            <NavItem eventKey="/login">
+                <NavText>
+                    Login
+                </NavText>
+            </NavItem>
+        )
+      }
     if (path !== "") {
         return (
         <>
@@ -39,7 +59,7 @@ const SideBarNav = props => {
                             Search by Name
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/search">
+                    <NavItem eventKey="/searchByIngredient">
                         <NavText>
                             Search by Ingredients
                         </NavText>
@@ -69,17 +89,13 @@ const SideBarNav = props => {
                     </NavIcon>
                     <NavText>
                         Profile
-            </NavText>
+                    </NavText>
                     <NavItem eventKey="">
                         <NavText>
                             Profile settings
-                </NavText>
+                        </NavText>
                     </NavItem>
-                    <NavItem eventKey="">
-                        <NavText>
-                            Logout
-                </NavText>
-                    </NavItem>
+                    {LogoutLogin()}
                 </NavItem>
             </SideNav.Nav>
         </SideNav>
@@ -115,7 +131,7 @@ const SideBarNav = props => {
                             Search by Name
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/search">
+                    <NavItem eventKey="/searchByIngredient">
                         <NavText>
                             Search by Ingredients
                         </NavText>
@@ -145,21 +161,29 @@ const SideBarNav = props => {
                     </NavIcon>
                     <NavText>
                         Profile
-            </NavText>
+                    </NavText>
                     <NavItem eventKey="">
                         <NavText>
                             Profile settings
-                </NavText>
+                        </NavText>
                     </NavItem>
-                    <NavItem eventKey="">
-                        <NavText>
-                            Logout
-                </NavText>
-                    </NavItem>
+                    {LogoutLogin()}
                 </NavItem>
             </SideNav.Nav>
         </SideNav>
     );
 };
 
-export default SideBarNav;
+
+const mapStateToProps = state => {
+    return {
+        credentials: state.greenBeanAPI.credentials
+    }
+  }
+  
+  
+export default connect(
+    mapStateToProps,
+    null
+    )(SideBarNav);
+

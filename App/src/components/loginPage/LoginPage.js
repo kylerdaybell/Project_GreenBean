@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 import {Redirect} from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import SideBarNav from "../shared/SidebarNav.js";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
         return <Redirect to="/" />
@@ -24,10 +23,10 @@ const LoginPage = props => {
       <PageTitle title={"Login"}/>
       <div id="content-area" className="w3-container w3-row w3-center w3-display-center fitBody">
       <form className="w3-card" onSubmit={event=>login(event)}>
-                <input className="inputField" id="email" type="email" placeholder="Email"/>
-                <input className="inputField" id="password" type="password" placeholder="Password"/>
-                <button type="submit"className="w3-btn w3-green">login</button>
-                <NavLink className="w3-button w3-green" to="/register">
+                <input id="email" type="email" placeholder="Email"/>
+                <input id="password" type="password" placeholder="Password"/>
+                <button type="submit"className="w3-btn w3-green">Login</button>
+                <NavLink className="w3-btn w3-green" to="/register">
                 Create Account
                 </NavLink>
                 

@@ -5,7 +5,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 import {Redirect} from "react-router-dom";
-import SideBarNav from "../shared/SidebarNav.js";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
         return <Redirect to="/" />

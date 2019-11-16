@@ -1,47 +1,51 @@
 import * as React from "react";
+import {Redirect} from "react-router"
 import { NavLink } from "react-router-dom";
 import "../../css/w3.css";
 import "../../css/main.css";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import SideBarNav from "../shared/SidebarNav";
+import * as actionCreators from "../../store/actions";
+import RecipeCard from "../shared/RecipeCard";
 
 const Header = props => {
-  const LogoutLogin = () => {
-    if(props.credentials.loggedIn){
-      return (
-        <NavLink className="w3-bar-item w3-display-topright navButton" to="/logout">
-          Logout
-        </NavLink>
-      )
-    }
-    return (
-      <NavLink className="w3-bar-item w3-display-topright navButton" to="/login">
-        Login
-      </NavLink>
-    )
-  }
-  return (
+return (
     <>
     <nav className="w3-bar navBar sideSpacer">
-      {}
       <div className="input-container" >
-        <i className="fa fa-search icon"></i>
-        <input className="input-field" type="text" placeholder="Search by Recipe Name" name="srchName"/>
+        <button className="fa fa-search icon w3-button w3-green"
+        onClick={() =>
+          props.SearchForRecipeByName(
+            document.getElementById("searchName").value
+            
+          )
+        }></button>
+        <input className="input-field" type="text" placeholder="Search by Recipe Name" id="searchName"/>
+        <button className="w3-btn fa fa-times w3-text-white w3-red" onClick={()=> props.SearchForRecipeByName("aggleflaggle")}></button>
+      </div> 
+      <div className="searchPadding">
+      <div className="w3-row-padding w3-white rowPadding">
+        {props.recipes.map((recipe, index) => (
+          <RecipeCard  recipe={recipe} key={index} />
+        ))}
       </div>
-      {LogoutLogin()}
+      </div>
     </nav>
     <div className="spacerBar"></div>
     </>
   );
 };
 
+
+
+
 const mapStateToProps = state => {
   return {
-      credentials: state.greenBeanAPI.credentials
-  }
-}
+    recipes: state.greenBeanAPI.recipes
+  };
+};
 
 export default connect(
   mapStateToProps,
-  null
-  )(Header);
+  dispatch => bindActionCreators(actionCreators, dispatch)
+)(Header);

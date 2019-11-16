@@ -22,7 +22,6 @@ const App = () => {
       <div className="sideSpacer">
       <Switch className="sideSpacer">
         <Route exact path="/" component={HomePage} />
-
         <Route path="/new" component={AddRecipe} />
         <Route path="/login" component={LoginPage} />
         <Route path="/logout" component={LogoutPage} />
@@ -31,7 +30,6 @@ const App = () => {
         <Route path="/searchByIngredient" component={SearchPage} />
         <Route path="/searchByCategory" component={SearchByCategory}/>
         <Route path="/register" component={Register}/>
-        
       </Switch>
       </div>
     </div>

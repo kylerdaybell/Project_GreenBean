@@ -4,8 +4,6 @@ import RecipeCard from "../shared/RecipeCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
-
-import SideBarNav from "../shared/SidebarNav";
 const SearchByNamePage = props => {
   return (
     <>
