@@ -18,7 +18,7 @@ const AddRecipeForm = props => {
         512,
         512,
         'JPEG',
-        100,
+        50,
         0,
         uri=>{image = uri;
         console.log(image);},
