@@ -25,6 +25,17 @@ export function SearchByNameSuccess(recipes) {
   return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
 }
 
+export function SearchForRecipeHeader(name) {
+  return function(dispatch) {
+    return GreenBeanAPIService.SearchForRecipeByName(name).then(
+      recipesHead => dispatch(SearchForRecipeHeaderSuccess(recipesHead))
+    );
+  };
+}
+
+export function SearchForRecipeHeaderSuccess(recipesHead) {
+  return { type: ActionTypes.SEARCH_BY_INGREDIENT_HEADER_SUCCESS, recipesHead };
+}
 export function SearchForRecipeByCategory(category){
   return function(dispatch) {
     return GreenBeanAPIService.SearchForRecipeByCategory(category).then(

@@ -7,7 +7,7 @@
   },
   "main": "public/electron.js",
   "homepage": "./",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "private": true,
   "dependencies": {
     "@trendmicro/react-sidenav": "^0.4.5",

@@ -15,17 +15,17 @@ return (
       <div className="input-container" >
         <button className="fa fa-search icon w3-button w3-green"
         onClick={() =>
-          props.SearchForRecipeByName(
+          props.SearchForRecipeHeader(
             document.getElementById("searchName").value
             
           )
         }></button>
         <input className="input-field" type="text" placeholder="Search by Recipe Name" id="searchName"/>
-        <button className="w3-btn fa fa-times w3-text-white w3-red" onClick={()=> props.SearchForRecipeByName("aggleflaggle")}></button>
+        <button className="w3-btn fa fa-times w3-text-white w3-red" onClick={()=> props.SearchForRecipeHeader("aggleflaggle")}></button>
       </div> 
       <div className="searchPadding">
       <div className="w3-row-padding w3-white rowPadding">
-        {props.recipes.map((recipe, index) => (
+        {props.recipesHead.map((recipe, index) => (
           <RecipeCard  recipe={recipe} key={index} />
         ))}
       </div>
@@ -41,7 +41,7 @@ return (
 
 const mapStateToProps = state => {
   return {
-    recipes: state.greenBeanAPI.recipes
+    recipesHead: state.greenBeanAPI.recipesHead
   };
 };
 
