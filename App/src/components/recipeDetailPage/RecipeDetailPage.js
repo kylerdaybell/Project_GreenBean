@@ -6,14 +6,14 @@ import * as actionCreators from "../../store/actions";
 
 const RecipeDetailPage = props => {
   console.log(props.match.params.id);
-  const recipe = props.recipes.find(r=> r.id === props.match.params.id);
-  console.log(recipe);
+  console.log(props.recipes);
+  const recipe = props.recipes.find(r => r.recipe.id == props.match.params.id);
   if (typeof recipe === "undefined") {
     return(<div>Recipe Not Found</div>);
   }
   return (
   <>
-  <div className="fitBody">{recipe.name}</div>
+  <div className="fitBody">{recipe.recipe.name}</div>
   </>
   );
 };
