@@ -29,11 +29,13 @@ const SideBarNav = props => {
         )
       }
     return (
+        
         <SideNav
             onSelect={(selected) => {
                 props.history.push(selected);
             }}
         >
+            
             <SideNav.Toggle />
             <SideNav.Nav defaultSelected='/'>
                 <NavItem eventKey="/">
@@ -78,7 +80,7 @@ const SideBarNav = props => {
                     </NavIcon>
                     <NavText>
                         Add Recipe
-            </NavText>
+                    </NavText>
                 </NavItem>
                 <NavItem eventKey="/profile">
                     <NavIcon>
