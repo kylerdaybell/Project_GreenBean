@@ -38,7 +38,7 @@ const SideBarNav = props => {
             <SideNav.Nav defaultSelected='/'>
                 <NavItem eventKey="/">
                     <NavIcon>
-                        <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-home navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Home
@@ -46,7 +46,7 @@ const SideBarNav = props => {
                 </NavItem>
                 <NavItem eventKey='/searchMain'>
                     <NavIcon>
-                        <i className="fa fa-fw fa-search" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-search navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Search
@@ -74,7 +74,7 @@ const SideBarNav = props => {
                 </NavItem>
                 <NavItem eventKey="/new">
                     <NavIcon>
-                        <i className="fa fa-fw fa-hamburger" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-hamburger navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Add Recipe
@@ -82,7 +82,7 @@ const SideBarNav = props => {
                 </NavItem>
                 <NavItem eventKey="/profile">
                     <NavIcon>
-                        <i className="fa fa-fw fa-user" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Profile
