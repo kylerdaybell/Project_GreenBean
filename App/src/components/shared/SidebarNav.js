@@ -28,7 +28,6 @@ const SideBarNav = props => {
             </NavItem>
         )
       }
-
     return (
         <SideNav
             onSelect={(selected) => {
