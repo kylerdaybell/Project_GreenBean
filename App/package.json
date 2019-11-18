@@ -3,7 +3,14 @@
   "description": "A solution to all of your recipe needs",
   "author": "Brandon Isbell, Kyler Daybell, Mike Vance",
   "build": {
-    "appId": "GreenBean"
+    "appId": "GreenBean",
+    "mac": {
+      "icon":"",
+      "category": "lifestyle"
+    },
+    "win": {
+      "icon":"./public/icon.jpg"
+    }
   },
   "main": "public/electron.js",
   "homepage": "./",
