@@ -14,7 +14,7 @@ return (
       <div className="input-container" >
         <button className="fa fa-search icon w3-button w3-green"
         onClick={() => {
-          props.SearchForRecipeHeader(
+          props.SearchForRecipeByName(
             document.getElementById("searchName").value
             
           );
@@ -22,7 +22,6 @@ return (
           }
         }></button>
         <input className="input-field" type="text" placeholder="Search by Recipe Name" id="searchName"/>
-        <button className="w3-btn fa fa-times w3-text-white w3-red" onClick={()=> props.SearchForRecipeHeader("aggleflaggle")}></button>
       </div>
     </nav>
     <div className="spacerBar"></div>

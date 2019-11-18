@@ -10,8 +10,8 @@ export const greenBeanAPIReducer = (state, action) => {
     return { ...state, credentials: {email: action.email,password: action.password,loggedIn: action.loggedIn}}
   }else if(action.type === ActionTypes.LOGOUT){
     return { ...state, credentials: {email: action.email,password: action.password,loggedIn: action.loggedIn}}
-  }else if((action.type === ActionTypes.SEARCH_BY_INGREDIENT_HEADER_SUCCESS)) {
-    return { ...state, recipes: action.recipesHead }
+  }else if((action.type === ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS)) {
+    return { ...state, recipes: action.recipes }
   }
   return state;
 };
