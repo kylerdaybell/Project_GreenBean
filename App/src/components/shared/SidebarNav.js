@@ -7,6 +7,11 @@ import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
 
 const SideBarNav = props => {
+    console.log(window.location.hash)
+    // React.useEffect(() => {
+    //     window.addEventListener(window.location.hash)
+    // })
+    console.log(SideBarNav)
     //const [path, setPath] = React.useState("");
     //const [currPath, setCurrPath] = React.useState("");
     const LogoutLogin = () => {
