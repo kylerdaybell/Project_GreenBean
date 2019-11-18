@@ -89,7 +89,7 @@ const AddRecipeForm = props => {
       <br />
       <label htmlFor="category">Category:</label>
       <select className="w3-select w3-border" id="category" name="option" >
-        <option value="" disabled selected>Choose your option</option>
+        <option value="" disabled selected>Category</option>
         <option value="Appetizers">Appetizers</option>
         <option value="Main Courses">Main Courses</option>
         <option value="Desserts">Desserts</option>
@@ -97,7 +97,7 @@ const AddRecipeForm = props => {
       <label htmlFor="instructions">Instructions:</label>
       <textarea className="w3-input w3-border inputField" id="instructions"/>
       <br />
-
+      <h3>Add Ingredients</h3>
       <IngredientAdd onSubmit={AddRecipe} />
       </div>
     </>

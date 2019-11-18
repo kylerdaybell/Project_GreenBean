@@ -25,14 +25,14 @@ const IngredientAdd = props => {
         <input  className="w3-input w3-quarter w3-border" onChange={(event) => setName(event.target.value)} type="text" placeholder="name" value={name}/>
         <input  className="w3-input w3-quarter w3-border" onChange={(event) => setAmount(Number(event.target.value))} type="number" placeholder="amount" value={amount}/>
         <input  className="w3-input w3-quarter w3-border" onChange={(event) => setUnit(event.target.value)} type="text" placeholder="unit" value={unit}/>
-        <button className = "w3-btn w3-hover-green"onClick={() => addIngredient()}>Add</button>
+        <button className = "w3-btn w3-hover-green fas fa-plus"onClick={() => addIngredient()}></button>
       </div>
       {ingredientArray.map((ingredient) => (
         <div >
           <span>
             {ingredient.name} {ingredient.amount} {ingredient.unit}/s
           </span>
-          <button className="w3-button w3-hover-red"onClick={()=>removeIngredient(ingredient)}>remove</button>
+          <button className="w3-button w3-hover-red far fa-trash-alt"onClick={()=>removeIngredient(ingredient)}></button>
           <br />
         </div>
       ))}
