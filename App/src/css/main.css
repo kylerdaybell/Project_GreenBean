@@ -17,7 +17,7 @@
 
 }
 .titleBars{
-    background-color: #c2c2c2;
+    background-color: #8cab8a;
 }
 .navButton {
     background-color: purple;
@@ -31,6 +31,7 @@
     background-color: blue;
 }
 .navBar {
+    padding:.3vh;
     z-index: 2;
     position: absolute;
     background-color:#c2c2c2
