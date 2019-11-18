@@ -41,7 +41,7 @@ const SideBarNav = props => {
             <SideNav.Nav defaultSelected='/'>
                 <NavItem eventKey="/">
                     <NavIcon>
-                        <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-home chicken" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Home

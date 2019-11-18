@@ -29,16 +29,7 @@ return (
   );
 };
 
-
-
-
-const mapStateToProps = state => {
-  return {
-    recipesHead: state.greenBeanAPI.recipesHead
-  };
-};
-
 export default connect(
-  mapStateToProps,
+  null,
   dispatch => bindActionCreators(actionCreators, dispatch)
 )(withRouter(Header));
