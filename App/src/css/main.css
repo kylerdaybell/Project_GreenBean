@@ -1,136 +1,116 @@
 .homeTitle {
-    height: 150px;
-    color: white;
-    text-align: center;
-    object-fit: cover;
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding-top:10px;
+  height: 150px;
+  color: white;
+  text-align: center;
+  object-fit: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-top:10px;
 }
 .homeTitle h1{
-    vertical-align: center;
-    font-size: 50px;
-    letter-spacing: 3px;
-    font-weight: 600;
-    text-shadow: 3px 3px #040404;
+  vertical-align: center;
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-shadow: 3px 3px #040404;
 
 }
 .titleBars{
-    background-color: #8cab8a;
+  background-color: #149911
 }
 .navButton {
-    background-color: purple;
-    color: white;
-    text-decoration: none;
+  background-color: #256d1b;
+  color: white;
+  text-decoration: none;
 }
 .navButton:hover{
-   background-color:#4e7334;
+ background-color:#149911;
 }
 .active {
-    background-color: blue;
+  background-color: #149911;
 }
 .navBar {
-    padding:.3vh;
-    z-index: 2;
-    position: absolute;
-    background-color:#c2c2c2
+  z-index: 2;
+  position: absolute;
+  background-color:#256d1b
 }
 .spacerBar {
-    padding-top:45px;
+  padding-top:45px;
 }
 .sideSpacer {
-    padding-left:60px;
-    z-index: 0;
+  padding-left:60px;
+  z-index: 0;
 }
 .sidenav---sidenav---_2tBP{
-    background: #c2c2c2 !important;
-    position: fixed !important;
+  background: #256d1b !important;
+  position: fixed !important;
 }
 .fitBody{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .inputField{
-    text-align: left;
-    word-wrap: break-word;
-    vertical-align: top;
-    resize: vertical;
-    min-height: 150px;
+  text-align: left;
+  word-wrap: break-word;
+  vertical-align: top;
+  resize: vertical;
+  min-height: 150px;
 }
 .timeBoxes {
-    display: inline-block;
+  display: inline-block;
 }
 .timeBox {
-    width: 80px;
-    text-align:right;
-    resize: none;
-    margin: 5px 10px 5px 10px;
+  width: 80px;
+  text-align:right;
+  resize: none;
+  margin: 5px 10px 5px 10px;
 }
 
 .input-container {
-    text-align: center;
-    display: flex;
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    margin-left: 40px;
-  }
+  text-align: center;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
 
-  .icon {
-    padding: 10px;
-    padding-left: 15px;
-    background: #149911;
-    color: white;
-    min-width: 40px;
-    text-align: center;
-  }
+.icon {
+  padding: 10px;
+  padding-left: 15px;
+  background: #149911;
+  color: white;
+  min-width: 40px;
+  text-align: center;
+}
 
-  .input-field {
-    width: 60%;
-    padding: 5px;
-    border: 2px solid white;
-    outline: none;
-  }
-  
-  .input-field:focus {
-    border: 2px solid #149911;
-  }
+.input-field {
+  width: 60%;
+  padding: 5px;
+  border: 2px solid white;
+  outline: none;
+}
 
-  .w3-green{
-      background-color:#8cab8a!important;
-  }
+.input-field:focus {
+  border: 2px solid #149911;
+}
 
-  .searchPadding {
-      
-    padding-bottom: 20px;
-  }
-  .recipeCard{
-    padding-bottom: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .rowPadding{
-  }
+.w3-green{
+    background-color:#149911!important;
+}
 
-  .navbaricon{
-      color: white!important;
-  }
-
-
-
-  ​
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-  ​
-  ::-webkit-scrollbar-thumb {
-    background: purple; 
-  }
-  ​
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+.searchPadding {
+    
+  padding-bottom: 20px;
+}
+.recipeCard{
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.rowPadding{
+}
