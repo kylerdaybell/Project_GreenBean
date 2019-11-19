@@ -14,6 +14,10 @@ const LoginPage = props => {
     event.preventDefault();
     let email = event.target['email'].value;
     let password = event.target['password'].value;
+    let validate = event.target['validate'].value;
+    if(password === validate){
+      props.Register(email,password,validate);
+    }
     props.Login(email,password);
   }    
   return (
@@ -24,7 +28,7 @@ const LoginPage = props => {
                 <input id="email" type="email" placeholder="Email"/>
                 <input id="password" type="password" placeholder="Password"/>
                 <input id="validate" type="password" placeholder="verify password"/>
-                <button type="submit"className="w3-btn w3-green">login</button>
+                <button type="submit"className="w3-btn w3-green">Register</button>
         </form>
       </div>
     </>

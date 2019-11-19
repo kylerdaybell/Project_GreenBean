@@ -62,6 +62,26 @@ export function Logout(){
   }
 }
 
+export function Register(email,password,validate){
+  return function(dispatch){
+    return GreenBeanAPIService.Register(email,password,validate).then(
+      result=> {result === "Result: Success" ? dispatch(RegisterSuccess()) : dispatch(RegisterFailure())}
+    )
+  }
+}
+
+export function RegisterSuccess(){
+  return {
+    type: ActionTypes.REGISTER_SUCCESS
+  }
+}
+
+export function RegisterFailure(){
+  return {
+    type: ActionTypes.REGISTER_FAILURE
+  }
+}
+
 export function CreateNewRecipe(recipe){
   return function(dispatch){
     return GreenBeanAPIService.CreateNewRecipe(recipe);
