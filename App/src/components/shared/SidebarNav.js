@@ -7,13 +7,14 @@ import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
 
 const SideBarNav = props => {
-    console.log(window.location.hash)
-    // React.useEffect(() => {
-    //     window.addEventListener(window.location.hash)
-    // })
-    console.log(SideBarNav)
-    //const [path, setPath] = React.useState("");
-    //const [currPath, setCurrPath] = React.useState("");
+    //console.log(window.location.hash)
+    const [selectedState, setState] = React.useState("");
+    console.log("SelectedState: " +selectedState)
+    var currentState = window.location.hash.replace('#','')
+    if (selectedState !== currentState)
+    {
+        setState(currentState);
+    }
     const LogoutLogin = () => {
         if(props.credentials.loggedIn){
           return (
@@ -40,40 +41,39 @@ const SideBarNav = props => {
                 props.history.push(selected);
             }}
         >
-            
             <SideNav.Toggle />
-            <SideNav.Nav defaultSelected='/'>
+            <SideNav.Nav selected={selectedState}>
                 <NavItem eventKey="/">
                     <NavIcon>
                         <i className="fa fa-fw fa-home navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        Home
+                        Home 
                     </NavText>
                 </NavItem>
-                <NavItem eventKey='/searchMain'>
+                <NavItem eventKey='/searchMain' >
                     <NavIcon>
                         <i className="fa fa-fw fa-search navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         Search
                     </NavText>
-                    <NavItem eventKey="/searchByName">
+                    <NavItem eventKey="/searchByName" >
                         <NavText>
                             Search by Name
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/searchByIngredient">
+                    <NavItem eventKey="/searchByIngredient" >
                         <NavText>
                             Search by Ingredients
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/searchByCategory">
+                    <NavItem eventKey="/searchByCategory" >
                         <NavText>
                             Search by Category
                         </NavText> 
                     </NavItem>
-                    <NavItem eventKey="/searchByEmail">
+                    <NavItem eventKey="/searchByEmail" >
                         <NavText>
                             My Recipes
                         </NavText>

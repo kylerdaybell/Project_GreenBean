@@ -5,11 +5,11 @@
   "build": {
     "appId": "GreenBean",
     "mac": {
-      "icon":"",
+      "icon": "",
       "category": "lifestyle"
     },
     "win": {
-      "icon":"./public/icon.jpg"
+      "icon": "./public/icon.png"
     }
   },
   "main": "public/electron.js",
