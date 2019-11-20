@@ -5,7 +5,7 @@
   "build": {
     "appId": "GreenBean",
     "mac": {
-      "icon": "",
+      "icon": "./public/icon.png",
       "category": "lifestyle"
     },
     "win": {
