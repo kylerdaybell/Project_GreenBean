@@ -17,11 +17,12 @@ const RecipeDetailPage = props => {
   <div className="fitbody w3-container">
     <div className="w3-green"><h1>{recipe.recipe.name}</h1></div>
     <div className="bigpicture"><img style={{"height":"40vh"}} src={recipe.recipe.picture }/></div>
-    <div ><p>{recipe.recipe.instructions}</p></div>
+    <div ><p className="w3-text-green">{recipe.recipe.category}</p></div>
     <div ><p>{recipe.recipe.descr}</p></div>
-    <div ><p>PrepTime {recipe.recipe.cooktime}</p></div>
-    <div ><p>CookTime {recipe.recipe.cooktime}</p></div>
-    <div ><p>Category {recipe.recipe.category}</p></div>
+    <div><h3>Directions</h3></div>
+    <div ><p>{recipe.recipe.instructions}</p></div>
+    <div ><p>PrepTime: {recipe.recipe.cooktime}</p></div>
+    <div ><p>CookTime: {recipe.recipe.cooktime}</p></div>
     <div><h3>Ingredients</h3></div>
     <div>{recipe.recipe.ingredientslist.map((Ingredient,key)=>(
       <p key={key}>{Ingredient.amount} {Ingredient.unit}(s) {Ingredient.name}</p>

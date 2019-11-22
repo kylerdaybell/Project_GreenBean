@@ -58,6 +58,19 @@ const GreenBeanAPIService={
           body: RealFormatedRequestBody
         };
         return fetch("https://api.greenbeancooking.com/login",settings).then(response=> response.json())
+      },
+      Register: function(email,password,validate){
+        let request = {"email":email,"password":password,"validate":validate}
+        let RealFormatedRequestBody = JSON.stringify(request);
+        const settings = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          mode: 'cors',
+          body: RealFormatedRequestBody
+        }
+        return fetch("https://api.greenbeancooking.com/register",settings).then(response=>response.json())
       }
 }
 

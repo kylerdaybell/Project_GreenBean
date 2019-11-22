@@ -4,6 +4,7 @@ import thunk from "redux-thunk";
 import * as ActionTypes from "../store/constants";
 import * as Actions from "../store/actions";
 import recipesByIngredientMock from "../testMockData/mockData";
+import * as initialState from "../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
@@ -81,3 +82,47 @@ describe("Login Tests", () => {
         .then(()=> expect(store.getActions()).toEqual(expected))
     })
 });
+
+describe("Register Tests", () => {
+  afterEach(()=> {
+      fetchMock.restore();
+  });
+  it("Successful Register. dispatch Register Success", ()=>{
+    fetchMock.mock("*", {
+      body: JSON.stringify("Result: Success"),
+      headers: {"content-type": "application.json"}
+    })
+
+    const expected = [
+      {
+        type: ActionTypes.REGISTER_SUCCESS
+      }
+    ]
+    const  store = mockStore(initialState.greenBeanAPI);
+    return store
+    .dispatch(
+      Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
+    )
+    .then(()=> expect(store.getActions()).toEqual(expected))
+  });
+
+  it("Failed Register. Dispatch Register Failure", ()=>{
+    fetchMock.mock("*",{
+      body: JSON.stringify("Result: Failure"),
+      headers: {"content-type": "application.json"}
+    })
+
+    const expected = [
+      {
+        type: ActionTypes.REGISTER_FAILURE
+      }
+    ]
+
+    const store = mockStore(initialState.greenBeanAPI);
+    return store
+    .dispatch(
+      Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
+    )
+    .then(()=>expect(store.getActions()).toEqual(expected))
+  })
+})

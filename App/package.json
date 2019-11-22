@@ -5,7 +5,7 @@
   "build": {
     "appId": "GreenBean",
     "mac": {
-      "icon": "",
+      "icon": "./public/icon.png",
       "category": "lifestyle"
     },
     "win": {
@@ -14,7 +14,7 @@
   },
   "main": "public/electron.js",
   "homepage": "./",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "@trendmicro/react-breadcrumbs": "^0.5.5",

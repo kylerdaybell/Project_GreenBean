@@ -17,23 +17,24 @@
 
 }
 .titleBars{
-  background-color: #149911
+  background-color: #8cab8a;
 }
 .navButton {
-  background-color: #256d1b;
+  background-color: purple;
   color: white;
   text-decoration: none;
 }
 .navButton:hover{
- background-color:#149911;
+ background-color:#4e7334;
 }
 .active {
-  background-color: #149911;
+  background-color: blue;
 }
 .navBar {
+  padding:.3vh;
   z-index: 2;
   position: absolute;
-  background-color:#256d1b
+  background-color:#c2c2c2
 }
 .spacerBar {
   padding-top:45px;
@@ -43,7 +44,7 @@
   z-index: 0;
 }
 .sidenav---sidenav---_2tBP{
-  background: #256d1b !important;
+  background: #c2c2c2 !important;
   position: fixed !important;
 }
 .fitBody{
@@ -100,7 +101,7 @@
 }
 
 .w3-green{
-    background-color:#149911!important;
+    background-color:#8cab8a!important;
 }
 
 .searchPadding {
@@ -113,4 +114,23 @@
   padding-right: 5px;
 }
 .rowPadding{
+}
+
+.navbaricon{
+    color: white!important;
+}
+
+
+
+​
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+​
+::-webkit-scrollbar-thumb {
+  background: purple; 
+}
+​
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
