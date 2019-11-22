@@ -28,7 +28,7 @@ const LoginPage = props => {
       <form className="w3-card" onSubmit={event=>login(event)}>
                 <input id="email" type="email" placeholder="Email"/>
                 <input id="password" type="password" placeholder="Password"/>
-                <input id="validate" type="password" placeholder="verify password"/>
+                <input id="validate" type="password" placeholder="Verify Password"/>
                 <button type="submit"className="button w3-green">Register</button>
         </form>
       </div>
