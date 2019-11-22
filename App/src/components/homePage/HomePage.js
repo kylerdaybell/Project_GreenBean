@@ -2,8 +2,6 @@ import React ,{useEffect} from "react";
 import RecipeCard from "../shared/RecipeCard";
 import "../../css/w3.css";
 import "../../css/main.css";
-
-import "../../css/cards.css";
 import HomePageTitle from "../shared/HomePageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";

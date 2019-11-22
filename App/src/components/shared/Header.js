@@ -24,7 +24,7 @@ return (
           }
         }>Search</button>
       </div>
-    </nav>
+    </nav> 
     <div className="spacerBar"></div>
     </>
   );

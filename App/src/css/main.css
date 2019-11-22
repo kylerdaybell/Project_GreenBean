@@ -17,16 +17,16 @@
 
 }
 .titleBars{
-  background-color: #8cab8a;
+  background-color: #6CAD68;
 }
 .navButton {
-  background-color: #8cab8a!important;
+  background-color: #6CAD68!important;
   color: white!important;
   text-decoration: none;
   margin-left:10px;
 }
 .navButton:hover{
-  background-color: #8cab8a!important;
+  background-color: #6CAD68!important;
   color: white!important;
   opacity: 0.8;
 }
@@ -35,10 +35,11 @@
 }
 .navBar {
   padding:.3vh;
-  z-index: 2;
+  z-index: 1000;
   position: fixed;
+  opacity: .99;
   top: 0px;
-  background-color:#c2c2c2
+  background-color:#626262
 }
 .spacerBar {
   padding-top:50px;
@@ -97,31 +98,21 @@
 }
 
 .input-field:focus {
-  border: 2px solid #8cab8a;
+  border: 2px solid #6CAD68;
 }
 
 .w3-green{
-    background-color:#8cab8a!important;
+    background-color:#6CAD68!important; 
 }
 .w3-white{
-  color: #8cab8a!important;
+  color: #6CAD68!important;
 }
 .searchPadding {
   padding-bottom: 20px;
 }
-.recipeCard{
-  padding-bottom: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.recipeCard p {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 .cardSpacing{
-  margin: 5px;
+  margin:5px!important;
 }
 
 .navbaricon{
