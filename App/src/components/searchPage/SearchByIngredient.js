@@ -10,12 +10,12 @@ const SearchPage = props => {
 
   useEffect(()=>{
     inputRef.current.focus();
+    inputRef.current.value="";
   });
 
   const checkTab = (event) => {
     if(event.key === 'Tab' || event.key === ','){
       setIngredientList([...ingredientList, event.target.value])
-      event.target.value="";
     }
   }
 
