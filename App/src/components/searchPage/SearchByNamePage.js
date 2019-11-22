@@ -5,6 +5,11 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 const SearchByNamePage = props => {
+  const submitIfEnter = event => {
+    if(event.key === 'Enter'){
+      props.SearchForRecipeByName(event.target.value);
+    }
+  }
   return (
     <>
     
@@ -16,6 +21,7 @@ const SearchByNamePage = props => {
         className="w3-input w3-border"
         type="text"
         placeholder="search"
+        onKeyDown={(event)=>submitIfEnter(event)}
       />
       <button
         onClick={() =>

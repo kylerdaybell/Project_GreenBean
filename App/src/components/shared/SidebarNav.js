@@ -8,9 +8,7 @@ import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
 
 const SideBarNav = props => {
-    //console.log(window.location.hash)
     const [selectedState, setState] = React.useState("");
-    console.log("SelectedState: " + selectedState)
     var currentState = window.location.hash.replace('#','')
     if (selectedState !== currentState)
     {
@@ -42,8 +40,6 @@ const SideBarNav = props => {
                 props.history.push(selected);
             }}
             onToggle={(selected) => {
-                console.log("In toggle")
-                console.log()
                 var d = document.getElementsByClassName("spacerBar").style;
             }}
         >

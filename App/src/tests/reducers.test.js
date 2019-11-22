@@ -9,6 +9,7 @@ it("should add recipes when passed SEARCH_BY_INGREDIENT_SUCCESS", () => {
   const action = actions.SearchByIngredientSuccess(recipes);
 
   const expectedState = {
+    ...initialState.greenBeanAPI,
     recipes: recipes,
     credentials: { loggedIn: false, email: "", password: "" }
   };
@@ -25,6 +26,7 @@ it("should add credentials when passed LOGIN_SUCCESS", ()=>{
     const action = actions.LoginSuccess(testEmail, testPassword);
 
     const expectedState = {
+        ...initialState.greenBeanAPI,
         recipes: [],
         credentials: { loggedIn: true, email: testEmail, password: testPassword}
     }
@@ -38,6 +40,7 @@ it("should clear credentials when passed LOGOUT", ()=>{
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
     const testState = {
+        ...initialState.greenBeanAPI,
         recipes: [],
         credentials: { loggedIn: true, email: testEmail, password: testPassword}
     }

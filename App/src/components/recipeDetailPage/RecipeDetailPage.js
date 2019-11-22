@@ -6,8 +6,6 @@ import * as actionCreators from "../../store/actions";
 import Ingredient from "../../models/Ingredients";
 
 const RecipeDetailPage = props => {
-  console.log(props.match.params.id);
-  console.log(props.recipes);
   const recipe = props.recipes.find(r => r.recipe.id == props.match.params.id);
   if (typeof recipe === "undefined") {
     return(<PageTitle title={"Recipe Not Found"}/>);
@@ -36,7 +34,7 @@ const RecipeDetailPage = props => {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.greenBeanAPI.recipes
+    recipes: [...state.greenBeanAPI.recipes, ...state.greenBeanAPI.homePageRecipes]
   };
 };
 
