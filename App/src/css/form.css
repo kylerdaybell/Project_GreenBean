@@ -15,15 +15,27 @@ form button {
     cursor: pointer;
     width: 95%;
   }
-  .button {
+  .formButton {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 95%;
   }
-  button:hover, .button:hover {
+ .formButton:hover {
     opacity: 0.8;
     background-color: #6CAD68!important;
     color: white!important;
+  }
+  .formFit{
+    max-width: 500px;
+    margin: auto;
+    padding-top: 4vh;
+  }
+  .formTitle{
+    padding-bottom: 4vh;
+    padding-top:1vh;
+  }
+  .formInnerPadding{
+    padding: 1vh 2vh 4vh 2vh;
   }

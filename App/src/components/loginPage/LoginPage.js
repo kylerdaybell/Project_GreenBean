@@ -20,13 +20,14 @@ const LoginPage = props => {
   }    
   return (
     <>
-      <PageTitle title={"Login"}/>
-      <div id="content-area" className="w3-container w3-row w3-center w3-display-center fitBody">
-      <form className="w3-card" onSubmit={event=>login(event)}>
+      <PageTitle title={""}/>
+      <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
+      <form className="w3-card formInnerPadding" onSubmit={event=>login(event)}>
+                <h1><div className="formTitle">Login</div></h1>  
                 <input id="email" type="email" placeholder="Email"/>
                 <input id="password" type="password" placeholder="Password"/>
                 <button type="submit"className="w3-green">Login</button>
-                <NavLink className="w3-button w3-green button" to="/register">
+                <NavLink className="w3-button w3-green formButton" to="/register">
                 Create Account
                 </NavLink>
                 

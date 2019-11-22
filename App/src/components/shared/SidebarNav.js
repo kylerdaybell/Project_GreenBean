@@ -17,19 +17,40 @@ const SideBarNav = props => {
     const LogoutLogin = () => {
         if(props.credentials.loggedIn){
           return (
-            <NavItem eventKey="/logout">
+            <NavItem eventKey="/profile">
+                <NavIcon>
+                    <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
                 <NavText>
-                    Logout
+                    Profile
                 </NavText>
+                <NavItem eventKey="/logout">
+                    <NavText>
+                        Logout
+                    </NavText>
+                </NavItem>
             </NavItem>
 
           )
         }
         return (
-            <NavItem eventKey="/login">
+            <NavItem eventKey="/profile">
+                <NavIcon>
+                    <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
                 <NavText>
-                    Login
+                    Profile
                 </NavText>
+                <NavItem eventKey="/login">
+                    <NavText>
+                        Login
+                    </NavText>
+                </NavItem>
+                    <NavItem eventKey="/register">
+                    <NavText>
+                        Sign Up
+                    </NavText>
+                </NavItem>
             </NavItem>
         )
       }
@@ -89,20 +110,7 @@ const SideBarNav = props => {
                         Add Recipe
                     </NavText>
                 </NavItem>
-                <NavItem eventKey="/profile">
-                    <NavIcon>
-                        <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
-                    </NavIcon>
-                    <NavText>
-                        Profile
-                    </NavText>
-                    {/* <NavItem eventKey="">
-                        <NavText>
-                            Profile settings
-                        </NavText>
-                    </NavItem> */}
-                    {LogoutLogin()}
-                </NavItem>
+                {LogoutLogin()}
             </SideNav.Nav>
         </SideNav>
     );

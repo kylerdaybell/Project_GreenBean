@@ -20,10 +20,10 @@ const LogoutPage = props => {
       <PageTitle title={"Logout"} />
       <div
         id="content-area"
-        className="w3-container w3-row w3-center w3-display-center fitBody"
+        className="w3-container w3-row w3-center w3-display-center formFit"
       >
         <form className="w3-card w3-half" onSubmit={event => logout(event)}>
-          <button type="submit" className="w3-btn w3-green">
+          <button type="submit" className="w3-btn w3-green formButton">
             logout
           </button>
         </form>

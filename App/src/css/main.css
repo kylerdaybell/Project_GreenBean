@@ -133,3 +133,13 @@
   padding: 10px; 
   min-width: 40px; 
 } 
+button {
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+button:hover {
+  opacity: 0.8;
+  background-color: #6CAD68!important;
+  color: white!important;
+}
