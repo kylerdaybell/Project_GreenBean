@@ -12,8 +12,7 @@ const RecipeCard = props => {
       return;
     }
   }
-  let descr;
-  descr = props.recipe.recipe.descr.substring(0,descrLength)
+  let descr = props.recipe.recipe.descr.substring(0,descrLength)
   if (props.recipe.recipe.descr.length > descrLength)
   {
     descr += "...";
