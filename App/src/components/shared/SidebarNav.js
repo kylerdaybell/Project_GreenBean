@@ -9,7 +9,7 @@ import {withRouter} from "react-router-dom"
 const SideBarNav = props => {
     //console.log(window.location.hash)
     const [selectedState, setState] = React.useState("");
-    console.log("SelectedState: " +selectedState)
+    console.log("SelectedState: " + selectedState)
     var currentState = window.location.hash.replace('#','')
     if (selectedState !== currentState)
     {

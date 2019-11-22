@@ -9,7 +9,7 @@
       "category": "lifestyle"
     },
     "win": {
-      "icon": "./public/icon.png"
+      "icon": "./public/logo.png"
     }
   },
   "main": "public/electron.js",
