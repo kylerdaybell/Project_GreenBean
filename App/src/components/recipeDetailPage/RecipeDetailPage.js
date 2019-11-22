@@ -36,7 +36,7 @@ const RecipeDetailPage = props => {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.greenBeanAPI.recipes
+    recipes: [...state.greenBeanAPI.recipes, ...state.greenBeanAPI.homePageRecipes]
   };
 };
 
