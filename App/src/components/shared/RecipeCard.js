@@ -13,11 +13,10 @@ const RecipeCard = props => {
     }
   }
   let descr;
+  descr = props.recipe.recipe.descr.substring(0,descrLength)
   if (props.recipe.recipe.descr.length > descrLength)
   {
-    descr = props.recipe.recipe.descr.substring(0,descrLength) + "...";
-  }else {
-    descr = props.recipe.recipe.descr;
+    descr += "...";
   }
   return (
     <NavLink to={`/recipes/${props.recipe.recipe.id}`}>
