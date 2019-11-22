@@ -65,6 +65,13 @@ app.get('/getallrecipes',cors(corsOptions),function(req,res){
   recipeController.GetAllRecipes(req,res);
 });
 
+app.get('/gettoptenrecipes',cors(corsOptions),function(req,res){
+  console.log("gettoptenrecipes");
+  recipeController.GetTopTenRecipes(req,res);
+});
+
+
+
 app.get('/searchrecipebyname/:name',cors(corsOptions),function(req,res){
   console.log("searchrecipebyname");
   recipeController.SearchRecipeByName(req,res);

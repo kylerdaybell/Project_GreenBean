@@ -31,6 +31,11 @@ var RecipeService = {
             return false;
         }
     },
+    GetTopTenRecipes: async function(){
+        let DatabaseResult = await IApiDatabaseService.GetTopTenRecipes();
+        var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)
+        return RecipeList;
+    },
     GetAllRecipes: async function(){
         let DatabaseResult = await IApiDatabaseService.GetAllRecipes();
         var RecipeList = this.DatabaseResultToRecipeList(DatabaseResult)

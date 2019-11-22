@@ -71,6 +71,9 @@ const GreenBeanAPIService={
           body: RealFormatedRequestBody
         }
         return fetch("https://api.greenbeancooking.com/register",settings).then(response=>response.json())
+      },
+      GetTopTenRecipes: function(){
+        return fetch(`https://api.greenbeancooking.com/gettoptenrecipes`).then(response=>response.json())
       }
 }
 
