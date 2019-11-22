@@ -9,8 +9,8 @@ import * as actionCreators from "../../store/actions";
 
 const HomePage = (props) => {
   useEffect(()=>{
-    props.SearchForRecipeByCategory(
-     "cookie"
+    props.GetTopTenRecipes(
+
     )
   })
   return (
@@ -34,7 +34,7 @@ const HomePage = (props) => {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.greenBeanAPI.recipes
+    recipes: state.greenBeanAPI.homePageRecipes
   };
 };
 
