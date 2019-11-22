@@ -1,0 +1,29 @@
+input[type=password], input[type=email]{
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+form button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 95%;
+  }
+  .button {
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 95%;
+  }
+  button:hover, .button:hover {
+    opacity: 0.8;
+    background-color: #8cab8a!important;
+    color: white!important;
+  }

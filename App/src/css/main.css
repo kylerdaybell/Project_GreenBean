@@ -20,12 +20,15 @@
   background-color: #8cab8a;
 }
 .navButton {
-  background-color: purple;
-  color: white;
+  background-color: #8cab8a!important;
+  color: white!important;
   text-decoration: none;
+  margin-left:10px;
 }
 .navButton:hover{
- background-color:#4e7334;
+  background-color: #8cab8a!important;
+  color: white!important;
+  opacity: 0.8;
 }
 .active {
   background-color: blue;
@@ -33,11 +36,12 @@
 .navBar {
   padding:.3vh;
   z-index: 2;
-  position: absolute;
+  position: fixed;
+  top: 0px;
   background-color:#c2c2c2
 }
 .spacerBar {
-  padding-top:45px;
+  padding-top:50px;
 }
 .sideSpacer {
   padding-left:60px;
@@ -74,7 +78,7 @@
 .input-container {
   text-align: center;
   display: flex;
-  width: 100%;
+  width: 80%;
   margin-bottom: 10px;
   margin-top: 10px;
   margin-left: 40px;
@@ -90,22 +94,23 @@
 }
 
 .input-field {
-  width: 60%;
+  width: 80%;
   padding: 5px;
   border: 2px solid white;
   outline: none;
 }
 
 .input-field:focus {
-  border: 2px solid #149911;
+  border: 2px solid #8cab8a;
 }
 
 .w3-green{
     background-color:#8cab8a!important;
 }
-
+.w3-white{
+  color: #8cab8a!important;
+}
 .searchPadding {
-    
   padding-bottom: 20px;
 }
 .recipeCard{
@@ -121,7 +126,6 @@
 }
 
 
-
 ​
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
@@ -134,3 +138,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+.input-icons i { 
+  position: absolute; 
+} 
+
+.input-icons { 
+  width: 100%; 
+  margin-bottom: 10px; 
+} 
+
+.icon { 
+  padding: 10px; 
+  min-width: 40px; 
+} 

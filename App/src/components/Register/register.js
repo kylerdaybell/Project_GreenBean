@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../../css/w3.css";
+import "../../css/form.css"
 import PageTitle from "../shared/PageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -28,7 +29,7 @@ const LoginPage = props => {
                 <input id="email" type="email" placeholder="Email"/>
                 <input id="password" type="password" placeholder="Password"/>
                 <input id="validate" type="password" placeholder="verify password"/>
-                <button type="submit"className="w3-btn w3-green">Register</button>
+                <button type="submit"className="button w3-green">Register</button>
         </form>
       </div>
     </>

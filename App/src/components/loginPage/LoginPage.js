@@ -25,8 +25,8 @@ const LoginPage = props => {
       <form className="w3-card" onSubmit={event=>login(event)}>
                 <input id="email" type="email" placeholder="Email"/>
                 <input id="password" type="password" placeholder="Password"/>
-                <button type="submit"className="w3-btn w3-green">Login</button>
-                <NavLink className="w3-btn w3-green" to="/register">
+                <button type="submit"className="w3-green">Login</button>
+                <NavLink className="w3-button w3-green button" to="/register">
                 Create Account
                 </NavLink>
                 

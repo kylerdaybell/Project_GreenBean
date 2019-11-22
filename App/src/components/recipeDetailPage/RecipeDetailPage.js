@@ -10,12 +10,13 @@ const RecipeDetailPage = props => {
   console.log(props.recipes);
   const recipe = props.recipes.find(r => r.recipe.id == props.match.params.id);
   if (typeof recipe === "undefined") {
-    return(<div className="fitbody w3-container"><h1 className="w3-green">Recipe Not Found</h1></div>);
+    return(<PageTitle title={"Recipe Not Found"}/>);
   }
   return (
   <>
+  <PageTitle title={recipe.recipe.name}/>
   <div className="fitbody w3-container">
-    <div className="w3-green"><h1>{recipe.recipe.name}</h1></div>
+    
     <div className="bigpicture"><img style={{"height":"40vh"}} src={recipe.recipe.picture }/></div>
     <div ><p className="w3-text-green">{recipe.recipe.category}</p></div>
     <div ><p>{recipe.recipe.descr}</p></div>

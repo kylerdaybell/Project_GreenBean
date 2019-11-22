@@ -12,7 +12,9 @@ return (
     <>
     <nav className="w3-bar navBar sideSpacer">
       <div className="input-container" >
-        <button className="fa fa-search icon w3-button w3-green"
+        <i className="fa fa-search icon w3-white"></i>
+        <input className="input-field" type="text" placeholder="Search by Recipe Name" id="searchName"/>
+        <button className="w3-button navButton w3-green"
         onClick={() => {
           props.SearchForRecipeByName(
             document.getElementById("searchName").value
@@ -20,8 +22,7 @@ return (
           );
           props.history.push('/searchByName');
           }
-        }></button>
-        <input className="input-field" type="text" placeholder="Search by Recipe Name" id="searchName"/>
+        }>Search</button>
       </div>
     </nav>
     <div className="spacerBar"></div>

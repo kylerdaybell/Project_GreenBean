@@ -8,7 +8,7 @@ const HomePage = () => {
       <HomePageTitle title={"Green Bean Cooking"}/>
       
       <div id="content-area" className="w3-container fitBody">
-        <p>this is where the home page goes</p>
+        <p>Cook what you have, when you want it</p>
       </div>
     </>
   );
