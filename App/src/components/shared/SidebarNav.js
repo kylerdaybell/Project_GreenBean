@@ -3,6 +3,7 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../../css/main.css';
+import '../../css/sidenav.css';
 import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
 
