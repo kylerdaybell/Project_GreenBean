@@ -120,6 +120,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.cardSpacing{
+  margin: 5px;
+}
 
 .navbaricon{
     color: white!important;

@@ -23,8 +23,8 @@ const RecipeCard = props => {
         <h2 className="w3-container"><p>{props.recipe.recipe.name}</p></h2>
         <p>{getPercentMatch()}</p>
         <p className="w3-container ">Description: {props.recipe.recipe.descr}</p>
-        </div>
       </div>
+    </div>
     </NavLink>
   );
 };
