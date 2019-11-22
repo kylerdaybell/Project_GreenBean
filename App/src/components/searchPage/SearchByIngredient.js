@@ -14,8 +14,11 @@ const SearchPage = props => {
   });
 
   const checkTab = (event) => {
-    if(event.key === 'Tab' || event.key === ','){
+    console.log(event.key)
+    if(event.key === 'Tab' || event.key === ',' || event.key === 'Enter'){
       setIngredientList([...ingredientList, event.target.value])
+    }if(event.key === 'Enter'){
+      searchForRecipeByIngredient();
     }
   }
 
