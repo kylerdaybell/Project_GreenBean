@@ -18,7 +18,7 @@ const SearchPage = props => {
     if(event.key === 'Tab' || event.key === ',' || event.key === 'Enter'){
       setIngredientList([...ingredientList, event.target.value])
     }if(event.key === 'Enter'){
-      searchForRecipeByIngredient();
+      searchForRecipeByIngredient(event.target.value);
     }
   }
 
@@ -26,8 +26,8 @@ const SearchPage = props => {
     setIngredientList(ingredientList.filter(i=>i!==ingredient))
   }
 
-  const searchForRecipeByIngredient = () => {
-    let searchParameters = "";
+  const searchForRecipeByIngredient = (ingredient="") => {
+    let searchParameters = `${ingredient},`;
     ingredientList.forEach(element => {
       searchParameters = searchParameters.concat(element, ",");
     });
