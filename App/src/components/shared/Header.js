@@ -5,12 +5,12 @@ import "../../css/main.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
-import RecipeCard from "../shared/RecipeCard";
 
 const Header = props => {
   const submitIfEnter = event => {
     if (event.key === "Enter") {
       props.SearchForRecipeByName(event.target.value);
+      props.history.push("/searchByName");
     }
   };
   return (
