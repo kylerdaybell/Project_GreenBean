@@ -41,6 +41,11 @@ const SideBarNav = props => {
             onSelect={(selected) => {
                 props.history.push(selected);
             }}
+            onToggle={(selected) => {
+                console.log("In toggle")
+                console.log()
+                var d = document.getElementsByClassName("spacerBar").style;
+            }}
         >
             <SideNav.Toggle />
             <SideNav.Nav selected={selectedState}>
@@ -95,11 +100,11 @@ const SideBarNav = props => {
                     <NavText>
                         Profile
                     </NavText>
-                    <NavItem eventKey="">
+                    {/* <NavItem eventKey="">
                         <NavText>
                             Profile settings
                         </NavText>
-                    </NavItem>
+                    </NavItem> */}
                     {LogoutLogin()}
                 </NavItem>
             </SideNav.Nav>

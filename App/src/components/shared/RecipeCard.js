@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-const descrLength = 30;
 const RecipeCard = props => {
   const getPercentMatch=()=>{
     if(typeof props.recipe.percentmatch!== "undefined"){
@@ -12,25 +11,20 @@ const RecipeCard = props => {
       return;
     }
   }
-  let descr = props.recipe.recipe.descr.substring(0,descrLength)
-  if (props.recipe.recipe.descr.length > descrLength)
-  {
-    descr += "...";
-  }
   return (
     <NavLink to={`/recipes/${props.recipe.recipe.id}`}>
-      <div className="w3-card w3-third w3-white">
+      <div className="w3-card w3-third w3-white w3-spin ">
         <img
           src={props.recipe.recipe.picture}
           alt="recipe"
           style={{ width: "100%", height: "30vh" }}
         ></img>
         <div className="recipeCard">
-        <h2 className="w3-container">{props.recipe.recipe.name}</h2>
-        {getPercentMatch()}
-        <p className="w3-container ">Description: {descr}</p>
-        </div>
+        <h2 className="w3-container"><p>{props.recipe.recipe.name}</p></h2>
+        <p>{getPercentMatch()}</p>
+        <p className="w3-container ">Description: {props.recipe.recipe.descr}</p>
       </div>
+    </div>
     </NavLink>
   );
 };

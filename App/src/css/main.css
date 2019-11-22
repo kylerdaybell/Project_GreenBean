@@ -114,7 +114,14 @@
   padding-left: 5px;
   padding-right: 5px;
 }
-.rowPadding{
+.recipeCard p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cardSpacing{
+  margin: 5px;
 }
 
 .navbaricon{

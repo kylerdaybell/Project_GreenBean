@@ -83,6 +83,12 @@ var ApiDatabaseService = {
         con.end()
         return row;
     },
+    GetTopTenRecipes: async function(){
+        const con = await this.getConnection();
+        row = await con.execute('SELECT * FROM RECIPE LIMIT 10');
+        con.end()
+        return row;
+    },
     SearchRecipeByName: async function(RecipeName){
         const con = await this.getConnection();
         RecipeNameWithWildCards = "%"+RecipeName+"%"

@@ -107,15 +107,14 @@ URL
 >https://api.greenbeancooking.com/getrecipebyid/id
 
 
-## Getting all recipes from the database including ingredients
+## Get top ten recipes from the database
 
-### this request may take a long time to return
 
 Method
 >GET
 
 URL
->https://api.greenbeancooking.com/getallrecipes
+>https://api.greenbeancooking.com/gettoptenrecipes
 
 
 ## Searching for a recipe by name
