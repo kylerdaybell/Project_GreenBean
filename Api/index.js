@@ -100,7 +100,11 @@ app.get('/getrecipebycategory/:category',cors(corsOptions),function(req,res){
 app.get('/getrecipebyemail/:email',cors(corsOptions),function(req,res){
   console.log("/getrecipebyemail");
   recipeController.GetRecipeByEmail(req,res);
+})
 
+app.post('/getRecipeAdvancedSearch',cors(corsOptions),function(req,res){
+  console.log("/getRecipeAdvancedSearch");
+  recipeController.GetRecipeAdvancedSearch(req,res);
 })
 
 

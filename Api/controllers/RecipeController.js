@@ -93,7 +93,22 @@ var RecipeController = {
         var RecipeList = await RecipeService.GetTopTenRecipes();
         res.write(JSON.stringify(RecipeList));
         res.end();
-    }
+    },
+    GetRecipeAdvancedSearch: async function(req, res) {
+        let IngredientsList = req.body.IngredientsList;
+        let category = req.body.category;
+        let email = req.body.email;
+        let RecipeMatch = [];
+        if(typeof IngredientsList !== 'undefined'){
+            RecipeMatch = await RecipeService.SearchRecipesByIngredients(IngredientsList)
+        }else if(typeof category !== 'undefined'){
+            RecipeMatch = await RecipeService.GetRecipesByCategory(category);
+        }else if(typeof email !== 'undefined'){
+            RecipeMatch = await RecipeService.GetRecipesByEmail(email);
+        }
+        res.write(JSON.stringify(RecipeMatch));
+        res.end();
+      }
 }
 
 module.exports = RecipeController;
