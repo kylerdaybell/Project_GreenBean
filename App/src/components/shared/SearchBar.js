@@ -4,7 +4,9 @@ const SearchBar = props => {
   const inputRef = useRef(null);
 
   useEffect(()=>{
-    inputRef.current.focus();
+    if(props.focus){
+      inputRef.current.focus();
+    }
     if(props.clearBar)
     {
       inputRef.current.value="";
