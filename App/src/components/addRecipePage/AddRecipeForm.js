@@ -1,6 +1,7 @@
 import React from "react";
 import IngredientAdd from "./IngredientAdd";
 import RecipeAddModel from "../../models/Recipe";
+import recipeCategories from "./recipeCategories";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
@@ -90,9 +91,9 @@ const AddRecipeForm = props => {
       <label htmlFor="category">Category:</label>
       <select className="w3-select w3-border" id="category" name="option" >
         <option value="" disabled selected>Category</option>
-        <option value="Appetizers">Appetizers</option>
-        <option value="Main Courses">Main Courses</option>
-        <option value="Desserts">Desserts</option>
+        {recipeCategories.map((category, key)=> (
+          <option key={key} value={category}>{category}</option>
+        ))}
       </select>
       <label htmlFor="instructions">Instructions:</label>
       <textarea className="w3-input w3-border inputField" id="instructions"/>
@@ -113,6 +114,3 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, dispatch =>
   bindActionCreators(actionCreators, dispatch)
 )(AddRecipeForm);
-
-//
-
