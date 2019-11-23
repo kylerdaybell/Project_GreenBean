@@ -114,3 +114,23 @@ export function CreateNewRecipeFailure(){
     type: ActionTypes.CREATE_NEW_RECIPE_FAILURE
   }
 }
+
+export function AdvancedSearch(ingredients, category, email){
+  return function(dispatch){
+    return GreenBeanAPIService.AdvancedSearch(ingredients, category, email).then(
+      recipes=>{
+        if(typeof category !== 'undefined'){
+          recipes = recipes.filter(r=>r.recipe.category === category)
+        }
+        dispatch(AdvancedSearchSuccess(recipes))
+      }
+    )
+  }
+}
+
+export function AdvancedSearchSuccess(recipes){
+  return {
+    type: ActionTypes.ADVANCED_SEARCH_SUCCESS,
+    recipes
+  }
+}
