@@ -100,18 +100,13 @@ const SideBarNav = props => {
                             Search by Category
                         </NavText> 
                     </NavItem>
-                    <NavItem eventKey="/searchByEmail" >
-                        <NavText>
-                            My Recipes
-                        </NavText>
-                    </NavItem>
                 </NavItem>
-                <NavItem eventKey="/new">
+                <NavItem eventKey="/myRecipes">
                     <NavIcon>
                         <i className="fa fa-fw fa-hamburger navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        Add Recipe
+                        My Recipes
                     </NavText>
                 </NavItem>
                 {LogoutLogin()}

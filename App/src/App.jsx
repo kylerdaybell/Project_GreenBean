@@ -11,6 +11,7 @@ import SideBarNav from "./components/shared/SidebarNav";
 import SearchByName from "./components/searchPage/SearchByNamePage";
 import SearchByCategory from "./components/searchPage/SearchByCategory"
 import Register from "./components/Register/register"
+import MyRecipePage from "./components/myRecipesPage/MyRecipesPage";
 import "./css/main.css"
 import "./App.css";
 
@@ -23,7 +24,8 @@ const App = () => {
       <SideBarNav/>
       <Switch className="sideSpacer">
         <Route exact path="/" component={HomePage} />
-        <Route path="/new" component={AddRecipe} />
+        <Route exact path="/myRecipes" component={MyRecipePage}/>
+        <Route path="/myRecipes/addRecipe" component={AddRecipe} />
         <Route path="/login" component={LoginPage} />
         <Route path="/logout" component={LogoutPage} />
         <Route path="/recipes/:id" component={RecipeDetailPage} />
