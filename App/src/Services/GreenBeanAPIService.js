@@ -1,5 +1,4 @@
-import RecipeAddModel from "../models/Recipe";
-import Ingredient from "../models/Ingredients"
+import GreenBeanUtilityService from "./GreenBeanUtilityService";
 
 const URL = "https://api.greenbeancooking.com";
 
@@ -20,14 +19,7 @@ const GreenBeanAPIService={
           return fetch(`${URL}/searchrecipebyname/${SearchTerm}`).then(response=>response.json());
       },
       SearchForRecipeByIngredient: function(List){
-          let ListArray = List.split(',')
-
-          var IngredientsListArray = []
-          
-          for(let i = 0; i < ListArray.length; i++){
-            let newIngredient = new Ingredient(ListArray[i])
-            IngredientsListArray.push(newIngredient);
-          }
+          let IngredientsListArray = GreenBeanUtilityService.prepIngredients(List);
 
           let FormatedRequestBody = {"IngredientsList":IngredientsListArray};
           let RealFormatedRequestBody = JSON.stringify(FormatedRequestBody);
@@ -76,6 +68,20 @@ const GreenBeanAPIService={
       },
       GetTopTenRecipes: function(){
         return fetch(`${URL}/gettoptenrecipes`).then(response=>response.json())
+      },
+      AdvancedSearch: function(IngredientsList, category, email){
+        let IngredientsListArray = GreenBeanUtilityService.prepIngredients(IngredientsList);
+        let request = {"IngredientsList": IngredientsListArray, "category": category,"email":email}
+        let RealFormatedRequestBody = JSON.stringify(request);
+        const settings = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          mode: 'cors',
+          body: RealFormatedRequestBody
+        }
+        return fetch(`${URL}/register`,settings).then(response=>response.json())
       }
 }
 
