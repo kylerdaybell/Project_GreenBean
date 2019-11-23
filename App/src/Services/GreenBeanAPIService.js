@@ -1,8 +1,11 @@
 import RecipeAddModel from "../models/Recipe";
 import Ingredient from "../models/Ingredients"
+
+const URL = "https://api.greenbeancooking.com";
+
 const GreenBeanAPIService={
      CreateNewRecipe: function(recipe){
-        return fetch("https://api.greenbeancooking.com/createrecipe",{
+        return fetch(`${URL}/createrecipe`,{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -13,9 +16,8 @@ const GreenBeanAPIService={
         }).then(response=>response.json())
         .catch(error=>Promise.reject())
       },
-      SearchForRecipeByName: async function(SearchTerm){
-          let APIResult = await fetch(`https://api.greenbeancooking.com/searchrecipebyname/${SearchTerm}`).then(response=>response.json())
-          return APIResult;
+      SearchForRecipeByName: function(SearchTerm){
+          return fetch(`${URL}/searchrecipebyname/${SearchTerm}`).then(response=>response.json());
       },
       SearchForRecipeByIngredient: function(List){
           let ListArray = List.split(',')
@@ -39,13 +41,12 @@ const GreenBeanAPIService={
             mode: 'cors',
             body: RealFormatedRequestBody
           };
-          return fetch("https://api.greenbeancooking.com/getrecipebyingredientslist",settings)
+          return fetch(`${URL}/getrecipebyingredientslist`,settings)
           .then(response=>response.json())
           .catch(error=>Promise.reject())
       },
-      SearchForRecipeByCategory: async function(category){
-        let APIResult = await fetch(`https://api.greenbeancooking.com/getrecipebycategory/${category}`).then(response=>response.json())
-        return APIResult;
+      SearchForRecipeByCategory: function(category){
+        return fetch(`${URL}/getrecipebycategory/${category}`).then(response=>response.json())
       },
       Login: function(email,password){
         let request = {"email": email, "password":password}
@@ -58,7 +59,7 @@ const GreenBeanAPIService={
           mode: 'cors',
           body: RealFormatedRequestBody
         };
-        return fetch("https://api.greenbeancooking.com/login",settings).then(response=> response.json())
+        return fetch(`${URL}/login`,settings).then(response=> response.json())
       },
       Register: function(email,password,validate){
         let request = {"email":email,"password":password,"validate":validate}
@@ -71,10 +72,10 @@ const GreenBeanAPIService={
           mode: 'cors',
           body: RealFormatedRequestBody
         }
-        return fetch("https://api.greenbeancooking.com/register",settings).then(response=>response.json())
+        return fetch(`${URL}/register`,settings).then(response=>response.json())
       },
       GetTopTenRecipes: function(){
-        return fetch(`https://api.greenbeancooking.com/gettoptenrecipes`).then(response=>response.json())
+        return fetch(`${URL}/gettoptenrecipes`).then(response=>response.json())
       }
 }
 
