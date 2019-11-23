@@ -6,10 +6,11 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 import SearchBar from "../shared/SearchBar";
+
 const SearchPage = props => {
   const [ingredientList, setIngredientList] = useState([]);
 
-  const checkTab = (event) => {
+  const ingredientSearchOverride = (event) => {
     if(event.key === 'Tab' || event.key === ',' || event.key === 'Enter'){
       if(event.target.value === "" || typeof ingredientList.find(i=>i === event.target.value) !== 'undefined'){
         setIngredientList([...ingredientList]);
@@ -42,7 +43,7 @@ const SearchPage = props => {
           {ingredientList.map((ingredient, key) => (
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
           ))}
-        <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={checkTab}/>
+        <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride}/>
         <div className="w3-row-padding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
