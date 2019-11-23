@@ -1,14 +1,24 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 
 const SearchBar = props => {
+  const inputRef = useRef(null);
+
+  useEffect(()=>{
+    inputRef.current.focus();
+    inputRef.current.value="";
+  });
+
   const submitIfEnter = event => {
-    if (event.key === "Enter") {
+    if (typeof props.overrideFunction === 'undefined' && event.key === "Enter") {
       props.searchFunction(event.target.value);
+    }else{
+      props.overrideFunction(event);
     }
   };
   return (
     <>
       <input
+        ref={inputRef}
         id="ingredientSearchBox"
         className="w3-input w3-border"
         type="text"

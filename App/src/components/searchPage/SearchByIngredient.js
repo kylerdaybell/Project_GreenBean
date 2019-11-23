@@ -1,18 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
 import IngredientBox from "./IngredientBox";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import SearchBar from "../shared/SearchBar";
 const SearchPage = props => {
   const [ingredientList, setIngredientList] = useState([]);
-  const inputRef = useRef(null);
-
-  useEffect(()=>{
-    inputRef.current.focus();
-    inputRef.current.value="";
-  });
 
   const checkTab = (event) => {
     if(event.key === 'Tab' || event.key === ',' || event.key === 'Enter'){
@@ -44,25 +39,10 @@ const SearchPage = props => {
       <div className="fitBody">
         <div id="content-area" className="w3-container"></div>
 
-        <span>
           {ingredientList.map((ingredient, key) => (
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
           ))}
-          <input
-            ref={inputRef}
-            id="ingredientSearchBox"
-            className="w3-input w3-border"
-            type="text"
-            placeholder="search"
-            onKeyDown={(event)=>checkTab(event)}
-          />
-        </span>
-        <button
-          onClick={() =>searchForRecipeByIngredient()}
-          className="w3-button w3-green "
-        >
-          search
-        </button>
+        <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={checkTab}/>
         <div className="w3-row-padding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
