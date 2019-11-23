@@ -1,35 +1,17 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
+import SearchBar from "../shared/SearchBar";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 const SearchByCategory = props => {
-  const submitIfEnter = event => {
-    if(event.key === 'Enter'){
-      props.SearchForRecipeByCategory(event.target.value);
-    }
-  }
   return (
     <>
     
       <PageTitle title={"Search By Category"} />
       <div className="fitBody">
-      <div id="content-area" className="w3-container"></div>
-      <input
-        id="ingredientSearchBox"
-        className="w3-input w3-border"
-        type="text"
-        placeholder="search"
-        onKeyDown={(event)=>submitIfEnter(event)}
-      />
-      <button
-        onClick={() =>
-          props.SearchForRecipeByCategory(
-            document.getElementById("ingredientSearchBox").value
-          )
-        }
-        className="w3-button w3-green ">search</button>
+      <SearchBar searchFunction={props.SearchForRecipeByCategory} />
       <div className="w3-row-padding">
         {props.recipes.map((recipe, index) => (
           <RecipeCard recipe={recipe} key={index} />
