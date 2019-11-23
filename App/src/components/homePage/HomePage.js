@@ -9,9 +9,9 @@ import * as actionCreators from "../../store/actions";
 
 const HomePage = (props) => {
   useEffect(()=>{
-    props.GetTopTenRecipes(
-
-    )
+    if(props.recipes.length === 0){
+      props.GetTopTenRecipes()
+    }
   })
   return (
     <>
