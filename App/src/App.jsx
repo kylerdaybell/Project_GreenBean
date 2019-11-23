@@ -18,8 +18,9 @@ const App = () => {
   return (
     <div>
       <Header /> 
-      <SideBarNav/>
+      
       <div className="sideSpacer">
+      <SideBarNav/>
       <Switch className="sideSpacer">
         <Route exact path="/" component={HomePage} />
         <Route path="/new" component={AddRecipe} />

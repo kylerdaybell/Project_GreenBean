@@ -1,3 +1,6 @@
+:root {
+  --sideNavLeftMargin: 64px;
+}
 .homeTitle {
   height: 150px;
   color: white;
@@ -35,6 +38,7 @@
 }
 .navBar {
   padding:.3vh;
+  height: 64px;
   z-index: 1000;
   position: fixed;
   opacity: .99;
@@ -42,11 +46,19 @@
   background-color:#626262
 }
 .spacerBar {
-  padding-top:50px;
+  padding-top: 64px;
+}
+.sideNav {
+  z-index: 1000;
 }
 .sideSpacer {
-  padding-left:60px;
-  z-index: 0;
+  margin-left: var(--sideNavLeftMargin);
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  transition: all 0.1s;
+  
 }
 
 .fitBody{
