@@ -32,9 +32,7 @@ const SearchBar = props => {
       />
       <button
         onClick={() =>
-          props.searchFunction(
-            document.getElementById("ingredientSearchBox").value
-          )
+          props.searchFunction(inputRef.current.value)
         }
         className="w3-button w3-green "
       >

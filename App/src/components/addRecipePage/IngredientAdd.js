@@ -1,10 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 
 const IngredientAdd = props => {
+  const nameRef = useRef(null);
+  const amountRef = useRef(null);
+  const unitRef = useRef(null);
   const [ingredientArray, setIngredientArray] = useState([]);
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState(0);
-  const [unit, setUnit] = useState("");
+
+  useEffect(()=>{
+    nameRef.current.value = "";
+    amountRef.current.value = "";
+    unitRef.current.value = "";
+  })
 
   const removeIngredient = (ingredient) => {
       let newArray = ingredientArray.filter(i => i !== ingredient);
@@ -12,19 +18,20 @@ const IngredientAdd = props => {
   }
 
   const addIngredient = () => {
+      nameRef.current.focus();
       let ingredient = {name:"",amount:0,unit:""};
-      ingredient.name = name
-      ingredient.amount = amount;
-      ingredient.unit = unit
+      ingredient.name = nameRef.current.value;
+      ingredient.amount = amountRef.current.value;
+      ingredient.unit = unitRef.current.value;
       setIngredientArray([ingredient, ...ingredientArray])
   }
 
   return (
     <>
       <div className="w3-row">
-        <input  className="w3-input w3-quarter w3-border" onChange={(event) => setName(event.target.value)} type="text" placeholder="name" value={name}/>
-        <input  className="w3-input w3-quarter w3-border" onChange={(event) => setAmount(Number(event.target.value))} type="number" placeholder="amount" value={amount}/>
-        <input  className="w3-input w3-quarter w3-border" onChange={(event) => setUnit(event.target.value)} type="text" placeholder="unit" value={unit}/>
+        <input ref={nameRef} className="w3-input w3-quarter w3-border" type="text" placeholder="name"/>
+        <input ref={amountRef} className="w3-input w3-quarter w3-border" type="number" placeholder="amount"/>
+        <input ref={unitRef} className="w3-input w3-quarter w3-border" type="text" placeholder="unit"/>
         <button className = "w3-btn w3-hover-green fas fa-plus"onClick={() => addIngredient()}></button>
       </div>
       {ingredientArray.map((ingredient) => (
