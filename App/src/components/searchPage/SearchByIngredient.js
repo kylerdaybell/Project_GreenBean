@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
+import IngredientBox from "./IngredientBox";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
@@ -14,8 +15,11 @@ const SearchPage = props => {
   });
 
   const checkTab = (event) => {
-    console.log(event.key)
     if(event.key === 'Tab' || event.key === ',' || event.key === 'Enter'){
+      if(event.target.value === "" || typeof ingredientList.find(i=>i === event.target.value) !== 'undefined'){
+        setIngredientList([...ingredientList]);
+        return;
+      }
       setIngredientList([...ingredientList, event.target.value])
     }if(event.key === 'Enter'){
       searchForRecipeByIngredient(event.target.value);
@@ -42,7 +46,7 @@ const SearchPage = props => {
 
         <span>
           {ingredientList.map((ingredient, key) => (
-            <span key={key} onClick={()=>deleteIngredient(ingredient)}>{ingredient}  </span>
+            <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
           ))}
           <input
             ref={inputRef}
