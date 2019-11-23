@@ -9,7 +9,9 @@ import {withRouter} from "react-router-dom"
 
 const SideBarNav = props => {
     const [selectedState, setState] = React.useState("");
-    var currentState = window.location.hash.replace('#','')
+    const [expandedBar, setExpanded] = React.useState("");
+    console.log(expandedBar)
+    var currentState = window.location.hash.replace('#','');
     if (selectedState !== currentState)
     {
         setState(currentState);
@@ -55,13 +57,15 @@ const SideBarNav = props => {
         )
       }
     return (
-        
+        <div  style={{
+                        marginLeft: expandedBar ? 240 : 64
+                    }}>
         <SideNav
             onSelect={(selected) => {
                 props.history.push(selected);
             }}
-            onToggle={(selected) => {
-                var d = document.getElementsByClassName("spacerBar").style;
+            onToggle={(expanded) => {
+                document.documentElement.style.setProperty('--sideNavLeftMargin', expanded ? 240 + "px" : 64 + "px")
             }}
         >
             <SideNav.Toggle />
@@ -113,6 +117,7 @@ const SideBarNav = props => {
                 {LogoutLogin()}
             </SideNav.Nav>
         </SideNav>
+        </div>
     );
 };
 
