@@ -20,7 +20,7 @@ const SearchByCategory = props => {
       </select>
       <button
         onClick={() =>
-          props.SearchForRecipeByCategory(document.getElementById("category"))
+          props.SearchForRecipeByCategory(document.getElementById("category").value)
         }
         className="w3-button w3-green "
       >
