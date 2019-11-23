@@ -12,6 +12,9 @@
 
 > GRANT ALL ON *.* TO 'username';
 
+3.5. You may need to add the following line if your are using mysql in Docker.
+> ALTER USER 'username'@'%' IDENTIFIED WITH mysql_native_password BY 'password'
+
 > exit
 
 4. Clone our code base
