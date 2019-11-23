@@ -4,7 +4,8 @@ import { combineReducers } from "redux";
 import * as Reducers from "./reducers";
 
 const rootReducer = combineReducers({
-  greenBeanAPI: Reducers.greenBeanAPIReducer
+  greenBeanAPI: Reducers.greenBeanAPIReducer,
+  status: Reducers.statusReducer
 });
 
 const enhancers = [];

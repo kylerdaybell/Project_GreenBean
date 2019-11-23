@@ -62,6 +62,16 @@ const AddRecipeForm = props => {
     props.CreateNewRecipe(recipeJson);
   };
 
+  const getMessage = () => {
+    if(props.submitResponse === true){
+      return <div>Recipe Added Successfully</div>
+    }else if(props.submitResponse === false){
+      return <div>Recipe Failed To Upload</div>
+    }else{
+      return;
+    }
+  }
+
   return (
     <>
       <div className="fitBody">
@@ -100,6 +110,7 @@ const AddRecipeForm = props => {
       <br />
       <h3>Add Ingredients</h3>
       <IngredientAdd onSubmit={AddRecipe} />
+      {getMessage()}
       </div>
     </>
   );
@@ -107,7 +118,8 @@ const AddRecipeForm = props => {
 
 const mapStateToProps = state => {
   return {
-      credentials: state.greenBeanAPI.credentials
+      credentials: state.greenBeanAPI.credentials,
+      submitResponse: state.status.createRecipeSuccess
   };
 };
 

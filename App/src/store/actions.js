@@ -97,6 +97,20 @@ export function RegisterFailure(){
 
 export function CreateNewRecipe(recipe){
   return function(dispatch){
-    return GreenBeanAPIService.CreateNewRecipe(recipe);
+    return GreenBeanAPIService.CreateNewRecipe(recipe).then(
+      result=> {result === "Result: Success" ? dispatch(CreateNewRecipeSuccess()) : dispatch(CreateNewRecipeFailure())}
+    ).catch(dispatch(CreateNewRecipeFailure()));
   };
 };
+
+export function CreateNewRecipeSuccess() {
+  return {
+    type: ActionTypes.CREATE_NEW_RECIPE_SUCCESS
+  }
+}
+
+export function CreateNewRecipeFailure(){
+  return {
+    type: ActionTypes.CREATE_NEW_RECIPE_FAILURE
+  }
+}

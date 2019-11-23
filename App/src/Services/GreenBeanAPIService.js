@@ -2,7 +2,7 @@ import RecipeAddModel from "../models/Recipe";
 import Ingredient from "../models/Ingredients"
 const GreenBeanAPIService={
      CreateNewRecipe: function(recipe){
-        fetch("https://api.greenbeancooking.com/createrecipe",{
+        return fetch("https://api.greenbeancooking.com/createrecipe",{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -10,7 +10,8 @@ const GreenBeanAPIService={
           },
           mode: 'cors',
           body: recipe
-        }).then(response=>response.json()).then(data=>console.log(data))
+        }).then(response=>response.json())
+        .catch(error=>Promise.reject())
       },
       SearchForRecipeByName: async function(SearchTerm){
           let APIResult = await fetch(`https://api.greenbeancooking.com/searchrecipebyname/${SearchTerm}`).then(response=>response.json())

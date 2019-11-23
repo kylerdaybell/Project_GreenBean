@@ -15,3 +15,18 @@ export const greenBeanAPIReducer = (state, action) => {
   }
   return state;
 };
+
+export const statusReducer = (state, action) => {
+  state = state || initial.status;
+
+  if ((action.type === ActionTypes.LOGIN_SUCCESS)){
+    return {...state, loginSuccess: true}
+  }else if (action.type === ActionTypes.LOGIN_FAILURE){
+    return {...state, loginSuccess: false}
+  }else if (action.type === ActionTypes.CREATE_NEW_RECIPE_SUCCESS){
+    return {...state, createRecipeSuccess: true}
+  }else if (action.type === ActionTypes.CREATE_NEW_RECIPE_FAILURE){
+    return {...state, createRecipeSuccess: false}
+  }
+  return state;
+}
