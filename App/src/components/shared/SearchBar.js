@@ -5,12 +5,17 @@ const SearchBar = props => {
 
   useEffect(()=>{
     inputRef.current.focus();
-    inputRef.current.value="";
+    if(props.clearBar)
+    {
+      inputRef.current.value="";
+    }
   });
 
   const submitIfEnter = event => {
-    if (typeof props.overrideFunction === 'undefined' && event.key === "Enter") {
-      props.searchFunction(event.target.value);
+    if (typeof props.overrideFunction === 'undefined') {
+      if(event.key === "Enter"){
+        props.searchFunction(event.target.value);
+      }
     }else{
       props.overrideFunction(event);
     }

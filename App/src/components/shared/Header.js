@@ -8,8 +8,8 @@ import * as actionCreators from "../../store/actions";
 import SearchBar from "./SearchBar";
 
 const Header = props => {
-  const headerSearch = event => {
-    props.SearchForRecipeByName(event.target.value);
+  const headerSearch = searchVal => {
+    props.SearchForRecipeByName(searchVal);
     props.history.push("/searchByName");
   };
   return (
