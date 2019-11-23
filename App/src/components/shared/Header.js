@@ -17,7 +17,7 @@ const Header = props => {
       <nav className="w3-bar navBar sideSpacer">
         <div className="input-container">
           <i className="fa fa-search icon w3-white"></i>
-          <SearchBar searchFunction={headerSearch} />
+          <SearchBar searchFunction={headerSearch} placeholder="Search By Recipe Name" />
         </div>
       </nav>
       <div className="spacerBar"></div>

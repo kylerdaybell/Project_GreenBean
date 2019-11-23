@@ -12,7 +12,7 @@ const SearchBar = props => {
         id="ingredientSearchBox"
         className="w3-input w3-border"
         type="text"
-        placeholder="search"
+        placeholder={props.placeholder || "search"}
         onKeyDown={event => submitIfEnter(event)}
       />
       <button
