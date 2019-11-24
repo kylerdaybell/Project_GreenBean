@@ -9,34 +9,50 @@ import AddRecipe from "./components/addRecipePage/AddRecipe";
 import RecipeDetailPage from "./components/recipeDetailPage/RecipeDetailPage";
 import SideBarNav from "./components/shared/SidebarNav";
 import SearchByName from "./components/searchPage/SearchByNamePage";
-import SearchByCategory from "./components/searchPage/SearchByCategory"
-import Register from "./components/Register/register"
+import SearchByCategory from "./components/searchPage/SearchByCategory";
+import Register from "./components/Register/register";
 import MyRecipePage from "./components/myRecipesPage/MyRecipesPage";
-import "./css/main.css"
+import { connect } from "react-redux";
+import "./css/main.css";
 import "./App.css";
 
-const App = () => {
+const App = props => {
+  const onlinePages = () => {
+    if (props.offlineMode === false) {
+      return (
+        <>
+          <Route path="/login" component={LoginPage} />
+          <Route path="/logout" component={LogoutPage} />
+          <Route path="/register" component={Register} />
+        </>
+      );
+    }
+  };
   return (
     <div>
-      <Header /> 
-      
+      <Header />
+
       <div className="sideSpacer">
-      <SideBarNav/>
-      <Switch className="sideSpacer">
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/myRecipes" component={MyRecipePage}/>
-        <Route path="/myRecipes/addRecipe" component={AddRecipe} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/logout" component={LogoutPage} />
-        <Route path="/recipes/:id" component={RecipeDetailPage} />
-        <Route path="/searchByName" component={SearchByName}/>
-        <Route path="/searchByIngredient" component={SearchPage} />
-        <Route path="/searchByCategory" component={SearchByCategory}/>
-        <Route path="/register" component={Register}/>
-      </Switch>
+        <SideBarNav />
+        <Switch className="sideSpacer">
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/myRecipes" component={MyRecipePage} />
+          <Route path="/myRecipes/addRecipe" component={AddRecipe} />
+          <Route path="/recipes/:id" component={RecipeDetailPage} />
+          <Route path="/searchByName" component={SearchByName} />
+          <Route path="/searchByIngredient" component={SearchPage} />
+          <Route path="/searchByCategory" component={SearchByCategory} />
+          {onlinePages()}
+        </Switch>
       </div>
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    offlineMode: state.greenBeanAPI.offlineMode
+  };
+};
+
+export default connect(mapStateToProps, null)(App);

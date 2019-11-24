@@ -109,7 +109,7 @@ const SideBarNav = props => {
                         My Recipes
                     </NavText>
                 </NavItem>
-                {LogoutLogin()}
+                {props.offlineMode ? <></> : LogoutLogin()}
             </SideNav.Nav>
         </SideNav>
         </div>
@@ -119,7 +119,8 @@ const SideBarNav = props => {
 
 const mapStateToProps = state => {
     return {
-        credentials: state.greenBeanAPI.credentials
+        credentials: state.greenBeanAPI.credentials,
+        offlineMode: state.greenBeanAPI.offlineMode
     }
   }
   
