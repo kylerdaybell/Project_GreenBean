@@ -1,3 +1,4 @@
+import DefaultImage from "../resources/default.jpg"
 const electron = window.electron;
 const path = window.path;
 const fs = window.fs;
@@ -17,6 +18,9 @@ class OfflineAPIClass {
     let addedRecipe = { recipe: { ...JSON.parse(recipe), id: -1 } };
     this.IncrementRecipeCount();
     addedRecipe.recipe.id = this.data["recipeCount"];
+    if(addedRecipe.recipe.picture === ""){
+      addedRecipe.recipe.picture = DefaultImage;
+    }
     try {
       this.data["recipes"].push(addedRecipe);
       await fs.writeFile(this.path, JSON.stringify(this.data), error => {

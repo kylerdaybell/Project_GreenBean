@@ -1,6 +1,9 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle"
 import { NavLink } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions/actions";
 
 const MyRecipePage = props => {
   return (
@@ -13,9 +16,18 @@ const MyRecipePage = props => {
         <NavLink to="/myRecipes/addRecipe">
             Add Recipe
         </NavLink>
+        <button className="w3-button w3-green" onClick={()=>props.ChangeMode(props.currentMode)}>Switch Mode</button>
       </div>
     </>
   );
 };
 
-export default MyRecipePage;
+const mapStateToProps = state => {
+  return {
+      currentMode: state.greenBeanAPI.offlineMode
+  };
+};
+
+export default connect(mapStateToProps, dispatch =>
+  bindActionCreators(actionCreators, dispatch)
+)(MyRecipePage);
