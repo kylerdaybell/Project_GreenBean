@@ -2,21 +2,22 @@
   --sideNavLeftMargin: 64px;
 }
 .homeTitle {
-  height: 150px;
+  height: 25vw;
   color: white;
   text-align: center;
   object-fit: cover;
   background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-top:10px;
+  padding-top:2vh;
 }
 .homeTitle h1{
   vertical-align: center;
-  font-size: 50px;
+  font-size: 8vw;
   letter-spacing: 3px;
   font-weight: 600;
   text-shadow: 3px 3px #040404;
+  font
 
 }
 .titleBars{
