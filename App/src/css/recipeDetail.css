@@ -1,0 +1,9 @@
+.detailPadding{
+    padding: 20px;
+    color: black;
+}
+.sectionLine{
+    height: 0px;
+    border-bottom: solid 2px black;
+    width: 90%;
+}
