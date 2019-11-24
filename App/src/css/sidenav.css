@@ -4,6 +4,7 @@
   .sidenav---sidenav---_2tBP{
     background: #929292 !important;
     position: fixed !important;
+    top: 32px !important;
     -webkit-transition: all 0.1s!important;
     -moz-transition: all 0.1s!important;
     -o-transition: all 0.1s!important;
