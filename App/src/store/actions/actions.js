@@ -1,5 +1,13 @@
 import * as OnlineActions from "./onlineActions";
 import * as OfflineActions from "./offlineActions";
+import * as ActionTypes from "../constants";
+
+export function ChangeMode(currentMode) {
+  return {
+    type: ActionTypes.CHANGE_MODE,
+    offlineMode: !currentMode
+  }
+}
 
 export function GetTopTenRecipes() {
   return function(dispatch, getState) {
