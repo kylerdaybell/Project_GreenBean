@@ -3,6 +3,7 @@ import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
 import * as ActionTypes from "../store/constants";
 import * as Actions from "../store/actions/onlineActions";
+import * as resultActions from "../store/actions/resultActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 import * as initialState from "../store/initialState";
 

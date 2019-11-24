@@ -2,6 +2,7 @@ import { createStore } from "redux";
 import { greenBeanAPIReducer } from "../store/reducers";
 import initialState from "../store/initialState";
 import * as actions from "../store/actions/onlineActions";
+import * as resultActions from "../store/actions/resultActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 
 describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
@@ -9,7 +10,7 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     const store = createStore(greenBeanAPIReducer, initialState);
     const recipes = recipesByIngredientMock;
 
-    const action = actions.SearchByIngredientSuccess(recipes);
+    const action = resultActions.SearchByIngredientSuccess(recipes);
     store.dispatch(action);
     const expected = recipesByIngredientMock;
 
@@ -22,7 +23,7 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
 
-    const action = actions.LoginSuccess(testEmail, testPassword);
+    const action = resultActions.LoginSuccess(testEmail, testPassword);
     store.dispatch(action);
 
     const expected = { loggedIn: true, email: testEmail, password: testPassword };
