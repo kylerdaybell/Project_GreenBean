@@ -94,9 +94,3 @@ export function AdvancedSearch(ingredients, category, email) {
   };
 }
 
-export function AdvancedSearchSuccess(recipes) {
-  return {
-    type: ActionTypes.ADVANCED_SEARCH_SUCCESS,
-    recipes
-  };
-}

@@ -48,3 +48,10 @@ export function SearchByCategorySuccess(recipes) {
 export function SearchByNameSuccess(recipes) {
   return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
 }
+
+export function AdvancedSearchSuccess(recipes) {
+  return {
+    type: ActionTypes.ADVANCED_SEARCH_SUCCESS,
+    recipes
+  };
+}
