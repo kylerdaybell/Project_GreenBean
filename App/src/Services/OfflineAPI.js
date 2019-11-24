@@ -68,7 +68,7 @@ function readFile(filePath) {
     return JSON.parse(fs.readFileSync(filePath));
   } catch (error) {
     fs.writeFileSync(filePath, JSON.stringify({ recipes: [], recipeCount: 0 }));
-    return { recipes: [] };
+    return { recipes: [], recipeCount: 0 };
   }
 }
 
