@@ -1,7 +1,7 @@
 input[type=password], input[type=email]{
     width: 95%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 12px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -10,7 +10,7 @@ input[type=password], input[type=email]{
 form button {
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 12px 0;
     border: none;
     cursor: pointer;
     width: 95%;
@@ -23,19 +23,24 @@ form button {
     width: 95%;
   }
  .formButton:hover {
-    opacity: 0.8;
-    background-color: #6CAD68!important;
+   opacity: 1;
+    background-color: #88bd86!important;
     color: white!important;
   }
   .formFit{
     max-width: 500px;
     margin: auto;
-    padding-top: 4vh;
+    margin-top: 4vh;
   }
   .formTitle{
-    padding-bottom: 4vh;
-    padding-top:1vh;
+    margin-bottom: 5vh;
+    margin-top:1vh;
   }
   .formInnerPadding{
-    padding: 1vh 2vh 4vh 2vh;
+    padding: 1vh 2vh 8vh 2vh;
+  }
+  .loginImage{
+    background-image: url("../resources/loginBean1.jpg"); 
+    background-repeat: none;
+    background-size: cover;
   }
