@@ -1,0 +1,42 @@
+import * as OnlineActions from "./onlineActions";
+import * as OfflineActions from "./offlineActions";
+
+export function GetTopTenRecipes() {
+  return function(dispatch, getState) {
+    getState().greenBeanAPI.offlineMode
+      ? dispatch(OfflineActions.GetTopTenRecipesOffline())
+      : dispatch(OnlineActions.GetTopTenRecipesOnline());
+  };
+}
+
+export function SearchForRecipeByIngredient(ingredients) {
+  return function(dispatch, getState) {
+    getState().greenBeanAPI.offlineMode
+      ? dispatch(OfflineActions.SearchForRecipeByIngredientOffline(ingredients))
+      : dispatch(OnlineActions.SearchForRecipeByIngredientOnline(ingredients));
+  };
+}
+
+export function SearchForRecipeByName(name) {
+  return function(dispatch, getState) {
+    getState().greenBeanAPI.offlineMode
+      ? dispatch(OfflineActions.SearchForRecipeByNameOffline(name))
+      : dispatch(OnlineActions.SearchForRecipeByNameOnline(name));
+  };
+}
+
+export function SearchForRecipeByCategory(category) {
+  return function(dispatch, getState) {
+    getState().greenBeanAPI.offlineMode
+      ? dispatch(OfflineActions.SearchForRecipeByCategoryOffline(category))
+      : dispatch(OnlineActions.SearchForRecipeByCategoryOnline(category));
+  };
+}
+
+export function CreateNewRecipe(recipe) {
+  return function(dispatch, getState) {
+    getState().greenBeanAPI.offlineMode
+      ? dispatch(OfflineActions.CreateNewRecipeOffline(recipe))
+      : dispatch(OnlineActions.CreateNewRecipeOnline(recipe));
+  };
+}

@@ -5,7 +5,7 @@ import "../../css/main.css";
 import HomePageTitle from "../shared/HomePageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions/onlineActions";
+import * as actionCreators from "../../store/actions/actions";
 
 const HomePage = (props) => {
   useEffect(()=>{

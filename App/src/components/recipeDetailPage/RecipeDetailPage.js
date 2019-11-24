@@ -1,9 +1,6 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions/onlineActions";
-import Ingredient from "../../models/Ingredients";
 
 const RecipeDetailPage = props => {
   const recipe = props.recipes.find(r => r.recipe.id == props.match.params.id);
@@ -38,6 +35,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, dispatch =>
-  bindActionCreators(actionCreators, dispatch)
+export default connect(mapStateToProps, null
 )(RecipeDetailPage);

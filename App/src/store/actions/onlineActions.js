@@ -2,7 +2,7 @@ import * as ActionTypes from "../constants";
 import * as ResultActions from "./resultActions";
 import GreenBeanAPIService from "../../Services/GreenBeanAPIService";
 
-export function GetTopTenRecipes() {
+export function GetTopTenRecipesOnline() {
   return function(dispatch) {
     return GreenBeanAPIService.GetTopTenRecipes().then(recipes =>
       dispatch(ResultActions.GetTopTenRecipesSuccess(recipes))
@@ -10,7 +10,7 @@ export function GetTopTenRecipes() {
   };
 }
 
-export function SearchForRecipeByIngredient(ingredients) {
+export function SearchForRecipeByIngredientOnline(ingredients) {
   return function(dispatch) {
     return GreenBeanAPIService.SearchForRecipeByIngredient(
       ingredients
@@ -20,7 +20,7 @@ export function SearchForRecipeByIngredient(ingredients) {
   };
 }
 
-export function SearchForRecipeByName(name) {
+export function SearchForRecipeByNameOnline(name) {
   return function(dispatch) {
     return GreenBeanAPIService.SearchForRecipeByName(name).then(recipes =>
       dispatch(ResultActions.SearchByNameSuccess(recipes))
@@ -28,7 +28,7 @@ export function SearchForRecipeByName(name) {
   };
 }
 
-export function SearchForRecipeByCategory(category) {
+export function SearchForRecipeByCategoryOnline(category) {
   return function(dispatch) {
     return GreenBeanAPIService.SearchForRecipeByCategory(
       category
@@ -67,7 +67,7 @@ export function Register(email, password, validate) {
   };
 }
 
-export function CreateNewRecipe(recipe) {
+export function CreateNewRecipeOnline(recipe) {
   return function(dispatch) {
     return GreenBeanAPIService.CreateNewRecipe(recipe)
       .then(result => {
@@ -79,7 +79,7 @@ export function CreateNewRecipe(recipe) {
   };
 }
 
-export function AdvancedSearch(ingredients, category, email) {
+export function AdvancedSearchOnline(ingredients, category, email) {
   return function(dispatch) {
     return GreenBeanAPIService.AdvancedSearch(
       ingredients,

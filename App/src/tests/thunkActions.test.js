@@ -30,7 +30,7 @@ describe("Get Recipe By Ingredient", () => {
     const store = mockStore({ recipes: [] });
     return store
       .dispatch(
-        Actions.SearchForRecipeByIngredient("mockIngredient,mockingredient")
+        Actions.SearchForRecipeByIngredientOnline("mockIngredient,mockingredient")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });

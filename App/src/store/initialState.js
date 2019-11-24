@@ -1,7 +1,8 @@
 export const greenBeanAPI = {
   recipes: [],
   homePageRecipes: [],
-  credentials: { loggedIn: false, email: "", password: "" }
+  credentials: { loggedIn: false, email: "", password: "" },
+  offlineMode: false
 };
 
 export const status = {

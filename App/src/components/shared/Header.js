@@ -4,7 +4,7 @@ import "../../css/w3.css";
 import "../../css/main.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions/onlineActions";
+import * as actionCreators from "../../store/actions/actions";
 import SearchBar from "./SearchBar";
 
 const Header = props => {

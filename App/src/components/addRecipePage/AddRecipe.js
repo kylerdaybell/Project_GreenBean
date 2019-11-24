@@ -5,7 +5,7 @@ import {Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 
 const AddRecipe = props => {
-  if (props.credentials.loggedIn === false) {
+  if (props.credentials.loggedIn === false && props.offlineMode === false) {
     return <Redirect to="/login"/>;
   }
   
@@ -19,7 +19,8 @@ const AddRecipe = props => {
 
 const mapStateToProps = state => {
   return {
-      credentials: state.greenBeanAPI.credentials
+      credentials: state.greenBeanAPI.credentials,
+      offlineMode: state.greenBeanAPI.offlineMode
   }
 }
 

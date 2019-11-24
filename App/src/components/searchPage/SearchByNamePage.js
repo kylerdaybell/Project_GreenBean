@@ -3,7 +3,7 @@ import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions/onlineActions";
+import * as actionCreators from "../../store/actions/actions";
 import SearchBar from "../shared/SearchBar";
 const SearchByNamePage = props => {
   return (
