@@ -5,7 +5,7 @@ import SearchBar from "../shared/SearchBar";
 import recipeCategories from "../addRecipePage/recipeCategories"
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions/onlineActions";
 const SearchByCategory = props => {
   return (
     <>

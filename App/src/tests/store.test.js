@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 import { greenBeanAPIReducer } from "../store/reducers";
 import initialState from "../store/initialState";
-import * as actions from "../store/actions";
+import * as actions from "../store/actions/onlineActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 
 describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {

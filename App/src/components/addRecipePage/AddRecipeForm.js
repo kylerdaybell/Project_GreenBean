@@ -4,7 +4,7 @@ import RecipeAddModel from "../../models/Recipe";
 import recipeCategories from "./recipeCategories";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions/onlineActions";
 import Resizer from 'react-image-file-resizer';
 
 const AddRecipeForm = props => {

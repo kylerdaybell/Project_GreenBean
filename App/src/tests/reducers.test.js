@@ -1,5 +1,5 @@
 import * as Reducer from "../store/reducers";
-import * as actions from "../store/actions";
+import * as actions from "../store/actions/onlineActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 import * as initialState from "../store/initialState";
 

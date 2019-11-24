@@ -1,5 +1,5 @@
-import * as ActionTypes from "./constants";
-import GreenBeanAPIService from "../Services/GreenBeanAPIService";
+import * as ActionTypes from "../constants";
+import GreenBeanAPIService from "../../Services/GreenBeanAPIService";
 
 export function GetTopTenRecipes() {
   return function(dispatch) {

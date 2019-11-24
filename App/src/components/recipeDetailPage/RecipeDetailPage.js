@@ -2,7 +2,7 @@ import React from "react";
 import PageTitle from "../shared/PageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions/onlineActions";
 import Ingredient from "../../models/Ingredients";
 
 const RecipeDetailPage = props => {

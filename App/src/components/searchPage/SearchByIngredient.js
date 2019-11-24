@@ -4,7 +4,7 @@ import RecipeCard from "../shared/RecipeCard";
 import IngredientBox from "./IngredientBox";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions";
+import * as actionCreators from "../../store/actions/onlineActions";
 import SearchBar from "../shared/SearchBar";
 
 const SearchPage = props => {
