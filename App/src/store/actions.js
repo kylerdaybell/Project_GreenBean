@@ -1,9 +1,9 @@
 import * as ActionTypes from "./constants";
 import GreenBeanAPIService from "../Services/GreenBeanAPIService";
 
-export function GetTopTenRecipes(ingredients) {
+export function GetTopTenRecipes() {
   return function(dispatch) {
-    return GreenBeanAPIService.GetTopTenRecipes(ingredients).then(
+    return GreenBeanAPIService.GetTopTenRecipes().then(
       recipes => dispatch(GetTopTenRecipesSuccess(recipes))
     );
   };
