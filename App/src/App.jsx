@@ -15,6 +15,7 @@ import MyRecipePage from "./components/myRecipesPage/MyRecipesPage";
 import { connect } from "react-redux";
 import "./css/main.css";
 import "./App.css";
+import WindowFrame from "./components/shared/WindowFrame";
 
 const App = props => {
   const onlinePages = () => {
@@ -29,21 +30,24 @@ const App = props => {
     }
   };
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
+      <WindowFrame />
       <Header />
 
       <div className="sideSpacer">
         <SideBarNav />
-        <Switch className="sideSpacer">
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/myRecipes" component={MyRecipePage} />
-          <Route path="/myRecipes/addRecipe" component={AddRecipe} />
-          <Route path="/recipes/:id" component={RecipeDetailPage} />
-          <Route path="/searchByName" component={SearchByName} />
-          <Route path="/searchByIngredient" component={SearchPage} />
-          <Route path="/searchByCategory" component={SearchByCategory} />
-          {onlinePages()}
-        </Switch>
+        <div className="mainApp">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/myRecipes" component={MyRecipePage} />
+            <Route path="/myRecipes/addRecipe" component={AddRecipe} />
+            <Route path="/recipes/:id" component={RecipeDetailPage} />
+            <Route path="/searchByName" component={SearchByName} />
+            <Route path="/searchByIngredient" component={SearchPage} />
+            <Route path="/searchByCategory" component={SearchByCategory} />
+            {onlinePages()}
+          </Switch>
+        </div>
       </div>
     </div>
   );

@@ -42,14 +42,20 @@
   z-index: 1000;
   position: fixed;
   opacity: .99;
-  top: 0px;
+  top: 32px;
   background-color:#626262
 }
 .spacerBar {
   padding-top: 64px;
 }
 .sideNav {
+  top: 32px !important;
   z-index: 1000;
+}
+.mainApp {
+  overflow-y: auto;
+  /* 96px is navBar top + navBar height */
+  max-height: calc(100vh - 96px);
 }
 .sideSpacer {
   margin-left: var(--sideNavLeftMargin);
