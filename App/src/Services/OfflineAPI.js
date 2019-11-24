@@ -1,4 +1,4 @@
-import DefaultImage from "../resources/default.jpg"
+import DefaultImage from "../resources/defaultSmaller.jpg"
 const electron = window.electron;
 const path = window.path;
 const fs = window.fs;

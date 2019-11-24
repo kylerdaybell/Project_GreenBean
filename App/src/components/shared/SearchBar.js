@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from "react";
-
+import '../../css/main.css'
 const SearchBar = props => {
   const inputRef = useRef(null);
 
@@ -24,7 +24,8 @@ const SearchBar = props => {
   };
   return (
     <>
-      <input
+    <div className="searchBarLayout">
+      <span className="searchBarForm"><input
         ref={inputRef}
         id="ingredientSearchBox"
         className="w3-input w3-border"
@@ -32,14 +33,17 @@ const SearchBar = props => {
         placeholder={props.placeholder || "search"}
         onKeyDown={event => submitIfEnter(event)}
       />
+      </span>
+      <span className="searchBarButton">
       <button
         onClick={() =>
           props.searchFunction(inputRef.current.value)
         }
-        className="w3-button w3-green "
-      >
-        search
+        className="w3-green searchButton "
+      >Search
       </button>
+      </span>
+      </div>
     </>
   );
 };

@@ -130,8 +130,22 @@
 .navbaricon{
     color: white!important;
 }
-
-
+.searchButton{
+  text-align: center;
+  padding: 9px 9px 9px 9px;
+  height: 40px;
+}
+.searchBarLayout{
+  width:100%;
+}
+.searchBarForm{
+  float: left;
+  width: 80%
+}
+.searchBarButton{
+  float: left;
+  padding-left: 10px;
+}
 .input-icons i { 
   position: absolute; 
 } 
@@ -151,7 +165,7 @@ button {
   overflow: hidden;
 }
 button:hover {
-  opacity: 0.8;
-  background-color: #6CAD68!important;
+  background-color: #88bd86!important;
   color: white!important;
+  
 }
