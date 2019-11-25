@@ -27,7 +27,7 @@ var UserController = {
         if(await UserService.LoginUser(user)){
             let userId = await UserService.GetUserID(user);
             res.write(JSON.stringify("Result: Success"));
-            res.write(JSON.stringify("UserId:",userId));
+            res.write(JSON.stringify("UserId:"+userId));
             res.end();
         }
         else{
