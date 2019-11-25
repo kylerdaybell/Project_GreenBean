@@ -25,7 +25,8 @@ var UserController = {
     PostLoginUser: async function(req,res){
     var user = new User(req.body.email, req.body.password, null);
         if(await UserService.LoginUser(user)){
-            res.write(JSON.stringify("Result: Success"));
+            let userId = await UserService.GetUserID(user);
+            res.write(JSON.stringify(`{Result: Success, UserId: ${userId}}`));
             res.end();
         }
         else{
