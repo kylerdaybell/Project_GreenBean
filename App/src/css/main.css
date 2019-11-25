@@ -22,20 +22,6 @@
 .titleBars{
   background-color: #6CAD68;
 }
-.navButton {
-  background-color: #6CAD68!important;
-  color: white!important;
-  text-decoration: none;
-  margin-left:10px;
-}
-.navButton:hover{
-  background-color: #6CAD68!important;
-  color: white!important;
-  opacity: 0.8;
-}
-.active {
-  background-color: blue;
-}
 .navBar {
   padding:.3vh;
   height: 64px;
@@ -47,10 +33,6 @@
 }
 .spacerBar {
   padding-top: 64px;
-}
-.sideNav {
-  top: 32px !important;
-  z-index: 1000;
 }
 .mainApp {
   overflow-y: auto;
@@ -108,27 +90,12 @@
   text-align: center;
 }
 
-.input-field {
-  width: 80%;
-  padding: 5px;
-  border: 2px solid white;
-  outline: none;
-}
-
-.input-field:focus {
-  border: 2px solid #6CAD68;
-}
-
 .w3-green{
     background-color:#6CAD68!important; 
 }
 .w3-white{
   color: #6CAD68!important;
 }
-.searchPadding {
-  padding-bottom: 20px;
-}
-
 .cardSpacing{
   margin:5px!important;
 }
@@ -152,14 +119,6 @@
   float: left;
   padding-left: 10px;
 }
-.input-icons i { 
-  position: absolute; 
-} 
-
-.input-icons { 
-  width: 100%; 
-  margin-bottom: 10px; 
-} 
 
 .icon { 
   padding: 10px; 

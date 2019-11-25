@@ -14,33 +14,33 @@ form button {
     border: none;
     cursor: pointer;
     width: 95%;
-  }
-  .formButton {
+}
+.formButton {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 95%;
-  }
- .formButton:hover {
+}
+.formButton:hover {
    opacity: 1;
     background-color: #88bd86!important;
     color: white!important;
-  }
-  .formFit{
+}
+.formFit{
     max-width: 500px;
     margin: auto;
     margin-top: 4vh;
-  }
-  .formTitle{
+}
+.formTitle{
     margin-bottom: 5vh;
     margin-top:1vh;
-  }
-  .formInnerPadding{
+}
+.formInnerPadding{
     padding: 1vh 2vh 8vh 2vh;
-  }
-  .loginImage{
+}
+.loginImage{
     background-image: url("../resources/loginBean2.jpg"); 
     background-repeat: none;
     background-size: cover;
-  }
+}

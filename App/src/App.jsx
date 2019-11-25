@@ -32,9 +32,9 @@ const App = props => {
   return (
     <div style={{ overflow: "hidden" }}>
       <WindowFrame />
-      <Header />
 
       <div className="sideSpacer">
+        <Header />
         <SideBarNav />
         <div className="mainApp">
           <Switch>
