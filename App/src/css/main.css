@@ -2,7 +2,7 @@
   --sideNavLeftMargin: 64px;
 }
 .homeTitle {
-  height: 25vw;
+  height: 23vw;
   color: white;
   text-align: center;
   object-fit: cover;
@@ -13,7 +13,7 @@
 }
 .homeTitle h1{
   vertical-align: center;
-  font-size: 8vw;
+  font-size: 6vw;
   letter-spacing: 3px;
   font-weight: 600;
   text-shadow: 3px 3px #040404;
