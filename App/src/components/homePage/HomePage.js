@@ -30,8 +30,6 @@ const HomePage = (props) => {
   );
 };
 
-//export default HomePage;
-
 const mapStateToProps = state => {
   return {
     recipes: state.greenBeanAPI.homePageRecipes

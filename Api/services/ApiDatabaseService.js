@@ -144,7 +144,6 @@ var ApiDatabaseService = {
         con.end()
         return rows;
     }
-
 }
 
 module.exports = ApiDatabaseService;
