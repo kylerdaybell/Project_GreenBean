@@ -7,6 +7,7 @@
 2. install mysql-server
 Note: to use mysql in docker for development run
 > docker run --name name-for-container -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
+
 > docker exec -it name-for-container bash
 3. create a database user and grant all privileges to that user. 
 > sudo mysql
