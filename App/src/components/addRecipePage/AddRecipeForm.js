@@ -16,10 +16,10 @@ const AddRecipeForm = props => {
     {
       Resizer.imageFileResizer(
         files,
-        512,
-        512,
+        756,
+        756,
         'JPEG',
-        50,
+        100,
         0,
         uri=>{image = uri;
         console.log(image);},
