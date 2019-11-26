@@ -12,18 +12,20 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
 app.use('/images',express.static('Images'))
 
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/chain.pem', 'utf8');
-
-const credentials = {
-	key: privateKey,
-	cert: certificate,
-	ca: ca
-};
-
-
-const httpsServer = https.createServer(credentials, app);
+if(process.env.NODE_ENV !== "development"){
+  const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
+  const certificate = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/cert.pem', 'utf8');
+  const ca = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/chain.pem', 'utf8');
+  
+  const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+  };
+  
+  
+  const httpsServer = https.createServer(credentials, app);
+}
 
 
 
@@ -108,7 +110,12 @@ app.post('/getRecipeAdvancedSearch',cors(corsOptions),function(req,res){
   recipeController.GetRecipeAdvancedSearch(req,res);
 })
 
-
-httpsServer.listen(443, () => {
-	console.log('HTTPS Server running on port 443');
-});
+if(process.env.NODE_ENV !== "development"){
+  httpsServer.listen(443, () => {
+    console.log('HTTPS Server running on port 443');
+  });
+}else{
+  app.listen(port, () => {
+    console.log("HTTPS Server running on port 443");
+  });
+}
