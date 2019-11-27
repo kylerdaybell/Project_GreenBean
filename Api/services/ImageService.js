@@ -1,18 +1,19 @@
 var fs = require("fs")
 var base64ToImage = require('base64-to-image');
+const APIBaseURL = process.env.URL;
 
 var ImageService = {
     Convert64BitToImageUrl: function(encodedstring){
         console.log(encodedstring)
         console.log("in image service")
-        var imageurl = "https://api.greenbeancooking.com/images/DefaultImage.jpg";
+        var imageurl = APIBaseURL+"/images/DefaultImage.jpg";
         if(encodedstring === ""){
             return imageurl;
         }else{
             path = __basedir + "/Images/";
             console.log(path);
             var imageInfo =  base64ToImage(encodedstring,path);
-            baseurl = "https://api.greenbeancooking.com/images/"
+            baseurl = APIBaseURL+"/images/"
             imageurl = baseurl+imageInfo.fileName;
         }
         return imageurl;

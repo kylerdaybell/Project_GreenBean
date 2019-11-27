@@ -3,7 +3,6 @@ const fs = require('fs');
 var cors = require('cors');
 const https = require('https');
 var app = express();
-const port = process.env.PORT || 80;
 var whitelist = "http:/144.17.24.16";
 var userController = require('./controllers/UserController.js');
 var recipeController = require('./controllers/RecipeController.js');
@@ -11,10 +10,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
 app.use('/images',express.static('Images'))
 global.__basedir = __dirname;
+const port = process.env.PORT || 80;
 
 if(process.env.NODE_ENV === "development"){
   app.listen(port, () => {
-    console.log("Development Server running on port 443");
+    console.log("Development Server running on port "+port);
   });
 }else {
   const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
