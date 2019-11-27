@@ -10,6 +10,7 @@ var recipeController = require('./controllers/RecipeController.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
 app.use('/images',express.static('Images'))
+global.__basedir = __dirname;
 
 if(process.env.NODE_ENV === "development"){
   app.listen(port, () => {
@@ -114,7 +115,3 @@ app.post('/getRecipeAdvancedSearch',cors(corsOptions),function(req,res){
   console.log("/getRecipeAdvancedSearch");
   recipeController.GetRecipeAdvancedSearch(req,res);
 })
-
-if(process.env.NODE_ENV === "development"){
-  
-}
