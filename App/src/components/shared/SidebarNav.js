@@ -9,8 +9,6 @@ import {withRouter} from "react-router-dom"
 
 const SideBarNav = props => {
     const [selectedState, setState] = React.useState("");
-    const [expandedBar, setExpanded] = React.useState("");
-    console.log(expandedBar)
     var currentState = window.location.hash.replace('#','');
     if (selectedState !== currentState)
     {
@@ -57,9 +55,7 @@ const SideBarNav = props => {
         )
       }
     return (
-        <div  style={{
-                        marginLeft: expandedBar ? 240 : 64
-                    }}>
+        <div  >
         <SideNav
             onSelect={(selected) => {
                 props.history.push(selected);

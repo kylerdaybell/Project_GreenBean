@@ -39,7 +39,7 @@ const SearchBar = props => {
         onClick={() =>
           props.searchFunction(inputRef.current.value)
         }
-        className="w3-green searchButton "
+        className="w3-green searchButton"
       >Search
       </button>
       </span>

@@ -1,7 +1,6 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
-import SearchBar from "../shared/SearchBar";
 import recipeCategories from "../addRecipePage/recipeCategories"
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -19,7 +18,7 @@ const SearchByCategory = props => {
     
       <PageTitle title={"Search By Category"} />
       <div className="fitBody"> 
-      <select className="w3-select w3-border" id="category" value={selectedItem} name="option" >
+      <select className="w3-select w3-border" id="category" name="option" >
         <option value="" disabled selected>No Category Selected</option>
         {recipeCategories.map((category, key)=> (
           <option key={key} value={category[0]}>{category[0]}</option>

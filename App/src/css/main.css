@@ -2,14 +2,14 @@
   --sideNavLeftMargin: 64px;
 }
 .homeTitle {
-  height: 23vw;
+  height: 16vw;
   color: white;
   text-align: center;
   object-fit: cover;
   background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-top:2vh;
+  padding-top:1vh;
 }
 .homeTitle h1{
   vertical-align: center;
@@ -131,6 +131,19 @@ button:hover {
   color: white!important;
   
 }
+/* This is the override for the carousel arrow button */
+._37Q_YD174b3Wq9o-IFVdKS {
+  overflow: visible!important;
+}
+._37Q_YD174b3Wq9o-IFVdKS:hover {
+  background-color: transparent!important;
+}
+/* This is the override for the carousel arrow icon */
+.GasrFbdQYtD26JnmJzJpj {
+  border: solid black!important;
+  border-width: 0 5px 5px 0!important;
+}
+
 
 .homeRecipePadding{
   margin-top: 20px;

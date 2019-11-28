@@ -1,7 +1,6 @@
 import * as React from "react";
 import "../../css/w3.css";
 import "../../css/form.css"
-import PageTitle from "../shared/PageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/onlineActions";

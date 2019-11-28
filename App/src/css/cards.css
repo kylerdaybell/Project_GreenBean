@@ -37,3 +37,8 @@
 .cardSpacing{
   margin:1vw;
 }
+.cardNoWrap{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -44,7 +44,7 @@ const IngredientAdd = props => {
         </div>
       ))}
 
-      <button className="w3-btn w3-green " onClick={() => props.onSubmit(ingredientArray)}>create recipe</button>
+      <button className="w3-btn w3-green" onClick={() => props.onSubmit(ingredientArray)}>create recipe</button>
     </>
   );
 };

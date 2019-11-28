@@ -11,7 +11,8 @@ function createWindow() {
     nodeIntegration: true,
     webSecurity: !isDev,
     preload: __dirname + '/preload.js'
-  }, frame: false});
+  }, frame: false
+  });
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"

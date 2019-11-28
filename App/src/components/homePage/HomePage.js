@@ -58,7 +58,7 @@ const HomePage = (props) => {
               <CategoryCard key={key} value={category} />
           ))}
         </InfiniteCarousel>
-        <div class="homeRecipePadding">
+        <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
           ))}

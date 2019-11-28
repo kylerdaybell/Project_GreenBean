@@ -20,7 +20,7 @@ const WindowFrame = () => {
   };
   return (
     <div className="frame">
-    <img className="frameImage" src={Logo}/>
+    <img className="frameImage" src={Logo} alt=""/>
       <span className="frameTitle">Green Bean Cooking</span>
       <button
         className="fas fa-times frameButton exitButton"

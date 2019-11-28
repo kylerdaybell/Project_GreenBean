@@ -13,20 +13,21 @@ const RecipeDetailPage = props => {
   <PageTitle title={recipe.recipe.name}/>
   <div className="fitbody w3-container w3-card w3-margin w3-white">
   <div className="detailPadding">
-    <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture }/></div>
+    <div className="recipeDetailTitle"><h1>{recipe.recipe.name}</h1></div>
+    <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture} alt=""/></div>
     <div ><p><strong>Category:</strong> {recipe.recipe.category}</p></div>
     <div ><p><strong>PrepTime:</strong> {recipe.recipe.preptime}</p></div>
     <div ><p><strong>CookTime:</strong> {recipe.recipe.cooktime}</p></div>
     <div><h3 >Description</h3></div>
-    <div class="sectionLine"></div>
+    <div className="sectionLine"></div>
     <div ><p>{recipe.recipe.descr}</p></div>
     <div><h3>Ingredients</h3></div>
-    <div class="sectionLine"></div>
+    <div className="sectionLine"></div>
     <div>{recipe.recipe.ingredientslist.map((Ingredient,key)=>(
       <p key={key}>{Ingredient.amount} {Ingredient.unit}(s) {Ingredient.name}</p>
     ))}</div>
     <div><h3 >Directions</h3></div>
-    <div class="sectionLine"></div>
+    <div className="sectionLine"></div>
     <div ><p>{recipe.recipe.instructions}</p></div>
     </div>
   </div>
