@@ -102,7 +102,7 @@ const AddRecipeForm = props => {
       <select className="w3-select w3-border" id="category" name="option" >
         <option value="" disabled selected>Category</option>
         {recipeCategories.map((category, key)=> (
-          <option key={key} value={category}>{category}</option>
+          <option key={key} value={category[0]}>{category[0]}</option>
         ))}
       </select>
       <label htmlFor="instructions">Instructions:</label>
