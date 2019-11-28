@@ -9,6 +9,7 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 680, webPreferences: {
     nodeIntegration: true,
+    webSecurity: !isDev,
     preload: __dirname + '/preload.js'
   }, frame: false});
   mainWindow.loadURL(
