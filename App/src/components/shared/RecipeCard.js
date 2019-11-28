@@ -22,9 +22,9 @@ const RecipeCard = props => {
           style={{ width: "100%", height: "30vh" }}
         ></img>
         <div className="recipeCard">
-        <h2 className="w3-container"><p>{props.recipe.recipe.name}</p></h2>
-        <p>{getPercentMatch()}</p>
-        <p className="w3-container ">Description: {props.recipe.recipe.descr}</p>
+        <h2 className="cardText">{props.recipe.recipe.name}</h2>
+        <div className="cardText">{getPercentMatch()}</div>
+        <div className="cardText">Description: {props.recipe.recipe.descr}</div>
       </div>
     </div>
     </div>

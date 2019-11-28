@@ -45,14 +45,14 @@ const HomePage = (props) => {
             },
           ]}
           showSides={true}
-          sidesOpacity={.5}
+          sidesOpacity={1}
           sideSize={0.2}
           slidesToScroll={1}
           slidesToShow={4}
           scrollOnDevice={true}
           autoCycle={true}
           animationDuration={500}
-          cycleInterval={5000}
+          cycleInterval={6000}
         >
             {recipeCategories.map((category, key)=> (
               <CategoryCard key={key} value={category} />
