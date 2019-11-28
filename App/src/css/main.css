@@ -142,7 +142,18 @@ button:hover {
   border: solid #6CAD68!important;
   border-width: 0 5px 5px 0!important;
 }
-
+.backButton {
+  text-align: center;
+  display: flex;
+  float: left;
+  margin: 5px 10px 5px 5px;
+  height: 49px;
+  background-color: #626262; 
+  color: white;
+}
+.backButton:hover{
+  background-color: #838383!important; 
+}
 
 .homeRecipePadding{
   margin-top: 20px;

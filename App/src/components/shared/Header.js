@@ -15,6 +15,12 @@ const Header = props => {
   return (
     <>
       <nav className="w3-bar navBar">
+        <button
+        onClick={() =>
+          props.history.goBack()
+        }
+        className="backButton fa fa-arrow-left"
+      > Back</button>
         <div className="input-container">
           <SearchBar searchFunction={headerSearch} placeholder="Search By Recipe Name" />
         </div>
