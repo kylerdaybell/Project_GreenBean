@@ -26,7 +26,7 @@
   padding:.3vh;
   height: 64px;
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   opacity: .99;
   top: 32px;
   background-color:#626262
@@ -102,7 +102,7 @@
 }
 .searchButton{
   text-align: center;
-  padding: 9px 9px 9px 9px;
+  padding: 0px 15px 0px 15px;
   height: 40px;
 }
 .searchBarLayout{
@@ -110,11 +110,10 @@
 }
 .searchBarForm{
   float: left;
-  width: 80%
+  width: 80%;
 }
 .searchBarButton{
   float: left;
-  padding-left: 10px;
 }
 
 .icon { 
@@ -140,7 +139,7 @@ button:hover {
 }
 /* This is the override for the carousel arrow icon */
 .GasrFbdQYtD26JnmJzJpj {
-  border: solid black!important;
+  border: solid #6CAD68!important;
   border-width: 0 5px 5px 0!important;
 }
 

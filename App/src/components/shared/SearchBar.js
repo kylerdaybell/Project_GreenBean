@@ -39,8 +39,9 @@ const SearchBar = props => {
         onClick={() =>
           props.searchFunction(inputRef.current.value)
         }
-        className="w3-green searchButton"
-      >Search
+        className="w3-green searchButton fa fa-search"
+      > Search
+      
       </button>
       </span>
       </div>

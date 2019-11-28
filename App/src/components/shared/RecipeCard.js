@@ -4,10 +4,9 @@ import '../../css/cards.css';
 const RecipeCard = props => {
   const getPercentMatch=()=>{
     if(typeof props.recipe.percentmatch!== "undefined"){
-      console.log(props.recipe.percentmatch)
-      return(<p className="w3-text-green w3-container ">
+      return(<div className="w3-text-green">
       {Math.floor((props.recipe.percentmatch * 10) / 10)}% match
-      </p>)
+      </div>)
     }else{
       return;
     }
@@ -22,9 +21,9 @@ const RecipeCard = props => {
           style={{ width: "100%", height: "30vh" }}
         ></img>
         <div className="recipeCard">
-        <h2 className="cardText">{props.recipe.recipe.name}</h2>
-        <div className="cardText">{getPercentMatch()}</div>
-        <div className="cardText">Description: {props.recipe.recipe.descr}</div>
+        <h2 className="cardText  w3-container ">{props.recipe.recipe.name}</h2>
+        <div className="cardText  w3-container ">{getPercentMatch()}</div>
+        <div className="cardText  w3-container ">Description: {props.recipe.recipe.descr}</div>
       </div>
     </div>
     </div>

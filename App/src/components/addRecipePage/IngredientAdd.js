@@ -1,5 +1,7 @@
 import React, {useState, useRef, useEffect} from "react";
 
+import "../../css/main.css"; 
+
 const IngredientAdd = props => {
   const nameRef = useRef(null);
   const amountRef = useRef(null);
@@ -44,7 +46,10 @@ const IngredientAdd = props => {
         </div>
       ))}
 
-      <button className="w3-btn w3-green" onClick={() => props.onSubmit(ingredientArray)}>create recipe</button>
+      <button className=" w3-green searchButton" onClick={() => props.onSubmit(ingredientArray)}>
+      Create Recipe
+      <i className="fa fa-fw fa-file-upload" style={{ fontSize: '1.5em' }} />
+      </button>
     </>
   );
 };

@@ -27,6 +27,7 @@ const SideBarNav = props => {
                 <NavItem eventKey="/logout">
                     <NavText>
                         Logout
+                        <i className="fa fa-fw fa-sign-out-alt navbaricon" style={{"padding-left": "10px"}}/>
                     </NavText>
                 </NavItem>
             </NavItem>
@@ -42,13 +43,16 @@ const SideBarNav = props => {
                     Profile
                 </NavText>
                 <NavItem eventKey="/login">
-                    <NavText>
+                    <NavText >
                         Login
+                        <i className="fa fa-fw fa-sign-in-alt navbaricon" style={{"padding-left": "10px"}}/>
+                        
                     </NavText>
                 </NavItem>
                     <NavItem eventKey="/register">
                     <NavText>
                         Sign Up
+                        <i className="fa fa-fw fa-user-plus navbaricon" style={{"padding-left": "10px"}}/>
                     </NavText>
                 </NavItem>
             </NavItem>
@@ -99,7 +103,7 @@ const SideBarNav = props => {
                 </NavItem>
                 <NavItem eventKey="/myRecipes">
                     <NavIcon>
-                        <i className="fa fa-fw fa-hamburger navbaricon" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
                         My Recipes

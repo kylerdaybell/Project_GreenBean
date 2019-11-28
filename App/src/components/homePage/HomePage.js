@@ -46,7 +46,7 @@ const HomePage = (props) => {
           ]}
           showSides={true}
           sidesOpacity={1}
-          sideSize={0.2}
+          sideSize={0.15}
           slidesToScroll={1}
           slidesToShow={4}
           scrollOnDevice={true}
