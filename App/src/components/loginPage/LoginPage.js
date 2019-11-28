@@ -8,7 +8,7 @@ import {Redirect} from "react-router-dom";
 import { NavLink } from "react-router-dom";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
-        return <Redirect to="/" />
+        props.history.goBack();
     }
   
   const login = event => {
