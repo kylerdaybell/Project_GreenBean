@@ -19,13 +19,12 @@ const HomePage = (props) => {
     <>
       <HomePageTitle title={"Green Bean Cooking"}/>
       <div className="fitBody">
-        <div>
           {recipeCategories.map((category, key)=> (
-            <CategoryCard key={key} value={category} />
+            <div className="w3-third" >
+              <CategoryCard key={key} value={category} />
+            </div>
           ))}
         </div>
-      </div>
-      </div>
     </>
   );
 };
