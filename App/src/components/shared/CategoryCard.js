@@ -12,19 +12,15 @@ const categorySearch = searchVal => {
     props.history.push("/searchByCategory");
   };
   return (
-    <div className="w3-third" 
-         onClick={() =>
+      <div className="w3-white card" onClick={() =>
          categorySearch(props.value[0])
-        }
-    >
-      <div className="w3-white cardSpacing card" > 
+        } > 
         <img
           src={props.value[1]}
           alt={props.value[1]}
-          style={{ width: "100%", height: "30vh" }} 
+          style={{ width: "100%", height: "18vh" }} 
         ></img>
         <h2 className="container"><p>{props.value[0]}</p></h2>
-    </div>
     </div>
   );
 };
