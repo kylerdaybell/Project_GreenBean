@@ -1,6 +1,6 @@
 const electron = require("electron");
 //remove the comment below for development
-electron.Menu.setApplicationMenu(null);
+//electron.Menu.setApplicationMenu(null);
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
@@ -10,7 +10,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 680, webPreferences: {
     nodeIntegration: true,
     preload: __dirname + '/preload.js'
-  }, frame:false });
+  }});
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"

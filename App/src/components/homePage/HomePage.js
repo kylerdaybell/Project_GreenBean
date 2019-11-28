@@ -6,6 +6,8 @@ import HomePageTitle from "../shared/HomePageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
+import recipeCategories from "../addRecipePage/recipeCategories";
+import CategoryCard from "../shared/CategoryCard";
 
 const HomePage = (props) => {
   useEffect(()=>{
@@ -18,11 +20,11 @@ const HomePage = (props) => {
       <HomePageTitle title={"Green Bean Cooking"}/>
       <div className="fitBody">
       <div id="content-area" className="w3-container"></div>
-      <div>
-        {props.recipes.map((recipe, index) => (
-          <RecipeCard recipe={recipe} key={index} />
-        ))}
-      </div>
+        <div>
+          {recipeCategories.map((category, key)=> (
+            <CategoryCard key={key} value={category} />
+          ))}
+        </div>
       </div>
       <div id="content-area" className="w3-container fitBody">
       </div>
