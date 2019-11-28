@@ -17,15 +17,13 @@ const categorySearch = searchVal => {
          categorySearch(props.value[0])
         }
     >
-      <div className=" w3-white cardSpacing card" > 
+      <div className="w3-white cardSpacing card" > 
         <img
           src={props.value[1]}
           alt={props.value[1]}
-          style={{ width: "100%", height: "30vh" }}
+          style={{ width: "100%", height: "30vh" }} 
         ></img>
-        <div className="recipeCard">
-        <h2 className="w3-container"><p>{props.value[0]}</p></h2>
-      </div>
+        <h2 className="container"><p>{props.value[0]}</p></h2>
     </div>
     </div>
   );

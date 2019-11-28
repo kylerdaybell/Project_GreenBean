@@ -1,16 +1,21 @@
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
+    border-radius: 3px;
+}
+.card img {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 }
   /* On mouse-over, add a deeper shadow */
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+
 }
-  
   /* Add some padding inside the card container */
 .container {
-    padding: 2px 16px;
+    padding: 0px 10px 5px 10px;
 }
   .recipeCard{
   padding-bottom: 20px;
@@ -27,4 +32,8 @@
 .card-group {
     display: flex;
     justify-content: space-between;
+}
+
+.cardSpacing{
+  margin:1vw;
 }
