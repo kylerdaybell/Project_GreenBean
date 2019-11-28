@@ -20,39 +20,50 @@ const HomePage = (props) => {
     <>
       <HomePageTitle title={"Green Bean Cooking"}/>
       <div className="fitBody">
-            <InfiniteCarousel
-              breakpoints={[
-                {
-                  breakpoint: 500,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                  },
-                },
-                {
-                  breakpoint: 900,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                  },
-                },
-              ]}
-              showSides={true}
-              sidesOpacity={.5}
-              sideSize={0.2}
-              slidesToScroll={1}
-              slidesToShow={3}
-              scrollOnDevice={true}
-              autoCycle={true}
-              animationDuration={500}
-              cycleInterval={4000}
-            >
+        <InfiniteCarousel
+          breakpoints={[
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
+            },
+          ]}
+          showSides={true}
+          sidesOpacity={.5}
+          sideSize={0.2}
+          slidesToScroll={1}
+          slidesToShow={4}
+          scrollOnDevice={true}
+          autoCycle={true}
+          animationDuration={500}
+          cycleInterval={5000}
+        >
             {recipeCategories.map((category, key)=> (
               <CategoryCard key={key} value={category} />
           ))}
-            </InfiniteCarousel>
-          
+        </InfiniteCarousel>
+        <div class="homeRecipePadding">
+          {props.recipes.map((recipe, index) => (
+            <RecipeCard recipe={recipe} key={index} />
+          ))}
         </div>
+      </div>
     </>
   );
 };

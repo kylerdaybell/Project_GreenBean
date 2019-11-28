@@ -18,7 +18,7 @@ const categorySearch = searchVal => {
         <img
           src={props.value[1]}
           alt={props.value[1]}
-          style={{ width: "100%", height: "30vh" }} 
+          style={{ width: "100%", height: "18vh" }} 
         ></img>
         <h2 className="container"><p>{props.value[0]}</p></h2>
     </div>
