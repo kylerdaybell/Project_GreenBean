@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 import recipeCategories from "../addRecipePage/recipeCategories";
 import CategoryCard from "../shared/CategoryCard";
+import InfiniteCarousel from 'react-leaf-carousel';
 
 const HomePage = (props) => {
   useEffect(()=>{
@@ -19,11 +20,38 @@ const HomePage = (props) => {
     <>
       <HomePageTitle title={"Green Bean Cooking"}/>
       <div className="fitBody">
-          {recipeCategories.map((category, key)=> (
-            <div className="w3-third" >
+            <InfiniteCarousel
+              breakpoints={[
+                {
+                  breakpoint: 500,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                  },
+                },
+                {
+                  breakpoint: 900,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                  },
+                },
+              ]}
+              showSides={true}
+              sidesOpacity={.5}
+              sideSize={0.2}
+              slidesToScroll={1}
+              slidesToShow={3}
+              scrollOnDevice={true}
+              autoCycle={true}
+              animationDuration={500}
+              cycleInterval={4000}
+            >
+            {recipeCategories.map((category, key)=> (
               <CategoryCard key={key} value={category} />
-            </div>
           ))}
+            </InfiniteCarousel>
+          
         </div>
     </>
   );
