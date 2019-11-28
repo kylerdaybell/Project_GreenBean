@@ -83,21 +83,21 @@ const SideBarNav = props => {
                         <i className="fa fa-fw fa-search navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        Search
+                        Search by
                     </NavText>
                     <NavItem eventKey="/searchByName" >
                         <NavText>
-                            Search by Name
+                            Name
                         </NavText>
                     </NavItem>
                     <NavItem eventKey="/searchByIngredient" >
                         <NavText>
-                            Search by Ingredients
+                            Ingredients
                         </NavText>
                     </NavItem>
                     <NavItem eventKey="/searchByCategory" >
                         <NavText>
-                            Search by Category
+                            Category
                         </NavText> 
                     </NavItem>
                 </NavItem>
