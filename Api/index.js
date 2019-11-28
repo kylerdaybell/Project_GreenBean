@@ -3,28 +3,36 @@ const fs = require('fs');
 var cors = require('cors');
 const https = require('https');
 var app = express();
-const port = process.env.PORT || 80;
 var whitelist = "http:/144.17.24.16";
 var userController = require('./controllers/UserController.js');
 var recipeController = require('./controllers/RecipeController.js');
 const bodyParser = require('body-parser');
-//app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
 app.use('/images',express.static('Images'))
+global.__basedir = __dirname;
+const port = process.env.PORT || 80;
 
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/chain.pem', 'utf8');
+if(process.env.NODE_ENV === "development"){
+  app.listen(port, () => {
+    console.log("Development Server running on port "+port);
+  });
+}else {
+  const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/privkey.pem', 'utf8');
+  const certificate = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/cert.pem', 'utf8');
+  const ca = fs.readFileSync('/etc/letsencrypt/live/api.greenbeancooking.com/chain.pem', 'utf8');
 
-const credentials = {
-	key: privateKey,
-	cert: certificate,
-	ca: ca
-};
+  const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+  };
 
-
-const httpsServer = https.createServer(credentials, app);
-
+  const httpsServer = https.createServer(credentials, app);
+  
+  httpsServer.listen(443, () => {
+    console.log('HTTPS Server running on port 443');
+  });
+}
 
 
 var corsOptions={
@@ -107,8 +115,3 @@ app.post('/getRecipeAdvancedSearch',cors(corsOptions),function(req,res){
   console.log("/getRecipeAdvancedSearch");
   recipeController.GetRecipeAdvancedSearch(req,res);
 })
-
-
-httpsServer.listen(443, () => {
-	console.log('HTTPS Server running on port 443');
-});

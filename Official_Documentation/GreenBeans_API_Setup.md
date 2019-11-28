@@ -37,7 +37,8 @@ Note: to use mysql in docker for development run
 9. create a file called .env with the following contents (change the values to match your environment)
 ```
 NODE_ENV=development
-PORT=80
+PORT=8080
+URL=http://localhost:8080
 DB_HOST=Localhost
 DB_USER=your_database_username
 DB_PASS=your_database_password
