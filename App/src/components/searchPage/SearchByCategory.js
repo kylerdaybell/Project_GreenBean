@@ -33,8 +33,7 @@ const SearchByCategory = props => {
           props.SearchForRecipeByCategory(document.getElementById("category").value)
         }
         className="w3-green searchButton fa fa-search"
-      >
-         Search
+      >  Search
       </button>
       </span>
       </div>
