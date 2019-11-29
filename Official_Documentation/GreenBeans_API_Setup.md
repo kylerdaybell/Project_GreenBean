@@ -4,17 +4,14 @@
 
 ## Steps for setting up the Api Server ##
 1. install node.js
-2. install mysql-server
-Note: to use mysql in docker for development run
-> docker run --name name-for-container -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
-
-> docker exec -it name-for-container bash
-3. create a database user and grant all privileges to that user. 
+2. install npm
+3. install mysql-server
+4. create a database user and grant all privileges to that user. 
 > sudo mysql
 
 > CREATE USER 'username' IDENTIFIED BY 'password';
 
-> GRANT ALL ON *.* TO 'username';
+> GRANT ALL ON * . * TO 'username';
 
 3.5. You may need to add the following line if your are using mysql in Docker.
 > ALTER USER 'username'@'%' IDENTIFIED WITH mysql_native_password BY 'password'
