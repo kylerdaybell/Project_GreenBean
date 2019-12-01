@@ -27,7 +27,7 @@ const SideBarNav = props => {
                 <NavItem eventKey="/logout">
                     <NavText>
                         Logout
-                        <i className="fa fa-fw fa-sign-out-alt navbaricon" style={{"padding-left": "10px"}}/>
+                        <i className="fa fa-fw fa-sign-out-alt navbaricon" style={{"paddingLeft": "10px"}}/>
                     </NavText>
                 </NavItem>
             </NavItem>
@@ -45,14 +45,14 @@ const SideBarNav = props => {
                 <NavItem eventKey="/login">
                     <NavText >
                         Login
-                        <i className="fa fa-fw fa-sign-in-alt navbaricon" style={{"padding-left": "10px"}}/>
+                        <i className="fa fa-fw fa-sign-in-alt navbaricon" style={{"paddingLeft": "10px"}}/>
                         
                     </NavText>
                 </NavItem>
                     <NavItem eventKey="/register">
                     <NavText>
                         Sign Up
-                        <i className="fa fa-fw fa-user-plus navbaricon" style={{"padding-left": "10px"}}/>
+                        <i className="fa fa-fw fa-user-plus navbaricon" style={{"paddingLeft": "10px"}}/>
                     </NavText>
                 </NavItem>
             </NavItem>

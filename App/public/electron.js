@@ -1,5 +1,4 @@
 const electron = require("electron");
-//remove the comment below for development
 electron.Menu.setApplicationMenu(null);
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;

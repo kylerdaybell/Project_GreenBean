@@ -4,6 +4,7 @@ import '../../css/recipeDetail.css';
 import { connect } from "react-redux";
 
 const RecipeDetailPage = props => {
+  //using == instead of === intentionally
   const recipe = props.recipes.find(r => r.recipe.id == props.match.params.id);
   if (typeof recipe === "undefined") {
     return(<PageTitle title={"Recipe Not Found"}/>);

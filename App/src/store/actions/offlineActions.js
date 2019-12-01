@@ -3,7 +3,7 @@ import OfflineAPI from "../../Services/OfflineAPI";
 
 export function GetTopTenRecipesOffline() {
   return function(dispatch) {
-    return OfflineAPI.GetTopTenRecipes().then(recipes =>
+    return OfflineAPI.GetTopRecipes().then(recipes =>
       dispatch(ResultActions.GetTopTenRecipesSuccess(recipes))
     );
   };

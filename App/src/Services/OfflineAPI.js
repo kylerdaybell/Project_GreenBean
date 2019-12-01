@@ -1,4 +1,5 @@
 import DefaultImage from "../resources/defaultSmaller.jpg"
+import GreenBeanUtilityService from "./GreenBeanUtilityService";
 const electron = window.electron;
 const path = window.path;
 const fs = window.fs;
@@ -40,8 +41,25 @@ class OfflineAPIClass {
     );
   }
 
-  SearchForRecipeByIngredient(ingredientList) {
-    ///TODO complete logic
+  async SearchForRecipeByIngredient(ingredientList) {
+    ingredientList = GreenBeanUtilityService.prepIngredients(ingredientList);
+    let resultRecipes = [];
+    this.data["recipes"].forEach(recipe => {
+      let count = 0;
+      if(typeof recipe.recipe.ingredientslist !== 'undefined'){
+        recipe.recipe.ingredientslist.forEach(ingredient => {
+          let result = ingredientList.find(i => (i.name.toLowerCase() === ingredient.name.toLowerCase()));
+          if(typeof result !== 'undefined'){
+            count = count + 1;
+          }
+        });
+        if(count > 0){
+          recipe.percentmatch = (count / recipe.recipe.ingredientslist.length) * 100;
+          resultRecipes.push(recipe);
+        }
+      }
+    });
+    return resultRecipes.sort((recipe1, recipe2) => (recipe2.percentmatch - recipe1.percentmatch));
   }
 
   async SearchForRecipeByCategory(category) {
@@ -50,12 +68,8 @@ class OfflineAPIClass {
     );
   }
 
-  async GetTopTenRecipes() {
-    return this.data["recipes"];
-  }
-
-  AdvancedSearch(ingredientList, category) {
-    ///TODO complete logic
+  async GetTopRecipes() {
+    return this.data["recipes"].slice(0,9);
   }
 
   IncrementRecipeCount() {

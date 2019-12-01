@@ -14,8 +14,10 @@ export function SearchForRecipeByIngredientOnline(ingredients) {
   return function(dispatch) {
     return GreenBeanAPIService.SearchForRecipeByIngredient(
       ingredients
-    ).then(recipes =>
+    ).then(recipes => {
+      recipes.sort((recipe1, recipe2) => (recipe2.percentmatch - recipe1.percentmatch));
       dispatch(ResultActions.SearchByIngredientSuccess(recipes))
+    }
     );
   };
 }

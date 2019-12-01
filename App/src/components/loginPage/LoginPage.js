@@ -4,7 +4,6 @@ import "../../css/form.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/onlineActions";
-import {Redirect} from "react-router-dom";
 import { NavLink } from "react-router-dom";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
