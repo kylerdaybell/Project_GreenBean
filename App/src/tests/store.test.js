@@ -6,7 +6,7 @@ import * as resultActions from "../store/actions/resultActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 
 describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
-  it("store should get recipes by ingredient", () => {
+  test("store should get recipes by ingredient", () => {
     const store = createStore(greenBeanAPIReducer, initialState);
     const recipes = recipesByIngredientMock;
 
@@ -18,7 +18,7 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     expect(actual).toEqual(expected);
   });
 
-  it("store should set login credentials when LoginSuccess is called", () => {
+  test("store should set login credentials when LoginSuccess is called", () => {
     const store = createStore(greenBeanAPIReducer, initialState);
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
@@ -32,7 +32,7 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     expect(actual).toEqual(expected);
   })
 
-  it("store should clear login credentials when Logout is called", () => {
+  test("store should clear login credentials when Logout is called", () => {
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
     const testState = {

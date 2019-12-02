@@ -14,7 +14,7 @@ describe("Get Recipe By Ingredient", () => {
   afterEach(() => {
     fetchMock.restore();
   });
-  it("Successfull API call. dispatch SEARCH_BY_INGREDIENT_SUCCESS", () => {
+  test("Successfull API call. dispatch SEARCH_BY_INGREDIENT_SUCCESS", () => {
     fetchMock.mock("*", {
       body: recipesByIngredientMock,
       headers: { "content-type": "application/json" }
@@ -40,7 +40,7 @@ describe("Login Tests", () => {
     afterEach(()=> {
         fetchMock.restore();
     });
-    it("Successfull Login. dispatch Login Success", () => {
+    test("Successfull Login. dispatch Login Success", () => {
         fetchMock.mock("*", {
             body: JSON.stringify("Result: Success"),
             headers: { "content-type": "application/json" }
@@ -63,7 +63,7 @@ describe("Login Tests", () => {
         .then(()=> expect(store.getActions()).toEqual(expected))
     })
     
-    it("Failed Login. dispatch Login Failure", () => {
+    test("Failed Login. dispatch Login Failure", () => {
         fetchMock.mock("*", {
             body: JSON.stringify("Result: Failure"),
             headers: { "content-type": "application/json" }
@@ -88,7 +88,7 @@ describe("Register Tests", () => {
   afterEach(()=> {
       fetchMock.restore();
   });
-  it("Successful Register. dispatch Register Success", ()=>{
+  test("Successful Register. dispatch Register Success", ()=>{
     fetchMock.mock("*", {
       body: JSON.stringify("Result: Success"),
       headers: {"content-type": "application.json"}
@@ -107,7 +107,7 @@ describe("Register Tests", () => {
     .then(()=> expect(store.getActions()).toEqual(expected))
   });
 
-  it("Failed Register. Dispatch Register Failure", ()=>{
+  test("Failed Register. Dispatch Register Failure", ()=>{
     fetchMock.mock("*",{
       body: JSON.stringify("Result: Failure"),
       headers: {"content-type": "application.json"}
