@@ -44,3 +44,35 @@ form button {
     background-repeat: none;
     background-size: cover;
 }
+input:required:valid {
+    border-color: palegreen;
+    border: solid 1px;
+    background: url(../resources/logo128x128.png);
+    background-size: 20px; 
+    background-repeat: no-repeat;
+    background-position: 20px 20px;
+  }
+input:invalid {
+    border-color: red;
+    border: solid 3px red;
+  }
+input:required:focus:valid {
+    background-color: white;
+  }
+input:focus:invalid {
+    background-color: white;
+  }
+  input:required:invalid:focus:not(:placeholder-shown) ~ .requirements {
+    max-height: 200px;
+    padding: 0 30px 20px 50px;
+    }
+    .requirements {
+        padding: 0 30px 0 50px;
+        background-color:white;
+        color: #999;
+        max-height: 0;
+        transition: 0.28s;
+        overflow: hidden;
+        color: red;
+        font-style: italic;
+      }
