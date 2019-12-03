@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "stop":  "forever stopall",
     "start": "forever start index.js"
   },
