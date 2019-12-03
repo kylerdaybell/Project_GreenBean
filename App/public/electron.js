@@ -1,5 +1,5 @@
 const electron = require("electron");
-//electron.Menu.setApplicationMenu(null);
+electron.Menu.setApplicationMenu(null);
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
@@ -10,7 +10,7 @@ function createWindow() {
     nodeIntegration: true,
     webSecurity: !isDev,
     preload: __dirname + '/preload.js'
-  },// frame: false
+  }, frame: false
   });
   mainWindow.loadURL(
     isDev
