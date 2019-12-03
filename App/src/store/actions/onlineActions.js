@@ -44,6 +44,7 @@ export function Login(email, password) {
       result.includes("Result: Success")
         ? dispatch(ResultActions.LoginSuccess(email, password))
         : dispatch(ResultActions.LoginFailure());
+        return result;
     });
   };
 }
@@ -61,7 +62,7 @@ export function Register(email, password, validate) {
   return function(dispatch) {
     return GreenBeanAPIService.Register(email, password, validate).then(
       result => {
-        result === "Result: Success"
+        result.includes("Result: Success")
           ? dispatch(ResultActions.RegisterSuccess())
           : dispatch(ResultActions.RegisterFailure());
       }
@@ -73,7 +74,7 @@ export function CreateNewRecipeOnline(recipe) {
   return function(dispatch) {
     return GreenBeanAPIService.CreateNewRecipe(recipe)
       .then(result => {
-        result === "Result: Success"
+        result.includes("Result: Success")
           ? dispatch(ResultActions.CreateNewRecipeSuccess())
           : dispatch(ResultActions.CreateNewRecipeFailure());
       })

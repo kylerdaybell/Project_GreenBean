@@ -37,7 +37,7 @@ export function CreateNewRecipeOffline(recipe) {
   return function(dispatch) {
     return OfflineAPI.CreateNewRecipe(recipe)
       .then(result => {
-        result === "Result: Success"
+        result.includes("Result: Success")
           ? dispatch(ResultActions.CreateNewRecipeSuccess())
           : dispatch(ResultActions.CreateNewRecipeFailure());
       })

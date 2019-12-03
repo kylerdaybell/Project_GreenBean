@@ -7,7 +7,8 @@ export const greenBeanAPI = {
 
 export const status = {
   loginSuccess: null,
-  addRecipeSuccess: null
+  addRecipeSuccess: null,
+  registerSuccess: null
 }
 
 export const initialState = {
