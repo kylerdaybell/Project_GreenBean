@@ -1,6 +1,7 @@
 import * as React from "react";
 import "../../css/w3.css";
-import "../../css/form.css"
+import "../../css/form.css";
+import "../../css/registerForm.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/onlineActions";
@@ -19,17 +20,59 @@ const LoginPage = props => {
       props.Register(email,password,validate);
     }
     props.Login(email,password);
-  }    
+  }  
+  const updateEmailMessage = event => {
+    document.getElementById("emailMessage").innerHTML = event.target.validationMessage;
+   
+  }  
+  const validatePassword =event => {
+    var content = event.target.value;
+    var  errors = [];
+    console.log(content);
+    if (content.length < 6) {
+      errors.push("\nAt least 6 characters"); 
+    }
+    if (content.search(/[a-z]/i) < 0) {
+      errors.push("\nAt least one letter.");
+
+    }
+    if (content.search(/[0-9]/i) < 0) {
+      errors.push("\nAt least one digit."); 
+
+    }
+    if (errors.length > 0) {
+      document.getElementById("passwordText").innerHTML = "Your Password must have:" + errors.join(',');
+    }
+    document.getElementById("passwordText").innerHTML = errors.join('');
+     matchPassword()
+  }
+  const matchPassword = event => {
+    var passwordField = document.getElementById("password");
+    if(document.getElementById("validate").value != passwordField.value) {
+      document.getElementById("validate").setCustomValidity("Passwords Don't Match");
+    } else {
+      document.getElementById("validate").setCustomValidity('');
+    }
+  }
   return (
     <>
       <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
       <div className="loginImage">
-      <form className="w3-card formInnerPadding" onSubmit={event=>login(event)}>
+      <form className="w3-card formInnerPadding registerForm" onSubmit={event=>login(event)}>
                 <h1><div className="formTitle">Create Account</div></h1> 
-                <input id="email" type="email" placeholder="Email" required/>
-                <div class="requirements">Invalid Email</div>
-                <input id="password" type="password" placeholder="Password" required/>
-                <input id="validate" type="password" placeholder="Verify Password" required/>
+                <div className="formItem">
+                  <input id="email" type="email" placeholder="Email" onChange={event=>updateEmailMessage(event)} required />
+                  <div className="requirements" id="emailMessage">Invalid Email</div>
+                </div>
+                <div className="formItem">
+                  <input id="password" type="password" placeholder="Password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W]{6,}$"
+                   onChange={event=>validatePassword(event)} required/>
+                  <div className="requirements" id="passwordText"></div>
+                </div>
+                <div className="formItem">
+                  <input id="validate" type="password" placeholder="Verify Password" onChange={event=>matchPassword(event)} required/>
+                  <div className="requirements" id="validateText">Passwords don't match</div>
+                </div>
                 <button type="submit"className="formButton w3-green">Register</button>
         </form>
         </div>
