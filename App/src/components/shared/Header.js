@@ -12,6 +12,11 @@ const Header = props => {
     props.SearchForRecipeByName(searchVal);
     props.history.push("/searchByName");
   };
+  const displaySearchBar = () => {
+    if(props.history.location.pathname.toLowerCase().includes("search") === false){
+      return <SearchBar searchFunction={headerSearch} placeholder="Search By Recipe Name" />
+    }
+  }
   return (
     <>
       <nav className="w3-bar navBar">
@@ -22,7 +27,7 @@ const Header = props => {
         className="backButton fa fa-arrow-left"
       > Back</button>
         <div className="input-container">
-          <SearchBar searchFunction={headerSearch} placeholder="Search By Recipe Name" />
+          {displaySearchBar()}
         </div>
       </nav>
       <div className="spacerBar"></div>

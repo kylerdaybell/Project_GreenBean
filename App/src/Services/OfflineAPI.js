@@ -1,5 +1,5 @@
-import DefaultImage from "../resources/defaultSmaller.jpg"
 import GreenBeanUtilityService from "./GreenBeanUtilityService";
+import DefaultImage from "../resources/defaultSmaller.jpg"
 const electron = window.electron;
 const path = window.path;
 const fs = window.fs;

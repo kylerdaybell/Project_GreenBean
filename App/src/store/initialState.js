@@ -9,3 +9,8 @@ export const status = {
   loginSuccess: null,
   addRecipeSuccess: null
 }
+
+export const initialState = {
+  status,
+  greenBeanAPI
+}
