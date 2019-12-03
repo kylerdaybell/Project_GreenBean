@@ -14,7 +14,7 @@ describe("Get Recipe By Ingredient", () => {
   afterEach(() => {
     fetchMock.restore();
   });
-  test("Successfull API call. dispatch SEARCH_BY_INGREDIENT_SUCCESS", () => {
+  test("Successful API call. dispatch SEARCH_BY_INGREDIENT_SUCCESS", () => {
     fetchMock.mock("*", {
       body: recipesByIngredientMock,
       headers: { "content-type": "application/json" }
@@ -40,7 +40,7 @@ describe("Login Tests", () => {
     afterEach(()=> {
         fetchMock.restore();
     });
-    test("Successfull Login. dispatch Login Success", () => {
+    test("Successful Login. dispatch Login Success", () => {
         fetchMock.mock("*", {
             body: JSON.stringify("Result: Success"),
             headers: { "content-type": "application/json" }
