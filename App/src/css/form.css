@@ -1,11 +1,14 @@
 input[type=password], input[type=email]{
     width: 95%;
     padding: 12px 20px;
-    margin: 12px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid gray;
     box-sizing: border-box;
 
+}
+.formItem{
+    margin: 12px 0;
+    padding-top: 12px;
 }
 form button {
     color: white;
@@ -33,8 +36,8 @@ form button {
     margin-top: 4vh;
 }
 .formTitle{
-    margin-bottom: 5vh;
-    margin-top:1vh;
+    margin-bottom: 4vh;
+    margin-top: 1vh;
 }
 .formInnerPadding{
     padding: 1vh 2vh 8vh 2vh;
