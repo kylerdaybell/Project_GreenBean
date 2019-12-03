@@ -1,25 +1,30 @@
-import { createStore } from "redux";
-import { greenBeanAPIReducer } from "../store/reducers";
-import initialState from "../store/initialState";
+import { createStore, combineReducers } from "redux";
+import {greenBeanAPIReducer, statusReducer} from "../store/reducers";
+import {initialState} from "../store/initialState";
 import * as actions from "../store/actions/onlineActions";
 import * as resultActions from "../store/actions/resultActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 
 describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
+  const rootReducer = combineReducers({
+    greenBeanAPI: greenBeanAPIReducer,
+    status: statusReducer
+  })
+
   test("store should get recipes by ingredient", () => {
-    const store = createStore(greenBeanAPIReducer, initialState);
+    const store = createStore(rootReducer);
     const recipes = recipesByIngredientMock;
 
     const action = resultActions.SearchByIngredientSuccess(recipes);
     store.dispatch(action);
     const expected = recipesByIngredientMock;
 
-    const actual = store.getState().recipes;
+    const actual = store.getState().greenBeanAPI.recipes;
     expect(actual).toEqual(expected);
   });
 
   test("store should set login credentials when LoginSuccess is called", () => {
-    const store = createStore(greenBeanAPIReducer, initialState);
+    const store = createStore(rootReducer, initialState);
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
 
@@ -27,7 +32,7 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     store.dispatch(action);
 
     const expected = { loggedIn: true, email: testEmail, password: testPassword };
-    const actual = store.getState().credentials;
+    const actual = store.getState().greenBeanAPI.credentials;
     
     expect(actual).toEqual(expected);
   })
@@ -36,16 +41,18 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
     const testState = {
-        recipes: [],
+      ...initialState,
+      greenBeanAPI: {
         credentials: { loggedIn: true, email: testEmail, password: testPassword}
+      }
     }
-    const store = createStore(greenBeanAPIReducer, testState);
+    const store = createStore(rootReducer, testState);
 
     const action = actions.Logout();
     store.dispatch(action);
 
     const expected = { loggedIn: false, email: "", password: "" };
-    const actual = store.getState().credentials;
+    const actual = store.getState().greenBeanAPI.credentials;
 
     expect(actual).toEqual(expected);
   })
