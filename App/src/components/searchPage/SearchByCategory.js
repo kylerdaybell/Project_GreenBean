@@ -7,11 +7,9 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 const SearchByCategory = props => {
   var selectedItem = "";
-  console.log(props.recipes)
   if (props.recipes.length > 0)
   {
     selectedItem = props.recipes[0].recipe.category;
-    console.log(selectedItem)
   }
   return (
     <>
