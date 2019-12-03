@@ -1,0 +1,33 @@
+.registerForm input:invalid:not(:placeholder-shown) {
+    border-color: red;
+    border: solid 3px red;
+}
+.registerForm input:valid:not(:placeholder-shown) {
+    border: solid 3px #00CC00;
+}
+.registerForm input:required:focus:valid:not(:placeholder-shown) {
+    background-color: #E5FFE5;
+}
+.registerForm input:focus:invalid:not(:placeholder-shown) {
+    background-color: #FFE5E5;
+}
+.registerForm input:required:invalid:focus:not(:placeholder-shown) ~ .requirements {
+    max-height: 200px;
+    padding: 5px 10px 10px 5px;
+    border: solid 1px red;
+}
+.registerForm .requirements {
+    padding: 0 50px 0 50px;
+    
+    margin: 0 10px 0;
+    background-color:#FFf5f5;
+    max-height: 0;
+    transition: 0.28s;
+    overflow: hidden;
+    color: red;
+    font-weight: 400;
+    font-style: italic;
+    width: 95%;
+    display: relative;
+    box-sizing: border-box;
+}
