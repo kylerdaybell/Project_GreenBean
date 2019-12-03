@@ -11,31 +11,44 @@ const LoginPage = props => {
     }
   
   const login = event => {
+    var ret;
     event.preventDefault();
     let email = event.target['email'].value;
     let password = event.target['password'].value;
-    props.Login(email,password);
+    props.Login(email,password).then(val=>{if(val.includes("Result: Failure")){
+        document.getElementById('popupbox').style.visibility="visible";
+    }
+    return;
+    });
   }    
+  const closePopup = ()=>{
+      document.getElementById('popupbox').style.visibility="hidden";
+      return;
+  }
   return (
     <>
       <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
-      <div className="loginImage">
-      <form className="w3-card formInnerPadding" onSubmit={event=>login(event)}>
-                <h1><div className="formTitle">Login</div></h1>  
-                <div className="formItem">
-                  <input id="email" type="email" placeholder="Email"/>
-                </div>
-                <div className="formItem">
-                  <input id="password" type="password" placeholder="Password"/>
-                </div>
-                <button type="submit"className="w3-green">Login</button>
-                <NavLink className="w3-button w3-green formButton" to="/register">
-                Create Account
-                </NavLink>
-                
-        </form>
-        </div>
+        <div className="loginImage">
+        <div id="popupbox"> 
+            <center>Login Failed</center>
+            <button onClick={() =>closePopup()}>Close</button>
+          </div> 
+            <form className="w3-card formInnerPadding" onSubmit={event=>login(event)}>
+              <h1><div className="formTitle">Login</div></h1>  
+              <div className="formItem">
+                <input id="email" type="email" placeholder="Email"/>
+              </div>
+              <div className="formItem">
+                <input id="password" type="password" placeholder="Password"/>
+              </div>
+              <button type="submit"className="w3-green">Login</button>
+              <NavLink className="w3-button w3-green formButton" to="/register">
+              Create Account
+              </NavLink>                
+            </form>
+          </div>
       </div>   
+      
 
     </>
   );

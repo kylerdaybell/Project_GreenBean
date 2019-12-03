@@ -44,6 +44,7 @@ export function Login(email, password) {
       result.includes("Result: Success")
         ? dispatch(ResultActions.LoginSuccess(email, password))
         : dispatch(ResultActions.LoginFailure());
+        return result;
     });
   };
 }
