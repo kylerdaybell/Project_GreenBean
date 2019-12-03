@@ -1,16 +1,18 @@
 const electron = require("electron");
-electron.Menu.setApplicationMenu(null);
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const isDev = require("electron-is-dev");
+if(isDev === false){
+  electron.Menu.setApplicationMenu(null);
+}
 let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 680, webPreferences: {
     nodeIntegration: true,
     webSecurity: !isDev,
     preload: __dirname + '/preload.js'
-  }, frame: false
+  }, frame: isDev
   });
   mainWindow.loadURL(
     isDev
