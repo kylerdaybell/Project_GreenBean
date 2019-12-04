@@ -31,7 +31,8 @@ var UserController = {
             res.end();
         }
         else{
-            res.write(JSON.stringify("Result: Failure"));
+            resultObject = {Result: "Failure"};
+            res.write(JSON.stringify(resultObject));
             res.end();
         }
     },
