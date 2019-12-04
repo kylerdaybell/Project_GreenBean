@@ -14,9 +14,8 @@ const LoginPage = props => {
     event.preventDefault();
     let email = event.target['email'].value;
     let password = event.target['password'].value;
-    props.Login(email,password).then(val=>{
-      console.log(val)
-      if(val.result === "Failure"){
+    props.Login(email,password).then(success=>{
+      if(success !== true){
       showPopup("snackbar")
     };
     return;

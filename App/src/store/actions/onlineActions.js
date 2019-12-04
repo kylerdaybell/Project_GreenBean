@@ -45,7 +45,7 @@ export function Login(email, password) {
       result.Result === "Success"
         ? dispatch(ResultActions.LoginSuccess(email, password, result.UserId))
         : dispatch(ResultActions.LoginFailure());
-        return result;
+        return (result.Result === "Success");
     });
   };
 }
@@ -63,7 +63,7 @@ export function Register(email, password, validate) {
         result.includes("Result: Success")
           ? dispatch(ResultActions.RegisterSuccess())
           : dispatch(ResultActions.RegisterFailure());
-          return result;
+          return result.includes("Result: Success");
       }
     );
   };
