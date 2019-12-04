@@ -15,21 +15,22 @@ const LoginPage = props => {
     let email = event.target['email'].value;
     let password = event.target['password'].value;
     props.Login(email,password).then(val=>{
+      console.log(val)
       if(val.result === "Failure"){
-      showPopup()
+      showPopup("snackbar")
     };
     return;
     });
   }    
-  const showPopup = ()=>{
-    var x = document.getElementById("snackbar");
+  const showPopup = (element)=>{
+    var x = document.getElementById(element);
     var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
 
     var sideBarLeftSize = (sideBarLeft.includes("64px") ? 32 : 120)
     x.style.left = window.innerWidth/2 + sideBarLeftSize + "px";
 
     x.className = "show"
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
       return;
   }
   return (
