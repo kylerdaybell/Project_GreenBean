@@ -14,7 +14,7 @@
   },
   "main": "public/electron.js",
   "homepage": "./",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "dependencies": {
     "@trendmicro/react-breadcrumbs": "^0.5.5",
