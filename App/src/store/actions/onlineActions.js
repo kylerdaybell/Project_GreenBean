@@ -41,9 +41,9 @@ export function SearchForRecipeByCategoryOnline(category) {
 export function Login(email, password) {
   return function(dispatch) {
     return GreenBeanAPIService.Login(email, password).then(result => {
-      let parsedResult = JSON.parse(result)
-      parsedResult.Result === "Success"
-        ? dispatch(ResultActions.LoginSuccess(email, password, parsedResult.UserId))
+      console.log(result);
+      result.Result === "Success"
+        ? dispatch(ResultActions.LoginSuccess(email, password, result.UserId))
         : dispatch(ResultActions.LoginFailure());
         return result;
     });

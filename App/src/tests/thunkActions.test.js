@@ -42,7 +42,7 @@ describe("Login Tests", () => {
     });
     test("Successful Login. dispatch Login Success", () => {
         fetchMock.mock("*", {
-            body: JSON.stringify("Result: Success"),
+            body: {Result: "Success", UserId: -1},
             headers: { "content-type": "application/json" }
         })
 
@@ -51,7 +51,8 @@ describe("Login Tests", () => {
                 type: ActionTypes.LOGIN_SUCCESS,
                 loggedIn: true,
                 email: "testEmail@test.com",
-                password: "testPassword1%"
+                password: "testPassword1%",
+                userId: -1
             }
         ]
 
@@ -65,7 +66,7 @@ describe("Login Tests", () => {
     
     test("Failed Login. dispatch Login Failure", () => {
         fetchMock.mock("*", {
-            body: JSON.stringify("Result: Failure"),
+            body: {Result: "Failure", UserId: -1},
             headers: { "content-type": "application/json" }
         })
 
