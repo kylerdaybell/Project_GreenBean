@@ -11,11 +11,12 @@ const LoginPage = props => {
         return <Redirect to="/" />
     }
   
-  const login = event => {
+  const register = event => {
     event.preventDefault();
     let email = event.target['email'].value;
     let password = event.target['password'].value;
     let validate = event.target['validate'].value;
+    console.log("hit login")
     if(password === validate){
       props.Register(email,password,validate).then(val=>{if(val.includes("Result: Failure")){
       showPopup("snackbar");
@@ -68,7 +69,6 @@ const LoginPage = props => {
     var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
 
     var sideBarLeftSize = (sideBarLeft.includes("64px") ? 32 : 120)
-    console.log(window.innerWidth)
     x.style.left = window.innerWidth/2 + sideBarLeftSize + "px";
 
     x.className = "show"
@@ -79,7 +79,7 @@ const LoginPage = props => {
     <>
       <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
       <div className="loginImage">
-      <form className="w3-card formInnerPadding registerForm" onSubmit={event=>login(event)}>
+      <form className="w3-card formInnerPadding registerForm" onSubmit={event=>register(event)}>
                 <div id="snackbar">Registration Failed</div>
                 <div id="successSnackbar">Registration Successful!</div>
                 <h1><div className="formTitle">Create Account</div></h1> 
