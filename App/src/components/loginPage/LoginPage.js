@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/onlineActions";
 import { NavLink } from "react-router-dom";
 const LoginPage = props => {
-  console.log(props.history)
     if(props.credentials.loggedIn){
         props.history.goBack();
     }
@@ -15,7 +14,8 @@ const LoginPage = props => {
     event.preventDefault();
     let email = event.target['email'].value;
     let password = event.target['password'].value;
-    props.Login(email,password).then(val=>{if(val.includes("Result: Failure")){
+    props.Login(email,password).then(val=>{
+      if(val.result === "Failure"){
       showPopup()
     };
     return;
@@ -26,7 +26,6 @@ const LoginPage = props => {
     var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
 
     var sideBarLeftSize = (sideBarLeft.includes("64px") ? 32 : 120)
-    console.log(window.innerWidth)
     x.style.left = window.innerWidth/2 + sideBarLeftSize + "px";
 
     x.className = "show"
