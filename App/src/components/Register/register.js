@@ -18,13 +18,14 @@ const LoginPage = props => {
     let validate = event.target['validate'].value;
     console.log("hit login")
     if(password === validate){
-      props.Register(email,password,validate).then(val=>{if(val.includes("Result: Failure")){
-      showPopup("snackbar");
-    }else{
-      showPopup("successSnackbar");
-      const timeout = setTimeout(()=>{
-        props.history.push("/login");
-      },2100);
+      props.Register(email,password,validate).then(success=>{
+        if(success !== true){
+          showPopup("snackbar");
+        }else{
+          showPopup("successSnackbar");
+          const timeout = setTimeout(()=>{
+            props.history.push("/login");
+        },2100);
       return () => clearTimeout(timeout);
     }
     });
