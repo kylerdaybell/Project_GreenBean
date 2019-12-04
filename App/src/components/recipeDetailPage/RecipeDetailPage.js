@@ -11,14 +11,18 @@ const RecipeDetailPage = props => {
   }
   return (
   <>
-  <PageTitle title={recipe.recipe.name}/>
-  <div className="fitbody w3-container w3-card w3-margin w3-white">
+  <PageTitle title={"Recipe Details"}/>
+  <div className="fitbody w3-container w3-card w3-margin w3-white recipePage">
   <div className="detailPadding">
     <div className="recipeDetailTitle"><h1>{recipe.recipe.name}</h1></div>
+    <span className="topAlign">
     <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture} alt=""/></div>
-    <div ><p><strong>Category:</strong> {recipe.recipe.category}</p></div>
-    <div ><p><strong>PrepTime:</strong> {recipe.recipe.preptime}</p></div>
-    <div ><p><strong>CookTime:</strong> {recipe.recipe.cooktime}</p></div>
+    <div className="rightOfPicture">
+      <div ><p><strong>Category:</strong> {recipe.recipe.category}</p></div>
+      <div ><p><strong>PrepTime:</strong> {recipe.recipe.preptime}</p></div>
+      <div ><p><strong>CookTime:</strong> {recipe.recipe.cooktime}</p></div>
+    </div>
+    </span>
     <div><h3 >Description</h3></div>
     <div className="sectionLine"></div>
     <div ><p>{recipe.recipe.descr}</p></div>

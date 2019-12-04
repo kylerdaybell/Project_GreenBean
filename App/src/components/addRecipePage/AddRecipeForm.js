@@ -86,9 +86,11 @@ const AddRecipeForm = props => {
       <br />
       <span>
         <label htmlFor="prep-time" style={{display: 'block'}}>Prep-Time HH:MM:</label>
-        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-hours" type="number" min="0" max="99" defaultValue="0" />
+        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-hours" 
+        type="number" min="0" max="99" defaultValue="0" />
         <div className="timeBoxes">  :  </div>
-        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-minutes" type="number" min="0" max="59" defaultValue="0" />
+        <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-minutes" 
+        type="number" min="0" max="59" defaultValue="0" />
       </span>
       <br />
       <span>

@@ -23,6 +23,9 @@
 }
 .titleBars{
   background-color: #6CAD68;
+  display: inline-block;
+  min-width: 450px;
+  width: 100%;
 }
 .navBar {
   padding:.3vh;

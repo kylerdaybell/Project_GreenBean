@@ -1,3 +1,8 @@
+.recipePage{
+    max-width: 1000px;
+    display: inline-block;
+    justify-content: center;
+}
 .detailPadding{
     padding: 2em;
     color: black;
@@ -10,4 +15,20 @@
 .recipeDetailTitle{
     padding-bottom: 20px;
     padding-top: 10px;
+  }
+  .bigpicture{
+      height: (20vh + 20vw);
+      display: inline-block;
+      overflow: hidden;
+      padding-right: 20px;
+      min-height: 200px;
+  }
+  .bigpicture img{
+      min-height: 200px;
+      
+  }
+  .topAlign .rightOfPicture{
+      display: inline-block;
+      vertical-align: bottom;
+      font-size: 16px;
   }
