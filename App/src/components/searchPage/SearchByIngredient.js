@@ -42,14 +42,10 @@ const SearchPage = props => {
         <div id="content-area" className="w3-container"></div>
           <div className="ingredientBox">
           {ingredientList.map((ingredient, key) => (
-            <span className="boxPadding">
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
-            </span>
           ))}
           </div>
-          <div className="noFloat">
             <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
-          </div>
         <div className="w3-row-padding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
