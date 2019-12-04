@@ -6,34 +6,39 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/onlineActions";
 import { NavLink } from "react-router-dom";
 const LoginPage = props => {
+  console.log(props.history)
     if(props.credentials.loggedIn){
         props.history.goBack();
     }
   
   const login = event => {
-    var ret;
     event.preventDefault();
     let email = event.target['email'].value;
     let password = event.target['password'].value;
     props.Login(email,password).then(val=>{if(val.includes("Result: Failure")){
-        document.getElementById('popupbox').style.visibility="visible";
+      closePopup()
     }
     return;
     });
   }    
   const closePopup = ()=>{
-      document.getElementById('popupbox').style.visibility="hidden";
+    var x = document.getElementById("snackbar");
+    var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
+
+    var sideBarLeftSize = (sideBarLeft.includes("64px") ? 32 : 120)
+    console.log(window.innerWidth)
+    x.style.left = window.innerWidth/2 + sideBarLeftSize + "px";
+
+    x.className = "show"
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       return;
   }
   return (
     <>
       <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
-        <div className="loginImage">
-        <div id="popupbox"> 
-            <center>Login Failed</center>
-            <button onClick={() =>closePopup()}>Close</button>
-          </div> 
-            <form className="w3-card formInnerPadding" onSubmit={event=>login(event)}>
+        <div id="formBoxArea"className="loginImage w3-card">
+          <div id="snackbar">Login Failed</div>
+            <form className="formInnerPadding" onSubmit={event=>login(event)}>
               <h1><div className="formTitle">Login</div></h1>  
               <div className="formItem">
                 <input id="email" type="email" placeholder="Email"/>
