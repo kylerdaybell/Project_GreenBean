@@ -11,8 +11,7 @@ test("should add recipes when passed SEARCH_BY_INGREDIENT_SUCCESS", () => {
 
   const expectedState = {
     ...initialState.greenBeanAPI,
-    recipes: recipes,
-    credentials: { loggedIn: false, email: "", password: "" }
+    recipes: recipes
   };
 
   const actualState = Reducer.greenBeanAPIReducer(testState, action);
@@ -24,12 +23,12 @@ test("should add credentials when passed LOGIN_SUCCESS", ()=>{
     const testState = initialState.greenBeanAPI;
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
-    const action = resultActions.LoginSuccess(testEmail, testPassword);
+    const testUserId = 5;
+    const action = resultActions.LoginSuccess(testEmail, testPassword, testUserId);
 
     const expectedState = {
         ...initialState.greenBeanAPI,
-        recipes: [],
-        credentials: { loggedIn: true, email: testEmail, password: testPassword}
+        credentials: { loggedIn: true, email: testEmail, password: testPassword, userId: testUserId}
     }
 
     const actualState = Reducer.greenBeanAPIReducer(testState, action);
@@ -40,10 +39,11 @@ test("should add credentials when passed LOGIN_SUCCESS", ()=>{
 test("should clear credentials when passed LOGOUT", ()=>{
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
+    const testUserId = 5;
     const testState = {
         ...initialState.greenBeanAPI,
         recipes: [],
-        credentials: { loggedIn: true, email: testEmail, password: testPassword}
+        credentials: { loggedIn: true, email: testEmail, password: testPassword, userId: testUserId}
     }
     const action = actions.Logout();
 

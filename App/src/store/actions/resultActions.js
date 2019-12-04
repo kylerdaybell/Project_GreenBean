@@ -12,9 +12,9 @@ export function RegisterFailure() {
   };
 }
 
-export function LoginSuccess(email, password) {
+export function LoginSuccess(email, password, userId) {
   let loggedIn = true;
-  return { type: ActionTypes.LOGIN_SUCCESS, email, password, loggedIn };
+  return { type: ActionTypes.LOGIN_SUCCESS, email, password, userId, loggedIn };
 }
 
 export function LoginFailure() {

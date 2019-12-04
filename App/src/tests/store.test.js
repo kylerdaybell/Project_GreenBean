@@ -46,10 +46,11 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
   test("store should clear login credentials when Logout is called", () => {
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
+    const testUserId = 5
     const testState = {
       ...initialState,
       greenBeanAPI: {
-        credentials: { loggedIn: true, email: testEmail, password: testPassword}
+        credentials: { loggedIn: true, email: testEmail, password: testPassword, userId: testUserId}
       }
     }
     const store = createStore(rootReducer, testState);
@@ -57,7 +58,7 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     const action = onlineActions.Logout();
     store.dispatch(action);
 
-    const expected = { loggedIn: false, email: "", password: "" };
+    const expected = initialState.greenBeanAPI.credentials;
     const actual = store.getState().greenBeanAPI.credentials;
 
     expect(actual).toEqual(expected);
