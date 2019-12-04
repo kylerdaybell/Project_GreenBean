@@ -30,7 +30,7 @@ const SearchBar = props => {
         id="ingredientSearchBox"
         className="w3-input w3-border"
         type="text"
-        placeholder={props.placeholder || "search"}
+        placeholder={props.placeholder || "Search"}
         onKeyDown={event => submitIfEnter(event)}
       />
       </span>

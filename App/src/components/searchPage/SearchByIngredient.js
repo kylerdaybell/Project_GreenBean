@@ -45,7 +45,7 @@ const SearchPage = props => {
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
           ))}
           </div>
-            <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
+            <SearchBar placeholder={"Type Ingredient then press Enter"} searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
         <div className="w3-row-padding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
