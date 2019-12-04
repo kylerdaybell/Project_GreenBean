@@ -17,9 +17,18 @@ const LoginPage = props => {
     let password = event.target['password'].value;
     let validate = event.target['validate'].value;
     if(password === validate){
-      props.Register(email,password,validate);
+      props.Register(email,password,validate).then(val=>{if(val.includes("Result: Failure")){
+      showPopup("snackbar");
+    }else{
+      showPopup("successSnackbar");
+      const timeout = setTimeout(()=>{
+        props.history.push("/login");
+      },2100);
+      return () => clearTimeout(timeout);
     }
-    props.Login(email,password);
+    });
+    }
+    return;
   }  
   const updateEmailMessage = event => {
     document.getElementById("emailMessage").innerHTML = event.target.validationMessage;
@@ -54,11 +63,25 @@ const LoginPage = props => {
       document.getElementById("validate").setCustomValidity('');
     }
   }
+  const showPopup = element=>{
+    var x = document.getElementById(element);
+    var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
+
+    var sideBarLeftSize = (sideBarLeft.includes("64px") ? 32 : 120)
+    console.log(window.innerWidth)
+    x.style.left = window.innerWidth/2 + sideBarLeftSize + "px";
+
+    x.className = "show"
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+      return;
+  }
   return (
     <>
       <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
       <div className="loginImage">
       <form className="w3-card formInnerPadding registerForm" onSubmit={event=>login(event)}>
+                <div id="snackbar">Registration Failed</div>
+                <div id="successSnackbar">Registration Successful!</div>
                 <h1><div className="formTitle">Create Account</div></h1> 
                 <div className="formItem">
                   <input id="email" type="email" placeholder="Email" onChange={event=>updateEmailMessage(event)} required />

@@ -65,6 +65,7 @@ export function Register(email, password, validate) {
         result.includes("Result: Success")
           ? dispatch(ResultActions.RegisterSuccess())
           : dispatch(ResultActions.RegisterFailure());
+          return result;
       }
     );
   };

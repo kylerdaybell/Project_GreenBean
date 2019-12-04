@@ -16,12 +16,12 @@ const LoginPage = props => {
     let email = event.target['email'].value;
     let password = event.target['password'].value;
     props.Login(email,password).then(val=>{if(val.includes("Result: Failure")){
-      closePopup()
-    }
+      showPopup()
+    };
     return;
     });
   }    
-  const closePopup = ()=>{
+  const showPopup = ()=>{
     var x = document.getElementById("snackbar");
     var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
 
