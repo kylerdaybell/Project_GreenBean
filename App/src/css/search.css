@@ -1,0 +1,22 @@
+.ingredientSearchBox  {
+    cursor: pointer;
+    background-color: #6CAD68;
+    color: white;
+    padding: 4px 5px 4px 10px;
+    margin: 4px 3px 4px 3px; 
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.4);
+  }
+  .ingredientSearchBox:hover {
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.6);
+    background-color: #79b577;
+  }
+  .ingredientBox{
+      margin: 5px 0px 5px 0px;
+  }
+  .iconColor{
+      color: black;
+      padding-left: 10px;
+      padding-right: 5px;
+  }

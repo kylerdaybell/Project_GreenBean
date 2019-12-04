@@ -1,19 +1,13 @@
 import React from "react";
-
+import "../../css/search.css"
 const IngredientBox = props => {
-  const spanStyle = {
-    border: "solid black 0.1vw",
-    cursor: "pointer",
-    backgroundColor: "#929292",
-    marginLeft: "0.5vw",
-    marginBottom: "0.25vw",
-    padding: "0.25vw"
-  };
+ 
   return (
     <>
-      <span onClick={() => props.onClick(props.ingredient)} style={spanStyle}>
-        {props.ingredient} <span className="fa fa-times" />{" "}
-      </span>
+      <span className="ingredientSearchBox" onClick={() => props.onClick(props.ingredient)}>
+        {props.ingredient} 
+        <div className="fa fa-times iconColor" />
+        </span>
     </>
   );
 };

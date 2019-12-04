@@ -2,18 +2,20 @@
   --sideNavLeftMargin: 64px;
 }
 .homeTitle {
-  height: 16vw;
+  height: 12vw;
+  max-height: 180px;
   color: white;
   text-align: center;
   object-fit: cover;
   background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeBeans.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-top:1vh;
+  padding-top:1vw;
 }
 .homeTitle h1{
   vertical-align: center;
-  font-size: 6vw;
+  font-size: 4.5vw;
+  font-size-adjust: inherit;
   letter-spacing: 3px;
   font-weight: 600;
   text-shadow: 3px 3px #040404;

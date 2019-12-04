@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 import SearchBar from "../shared/SearchBar";
+import "../../css/search.css"
 
 const SearchPage = props => {
   const [ingredientList, setIngredientList] = useState([]);
@@ -39,11 +40,16 @@ const SearchPage = props => {
       <PageTitle title={"Search By Ingredients"} />
       <div className="fitBody">
         <div id="content-area" className="w3-container"></div>
-
+          <div className="ingredientBox">
           {ingredientList.map((ingredient, key) => (
+            <span className="boxPadding">
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
+            </span>
           ))}
-        <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
+          </div>
+          <div className="noFloat">
+            <SearchBar searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
+          </div>
         <div className="w3-row-padding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
