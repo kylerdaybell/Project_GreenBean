@@ -9,6 +9,15 @@ const RecipeDetailPage = props => {
   if (typeof recipe === "undefined") {
     return(<PageTitle title={"Recipe Not Found"}/>);
   }
+  const deleteButton = ()=>{
+    console.log(recipe.recipe)
+    console.log(props.credentials)
+    if(recipe.recipe.userid === props.credentials.userId ){
+      
+      return <button className="w3-button w3-red">Delete</button>
+    }
+    return
+  }
   return (
   <>
   <PageTitle title={"Recipe Details"}/>
@@ -16,6 +25,7 @@ const RecipeDetailPage = props => {
   <div className="detailPadding">
     <div className="recipeDetailTitle"><h1>{recipe.recipe.name}</h1></div>
     <span className="topAlign">
+      {deleteButton()}
     <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture} alt=""/></div>
     <div className="rightOfPicture">
       <div ><p><strong>Category:</strong> {recipe.recipe.category}</p></div>
@@ -43,7 +53,8 @@ const RecipeDetailPage = props => {
 
 const mapStateToProps = state => {
   return {
-    recipes: [...state.greenBeanAPI.recipes, ...state.greenBeanAPI.homePageRecipes]
+    recipes: [...state.greenBeanAPI.recipes, ...state.greenBeanAPI.homePageRecipes],
+    credentials: state.greenBeanAPI.credentials
   };
 };
 
