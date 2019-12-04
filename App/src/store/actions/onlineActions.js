@@ -41,10 +41,8 @@ export function SearchForRecipeByCategoryOnline(category) {
 export function Login(email, password) {
   return function(dispatch) {
     return GreenBeanAPIService.Login(email, password).then(result => {
-      let parsedResult = result.replace("Result: Success, UserId", "\"Result\": \"Success\", \"UserId\"")
-      parsedResult =parsedResult.replace(/{/g, "{")
-      parsedResult = parsedResult.replace(/}/g, "}")
-      result.includes("Result: Success")
+      let parsedResult = JSON.parse(result)
+      parsedResult.Result === "Success"
         ? dispatch(ResultActions.LoginSuccess(email, password, parsedResult.UserId))
         : dispatch(ResultActions.LoginFailure());
         return result;
