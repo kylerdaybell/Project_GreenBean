@@ -6,7 +6,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 import SearchBar from "../shared/SearchBar";
-import "../../css/search.css"
+import "../../css/search.css";
+import "../../css/main.css";
 
 const SearchPage = props => {
   const [ingredientList, setIngredientList] = useState([]);
@@ -46,12 +47,13 @@ const SearchPage = props => {
           ))}
           </div>
             <SearchBar placeholder={"Type Ingredient then press Enter"} searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
-        <div className="w3-row-padding">
+        <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
           ))}
         </div>
       </div>
+      
     </>
   );
 };

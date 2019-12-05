@@ -25,7 +25,7 @@ const SearchBar = props => {
   return (
     <>
     <div className="searchBarLayout">
-      <span className="searchBarForm"><input
+      <div className="searchBarForm"><input
         ref={inputRef}
         id="ingredientSearchBox"
         className="w3-input w3-border"
@@ -33,8 +33,8 @@ const SearchBar = props => {
         placeholder={props.placeholder || "Search"}
         onKeyDown={event => submitIfEnter(event)}
       />
-      </span>
-      <span className="searchBarButton">
+      </div>
+      <div className="searchBarButton">
       <button
         onClick={() =>
           props.searchFunction(inputRef.current.value)
@@ -43,7 +43,7 @@ const SearchBar = props => {
       > Search
       
       </button>
-      </span>
+      </div>
       </div>
     </>
   );

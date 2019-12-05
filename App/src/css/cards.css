@@ -7,11 +7,12 @@
 .card img {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  width: 100%;
+  height: 60%; 
 }
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
-  cursor: pointer;
 }
 /* Add some padding inside the card container */
 .container {
@@ -28,16 +29,24 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card-group {
-  display: flex;
-  justify-content: space-between;
-}
 
 .cardSpacing {
-  margin: 1vw;
+  margin: 7px;
+  height:calc(290px);
+  width: calc(230px);
 }
 .cardNoWrap {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.flexContainer{
+  float: left;
+  
+}
+@media (min-width: 1200px){
+  .cardSpacing {
+    height:calc(400px);
+    width: calc(350px);
+  }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
+import "../../css/main.css";
 import recipeCategories from "../addRecipePage/recipeCategories"
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -26,11 +27,11 @@ const SearchByCategory = props => {
         ))}
       </select>
       </div>
-      <div className="w3-row-padding">
-        {props.recipes.map((recipe, index) => (
-          <RecipeCard recipe={recipe} key={index} />
-        ))}
-      </div>
+      <div className="homeRecipePadding">
+          {props.recipes.map((recipe, index) => (
+            <RecipeCard recipe={recipe} key={index} />
+          ))}
+        </div>
       </div>
     </>
   );

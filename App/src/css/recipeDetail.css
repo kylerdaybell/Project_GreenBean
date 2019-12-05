@@ -1,7 +1,5 @@
 .recipePage{
-    max-width: 1000px;
-    display: inline-block;
-    justify-content: center;
+   display: inline-flex;
 }
 .detailPadding{
     padding: 2em;

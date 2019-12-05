@@ -1,6 +1,7 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle";
 import RecipeCard from "../shared/RecipeCard";
+import "../../css/main.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
@@ -11,7 +12,7 @@ const SearchByNamePage = props => {
       <PageTitle title={"Search By Name"} />
       <div className="fitBody">
         <SearchBar placeholder={"Search By Recipe Name"} searchFunction={props.SearchForRecipeByName} focus/>
-        <div className="w3-row-padding">
+        <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
           ))}

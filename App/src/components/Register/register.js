@@ -41,20 +41,20 @@ const LoginPage = props => {
     var  errors = [];
     console.log(content);
     if (content.length < 6) {
-      errors.push("\nAt least 6 characters"); 
+      errors.push("\nAt least 6 characters<br>"); 
     }
     if (content.search(/[a-z]/i) < 0) {
-      errors.push("\nAt least one letter.");
+      errors.push("\nAt least one letter.<br>");
 
     }
     if (content.search(/[0-9]/i) < 0) {
-      errors.push("\nAt least one digit."); 
+      errors.push("\nAt least one digit.<br>"); 
 
     }
     if (errors.length > 0) {
-      document.getElementById("passwordText").innerHTML = "Your Password must have:" + errors.join(',');
-    }
-    document.getElementById("passwordText").innerHTML = errors.join('');
+      document.getElementById("passwordText").innerHTML = "Your Password must have:<br>" + errors.join('');
+    }else
+      document.getElementById("passwordText").innerHTML = errors.join('');
      matchPassword()
   }
   const matchPassword = event => {
@@ -67,11 +67,6 @@ const LoginPage = props => {
   }
   const showPopup = element=>{
     var x = document.getElementById(element);
-    var sideBarLeft = getComputedStyle(x).getPropertyValue("--sideNavLeftMargin")
-
-    var sideBarLeftSize = (sideBarLeft.includes("64px") ? 32 : 120)
-    x.style.left = window.innerWidth/2 + sideBarLeftSize + "px";
-
     x.className = "show"
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
       return;

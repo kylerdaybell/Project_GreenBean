@@ -14,7 +14,9 @@ const Header = props => {
   };
   const displaySearchBar = () => {
     if(props.history.location.pathname.toLowerCase().includes("search") === false){
-      return <SearchBar searchFunction={headerSearch} placeholder="Search By Recipe Name" />
+      return <>
+        <SearchBar searchFunction={headerSearch} placeholder="Search By Recipe Name" />
+      </>
     }
   }
   return (
