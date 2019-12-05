@@ -13,7 +13,11 @@ const RecipeDetailPage = props => {
   }
   const deleteButtonDisplay = ()=>{
     if(recipe.recipe.userid === props.credentials.userId ){
-      return <button className="w3-button w3-red" onClick={()=>deleteRecipe(recipe.recipe.id)}>Delete</button>
+      return<>
+      <div className="w3-margin deleteButtonBox"> 
+      <button className="deleteButton" onClick={()=>deleteRecipe(recipe.recipe.id)}>Delete</button>
+      </div>
+      </>
     }
     return
   }
@@ -23,11 +27,12 @@ const RecipeDetailPage = props => {
   return (
   <>
   <PageTitle title={"Recipe Details"}/>
-  <div className="fitbody w3-container w3-card w3-margin w3-white recipePage">
+  <div className="fitbody">
+  {deleteButtonDisplay()}
+  <div className="w3-container w3-card w3-margin w3-white recipePage">
   <div className="detailPadding">
     <div className="recipeDetailTitle"><h1>{recipe.recipe.name}</h1></div>
     <span className="topAlign">
-      {deleteButtonDisplay()}
     <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture} alt=""/></div>
     <div className="rightOfPicture">
       <div ><p><strong>Category:</strong> {recipe.recipe.category}</p></div>
@@ -47,6 +52,7 @@ const RecipeDetailPage = props => {
     <div className="sectionLine"></div>
     <div ><p>{recipe.recipe.instructions}</p></div>
     </div>
+  </div>
   </div>
   
   </>
