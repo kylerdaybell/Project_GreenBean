@@ -22,7 +22,6 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         var [rows] = await con.execute('select * from USER WHERE EMAIL = ?', [email]);
         con.end()
-        console.log(rows);
         return rows;
 
     },
@@ -87,6 +86,7 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         row = await con.execute('SELECT * FROM RECIPE LIMIT 10');
         con.end()
+        console.log(rows);
         return row;
     },
     SearchRecipeByName: async function(RecipeName){
