@@ -14,7 +14,12 @@ export const greenBeanAPIReducer = (state, action) => {
     return{...state, homePageRecipes: action.recipes}
   }else if(action.type === ActionTypes.CHANGE_MODE){
     return { ...initial.greenBeanAPI, offlineMode: action.offlineMode}
+  }else if(action.type === ActionTypes.DELETE_RECIPE_SUCCESS){
+    let filteredRecipes = state.recipes.filter(r=>r.recipe.id !== action.recipeId)
+    let filteredHomeRecipes = state.homePageRecipes.filter(r=>r.recipe.id !== action.recipeId)
+    return { ...state, recipes: filteredRecipes, homePageRecipes: filteredHomeRecipes}
   }
+
   return state;
 };
 

@@ -17,6 +17,15 @@ export function GetTopTenRecipes() {
   };
 }
 
+export function DeleteRecipe(recipeId) {
+  return function(dispatch, getState) {
+    let deleteRequest = {id: recipeId, email: getState().greenBeanAPI.credentials.email, password: getState().greenBeanAPI.credentials.password}
+    getState().greenBeanAPI.offlineMode
+      ? dispatch(OfflineActions.DeleteRecipe(recipeId))
+      : dispatch(OnlineActions.DeleteRecipe(deleteRequest))
+  }
+}
+
 export function SearchForRecipeByIngredient(ingredients) {
   return function(dispatch, getState) {
     getState().greenBeanAPI.offlineMode

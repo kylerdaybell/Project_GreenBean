@@ -55,3 +55,14 @@ export function AdvancedSearchSuccess(recipes) {
     recipes
   };
 }
+
+export function DeleteRecipeSuccess(recipeId) {
+  return {
+    type: ActionTypes.DELETE_RECIPE_SUCCESS,
+    recipeId: recipeId
+  };
+}
+
+export function DeleteRecipeFailure(){
+  return { type: ActionTypes.DELETE_RECIPE_FAILURE };
+}

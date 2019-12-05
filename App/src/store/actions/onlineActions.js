@@ -41,7 +41,6 @@ export function SearchForRecipeByCategoryOnline(category) {
 export function Login(email, password) {
   return function(dispatch) {
     return GreenBeanAPIService.Login(email, password).then(result => {
-      console.log(result);
       result.Result === "Success"
         ? dispatch(ResultActions.LoginSuccess(email, password, result.UserId))
         : dispatch(ResultActions.LoginFailure());
@@ -79,6 +78,18 @@ export function CreateNewRecipeOnline(recipe) {
       })
       .catch(dispatch(ResultActions.CreateNewRecipeFailure()));
   };
+}
+
+export function DeleteRecipe(deleteRequest) {
+  return function(dispatch) {
+    return GreenBeanAPIService.DeleteRecipe(deleteRequest)
+      .then(result => {
+        result.includes("Result: Success")
+          ? dispatch(ResultActions.DeleteRecipeSuccess(deleteRequest.id))
+          : dispatch(ResultActions.DeleteRecipeFailure());
+        return result.includes("Result: Success");
+      })
+  }
 }
 
 export function AdvancedSearchOnline(ingredients, category, email) {

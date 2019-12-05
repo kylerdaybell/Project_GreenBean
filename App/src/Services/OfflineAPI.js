@@ -16,7 +16,7 @@ class OfflineAPIClass {
   }
 
   async CreateNewRecipe(recipe) {
-    let addedRecipe = { recipe: { ...JSON.parse(recipe), id: -1 } };
+    let addedRecipe = { recipe: { ...JSON.parse(recipe), id: -1, userid: null } };
     this.IncrementRecipeCount();
     addedRecipe.recipe.id = this.data["recipeCount"];
     if(addedRecipe.recipe.picture === ""){
@@ -24,6 +24,22 @@ class OfflineAPIClass {
     }
     try {
       this.data["recipes"].push(addedRecipe);
+      await fs.writeFile(this.path, JSON.stringify(this.data), error => {
+        if (error) {
+          throw error;
+        }
+      });
+    } catch {
+      return "Result: Failure";
+    }
+    return "Result: Success";
+  }
+
+  async DeleteRecipe(recipeId) {
+    console.log(this.data["recipes"])
+    console.log(recipeId);
+    try {
+      this.data["recipes"] = this.data["recipes"].filter(r=>r.recipe.id !== recipeId);
       await fs.writeFile(this.path, JSON.stringify(this.data), error => {
         if (error) {
           throw error;

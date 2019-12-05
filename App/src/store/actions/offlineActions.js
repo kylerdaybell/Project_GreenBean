@@ -44,3 +44,15 @@ export function CreateNewRecipeOffline(recipe) {
       .catch(dispatch(ResultActions.CreateNewRecipeFailure()));
   };
 }
+
+export function DeleteRecipe(recipeId) {
+  return function(dispatch) {
+    return OfflineAPI.DeleteRecipe(recipeId)
+    .then(result => {
+      result.includes("Result: Success")
+        ? dispatch(ResultActions.DeleteRecipeSuccess(recipeId))
+        : dispatch(ResultActions.DeleteRecipeFailure());
+      return result.includes("Result: Success");
+    })
+  }
+}
