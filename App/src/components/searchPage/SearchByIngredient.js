@@ -12,30 +12,40 @@ import "../../css/main.css";
 const SearchPage = props => {
   const [ingredientList, setIngredientList] = useState([]);
 
+  const setIngredients = (ingredient) => {
+    if(ingredient === "" || typeof ingredientList.find(i=>i === ingredient) !== 'undefined'){
+      setIngredientList([...ingredientList]);
+      return;
+    }else{
+      setIngredientList([...ingredientList, ingredient])
+    }
+  }
+  
+  const deleteIngredient = (ingredient) => {
+    let filtered = ingredientList.filter(i=>i!==ingredient)
+    setIngredientList(filtered);
+    searchForRecipeByIngredient("", filtered)
+  }
+  
   const ingredientSearchOverride = (event) => {
     if(event.key === 'Tab' || event.key === ',' || event.key === 'Enter'){
-      if(event.target.value === "" || typeof ingredientList.find(i=>i === event.target.value) !== 'undefined'){
-        setIngredientList([...ingredientList]);
-        return;
-      }
-      setIngredientList([...ingredientList, event.target.value])
-    }if(event.key === 'Enter'){
+      setIngredients(event.target.value)
       searchForRecipeByIngredient(event.target.value);
     }
   }
-
-  const deleteIngredient = (ingredient) => {
-    setIngredientList(ingredientList.filter(i=>i!==ingredient))
+  
+  const searchFunction = (ingredient) => {
+    setIngredients(ingredient);
+    searchForRecipeByIngredient(ingredient);
   }
 
-  const searchForRecipeByIngredient = (ingredient="") => {
+  const searchForRecipeByIngredient = (ingredient="", ingredients=ingredientList) => {
     let searchParameters = `${ingredient},`;
-    ingredientList.forEach(element => {
+    ingredients.forEach(element => {
       searchParameters = searchParameters.concat(element, ",");
     });
     props.SearchForRecipeByIngredient(searchParameters);
   }
-
   return (
     <>
       <PageTitle title={"Search By Ingredients"} />
@@ -46,7 +56,7 @@ const SearchPage = props => {
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
           ))}
           </div>
-            <SearchBar placeholder={"Type Ingredient then press Enter"} searchFunction={searchForRecipeByIngredient} overrideFunction={ingredientSearchOverride} clearBar focus/>
+            <SearchBar placeholder={"Type Ingredient then press Enter"} searchFunction={searchFunction} overrideFunction={ingredientSearchOverride} clearBar focus/>
         <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
