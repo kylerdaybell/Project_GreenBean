@@ -22,6 +22,7 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         var [rows] = await con.execute('select * from USER WHERE EMAIL = ?', [email]);
         con.end()
+        console.log(rows);
         return rows;
 
     },
