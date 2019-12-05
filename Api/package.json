@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "jest",
-    "stop":  "forever stopall",
+    "stop": "forever stopall",
     "start": "forever start index.js"
   },
   "author": "",

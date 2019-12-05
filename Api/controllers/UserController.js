@@ -35,9 +35,6 @@ var UserController = {
             res.write(JSON.stringify(resultObject));
             res.end();
         }
-    },
-    loggedIn: function(email){
-        return true;
     }
 }
 
