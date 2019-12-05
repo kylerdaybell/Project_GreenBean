@@ -8,10 +8,20 @@ const GreenBeanAPIService={
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
-            
           },
           mode: 'cors',
           body: recipe
+        }).then(response=>response.json())
+        .catch(error=>Promise.reject())
+      },
+      DeleteRecipe: function(deleteRequest) {
+        return fetch(`${URL}/deleterecipe`,{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          mode: 'cors',
+          body: JSON.stringify(deleteRequest)
         }).then(response=>response.json())
         .catch(error=>Promise.reject())
       },
@@ -27,8 +37,7 @@ const GreenBeanAPIService={
             method: 'POST',
             headers: {
               'Access-Control-Allow-Origin':"",
-                'Content-Type': 'application/json',
-                
+              'Content-Type': 'application/json',
             },
             mode: 'cors',
             body: RealFormatedRequestBody
@@ -84,6 +93,5 @@ const GreenBeanAPIService={
         return fetch(`${URL}/register`,settings).then(response=>response.json())
       }
 }
-
 
 export default GreenBeanAPIService
