@@ -1,6 +1,11 @@
+const bcrypt = require('bcryptjs');
+
 var MockApiDatabaseService = {
     GetUser: async function(email){
-        
+        password = bcrypt.hashSync("password")
+        var user = {ID: 1,EMAIL: 'kyler.daybell96@gmail.com',PASSWORD:password, ROLE: 'user'}
+        var DBresult = [user];  
+        return DBresult;
     },
     RegisterUser: async function(user){
         
