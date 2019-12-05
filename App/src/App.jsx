@@ -11,7 +11,7 @@ import SideBarNav from "./components/shared/SidebarNav";
 import SearchByName from "./components/searchPage/SearchByNamePage";
 import SearchByCategory from "./components/searchPage/SearchByCategory";
 import Register from "./components/Register/register";
-import MyRecipePage from "./components/myRecipesPage/MyRecipesPage";
+import SettingsPage from "./components/settings/SettingsPage";
 import { connect } from "react-redux";
 import "./css/main.css";
 import "./App.css";
@@ -39,7 +39,7 @@ const App = props => {
         <div className="mainApp">
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/myRecipes" component={MyRecipePage} />
+            <Route exact path="/settings" component={SettingsPage} />
             <Route path="/myRecipes/addRecipe" component={AddRecipe} />
             <Route path="/recipes/:id" component={RecipeDetailPage} />
             <Route path="/searchByName" component={SearchByName} />

@@ -6,6 +6,7 @@ import '../../css/main.css';
 import '../../css/sidenav.css';
 import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
+import { isReferenced } from "@babel/types";
 
 const SideBarNav = props => {
     const [selectedState, setState] = React.useState("");
@@ -14,50 +15,39 @@ const SideBarNav = props => {
     {
         setState(currentState);
     }
-    const LogoutLogin = () => {
+    const logoutLogin = () => {
         if(props.credentials.loggedIn){
           return (
-            <NavItem eventKey="/profile">
-                <NavIcon>
-                    <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
-                </NavIcon>
-                <NavText>
-                    Profile
-                </NavText>
                 <NavItem eventKey="/logout">
                     <NavText>
                         Logout
                         <i className="fa fa-fw fa-sign-out-alt navbaricon" style={{"paddingLeft": "10px"}}/>
                     </NavText>
                 </NavItem>
-            </NavItem>
 
           )
         }
         return (
-            <NavItem eventKey="/profile">
-                <NavIcon>
-                    <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
-                </NavIcon>
-                <NavText>
-                    Profile
-                </NavText>
                 <NavItem eventKey="/login">
                     <NavText >
                         Login
                         <i className="fa fa-fw fa-sign-in-alt navbaricon" style={{"paddingLeft": "10px"}}/>
-                        
                     </NavText>
                 </NavItem>
-                    <NavItem eventKey="/register">
+        )
+      }
+    const register = () => {
+        if(props.credentials.loggedIn === false){
+            return (
+                <NavItem eventKey="/register">
                     <NavText>
                         Sign Up
                         <i className="fa fa-fw fa-user-plus navbaricon" style={{"paddingLeft": "10px"}}/>
                     </NavText>
                 </NavItem>
-            </NavItem>
-        )
-      }
+            )
+        }
+    }
     return (
         <div  >
         <SideNav
@@ -101,15 +91,30 @@ const SideBarNav = props => {
                         </NavText> 
                     </NavItem>
                 </NavItem>
-                <NavItem eventKey="/myRecipes">
+
+                <NavItem eventKey="/profile">
                     <NavIcon>
-                        <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{ fontSize: '1.75em' }} />
+                        <i className="fa fa-fw fa-user navbaricon" style={{ fontSize: '1.75em' }} />
                     </NavIcon>
                     <NavText>
-                        My Recipes
+                        Profile
                     </NavText>
+                    {props.offlineMode === false ? (logoutLogin()) :<></>}
+                    {props.offlineMode === false ? (register()) :<></>}
+                    <NavItem eventKey="/myRecipes/addRecipe">
+                        <NavText>
+                            Add Recipe
+                            <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{"paddingLeft": "10px"}} />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="/settings">
+                        <NavText>
+                            Settings
+                            <i className="fa fa-fw fa-cog navbaricon" style={{"paddingLeft": "10px"}} />
+                        </NavText>
+                    </NavItem>
                 </NavItem>
-                {props.offlineMode ? <></> : LogoutLogin()}
+
             </SideNav.Nav>
         </SideNav>
         </div>
