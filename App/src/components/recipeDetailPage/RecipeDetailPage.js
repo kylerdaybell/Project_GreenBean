@@ -1,9 +1,12 @@
 import React from "react";
+import Dialog from "react"
 import PageTitle from "../shared/PageTitle";
 import '../../css/recipeDetail.css';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../../store/actions/actions";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 const RecipeDetailPage = props => {
   //using == instead of === intentionally
@@ -15,23 +18,40 @@ const RecipeDetailPage = props => {
     if(recipe.recipe.userid === props.credentials.userId ){
       return<>
       <div className="w3-margin deleteButtonBox"> 
-      <button className="deleteButton" onClick={()=>deleteRecipe(recipe.recipe.id)}>Delete</button>
+      <button className="deleteButton" onClick={()=>deleteRecipe(recipe.recipe.id)}>Delete Recipe</button>
       </div>
       </>
     }
     return
   }
   const deleteRecipe = (recipeId) => {
-    props.DeleteRecipe(recipeId)
+    //if (window.confirm("This will delete this recipe forever,\nDo you wish to continue?")){
+      //props.DeleteRecipe(recipeId);
+    //}
+     confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => alert('Click Yes')
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    })
   }
   return (
   <>
   <PageTitle title={"Recipe Details"}/>
   <div className="fitbody">
-  {deleteButtonDisplay()}
   <div className="w3-container w3-card w3-margin w3-white recipePage">
   <div className="detailPadding">
+  {deleteButtonDisplay()}
     <div className="recipeDetailTitle"><h1>{recipe.recipe.name}</h1></div>
+    
     <span className="topAlign">
     <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture} alt=""/></div>
     <div className="rightOfPicture">
