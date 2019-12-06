@@ -172,3 +172,8 @@ button:hover {
   align-content: center;
   flex-wrap: wrap;
 }
+
+.searchSpan{
+  width: 100%;
+  display: inline-block;
+}

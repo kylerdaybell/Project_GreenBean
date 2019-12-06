@@ -1,5 +1,11 @@
 .recipePage{
-   display: inline-flex;
+    max-width:1000px;
+    min-width: 450px;
+    margin: auto;
+}
+.recipeLayout{
+    display: block;
+    margin: 15px;
 }
 .detailPadding{
     padding: 2em;
@@ -15,14 +21,15 @@
     padding-top: 10px;
   }
   .bigpicture{
-      height: (20vh + 20vw);
+      width: 60%;
       display: inline-block;
       overflow: hidden;
       padding-right: 20px;
-      min-height: 200px;
+      min-width: 300px;
+      min-height: 300px;
   }
   .bigpicture img{
-      min-height: 200px;
+      width: 100%;
       
   }
   .topAlign .rightOfPicture{

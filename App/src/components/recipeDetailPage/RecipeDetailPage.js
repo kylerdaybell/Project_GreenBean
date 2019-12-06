@@ -47,13 +47,14 @@ const RecipeDetailPage = props => {
   <>
   <PageTitle title={"Recipe Details"}/>
   <div className="fitbody">
-  <div className="w3-container w3-card w3-margin w3-white recipePage">
+  <div className="recipeLayout">
+  <div className="w3-container w3-card w3-white recipePage">
   <div className="detailPadding">
   {deleteButtonDisplay()}
     <div className="recipeDetailTitle"><h1>{recipe.recipe.name}</h1></div>
     
     <span className="topAlign">
-    <div className="bigpicture"><img style={{"height":"40vh" }} src={recipe.recipe.picture} alt=""/></div>
+    <div className="bigpicture"><img src={recipe.recipe.picture} alt=""/></div>
     <div className="rightOfPicture">
       <div ><p><strong>Category:</strong> {recipe.recipe.category}</p></div>
       <div ><p><strong>PrepTime:</strong> {recipe.recipe.preptime}</p></div>
@@ -72,6 +73,7 @@ const RecipeDetailPage = props => {
     <div className="sectionLine"></div>
     <div ><p>{recipe.recipe.instructions}</p></div>
     </div>
+  </div>
   </div>
   </div>
   

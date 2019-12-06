@@ -18,6 +18,7 @@ const SearchByCategory = props => {
       <PageTitle title={"Search By Category"} />
       <div className="fitBody"> 
       <div className="searchBarLayout">
+      <div className="searchSpan">
       <select className="w3-select w3-border" id="category" name="option" onChange={() =>
           props.SearchForRecipeByCategory(document.getElementById("category").value)
         }>
@@ -26,6 +27,7 @@ const SearchByCategory = props => {
           <option key={key} value={category[0]}>{category[0]}</option>
         ))}
       </select>
+      </div>
       </div>
       <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
