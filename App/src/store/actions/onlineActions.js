@@ -12,12 +12,13 @@ export function GetTopTenRecipesOnline() {
 
 export function SearchForRecipeByIngredientOnline(ingredients) {
   return function(dispatch) {
-    return GreenBeanAPIService.SearchForRecipeByIngredient(
-      ingredients
-    ).then(recipes => {
-      recipes.sort((recipe1, recipe2) => (recipe2.percentmatch - recipe1.percentmatch));
-      dispatch(ResultActions.SearchByIngredientSuccess(recipes))
-    }
+    return GreenBeanAPIService.SearchForRecipeByIngredient(ingredients).then(
+      recipes => {
+        recipes.sort(
+          (recipe1, recipe2) => recipe2.percentmatch - recipe1.percentmatch
+        );
+        dispatch(ResultActions.SearchByIngredientSuccess(recipes));
+      }
     );
   };
 }
@@ -40,16 +41,17 @@ export function SearchForRecipeByCategoryOnline(category) {
 
 export function Login(email, password) {
   return function(dispatch) {
-    return GreenBeanAPIService.Login(email, password).then(result => {
-      result.Result === "Success"
-        ? dispatch(ResultActions.LoginSuccess(email, password, result.UserId))
-        : dispatch(ResultActions.LoginFailure());
-        return (result.Result === "Success");
-    })
-    .catch(error=> {
-      dispatch(ResultActions.LoginFailure());
-      return false
-    });
+    return GreenBeanAPIService.Login(email, password)
+      .then(result => {
+        result.Result === "Success"
+          ? dispatch(ResultActions.LoginSuccess(email, password, result.UserId))
+          : dispatch(ResultActions.LoginFailure());
+        return result.Result === "Success";
+      })
+      .catch(error => {
+        dispatch(ResultActions.LoginFailure());
+        return false;
+      });
   };
 }
 
@@ -61,18 +63,17 @@ export function Logout() {
 
 export function Register(email, password, validate) {
   return function(dispatch) {
-    return GreenBeanAPIService.Register(email, password, validate).then(
-      result => {
+    return GreenBeanAPIService.Register(email, password, validate)
+      .then(result => {
         result.includes("Result: Success")
           ? dispatch(ResultActions.RegisterSuccess())
           : dispatch(ResultActions.RegisterFailure());
-          return result.includes("Result: Success");
-      }
-    )
-    .catch(error=> {
-      dispatch(ResultActions.RegisterFailure());
-      return false
-    });
+        return result.includes("Result: Success");
+      })
+      .catch(error => {
+        dispatch(ResultActions.RegisterFailure());
+        return false;
+      });
   };
 }
 
@@ -83,20 +84,22 @@ export function CreateNewRecipeOnline(recipe) {
         result.includes("Result: Success")
           ? dispatch(ResultActions.CreateNewRecipeSuccess())
           : dispatch(ResultActions.CreateNewRecipeFailure());
+        return result.includes("Result: Success");
       })
-      .catch(dispatch(ResultActions.CreateNewRecipeFailure()));
+      .catch(error => {
+        dispatch(ResultActions.CreateNewRecipeFailure());
+        return false;
+      });
   };
 }
 
 export function DeleteRecipe(deleteRequest) {
   return function(dispatch) {
-    return GreenBeanAPIService.DeleteRecipe(deleteRequest)
-      .then(result => {
-        result.includes("Result: Success")
-          ? dispatch(ResultActions.DeleteRecipeSuccess(deleteRequest.id))
-          : dispatch(ResultActions.DeleteRecipeFailure());
-        return result.includes("Result: Success");
-      })
-  }
+    return GreenBeanAPIService.DeleteRecipe(deleteRequest).then(result => {
+      result.includes("Result: Success")
+        ? dispatch(ResultActions.DeleteRecipeSuccess(deleteRequest.id))
+        : dispatch(ResultActions.DeleteRecipeFailure());
+      return result.includes("Result: Success");
+    });
+  };
 }
-
