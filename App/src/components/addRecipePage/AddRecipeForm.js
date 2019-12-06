@@ -28,7 +28,12 @@ const AddRecipeForm = props => {
     }
   };
 
-
+  const showPopup = element=>{
+    var x = document.getElementById(element);
+    x.className = "show"
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+      return;
+  }
 
   const AddRecipe = theIngredientList => {
     let name = document.getElementById("name").value;
@@ -59,21 +64,21 @@ const AddRecipeForm = props => {
       props.credentials.password
     );
     let recipeJson = JSON.stringify(recipeSubmission);
-    props.CreateNewRecipe(recipeJson);
-  };
-
-  const getMessage = () => {
-    if(props.submitResponse === true){
-      return <div>Recipe Added Successfully</div>
-    }else if(props.submitResponse === false){
-      return <div>Recipe Failed To Upload</div>
-    }else{
-      return;
-    }
+    props.CreateNewRecipe(recipeJson).then(success=>{
+      if(success !== true){
+        showPopup("snackbar");
+      }else{
+        showPopup("successSnackbar");
+      }
+    return;
   }
+  );;
+  };
 
   return (
     <>
+      <div id="snackbar">Add Failed</div>
+      <div id="successSnackbar">Add Successful!</div>
       <div className="fitBody">
       <label htmlFor="name">Name:</label>
       <input className="w3-input w3-border" id="name" type="text" />
@@ -112,7 +117,6 @@ const AddRecipeForm = props => {
       <br />
       <h3>Add Ingredients</h3>
       <IngredientAdd onSubmit={AddRecipe} />
-      {getMessage()}
       </div>
     </>
   );
@@ -120,8 +124,7 @@ const AddRecipeForm = props => {
 
 const mapStateToProps = state => {
   return {
-      credentials: state.greenBeanAPI.credentials,
-      submitResponse: state.status.createRecipeSuccess
+      credentials: state.greenBeanAPI.credentials
   };
 };
 
