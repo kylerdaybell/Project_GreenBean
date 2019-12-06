@@ -3,7 +3,7 @@ import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
 import RecipeAddModel from "../models/Recipe";
 import * as ActionTypes from "../store/constants";
-import * as Actions from "../store/actions/onlineActions";
+import * as Actions from "../store/actions/actions";
 import {initialState} from "../store/initialState";
 
 const middleware = [thunk];
@@ -31,10 +31,10 @@ describe("Create Recipe Online Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
-            Actions.CreateNewRecipeOnline(recipeAdd)
+            Actions.CreateNewRecipe(recipeAdd)
         )
         .then(()=>expect(store.getActions()).toEqual(expected))
     });
@@ -51,10 +51,10 @@ describe("Create Recipe Online Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
-            Actions.CreateNewRecipeOnline(recipeAdd)
+            Actions.CreateNewRecipe(recipeAdd)
         )
         .then(()=>expect(store.getActions()).toEqual(expected))
     });
@@ -68,10 +68,10 @@ describe("Create Recipe Online Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
-            Actions.CreateNewRecipeOnline(recipeAdd)
+            Actions.CreateNewRecipe(recipeAdd)
         )
         .then(()=>expect(store.getActions()).toEqual(expected))
     });
@@ -84,9 +84,9 @@ describe("Create Recipe Online Tests", () => {
 
         const expected = true;
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
-        .dispatch(Actions.CreateNewRecipeOnline(recipeAdd))
+        .dispatch(Actions.CreateNewRecipe(recipeAdd))
         .then((actual)=>expect(actual).toEqual(expected))
     });
 
@@ -98,9 +98,9 @@ describe("Create Recipe Online Tests", () => {
 
         const expected = false;
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
-        .dispatch(Actions.CreateNewRecipeOnline(recipeAdd))
+        .dispatch(Actions.CreateNewRecipe(recipeAdd))
         .then((actual)=>expect(actual).toEqual(expected))
     });
 
@@ -109,9 +109,9 @@ describe("Create Recipe Online Tests", () => {
 
         const expected = false;
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
-        .dispatch(Actions.CreateNewRecipeOnline(recipeAdd))
+        .dispatch(Actions.CreateNewRecipe(recipeAdd))
         .then((actual)=>expect(actual).toEqual(expected))
     });
 });

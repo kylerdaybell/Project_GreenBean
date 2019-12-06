@@ -59,7 +59,7 @@ describe("Get Recipe By Name Tests", () => {
     const store = mockStore(initialState);
     return store
       .dispatch(
-        OnlineActions.SearchForRecipeByNameOnline("fakeName")
+        Actions.SearchForRecipeByName("fakeName")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });
@@ -85,7 +85,7 @@ describe("Get Recipe By Category Tests", () => {
     const store = mockStore(initialState);
     return store
       .dispatch(
-        OnlineActions.SearchForRecipeByCategoryOnline("fakeCategory")
+        Actions.SearchForRecipeByCategory("fakeCategory")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });

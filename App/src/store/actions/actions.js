@@ -1,5 +1,3 @@
-import * as OnlineActions from "./onlineActions";
-import * as OfflineActions from "./offlineActions";
 import * as ActionTypes from "../constants";
 import * as ResultActions from "./resultActions";
 import GreenBeanAPIService from "../../Services/GreenBeanAPIService";
@@ -58,24 +56,35 @@ export function SearchForRecipeByIngredient(ingredients) {
 
 export function SearchForRecipeByName(name) {
   return function(dispatch, getState) {
-    getState().greenBeanAPI.offlineMode
-      ? dispatch(OfflineActions.SearchForRecipeByNameOffline(name))
-      : dispatch(OnlineActions.SearchForRecipeByNameOnline(name));
+    let service = getService(getState);
+    return service.SearchForRecipeByName(name).then(recipes =>
+      dispatch(ResultActions.SearchByNameSuccess(recipes))
+    );
   };
 }
 
 export function SearchForRecipeByCategory(category) {
   return function(dispatch, getState) {
-    getState().greenBeanAPI.offlineMode
-      ? dispatch(OfflineActions.SearchForRecipeByCategoryOffline(category))
-      : dispatch(OnlineActions.SearchForRecipeByCategoryOnline(category));
+    let service = getService(getState);
+    return service.SearchForRecipeByCategory(
+      category
+    ).then(recipes => dispatch(ResultActions.SearchByCategorySuccess(recipes)));
   };
 }
 
 export function CreateNewRecipe(recipe) {
   return function(dispatch, getState) {
-    getState().greenBeanAPI.offlineMode
-      ? dispatch(OfflineActions.CreateNewRecipeOffline(recipe))
-      : dispatch(OnlineActions.CreateNewRecipeOnline(recipe));
+    let service = getService(getState);
+    return service.CreateNewRecipe(recipe)
+      .then(result => {
+        result.includes("Result: Success")
+          ? dispatch(ResultActions.CreateNewRecipeSuccess())
+          : dispatch(ResultActions.CreateNewRecipeFailure());
+        return result.includes("Result: Success");
+      })
+      .catch(error => {
+        dispatch(ResultActions.CreateNewRecipeFailure());
+        return false;
+      });
   };
 }
