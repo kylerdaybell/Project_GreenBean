@@ -10,7 +10,7 @@
   background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeTitleImage.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-top:1vw;
+  padding-top:.5vw;
 }
 .homeTitle h1{
   vertical-align: center;
@@ -35,7 +35,6 @@
   opacity: .99;
   top: 32px;
   background-color:#626262;
-  margin-right: calc(-64px + var(--sideNavLeftMargin))
 }
 .spacerBar {
   padding-top: 64px;
