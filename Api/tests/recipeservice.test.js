@@ -9,7 +9,7 @@ RecipeService.constructor(MockApiDatabaseService, UserService,IngredientService)
 
 test("Test get all recipes",async ()=>{
     //result = await RecipeService.GetAllRecipes();
-    console.log(result)
+    //console.log(result)
     expect(true).toBe(true);
 })
 
