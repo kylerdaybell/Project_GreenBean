@@ -100,6 +100,10 @@ export function DeleteRecipe(deleteRequest) {
         ? dispatch(ResultActions.DeleteRecipeSuccess(deleteRequest.id))
         : dispatch(ResultActions.DeleteRecipeFailure());
       return result.includes("Result: Success");
+    })
+    .catch(error => {
+      dispatch(ResultActions.DeleteRecipeFailure());
+      return false;
     });
   };
 }
