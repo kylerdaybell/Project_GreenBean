@@ -30,7 +30,7 @@
 .navBar {
   padding:.3vh;
   height: 64px;
-  z-index: 1000;
+  z-index: 97;
   position: absolute;
   opacity: .99;
   top: 32px;
