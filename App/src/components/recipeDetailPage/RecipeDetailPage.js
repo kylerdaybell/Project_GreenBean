@@ -25,20 +25,19 @@ const RecipeDetailPage = props => {
     return
   }
   const deleteRecipe = (recipeId) => {
-    //if (window.confirm("This will delete this recipe forever,\nDo you wish to continue?")){
-      //props.DeleteRecipe(recipeId);
-    //}
      confirmAlert({
-      title: 'Confirm to submit',
-      message: 'Are you sure to do this.',
+      title: 'Confirm to Delete Recipe',
+      message: 'Are you sure to delete your recipe?\n\nThis cannot be undone.',
       buttons: [
         {
           label: 'Yes',
-          onClick: () => alert('Click Yes')
+          onClick: () => {
+            props.DeleteRecipe(recipeId)
+            props.history.goBack();
+          }
         },
         {
           label: 'No',
-          onClick: () => alert('Click No')
         }
       ]
     })
