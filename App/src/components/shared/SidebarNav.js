@@ -124,7 +124,7 @@ const SideBarNav = props => {
 
 const mapStateToProps = state => {
     return {
-        credentials: state.greenBeanAPI.credentials,
+        credentials: state.credentials,
         offlineMode: state.greenBeanAPI.offlineMode
     }
   }

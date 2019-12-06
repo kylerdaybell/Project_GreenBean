@@ -5,7 +5,7 @@ import * as Reducers from "./reducers";
 
 const rootReducer = combineReducers({
   greenBeanAPI: Reducers.greenBeanAPIReducer,
-  status: Reducers.statusReducer
+  credentials: Reducers.credentialsReducer
 });
 
 const enhancers = [];

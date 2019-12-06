@@ -23,18 +23,18 @@ test("should add recipes when passed SEARCH_BY_INGREDIENT_SUCCESS", () => {
 });
 
 test("should add credentials when passed LOGIN_SUCCESS", ()=>{
-    const testState = initialState.greenBeanAPI;
+    const testState = initialState.credentials;
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
     const testUserId = 5;
     const action = resultActions.LoginSuccess(testEmail, testPassword, testUserId);
 
     const expectedState = {
-        ...initialState.greenBeanAPI,
-        credentials: { loggedIn: true, email: testEmail, password: testPassword, userId: testUserId}
+        ...initialState.credentials,
+        loggedIn: true, email: testEmail, password: testPassword, userId: testUserId
     }
 
-    const actualState = Reducer.greenBeanAPIReducer(testState, action);
+    const actualState = Reducer.credentialsReducer(testState, action);
 
     expect(actualState).toEqual(expectedState);
 })
@@ -44,15 +44,14 @@ test("should clear credentials when passed LOGOUT", ()=>{
     const testPassword = "TestPassword";
     const testUserId = 5;
     const testState = {
-        ...initialState.greenBeanAPI,
-        recipes: [],
-        credentials: { loggedIn: true, email: testEmail, password: testPassword, userId: testUserId}
+        ...initialState.credentials,
+        loggedIn: true, email: testEmail, password: testPassword, userId: testUserId
     }
     const action = actions.Logout();
 
-    const expectedState = initialState.greenBeanAPI;
+    const expectedState = initialState.credentials;
 
-    const actualState = Reducer.greenBeanAPIReducer(testState, action)
+    const actualState = Reducer.credentialsReducer(testState, action)
 
     expect(actualState).toEqual(expectedState);
 })

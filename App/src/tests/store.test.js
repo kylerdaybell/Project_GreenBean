@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import {greenBeanAPIReducer, statusReducer} from "../store/reducers";
+import {greenBeanAPIReducer, credentialsReducer} from "../store/reducers";
 import {initialState} from "../store/initialState";
 import * as actions from "../store/actions/actions";
 import * as onlineActions from "../store/actions/onlineActions";
@@ -13,7 +13,7 @@ jest.mock('../Services/OfflineAPI.js', ()=>()=>({
 describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
   const rootReducer = combineReducers({
     greenBeanAPI: greenBeanAPIReducer,
-    status: statusReducer
+    credentials: credentialsReducer
   })
 
 
@@ -30,15 +30,16 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
   });
 
   test("store should set login credentials when LoginSuccess is called", () => {
-    const store = createStore(rootReducer);
+    const store = createStore(rootReducer, initialState);
     const testEmail = "TestEmail";
     const testPassword = "TestPassword";
+    const testUserId = 5
 
-    const action = resultActions.LoginSuccess(testEmail, testPassword);
+    const action = resultActions.LoginSuccess(testEmail, testPassword, testUserId);
     store.dispatch(action);
 
-    const expected = { loggedIn: true, email: testEmail, password: testPassword };
-    const actual = store.getState().greenBeanAPI.credentials;
+    const expected = { ...initialState.credentials, loggedIn: true, email: testEmail, password: testPassword, userId: testUserId};
+    const actual = store.getState().credentials;
     
     expect(actual).toEqual(expected);
   })
@@ -49,17 +50,15 @@ describe("Redux Store Integration Tests For greenBeanAPIReducer", () => {
     const testUserId = 5
     const testState = {
       ...initialState,
-      greenBeanAPI: {
         credentials: { loggedIn: true, email: testEmail, password: testPassword, userId: testUserId}
-      }
     }
     const store = createStore(rootReducer, testState);
 
     const action = onlineActions.Logout();
     store.dispatch(action);
 
-    const expected = initialState.greenBeanAPI.credentials;
-    const actual = store.getState().greenBeanAPI.credentials;
+    const expected = initialState.credentials;
+    const actual = store.getState().credentials;
 
     expect(actual).toEqual(expected);
   })

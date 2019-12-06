@@ -62,7 +62,7 @@ const RecipeDetailPage = props => {
 const mapStateToProps = state => {
   return {
     recipes: [...state.greenBeanAPI.recipes, ...state.greenBeanAPI.homePageRecipes],
-    credentials: state.greenBeanAPI.credentials
+    credentials: state.credentials
   };
 };
 

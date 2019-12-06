@@ -55,7 +55,7 @@ const LoginPage = props => {
 
 const mapStateToProps = state => {
     return {
-        credentials: state.greenBeanAPI.credentials
+        credentials: state.credentials
     }
 }
 

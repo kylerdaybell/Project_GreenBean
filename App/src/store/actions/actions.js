@@ -25,7 +25,7 @@ export function GetTopRecipes() {
 
 export function DeleteRecipe(recipeId) {
   return function(dispatch, getState) {
-    let deleteRequest = {id: recipeId, email: getState().greenBeanAPI.credentials.email, password: getState().greenBeanAPI.credentials.password}
+    let deleteRequest = {id: recipeId, email: getState().credentials.email, password: getState().credentials.password}
     let service = getService(getState);
     return service.DeleteRecipe(deleteRequest).then(result => {
       result.includes("Result: Success")
