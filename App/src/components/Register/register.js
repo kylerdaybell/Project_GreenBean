@@ -73,7 +73,7 @@ const LoginPage = props => {
   }
   return (
     <>
-      <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
+      <div id="content-area" className=" w3-animate-top w3-container w3-row w3-center w3-display-center formFit">
       <div className="loginImage">
       <form className="w3-card formInnerPadding registerForm" onSubmit={event=>register(event)}>
                 <div id="snackbar">Registration Failed</div>

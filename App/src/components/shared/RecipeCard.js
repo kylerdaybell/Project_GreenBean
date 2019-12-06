@@ -13,7 +13,7 @@ const RecipeCard = props => {
   }
   return (
     <NavLink to={`/recipes/${props.recipe.recipe.id}`}>
-    <div className="flexContainer">
+    <div className="flexContainer w3-animate-left">
       <div className="w3-white cardSpacing card" >
         <img
           src={props.recipe.recipe.picture}

@@ -29,9 +29,9 @@ const LoginPage = props => {
   }
   return (
     <>
-      <div id="content-area" className="w3-container w3-row w3-center w3-display-center formFit">
+      <div id="content-area" className=" w3-animate-top w3-container w3-row w3-center w3-display-center formFit">
         <div id="formBoxArea"className="loginImage w3-card">
-          <div id="snackbar">Login Failed</div>
+          <div id="snackbar" className="w3-spin">Login Failed</div>
             <form className="formInnerPadding" onSubmit={event=>login(event)}>
               <h1><div className="formTitle">Login</div></h1>  
               <div className="formItem">
