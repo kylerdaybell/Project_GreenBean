@@ -1,9 +1,9 @@
 import configureMockStore from "redux-mock-store";
 import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
-import * as ActionTypes from "../store/constants";
-import * as Actions from "../store/actions/actions";
-import {initialState} from "../store/initialState";
+import * as ActionTypes from "../../store/constants";
+import * as Actions from "../../store/actions/actions";
+import {initialState} from "../../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
@@ -12,7 +12,7 @@ const failBody = JSON.stringify("Result: Failure");
 const deleteRecipeIdMock = 0;
 
 //empty offlineAPI mock for actions
-jest.mock('../Services/OfflineAPI.js', ()=>()=>({
+jest.mock('../../Services/OfflineAPI.js', ()=>()=>({
 
 }))
 
