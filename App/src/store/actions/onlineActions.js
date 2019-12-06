@@ -100,18 +100,3 @@ export function DeleteRecipe(deleteRequest) {
   }
 }
 
-export function AdvancedSearchOnline(ingredients, category, email) {
-  return function(dispatch) {
-    return GreenBeanAPIService.AdvancedSearch(
-      ingredients,
-      category,
-      email
-    ).then(recipes => {
-      if (typeof category !== "undefined") {
-        recipes = recipes.filter(r => r.recipe.category === category);
-      }
-      dispatch(ResultActions.AdvancedSearchSuccess(recipes));
-    });
-  };
-}
-

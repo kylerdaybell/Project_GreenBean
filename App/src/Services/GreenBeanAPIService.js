@@ -82,21 +82,6 @@ const GreenBeanAPIService={
       GetTopTenRecipes: function(){
         return fetch(`${URL}/gettoptenrecipes`).then(response=>response.json())
         .catch(error=>Promise.reject())
-      },
-      AdvancedSearch: function(IngredientsList, category, email){
-        let IngredientsListArray = GreenBeanUtilityService.prepIngredients(IngredientsList);
-        let request = {"IngredientsList": IngredientsListArray, "category": category,"email":email}
-        let RealFormatedRequestBody = JSON.stringify(request);
-        const settings = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          mode: 'cors',
-          body: RealFormatedRequestBody
-        }
-        return fetch(`${URL}/register`,settings).then(response=>response.json())
-        .catch(error=>Promise.reject())
       }
 }
 
