@@ -7,8 +7,8 @@ UserService.constructor(MockApiDatabaseService);
 IngredientService.constructor(MockApiDatabaseService);
 RecipeService.constructor(MockApiDatabaseService, UserService,IngredientService);
 
-test("Test get recipe by id",async ()=>{
-    result = RecipeService.GetAllRecipes();
+test("Test get all recipes",async ()=>{
+    //result = await RecipeService.GetAllRecipes();
     console.log(result)
     expect(true).toBe(true);
 })
