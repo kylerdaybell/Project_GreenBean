@@ -2,12 +2,17 @@ import configureMockStore from "redux-mock-store";
 import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
 import * as ActionTypes from "../store/constants";
-import * as Actions from "../store/actions/onlineActions";
+import * as OnlineActions from "../store/actions/onlineActions";
+import * as Actions from "../store/actions/actions";
 import recipesByIngredientMock from "../testMockData/mockData";
+import {initialState} from "../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
+//empty offlineAPI mock for actions
+jest.mock('../Services/OfflineAPI.js', ()=>()=>({
 
+}))
 describe("Get Recipe By Ingredient Tests", () => {
   afterEach(() => {
     fetchMock.restore();
@@ -25,10 +30,10 @@ describe("Get Recipe By Ingredient Tests", () => {
       }
     ];
 
-    const store = mockStore();
+    const store = mockStore(initialState);
     return store
       .dispatch(
-        Actions.SearchForRecipeByIngredientOnline("mockIngredient,mockingredient")
+        Actions.SearchForRecipeByIngredient("mockIngredient,mockingredient")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });
@@ -51,10 +56,10 @@ describe("Get Recipe By Name Tests", () => {
       }
     ];
 
-    const store = mockStore();
+    const store = mockStore(initialState);
     return store
       .dispatch(
-        Actions.SearchForRecipeByNameOnline("fakeName")
+        OnlineActions.SearchForRecipeByNameOnline("fakeName")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });
@@ -77,10 +82,10 @@ describe("Get Recipe By Category Tests", () => {
       }
     ];
 
-    const store = mockStore();
+    const store = mockStore(initialState);
     return store
       .dispatch(
-        Actions.SearchForRecipeByCategoryOnline("fakeCategory")
+        OnlineActions.SearchForRecipeByCategoryOnline("fakeCategory")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });
@@ -103,10 +108,10 @@ describe("Get Top Recipes Test", () => {
       }
     ];
 
-    const store = mockStore();
+    const store = mockStore(initialState);
     return store
       .dispatch(
-        Actions.GetTopTenRecipesOnline()
+        Actions.GetTopRecipes()
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });

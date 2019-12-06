@@ -2,13 +2,6 @@ import * as ActionTypes from "../constants";
 import * as ResultActions from "./resultActions";
 import GreenBeanAPIService from "../../Services/GreenBeanAPIService";
 
-export function GetTopTenRecipesOnline() {
-  return function(dispatch) {
-    return GreenBeanAPIService.GetTopTenRecipes().then(recipes =>
-      dispatch(ResultActions.GetTopTenRecipesSuccess(recipes))
-    );
-  };
-}
 
 export function SearchForRecipeByIngredientOnline(ingredients) {
   return function(dispatch) {

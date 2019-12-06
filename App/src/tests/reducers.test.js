@@ -3,7 +3,10 @@ import * as actions from "../store/actions/onlineActions";
 import * as resultActions from "../store/actions/resultActions";
 import recipesByIngredientMock from "../testMockData/mockData";
 import * as initialState from "../store/initialState";
+//empty offlineAPI mock for actions
+jest.mock('../Services/OfflineAPI.js', ()=>()=>({
 
+}))
 test("should add recipes when passed SEARCH_BY_INGREDIENT_SUCCESS", () => {
   const testState = initialState.greenBeanAPI;
   const recipes = recipesByIngredientMock;

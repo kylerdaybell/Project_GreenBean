@@ -3,10 +3,14 @@ import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
 import * as ActionTypes from "../store/constants";
 import * as Actions from "../store/actions/onlineActions";
+import {initialState} from "../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
+//empty offlineAPI mock for actions
+jest.mock('../Services/OfflineAPI.js', ()=>()=>({
 
+}))
 describe("Login Tests", () => {
     afterEach(()=> {
         fetchMock.restore();
@@ -27,7 +31,7 @@ describe("Login Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
             Actions.Login("testEmail@test.com","testPassword1%")
@@ -47,7 +51,7 @@ describe("Login Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
             Actions.Login("testEmail@test.com","testPassword1%")
@@ -64,7 +68,7 @@ describe("Login Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
             Actions.Login("testEmail@test.com","testPassword1%")
@@ -80,7 +84,7 @@ describe("Login Tests", () => {
 
         const expected = true
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
             Actions.Login("testEmail@test.com","testPassword1%")
@@ -96,7 +100,7 @@ describe("Login Tests", () => {
 
         const expected = false
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
             Actions.Login("testEmail@test.com","testPassword1%")
@@ -109,7 +113,7 @@ describe("Login Tests", () => {
 
         const expected = false
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
             Actions.Login("testEmail@test.com","testPassword1%")

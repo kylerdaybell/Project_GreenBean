@@ -79,7 +79,7 @@ const GreenBeanAPIService={
         return fetch(`${URL}/register`,settings).then(response=>response.json())
         .catch(error=>Promise.reject())
       },
-      GetTopTenRecipes: function(){
+      GetTopRecipes: function(){
         return fetch(`${URL}/gettoptenrecipes`).then(response=>response.json())
         .catch(error=>Promise.reject())
       }

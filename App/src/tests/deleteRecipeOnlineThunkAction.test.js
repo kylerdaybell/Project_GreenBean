@@ -2,13 +2,19 @@ import configureMockStore from "redux-mock-store";
 import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
 import * as ActionTypes from "../store/constants";
-import * as Actions from "../store/actions/onlineActions";
+import * as Actions from "../store/actions/actions";
+import {initialState} from "../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 const successBody = JSON.stringify("Result: Success");
 const failBody = JSON.stringify("Result: Failure");
-const deleteRequestMock = { id: 0 }
+const deleteRecipeIdMock = 0;
+
+//empty offlineAPI mock for actions
+jest.mock('../Services/OfflineAPI.js', ()=>()=>({
+
+}))
 
 describe("Delete Recipe Online Tests", () => {
     afterEach(()=> {
@@ -23,14 +29,14 @@ describe("Delete Recipe Online Tests", () => {
         const expected = [
             {
                 type: ActionTypes.DELETE_RECIPE_SUCCESS,
-                recipeId: deleteRequestMock.id
+                recipeId: deleteRecipeIdMock
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
-            Actions.DeleteRecipe(deleteRequestMock)
+            Actions.DeleteRecipe(deleteRecipeIdMock)
         )
         .then(()=>expect(store.getActions()).toEqual(expected))
     });
@@ -47,10 +53,10 @@ describe("Delete Recipe Online Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
-            Actions.DeleteRecipe(deleteRequestMock)
+            Actions.DeleteRecipe(deleteRecipeIdMock)
         )
         .then(()=>expect(store.getActions()).toEqual(expected))
     });
@@ -64,10 +70,10 @@ describe("Delete Recipe Online Tests", () => {
             }
         ]
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
         .dispatch(
-            Actions.DeleteRecipe(deleteRequestMock)
+            Actions.DeleteRecipe(deleteRecipeIdMock)
         )
         .then(()=>expect(store.getActions()).toEqual(expected))
     });
@@ -80,9 +86,9 @@ describe("Delete Recipe Online Tests", () => {
 
         const expected = true;
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
-        .dispatch(Actions.DeleteRecipe(deleteRequestMock))
+        .dispatch(Actions.DeleteRecipe(deleteRecipeIdMock))
         .then((actual)=>expect(actual).toEqual(expected))
     });
 
@@ -94,9 +100,9 @@ describe("Delete Recipe Online Tests", () => {
 
         const expected = false;
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
-        .dispatch(Actions.DeleteRecipe(deleteRequestMock))
+        .dispatch(Actions.DeleteRecipe(deleteRecipeIdMock))
         .then((actual)=>expect(actual).toEqual(expected))
     });
 
@@ -105,9 +111,9 @@ describe("Delete Recipe Online Tests", () => {
 
         const expected = false;
 
-        const store = mockStore();
+        const store = mockStore(initialState);
         return store
-        .dispatch(Actions.DeleteRecipe(deleteRequestMock))
+        .dispatch(Actions.DeleteRecipe(deleteRecipeIdMock))
         .then((actual)=>expect(actual).toEqual(expected))
     });
 });

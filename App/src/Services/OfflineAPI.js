@@ -35,11 +35,9 @@ class OfflineAPIClass {
     return "Result: Success";
   }
 
-  async DeleteRecipe(recipeId) {
-    console.log(this.data["recipes"])
-    console.log(recipeId);
+  async DeleteRecipe(deleteRequest) {
     try {
-      this.data["recipes"] = this.data["recipes"].filter(r=>r.recipe.id !== recipeId);
+      this.data["recipes"] = this.data["recipes"].filter(r=>r.recipe.id !== deleteRequest.id);
       await fs.writeFile(this.path, JSON.stringify(this.data), error => {
         if (error) {
           throw error;

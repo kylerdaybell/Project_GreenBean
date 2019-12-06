@@ -13,7 +13,7 @@ import InfiniteCarousel from 'react-leaf-carousel';
 const HomePage = (props) => {
   useEffect(()=>{
     if(props.recipes.length === 0){
-      props.GetTopTenRecipes()
+      props.GetTopRecipes()
     }
   })
   return (

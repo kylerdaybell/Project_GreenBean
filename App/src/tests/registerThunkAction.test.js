@@ -3,11 +3,14 @@ import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
 import * as ActionTypes from "../store/constants";
 import * as Actions from "../store/actions/onlineActions";
-import * as initialState from "../store/initialState";
+import {initialState} from "../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
+//empty offlineAPI mock for actions
+jest.mock('../Services/OfflineAPI.js', ()=>()=>({
 
+}))
 describe("Register Tests", () => {
     afterEach(()=> {
         fetchMock.restore();
@@ -23,7 +26,7 @@ describe("Register Tests", () => {
           type: ActionTypes.REGISTER_SUCCESS
         }
       ]
-      const  store = mockStore(initialState.greenBeanAPI);
+      const  store = mockStore(initialState);
       return store
       .dispatch(
         Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
@@ -43,7 +46,7 @@ describe("Register Tests", () => {
         }
       ]
   
-      const store = mockStore(initialState.greenBeanAPI);
+      const store = mockStore(initialState);
       return store
       .dispatch(
         Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
@@ -60,7 +63,7 @@ describe("Register Tests", () => {
           }
         ]
     
-        const store = mockStore(initialState.greenBeanAPI);
+        const store = mockStore(initialState);
         return store
         .dispatch(
           Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
@@ -75,7 +78,7 @@ describe("Register Tests", () => {
       });
   
       const expected = false;
-      const store = mockStore(initialState.greenBeanAPI);
+      const store = mockStore(initialState);
       return store
       .dispatch(
         Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
@@ -87,7 +90,7 @@ describe("Register Tests", () => {
         fetchMock.mock("*",Promise.reject());
     
         const expected = false;
-        const store = mockStore(initialState.greenBeanAPI);
+        const store = mockStore(initialState);
         return store
         .dispatch(
           Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
@@ -102,7 +105,7 @@ describe("Register Tests", () => {
       });
   
       const expected = true;
-      const store = mockStore(initialState.greenBeanAPI);
+      const store = mockStore(initialState);
       return store
       .dispatch(
         Actions.Register("testemail@test.com","testPassword1%","testPassword1%")
