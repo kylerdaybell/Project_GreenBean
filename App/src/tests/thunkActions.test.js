@@ -25,62 +25,13 @@ describe("Get Recipe By Ingredient", () => {
       }
     ];
 
-    const store = mockStore({ recipes: [] });
+    const store = mockStore();
     return store
       .dispatch(
         Actions.SearchForRecipeByIngredientOnline("mockIngredient,mockingredient")
       )
       .then(() => expect(store.getActions()).toEqual(expected));
   });
-});
-
-describe("Login Tests", () => {
-    afterEach(()=> {
-        fetchMock.restore();
-    });
-    test("Successful Login. dispatch Login Success", () => {
-        fetchMock.mock("*", {
-            body: {Result: "Success", UserId: -1},
-            headers: { "content-type": "application/json" }
-        })
-
-        const expected = [
-            {
-                type: ActionTypes.LOGIN_SUCCESS,
-                loggedIn: true,
-                email: "testEmail@test.com",
-                password: "testPassword1%",
-                userId: -1
-            }
-        ]
-
-        const store = mockStore({recipes: []});
-        return store
-        .dispatch(
-            Actions.Login("testEmail@test.com","testPassword1%")
-        )
-        .then(()=> expect(store.getActions()).toEqual(expected))
-    })
-    
-    test("Failed Login. dispatch Login Failure", () => {
-        fetchMock.mock("*", {
-            body: {Result: "Failure", UserId: -1},
-            headers: { "content-type": "application/json" }
-        })
-
-        const expected = [
-            {
-                type: ActionTypes.LOGIN_FAILURE
-            }
-        ]
-
-        const store = mockStore({recipes: []});
-        return store
-        .dispatch(
-            Actions.Login("testEmail@test.com","testPassword1%")
-        )
-        .then(()=> expect(store.getActions()).toEqual(expected))
-    })
 });
 
 
