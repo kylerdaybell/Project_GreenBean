@@ -38,15 +38,15 @@ export function GetTopTenRecipesSuccess(recipes) {
 }
 
 export function SearchByIngredientSuccess(recipes) {
-  return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
+  return { type: ActionTypes.SEARCH_RECIPE_SUCCESS, recipes };
 }
 
 export function SearchByCategorySuccess(recipes) {
-  return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
+  return { type: ActionTypes.SEARCH_RECIPE_SUCCESS, recipes };
 }
 
 export function SearchByNameSuccess(recipes) {
-  return { type: ActionTypes.SEARCH_BY_INGREDIENT_SUCCESS, recipes };
+  return { type: ActionTypes.SEARCH_RECIPE_SUCCESS, recipes };
 }
 
 export function AdvancedSearchSuccess(recipes) {
