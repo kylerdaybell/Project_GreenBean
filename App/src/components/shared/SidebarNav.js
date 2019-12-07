@@ -5,6 +5,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '../../css/main.css';
 import '../../css/sidenav.css';
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actionCreators from "../../store/actions/actions";
 import {withRouter} from "react-router-dom"
 import { isReferenced } from "@babel/types";
 
@@ -48,7 +50,18 @@ const SideBarNav = props => {
             )
         }
     }
+    const changeOnlineIcon = () => {
+        if (props.offlineMode === false){
+            document.documentElement.style.setProperty('--onlineVisibility', "hidden");
+            document.documentElement.style.setProperty('--onlineColor', "blue");
+        }else{
+            
+            document.documentElement.style.setProperty('--onlineVisibility', "visible");
+            document.documentElement.style.setProperty('--onlineColor', "black");
+        }
+    }
     return (
+        <>
         <div  >
         <SideNav
             onSelect={(selected) => {
@@ -118,6 +131,12 @@ const SideBarNav = props => {
             </SideNav.Nav>
         </SideNav>
         </div>
+        {changeOnlineIcon()}
+        <div className="onlineOfflineBox" >
+        <div className="onlineIndicator fa fa-2x fa-rss"></div>
+        <div className="offlineIndicator fa fa-times-circle"></div>
+        </div>
+        </>
     );
 };
 
@@ -129,9 +148,7 @@ const mapStateToProps = state => {
     }
   }
   
-  
-export default connect(
-    mapStateToProps,
-    null
-    )(withRouter(SideBarNav));
+export default connect(mapStateToProps, dispatch =>
+  bindActionCreators(actionCreators, dispatch)
+)(withRouter(SideBarNav));
 
