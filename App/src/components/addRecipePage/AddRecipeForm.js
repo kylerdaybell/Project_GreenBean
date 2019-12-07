@@ -83,12 +83,16 @@ const AddRecipeForm = props => {
       <label htmlFor="name">Name:</label>
       <input className="w3-input w3-border" id="name" type="text" />
       <br />
-      <label htmlFor="description">Description:</label>
-      <textarea className="w3-input w3-border inputField" id="description"/>
-      <br />
       <label htmlFor="picture">Picture:</label>
       <input id="picture" onChange={event => FilesAdded(event)} type="file" />
       <br />
+      <label htmlFor="category">Category:</label>
+      <select className="w3-select w3-border" id="category" name="option" required>
+        <option value="" disabled selected>Category</option>
+        {recipeCategories.map((category, key)=> (
+          <option key={key} value={category[0]}>{category[0]}</option>
+        ))}
+      </select>
       <span>
         <label htmlFor="prep-time" style={{display: 'block'}}>Prep-Time HH:MM:</label>
         <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-hours" 
@@ -96,7 +100,6 @@ const AddRecipeForm = props => {
         <div className="timeBoxes">  :  </div>
         <input className="w3-input w3-border timeBoxes timeBox" id="prep-time-minutes" 
         type="number" min="0" max="59" defaultValue="0" />
-      </span>
       <br />
       <span>
         <label htmlFor="cook-time" style={{display: 'block'}}>Cook-Time HH:MM:</label>
@@ -105,15 +108,12 @@ const AddRecipeForm = props => {
         <input className="w3-input w3-border timeBoxes timeBox" id="cook-time-minutes" type="number" min="0" max="59" defaultValue="0"/>
       </span>
       <br />
-      <label htmlFor="category">Category:</label>
-      <select className="w3-select w3-border" id="category" name="option" >
-        <option value="" disabled selected>Category</option>
-        {recipeCategories.map((category, key)=> (
-          <option key={key} value={category[0]}>{category[0]}</option>
-        ))}
-      </select>
+      </span>
       <label htmlFor="instructions">Instructions:</label>
       <textarea className="w3-input w3-border inputField" id="instructions"/>
+      <br />
+      <label htmlFor="description">Description:</label>
+      <textarea className="w3-input w3-border inputField" id="description"/>
       <br />
       <h3>Add Ingredients</h3>
       <IngredientAdd onSubmit={AddRecipe} />

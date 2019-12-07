@@ -43,6 +43,11 @@ const RecipeDetailPage = props => {
       ]
     })
   }
+  const addAmount = (amount) => {
+    if (amount > 1){
+      return "s";
+    }
+  }
   return (
   <>
   <PageTitle title={"Recipe Details"}/>
@@ -67,7 +72,8 @@ const RecipeDetailPage = props => {
     <div><h3>Ingredients</h3></div>
     <div className="sectionLine"></div>
     <div>{recipe.recipe.ingredientslist.map((Ingredient,key)=>(
-      <p key={key}>{Ingredient.amount} {Ingredient.unit}(s) {Ingredient.name}</p>
+      
+      <p key={key}>{Ingredient.amount} {Ingredient.unit}{addAmount(Ingredient.amount)} {Ingredient.name}</p>
     ))}</div>
     <div><h3 >Directions</h3></div>
     <div className="sectionLine"></div>
