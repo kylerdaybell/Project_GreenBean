@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import "../../css/w3.css";
 import "../../css/form.css";
+import "../../css/logoutPopup.css";
 import PageTitle from "../shared/PageTitle";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -8,24 +9,23 @@ import * as actionCreators from "../../store/actions/onlineActions";
 import { withRouter } from "react-router-dom";
 
 const LogoutPage = props => {
-  useEffect(()=> {
-    if(props.credentials.loggedIn === true){
-      props.Logout();
-    }
-    const timeout = setTimeout(()=>{
-      props.history.push("/");
-    },1000);
-    return () => clearTimeout(timeout);
-  });
+   useEffect(()=> {
+     if(props.credentials.loggedIn === true){
+       props.Logout();
+     }
+     const timeout = setTimeout(()=>{
+       props.history.push("/");
+     },3000);
+     return () => clearTimeout(timeout);
+   });
   return (
     <>
-      <PageTitle title={"Successfully Logged Out"} />
-      <div
-        id="content-area"
-        className="w3-container w3-row w3-center w3-display-center formFit"
-      >
-        Returning Home...
+    <div className="logoutOverlay">
+      <div className="logoutAlertBody"> 
+        <div><h3>Logging Out, Please Wait...</h3></div>
+        <div class="lds-facebook"><div></div><div></div><div></div></div>
       </div>
+    </div>
     </>
   );
 };

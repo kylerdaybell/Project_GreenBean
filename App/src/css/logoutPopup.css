@@ -1,0 +1,129 @@
+body.react-confirm-alert-body-element {
+    overflow: hidden;
+  }
+  
+  .react-confirm-alert-blur {
+    filter: url(#gaussian-blur);
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+  
+  .logoutOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.8);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: react-confirm-alert-fadeIn 0.4s 0.1s forwards;
+    -moz-animation: react-confirm-alert-fadeIn 0.4s 0.1s forwards;
+    -o-animation: react-confirm-alert-fadeIn 0.4s 0.1s forwards;
+    animation: react-confirm-alert-fadeIn 0.4s 0.1s forwards;
+  }
+  
+  .logoutAlertBody {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600px;
+    height: 250px;
+    padding: 30px;
+    text-align: left;
+    background: linear-gradient(to right, rgba(72, 255, 72, .1), rgba(255, 255, 255, 0)), url(../resources/logoutImage.jpg );
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
+    color: #000;
+  }
+  .logoutAlertBody > h1 {
+    margin-top: 0;
+  }
+  
+  .logoutAlertBody > h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  @-webkit-keyframes logoutFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-moz-keyframes logoutFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-o-keyframes logoutFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes logoutFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /*spinner*/
+  .lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #6CAD68;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
+  
