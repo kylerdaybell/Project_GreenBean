@@ -34,7 +34,7 @@ const IngredientAdd = props => {
         <input ref={nameRef} className="w3-input w3-quarter w3-border" type="text" placeholder="name"/>
         <input ref={amountRef} className="w3-input w3-quarter w3-border" type="number" placeholder="amount"/>
         <input ref={unitRef} className="w3-input w3-quarter w3-border" type="text" placeholder="unit"/>
-        <button className = "w3-btn w3-hover-green fas fa-plus" onClick={() => addIngredient()}></button>
+        <button className = "w3-btn w3-green w3-hover-green fas fa-plus" onClick={() => addIngredient()}></button>
       </div>
       {ingredientArray.map((ingredient) => (
         <div >

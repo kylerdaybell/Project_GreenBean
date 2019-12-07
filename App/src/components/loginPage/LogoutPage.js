@@ -14,7 +14,7 @@ const LogoutPage = props => {
        props.Logout();
      }
      const timeout = setTimeout(()=>{
-       props.history.push("/");
+       props.history.replace("/");
      },3000);
      return () => clearTimeout(timeout);
    });
