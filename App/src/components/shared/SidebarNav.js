@@ -132,7 +132,7 @@ const SideBarNav = props => {
         </SideNav>
         </div>
         {changeOnlineIcon()}
-        <div className="onlineOfflineBox" onClick={()=>props.ChangeMode(props.offlineMode)} >
+        <div className="onlineOfflineBox" >
         <div className="onlineIndicator fa fa-2x fa-rss"></div>
         <div className="offlineIndicator fa fa-times-circle"></div>
         </div>
