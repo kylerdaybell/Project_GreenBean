@@ -179,6 +179,9 @@ button:hover {
   width: 100%;
   display: inline-block;
 }
+.categorySearch{
+  width: 90%;
+}
 .carouselPadding{
   padding: 15px;
 }

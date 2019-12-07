@@ -19,7 +19,7 @@ const SearchByCategory = props => {
       <div className="fitBody"> 
       <div className="searchBarLayout">
       <div className="searchSpan">
-      <select className="w3-select w3-border" id="category" name="option" onChange={() =>
+      <select className="w3-select w3-border categorySearch" id="category" name="option" onChange={() =>
           props.SearchForRecipeByCategory(document.getElementById("category").value)
         }>
         <option value="" disabled selected>No Category Selected</option>
