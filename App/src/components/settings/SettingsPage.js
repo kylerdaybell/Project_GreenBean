@@ -20,7 +20,7 @@ const SettingsPage = props => {
         id="content-area"
         className="w3-container w3-row w3-center w3-display-center formFit"
       >
-        <button className="w3-button w3-green" onClick={()=>props.ChangeMode(props.offlineMode)}>{changeModeText()}</button>
+        <button className="w3-button w3-green" id="changeModeButton" onClick={()=>props.ChangeMode(props.offlineMode)}>{changeModeText()}</button>
       </div>
     </>
   );
