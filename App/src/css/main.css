@@ -7,10 +7,12 @@
   color: white;
   text-align: center;
   object-fit: cover;
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeTitleImage.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) ), url("../resources/homeTitleImage.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top:.5vw;
+  border-bottom: solid #767676 1px;
+  border-top: solid #363636 1px;
 }
 .homeTitle h1{
   vertical-align: center;
@@ -176,4 +178,7 @@ button:hover {
 .searchSpan{
   width: 100%;
   display: inline-block;
+}
+.carouselPadding{
+  padding: 15px;
 }

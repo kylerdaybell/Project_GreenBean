@@ -8,7 +8,7 @@ if(isDev === false){
 }
 let mainWindow;
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 900, height: 680, webPreferences: {
+  mainWindow = new BrowserWindow({ width: 1100, height: 730, webPreferences: {
     nodeIntegration: true,
     webSecurity: !isDev,
     preload: __dirname + '/preload.js'

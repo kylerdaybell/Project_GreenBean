@@ -17,7 +17,7 @@ const RecipeDetailPage = props => {
   const deleteButtonDisplay = ()=>{
     if(recipe.recipe.userid === props.credentials.userId ){
       return<>
-      <div className="w3-margin deleteButtonBox"> 
+      <div className=" deleteButtonBox"> 
       <button className="deleteButton" onClick={()=>deleteRecipe(recipe.recipe.id)}>Delete Recipe</button>
       </div>
       </>
