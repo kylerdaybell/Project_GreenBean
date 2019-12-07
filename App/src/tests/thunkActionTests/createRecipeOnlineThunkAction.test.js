@@ -1,10 +1,10 @@
 import configureMockStore from "redux-mock-store";
 import fetchMock from "fetch-mock";
 import thunk from "redux-thunk";
-import RecipeAddModel from "../models/Recipe";
-import * as ActionTypes from "../store/constants";
-import * as Actions from "../store/actions/actions";
-import {initialState} from "../store/initialState";
+import RecipeAddModel from "../../models/Recipe";
+import * as ActionTypes from "../../store/constants";
+import * as Actions from "../../store/actions/actions";
+import {initialState} from "../../store/initialState";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
@@ -12,7 +12,7 @@ const successBody = JSON.stringify("Result: Success");
 const failBody = JSON.stringify("Result: Failure");
 const recipeAdd = new RecipeAddModel();
 //empty offlineAPI mock for actions
-jest.mock('../Services/OfflineAPI.js', ()=>()=>({
+jest.mock('../../Services/OfflineAPI.js', ()=>()=>({
 
 }))
 describe("Create Recipe Online Tests", () => {
