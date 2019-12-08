@@ -50,6 +50,21 @@ const SideBarNav = props => {
             )
         }
     }
+      const addRecipe = () => {
+        if(props.credentials.loggedIn === true || props.offlineMode === true){
+            return (
+                <NavItem eventKey="/myRecipes/addRecipe">
+                    <NavText>
+                        Add Recipe
+                        <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{"paddingLeft": "10px"}} />
+                    </NavText>
+                </NavItem>
+            )
+        }else{
+            return (<></>)
+        }
+    }
+   
     const changeOnlineIcon = () => {
         if (props.offlineMode === false){
             document.documentElement.style.setProperty('--onlineVisibility', "hidden");
@@ -114,12 +129,7 @@ const SideBarNav = props => {
                     </NavText>
                     {props.offlineMode === false ? (logoutLogin()) :<></>}
                     {props.offlineMode === false ? (register()) :<></>}
-                    <NavItem eventKey="/myRecipes/addRecipe">
-                        <NavText>
-                            Add Recipe
-                            <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{"paddingLeft": "10px"}} />
-                        </NavText>
-                    </NavItem>
+                    {addRecipe()}
                     <NavItem eventKey="/settings">
                         <NavText>
                             Settings
