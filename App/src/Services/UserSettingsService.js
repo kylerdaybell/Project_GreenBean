@@ -33,7 +33,7 @@ function readFile(filePath) {
       return JSON.parse(fs.readFileSync(filePath));
     } catch (error) {
       //initialize file
-      fs.writeFileSync(filePath, JSON.stringify({ offlineMode: true }));
-      return { offlineMode: true };
+      fs.writeFileSync(filePath, JSON.stringify({ offlineMode: false }));
+      return { offlineMode: false };
     }
   }
