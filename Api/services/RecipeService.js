@@ -120,6 +120,7 @@ var RecipeService = {
         if(DatabaseResult[0][0]!= 'undefined'){
             console.log("that recipe was a duplicate")
         }
+        return true;
     },
     SearchRecipeBySingleIngredient: async function(ListOfAllMatchingRecipes,Ingredient){ 
         let DatabaseResult = await IApiDatabaseService.SearchRecipeByIngredient(Ingredient.name);
