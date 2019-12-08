@@ -143,7 +143,7 @@ const SideBarNav = props => {
         </div>
         {changeOnlineIcon()}
         <div className="onlineOfflineBox" >
-        <div className="onlineIndicator fa fa-2x fa-rss"></div>
+        <div className="onlineIndicator fa fa-2x fa-globe-americas"></div>
         <div className="offlineIndicator fa fa-times-circle"></div>
         </div>
         </>
