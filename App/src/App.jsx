@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route, Switch } from "react-router";
 import Header from "./components/shared/Header";
 import HomePage from "./components/homePage/HomePage";
@@ -16,8 +16,18 @@ import { connect } from "react-redux";
 import "./css/main.css";
 import "./App.css";
 import WindowFrame from "./components/shared/WindowFrame";
+import {loadSettings} from "./Services/UserSettingsService";
+import { bindActionCreators } from "redux";
+import * as actionCreators from "./store/actions/actions";
 
 const App = props => {
+  const [isLoading, setIsLoading] = useState(true);
+  if(isLoading){
+    const settings = loadSettings();
+    console.log(settings)
+    props.ChangeMode(!settings["offlineMode"])
+    setIsLoading(false);
+  }
   const onlinePages = () => {
     if (props.offlineMode === false) {
       return (
@@ -59,4 +69,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, dispatch =>
+  bindActionCreators(actionCreators, dispatch)
+)(App);
