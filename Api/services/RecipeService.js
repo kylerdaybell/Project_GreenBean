@@ -15,14 +15,18 @@ var RecipeService = {
         if (await IUserService.LoginUser(user)){
             recipe.userid = await IUserService.GetUserID(user);
             if(recipe.userid != 0){
-                var recipeID = await this.AddRecipe(recipe);
-                if(recipeID != 0){
-                    recipe.id = recipeID;
-                    await IIngredientService.AddIngredients(recipe);
+                if(await this.CheckDuplicate(recipe)){
+                    var recipeID = await this.AddRecipe(recipe);
+                    if(recipeID != 0){
+                        recipe.id = recipeID;
+                        await IIngredientService.AddIngredients(recipe);
+                        return true;
+                    }else{
+                        return false
+                    }
                 }else{
-                    return false
+                    return false;
                 }
-                return true;
             }else{
                 return false;
             }           
@@ -107,6 +111,14 @@ var RecipeService = {
             }else{
                 return 0;
             }
+        }
+    },
+    CheckDuplicate: async function(recipe){
+        let DatabaseResult = IApiDatabaseService.GetRecipeByUsernameAndRecipename(recipe.name,recipe.userid);
+        console.log("inside check duplicate");
+        console.log(DatabaseResult);
+        if(DatabaseResult[0][0]!= 'undefined'){
+            console.log("that recipe was a duplicate")
         }
     },
     SearchRecipeBySingleIngredient: async function(ListOfAllMatchingRecipes,Ingredient){ 
