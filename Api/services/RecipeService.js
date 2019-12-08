@@ -118,7 +118,7 @@ var RecipeService = {
         console.log("inside check duplicate");
         console.log(DatabaseResult);
         if(DatabaseResult[0][0]!= 'undefined'){
-            console.log("that recipe was a duplicate")
+            return false;
         }
         return true;
     },
