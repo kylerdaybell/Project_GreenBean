@@ -7,7 +7,7 @@ import * as actionCreators from "../../store/actions/onlineActions";
 import { NavLink } from "react-router-dom";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
-        props.history.replace("/");
+        props.history.push("/");
     }
   
   const login = event => {
@@ -16,9 +16,9 @@ const LoginPage = props => {
     let password = event.target['password'].value;
     props.Login(email,password).then(success=>{
       if(success !== true){
-      showPopup("snackbar")
-    }else {
-      props.history.goBack()
+        showPopup("snackbar")
+      }else {
+        props.history.goBack()
     };
     return;
     });

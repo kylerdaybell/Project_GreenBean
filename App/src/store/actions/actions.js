@@ -77,6 +77,7 @@ export function CreateNewRecipe(recipe) {
     let service = getService(getState);
     return service.CreateNewRecipe(recipe)
       .then(result => {
+        console.log(result)
         result.includes("Result: Success")
           ? dispatch(ResultActions.CreateNewRecipeSuccess())
           : dispatch(ResultActions.CreateNewRecipeFailure());

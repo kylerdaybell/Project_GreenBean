@@ -213,3 +213,9 @@ button:hover {
   border-radius: 90px;
   visibility: var(--onlineVisibility);
 }
+.ingredientBoxPadding{
+  margin: 0px 5px;
+}
+.ingredientSubmitButton{
+  margin: 5px;
+}

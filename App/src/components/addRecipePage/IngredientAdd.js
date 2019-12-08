@@ -35,18 +35,18 @@ const IngredientAdd = props => {
   return (
     <>
       <div className="w3-row">
-        <input ref={nameRef} className="w3-input w3-quarter w3-border" type="text" placeholder="Name"/>
-        <input ref={amountRef} className="w3-input w3-quarter w3-border" type="number" placeholder="Amount"/>
-         <select ref={unitRef}className="w3-select w3-quarter w3-border" name="option" placeholder="noneSelected" required>
-        <option value="None Selected" disabled placeholder="Measurement" selected>Measurement</option>
+        <input ref={nameRef} className="w3-input ingredientBoxPadding w3-quarter w3-border" type="text" placeholder="Name"/>
+        <input ref={amountRef} className="w3-input ingredientBoxPadding w3-quarter w3-border" type="number" placeholder="Amount"/>
+         <select ref={unitRef}className="w3-select ingredientBoxPadding w3-quarter w3-border" name="option" placeholder="noneSelected" required>
+        <option value="" disabled placeholder="Measurement" selected>Measurement</option>
         {ingredientUnits.map((unit, key)=> (
           <option value="" key={key} value={unit}>{unit}</option>
         ))}
       </select>
-        <button className = " w3-green searchButton fas fa-plus" onClick={() => addIngredient()}></button>
+        <button className = "ingredientBoxPadding w3-green searchButton fas fa-plus" onClick={() => addIngredient()}></button>
       </div>
       {ingredientArray.map((ingredient) => (
-        <div >
+        <div className="ingredientSubmitButton">
           <span>
             {ingredient.amount} {ingredient.unit}{addAmount(ingredient.amount)} {ingredient.name}
           </span>
