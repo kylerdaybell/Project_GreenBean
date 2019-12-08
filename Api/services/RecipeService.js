@@ -115,7 +115,6 @@ var RecipeService = {
     },
     CheckDuplicate: async function(recipe){
         let DatabaseResult = await IApiDatabaseService.GetRecipeByUsernameAndRecipename(recipe.name,recipe.userid);
-        console.log(DatabaseResult);
         if(typeof DatabaseResult[0][0]!== 'undefined'){
             return false;
         }
