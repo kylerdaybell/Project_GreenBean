@@ -86,7 +86,6 @@ var ApiDatabaseService = {
         const con = await this.getConnection();
         row = await con.execute('SELECT * FROM RECIPE LIMIT 10');
         con.end()
-        console.log(row);
         return row;
     },
     SearchRecipeByName: async function(RecipeName){
