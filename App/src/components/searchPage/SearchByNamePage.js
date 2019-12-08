@@ -11,7 +11,10 @@ const SearchByNamePage = props => {
     <>
       <PageTitle title={"Search By Name"} />
       <div className="fitBody">
-        <SearchBar placeholder={"Search By Recipe Name"} searchFunction={props.SearchForRecipeByName} focus/>
+      
+        <div className="searchSpan">
+          <SearchBar placeholder={"Search By Recipe Name"} searchFunction={props.SearchForRecipeByName} focus/>
+        </div>
         <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />

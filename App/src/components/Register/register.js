@@ -8,7 +8,7 @@ import * as actionCreators from "../../store/actions/onlineActions";
 import {Redirect} from "react-router-dom";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
-        return <Redirect to="/" />
+        props.history.replace("/");
     }
   
   const register = event => {

@@ -1,5 +1,7 @@
 :root {
   --sideNavLeftMargin: 64px;
+  --onlineColor: #0000ff;
+  --onlineVisibility: visible;
 }
 .homeTitle {
   height: 12vw;
@@ -7,10 +9,12 @@
   color: white;
   text-align: center;
   object-fit: cover;
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../resources/homeTitleImage.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) ), url("../resources/homeTitleImage.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-top:1vw;
+  padding-top:.5vw;
+  border-bottom: solid #767676 1px;
+  border-top: solid #363636 1px;
 }
 .homeTitle h1{
   vertical-align: center;
@@ -30,12 +34,11 @@
 .navBar {
   padding:.3vh;
   height: 64px;
-  z-index: 1000;
+  z-index: 90;
   position: absolute;
   opacity: .99;
   top: 32px;
   background-color:#626262;
-  margin-right: calc(-64px + var(--sideNavLeftMargin))
 }
 .spacerBar {
   padding-top: 64px;
@@ -139,7 +142,7 @@ button {
 button:hover {
   background-color: #88bd86!important;
   color: white!important;
-  
+
 }
 /* This is the override for the carousel arrow button */
 ._37Q_YD174b3Wq9o-IFVdKS {
@@ -172,4 +175,47 @@ button:hover {
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+}
+
+.searchSpan{
+  width: 100%;
+  display: inline-block;
+}
+.categorySearch{
+  width: 90%;
+}
+.carouselPadding{
+  padding: 15px;
+}
+.onlineIndicator{
+  width: 64px;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 92;
+  text-align: center;
+  color: var(--onlineColor);
+}
+.offlineIndicator{
+  margin-left: 30px;
+  margin-bottom: 8px;
+  width: 24px;
+  height: 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 92;
+  font-size: 24px;
+  text-align: center;
+  color: red;
+  background-color: white;
+  border-radius: 90px;
+  visibility: var(--onlineVisibility);
+}
+.ingredientBoxPadding{
+  margin: 0px 5px;
+}
+.ingredientSubmitButton{
+  margin: 5px;
 }

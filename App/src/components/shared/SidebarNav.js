@@ -5,6 +5,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '../../css/main.css';
 import '../../css/sidenav.css';
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actionCreators from "../../store/actions/actions";
 import {withRouter} from "react-router-dom"
 import { isReferenced } from "@babel/types";
 
@@ -48,7 +50,33 @@ const SideBarNav = props => {
             )
         }
     }
+      const addRecipe = () => {
+        if(props.credentials.loggedIn === true || props.offlineMode === true){
+            return (
+                <NavItem eventKey="/myRecipes/addRecipe">
+                    <NavText>
+                        Add Recipe
+                        <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{"paddingLeft": "10px"}} />
+                    </NavText>
+                </NavItem>
+            )
+        }else{
+            return (<></>)
+        }
+    }
+   
+    const changeOnlineIcon = () => {
+        if (props.offlineMode === false){
+            document.documentElement.style.setProperty('--onlineVisibility', "hidden");
+            document.documentElement.style.setProperty('--onlineColor', "blue");
+        }else{
+            
+            document.documentElement.style.setProperty('--onlineVisibility', "visible");
+            document.documentElement.style.setProperty('--onlineColor', "black");
+        }
+    }
     return (
+        <>
         <div  >
         <SideNav
             onSelect={(selected) => {
@@ -101,12 +129,7 @@ const SideBarNav = props => {
                     </NavText>
                     {props.offlineMode === false ? (logoutLogin()) :<></>}
                     {props.offlineMode === false ? (register()) :<></>}
-                    <NavItem eventKey="/myRecipes/addRecipe">
-                        <NavText>
-                            Add Recipe
-                            <i className="fa fa-fw fa-mortar-pestle navbaricon" style={{"paddingLeft": "10px"}} />
-                        </NavText>
-                    </NavItem>
+                    {addRecipe()}
                     <NavItem eventKey="/settings">
                         <NavText>
                             Settings
@@ -118,6 +141,12 @@ const SideBarNav = props => {
             </SideNav.Nav>
         </SideNav>
         </div>
+        {changeOnlineIcon()}
+        <div className="onlineOfflineBox" >
+        <div className="onlineIndicator fa fa-2x fa-rss"></div>
+        <div className="offlineIndicator fa fa-times-circle"></div>
+        </div>
+        </>
     );
 };
 
@@ -129,9 +158,7 @@ const mapStateToProps = state => {
     }
   }
   
-  
-export default connect(
-    mapStateToProps,
-    null
-    )(withRouter(SideBarNav));
+export default connect(mapStateToProps, dispatch =>
+  bindActionCreators(actionCreators, dispatch)
+)(withRouter(SideBarNav));
 

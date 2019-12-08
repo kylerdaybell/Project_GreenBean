@@ -7,7 +7,7 @@ import * as actionCreators from "../../store/actions/onlineActions";
 import { NavLink } from "react-router-dom";
 const LoginPage = props => {
     if(props.credentials.loggedIn){
-        props.history.goBack();
+        props.history.push("/");
     }
   
   const login = event => {
@@ -16,7 +16,9 @@ const LoginPage = props => {
     let password = event.target['password'].value;
     props.Login(email,password).then(success=>{
       if(success !== true){
-      showPopup("snackbar")
+        showPopup("snackbar")
+      }else {
+        props.history.goBack()
     };
     return;
     });
@@ -29,7 +31,7 @@ const LoginPage = props => {
   }
   return (
     <>
-      <div id="content-area" className=" w3-animate-top w3-container w3-row w3-center w3-display-center formFit">
+      <div id="content-area" className=" w3-animate-top w3-row w3-center w3-display-center formFit">
         <div id="formBoxArea"className="loginImage w3-card">
           <div id="snackbar" className="w3-spin">Login Failed</div>
             <form className="formInnerPadding" onSubmit={event=>login(event)}>

@@ -50,17 +50,21 @@ const SearchPage = props => {
     <>
       <PageTitle title={"Search By Ingredients"} />
       <div className="fitBody">
-        <div id="content-area" className="w3-container"></div>
+        <div id="content-area" className="w3-container">
           <div className="ingredientBox">
           {ingredientList.map((ingredient, key) => (
             <IngredientBox key={key} ingredient={ingredient} onClick={deleteIngredient} />
           ))}
           </div>
+          
+          <div className="searchSpan">
             <SearchBar placeholder={"Type Ingredient then press Enter"} searchFunction={searchFunction} overrideFunction={ingredientSearchOverride} clearBar focus/>
+            </div>
         <div className="homeRecipePadding">
           {props.recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} key={index} />
           ))}
+        </div>
         </div>
       </div>
       
