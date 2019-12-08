@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../shared/PageTitle";
+import {saveSettings} from "../../Services/UserSettingsService";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
@@ -13,6 +14,11 @@ const SettingsPage = props => {
       return "Go Online"
     }
   }
+  const changeMode = async () => {
+    props.ChangeMode(props.offlineMode);
+    const newSettings = {offlineMode: !props.offlineMode};
+    await saveSettings(newSettings);
+  }
   return (
     <>
       <PageTitle title="Settings" />
@@ -20,7 +26,7 @@ const SettingsPage = props => {
         id="content-area"
         className="w3-container w3-row w3-center w3-display-center formFit"
       >
-        <button className="w3-button w3-green" id="changeModeButton" onClick={()=>props.ChangeMode(props.offlineMode)}>{changeModeText()}</button>
+        <button className="w3-button w3-green" id="changeModeButton" onClick={()=>changeMode()}>{changeModeText()}</button>
       </div>
     </>
   );
