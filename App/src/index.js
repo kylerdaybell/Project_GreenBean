@@ -9,10 +9,12 @@ import Store from "./store/store.js";
 
 const store = Store();
 
-ReactDOM.render(
+ReactDOM.render( 
   <Provider store={store}>
     <HashRouter>
-      <App />
+      <div className="background">
+        <App />
+      </div>
     </HashRouter>
   </Provider>,
   document.getElementById("root")

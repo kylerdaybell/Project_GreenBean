@@ -9,7 +9,7 @@
   color: white;
   text-align: center;
   object-fit: cover;
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) ), url("../resources/homeTitleImage.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) ), url("../resources/homeTitleImage.jpg") #f3f3f3;
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top:.5vw;
@@ -218,4 +218,26 @@ button:hover {
 }
 .ingredientSubmitButton{
   margin: 5px;
+}
+
+.react-confirm-alert-body {
+  width: 470px!important;
+  background: url(../resources/confirmMessage.jpg ) white!important;
+  background-size: cover!important;
+  color: #000!important;
+  font-size: 20px;
+}
+.react-confirm-alert-body > h1 {
+  font-size: 1.8em;
+}
+
+.react-confirm-alert-body > h3 {
+  font-size: 1.5em!important;
+}
+
+.react-confirm-alert-button-group > button {
+  background: #6CAD68!important;
+}
+.react-confirm-alert-button-group > button:hover {
+  background-color: #88bd86!important;
 }

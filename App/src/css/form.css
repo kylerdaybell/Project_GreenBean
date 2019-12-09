@@ -43,7 +43,7 @@ form button {
     padding: 1vh 2vh 8vh 2vh;
 }
 .loginImage{
-    background-image: url("../resources/loginBean2.jpg"); 
+    background: url("../resources/loginBean2.jpg") white; 
     background-repeat: none;
     background-size: cover;
 }

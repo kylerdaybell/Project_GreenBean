@@ -15,7 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.background{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(../src/resources/background.jpg);
+  background-size: cover;
+}
 /* example scrollbar from w3 schools*/
 ::-webkit-scrollbar {
   width: 10px;

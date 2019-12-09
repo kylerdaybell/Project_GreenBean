@@ -28,7 +28,7 @@ const RecipeDetailPage = props => {
 
      confirmAlert({
       title: 'Confirm to Delete Recipe',
-      message: 'Are you sure to delete your recipe?\n\nThis cannot be undone.',
+      message: 'Are you sure you want to delete your recipe?',
       buttons: [
         {
           label: 'Yes',
