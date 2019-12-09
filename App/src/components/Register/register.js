@@ -1,6 +1,7 @@
 import * as React from "react";
 import "../../css/w3.css";
 import "../../css/form.css";
+import "../../css/snackbar.css";
 import "../../css/registerForm.css";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";

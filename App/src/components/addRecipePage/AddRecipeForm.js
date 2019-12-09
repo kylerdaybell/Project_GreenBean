@@ -7,11 +7,13 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 import Resizer from 'react-image-file-resizer';
-import "../../css/form.css"
+import "../../css/snackbar.css"
 const AddRecipeForm = props => {
   let [isBlocking, setIsBlocking] = useState(false);
   let [imageDisplay, setImageDisplay] = useState("");
+  let [ingredientsList, setIngredientsArray] = useState([]);
   let image = "";
+  console.log(ingredientsList)
 
   const FilesAdded = event => {
     let files = document.getElementById("picture").files[0];
@@ -39,7 +41,8 @@ const AddRecipeForm = props => {
       return;
   }
 
-  const AddRecipe = theIngredientList => {
+  const AddRecipe = (event) => {
+    event.preventDefault();
     let name = document.getElementById("name").value;
     let descr = document.getElementById("description").value;
     //get the hours and minutes
@@ -54,7 +57,7 @@ const AddRecipeForm = props => {
     let cooktime = cooktimehours+":"+cooktimeminutes+":00";
     let category = document.getElementById("category").value;
     let instructions = document.getElementById("instructions").value;
-    let ingredientsList = theIngredientList;
+    console.log("in submit")
     let recipeSubmission = new RecipeAddModel(
       name,
       descr,
@@ -77,12 +80,15 @@ const AddRecipeForm = props => {
     return;
   }
   );;
+  return;
   };
   return (
     <>
       <div id="snackbar">Add Failed</div>
       <div id="successSnackbar">Add Successful!</div>
+      <div className="addRecipeMargins">
       <div className="fitBody w3-card addRecipeForm">
+      <form onSubmit={(event) => AddRecipe(event)}>
       <label htmlFor="name">Recipe Name:</label>
       <input className="w3-input w3-border" id="name" type="text" required  onChange={event => {setIsBlocking();}}/>
       <br />
@@ -119,11 +125,17 @@ const AddRecipeForm = props => {
        <label htmlFor="description">Description:</label>
       <textarea className="w3-input w3-border inputField" id="description" required onChange={event => {setIsBlocking();}}/>
       <br />
+      <h3>Add Ingredients</h3> 
+      <IngredientAdd setIngredientsArray={setIngredientsArray}  />
       <label htmlFor="instructions">Instructions:</label>
       <textarea className="w3-input w3-border inputField" id="instructions" required onChange={event => {setIsBlocking();}}/>
       <br />
-      <h3>Add Ingredients</h3> 
-      <IngredientAdd onSubmit={AddRecipe}  />
+      <button type="submit" className="w3-green searchButton submitButton" >
+      Create Recipe
+      <i className="fa fa-fw fa-file-upload" style={{ fontSize: '1.5em' }} />
+      </button>
+      </form>
+      </div>
       </div>
     </>
   );

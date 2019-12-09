@@ -17,6 +17,7 @@ const IngredientAdd = props => {
 
   const removeIngredient = (ingredient) => {
       let newArray = ingredientArray.filter(i => i !== ingredient);
+      props.setIngredientsArray(newArray)
       setIngredientArray(newArray);
   }
 
@@ -26,6 +27,7 @@ const IngredientAdd = props => {
       ingredient.name = nameRef.current.value;
       ingredient.amount = amountRef.current.value;
       ingredient.unit = unitRef.current.value;
+      props.setIngredientsArray([ingredient, ...ingredientArray])
       setIngredientArray([ingredient, ...ingredientArray])
   }
   const addAmount = (amount) => {
@@ -36,18 +38,18 @@ const IngredientAdd = props => {
   return (
     <>
       <div className="w3-row">
-        <input ref={nameRef} className="w3-input ingredientBoxPadding w3-quarter w3-border" type="text" placeholder="Name"/>
         <input ref={amountRef} className="w3-input ingredientBoxPadding w3-quarter w3-border" type="number" placeholder="Amount"/>
-         <select ref={unitRef}className="w3-select ingredientBoxPadding w3-quarter w3-border" name="option" placeholder="noneSelected" required>
+         <select ref={unitRef}className="w3-select ingredientBoxPadding w3-quarter w3-border" name="option" placeholder="noneSelected">
         <option value="" disabled placeholder="Measurement" selected>Measurement</option>
         {ingredientUnits.map((unit, key)=> (
           <option value="" key={key} value={unit}>{unit}</option>
         ))}
       </select>
-        <button className = "ingredientBoxPadding w3-green searchButton fas fa-plus" onClick={() => addIngredient()}></button>
+        <input ref={nameRef} className="w3-input ingredientBoxPadding w3-quarter w3-border" type="text" placeholder="Name"/>
+        <button type="button" className = "ingredientBoxPadding w3-green searchButton fas fa-plus" onClick={() => addIngredient()}></button>
       </div>
-      {ingredientArray.map((ingredient) => (
-      <div className="ingredientAlign">
+      {ingredientArray.map((ingredient, key) => (
+      <div className="ingredientAlign" key={key}>
         <div className="ingredientButton" onClick={()=>removeIngredient(ingredient)}>
           <span>
             {ingredient.amount} {ingredient.unit}{addAmount(ingredient.amount)} {ingredient.name}
@@ -57,10 +59,6 @@ const IngredientAdd = props => {
         </div>
       </div>
       ))}
-      <button className="w3-green searchButton submitButton" onClick={() => props.onSubmit(ingredientArray)}>
-      Create Recipe
-      <i className="fa fa-fw fa-file-upload" style={{ fontSize: '1.5em' }} />
-      </button>
     </>
   );
 };

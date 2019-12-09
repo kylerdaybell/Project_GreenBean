@@ -3,6 +3,9 @@
     color: black;
     background-color: #eeeeee;
   }
+  .addRecipeMargins{
+      margin: 30px 30px 30px 30px;
+  }
   .addRecipeForm label{
     font-size: 1.4em;
   }
@@ -28,8 +31,8 @@
     text-align: left;
   }
   .recipeImage{
-      max-height: 200px;
-      max-width: 300px;
+      max-height: 300px;
+      max-width: 400px;
       margin-top: 10px;
       margin-bottom: 10px;
       overflow: hidden;
