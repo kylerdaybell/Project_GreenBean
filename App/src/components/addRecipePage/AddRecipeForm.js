@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 import Resizer from 'react-image-file-resizer';
+import "../../css/form.css"
 const AddRecipeForm = props => {
   let [isBlocking, setIsBlocking] = useState(false);
   let [imageDisplay, setImageDisplay] = useState(false);
@@ -79,7 +80,6 @@ const AddRecipeForm = props => {
   };
   return (
     <>
-      <form>
       <div id="snackbar">Add Failed</div>
       <div id="successSnackbar">Add Successful!</div>
       <div className="fitBody w3-card addRecipeForm">
@@ -125,7 +125,6 @@ const AddRecipeForm = props => {
       <h3>Add Ingredients</h3> 
       <IngredientAdd onSubmit={AddRecipe}  />
       </div>
-      </form>
     </>
   );
 };
