@@ -10,7 +10,7 @@ import Resizer from 'react-image-file-resizer';
 import "../../css/form.css"
 const AddRecipeForm = props => {
   let [isBlocking, setIsBlocking] = useState(false);
-  let [imageDisplay, setImageDisplay] = useState(false);
+  let [imageDisplay, setImageDisplay] = useState("");
   let image = "";
 
   const FilesAdded = event => {
