@@ -213,12 +213,6 @@ button:hover {
   border-radius: 90px;
   visibility: var(--onlineVisibility);
 }
-.ingredientBoxPadding{
-  margin: 0px 5px;
-}
-.ingredientSubmitButton{
-  margin: 5px;
-}
 
 .react-confirm-alert-body {
   width: 470px!important;
@@ -240,4 +234,22 @@ button:hover {
 }
 .react-confirm-alert-button-group > button:hover {
   background-color: #88bd86!important;
+}
+.settingsOption{
+  height: 100px;
+  width: 100%;
+  background-color: rgb(108,173,104, .6);
+  border:solid black 1px;
+  border-left: 0;
+  border-right: 0;
+}
+.settingsOption .icon{
+  visibility: hidden;
+}
+.settingsOption:hover{
+  color: black!important;
+  background-color: rgb(108,173,104, .4)!important;
+}
+.settingsOption:hover .icon{
+  visibility: visible;
 }

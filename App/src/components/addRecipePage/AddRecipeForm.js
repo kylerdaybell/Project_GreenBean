@@ -7,9 +7,9 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actions";
 import Resizer from 'react-image-file-resizer';
-
 const AddRecipeForm = props => {
   let [isBlocking, setIsBlocking] = useState(false);
+  let [imageDisplay, setImageDisplay] = useState(false);
   let image = "";
 
   const FilesAdded = event => {
@@ -24,7 +24,7 @@ const AddRecipeForm = props => {
         100,
         0,
         uri=>{image = uri;
-        console.log(image);},
+        setImageDisplay(uri);},
         'base64'
       );
     }
@@ -57,7 +57,7 @@ const AddRecipeForm = props => {
     let recipeSubmission = new RecipeAddModel(
       name,
       descr,
-      image,
+      imageDisplay,
       preptime,
       cooktime,
       category,
@@ -77,17 +77,19 @@ const AddRecipeForm = props => {
   }
   );;
   };
-
   return (
     <>
+      <form>
       <div id="snackbar">Add Failed</div>
       <div id="successSnackbar">Add Successful!</div>
-      <div className="fitBody">
-      <label htmlFor="name">Name:</label>
-      <input className="w3-input w3-border" id="name" type="text"  onChange={event => {setIsBlocking();}}/>
+      <div className="fitBody w3-card addRecipeForm">
+      <label htmlFor="name">Recipe Name:</label>
+      <input className="w3-input w3-border" id="name" type="text" required  onChange={event => {setIsBlocking();}}/>
       <br />
-      <label htmlFor="picture">Picture:</label>
+      <label htmlFor="picture">Picture: </label>
       <input id="picture" onChange={event => FilesAdded(event)} type="file" />
+      <br/>
+      <img className="recipeImage" src={imageDisplay.toString()} alt=""/>
       <br />
       <label htmlFor="category">Category:</label>
       <select className="w3-select w3-border" id="category" name="option" required onChange={event => {setIsBlocking();}}>
@@ -114,15 +116,16 @@ const AddRecipeForm = props => {
       </span>
       <br />
       </span>
-      <label htmlFor="instructions">Instructions:</label>
-      <textarea className="w3-input w3-border inputField" id="instructions" onChange={event => {setIsBlocking();}}/>
+       <label htmlFor="description">Description:</label>
+      <textarea className="w3-input w3-border inputField" id="description" required onChange={event => {setIsBlocking();}}/>
       <br />
-      <label htmlFor="description">Description:</label>
-      <textarea className="w3-input w3-border inputField" id="description" onChange={event => {setIsBlocking();}}/>
+      <label htmlFor="instructions">Instructions:</label>
+      <textarea className="w3-input w3-border inputField" id="instructions" required onChange={event => {setIsBlocking();}}/>
       <br />
       <h3>Add Ingredients</h3> 
       <IngredientAdd onSubmit={AddRecipe}  />
       </div>
+      </form>
     </>
   );
 };

@@ -10,7 +10,7 @@ input[type=password], input[type=email]{
     margin: 12px 0;
     padding-top: 12px;
 }
-form button {
+.loginImage form button {
     color: white;
     padding: 14px 20px;
     margin: 12px 0;

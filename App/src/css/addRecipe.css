@@ -1,0 +1,39 @@
+.addRecipeForm{
+    padding: 4em;
+    color: black;
+    background-color: #eeeeee;
+  }
+  .addRecipeForm label{
+    font-size: 1.4em;
+  }
+  .ingredientBoxPadding{
+    margin: 0px 5px;
+  }
+  .ingredientButton{
+    cursor: pointer;
+    background-color: #6CAD68;
+    color: white;
+    padding: 4px 5px 4px 10px;
+    margin: 4px 3px 4px 3px; 
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.4);
+  }
+  
+  .ingredientButton:hover {
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.6);
+    background-color: #ff3434;
+  }
+  .ingredientAlign{
+    text-align: left;
+  }
+  .recipeImage{
+      max-height: 200px;
+      max-width: 300px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+  }
+  .submitButton{
+      margin: 20px 5px 0px 5px;
+  }
